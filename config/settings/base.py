@@ -70,8 +70,6 @@ DJANGO_APPS = [
 ]
 THIRD_PARTY_APPS = [
     'django_countries',
-    'crispy_forms',
-    "crispy_bootstrap5",
 ]
 LOCAL_APPS = [
     'beekeeping_ecommerce.users.apps.UsersConfig',
@@ -147,10 +145,6 @@ TEMPLATES = [
         },
     },
 ]
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
-CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # STRIPE
 # ------------------------------------------------------------------------------
