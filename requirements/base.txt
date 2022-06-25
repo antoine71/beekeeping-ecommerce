@@ -6,3 +6,5 @@ django-autoslug # https://django-autoslug.readthedocs.io/
 django-environ # https://django-environ.readthedocs.io/
 whitenoise # http://whitenoise.evans.io/en/stable/index.html
 django-countries
+stripe
+pillow
