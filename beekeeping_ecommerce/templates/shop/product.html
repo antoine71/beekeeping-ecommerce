@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>beekeeping-website</title>
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- BOXICONS CDN  -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="index.html" class="nav__logo">
+          <h3>NumericBees</h3>
+        </a>
+        <ul id="nav__items">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#buy">Acheter</a></li>
+          <li><a href="index.html#demo">Démonstration</a></li>
+          <li><a href="#">Articles</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="buttons">
+          <a href="cart.html" class="cart">
+            <span class="cart-quantity">1</span>
+            <span class="icon"><i class="bx bx-cart"></i></span>
+          </a>
+          <button id="open__nav-btn"><i class="bx bx-menu"></i></button>
+          <button id="close__nav-btn"><i class="bx bx-x"></i></button>
+        </div>
+      </div>
+    </nav>
+    <!-- END OF NAV -->
+
+    <section class="hero">
+      <div class="hero-bg-image">
+        <div class="hero-text">
+          <h1>NumericBees</h1>
+          <h2>L'Apiculture Simplifiée</h2>
+        </div>
+      </div>
+    </section>
+    <!-- END OF HERO -->
+
+    <section class="product">
+      <h2>Zephyr 1 Pro</h2>
+      <p>Enfumoir automatique Zephyr 1 Pro</p>
+      <div class="container">
+        <div class="left">
+          <img src="./assets/img/zephyr-1-automatic-bee-smoker.jpg" alt="" />
+        </div>
+        <div class="right">
+          <h3>Zephyr 1 Pro</h3>
+          <div class="description">
+            <h4>Description</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+              quaerat odio vitae recusandae numquam debitis tenetur delectus,
+              molestias nulla nam quasi architecto beatae voluptates ex eligendi
+              iste enim, dolorem eaque?
+            </p>
+          </div>
+          <div class="price">
+            <h4>Prix</h4>
+            <p>HT - 80 EUR</p>
+            <p><strong>TTC - 100 EUR</strong></p>
+          </div>
+          <div class="availability">
+            <h4>Disponibilité</h4>
+            <p>Disponible</p>
+          </div>
+          <div class="delivery">
+            <h4>Livraison</h4>
+            <p>Livraison en 5 jours ouvrés</p>
+          </div>          
+          <div class="add-to-cart">
+            <a href="#" class="btn-primary">
+              <i class="bx bx-cart-add"></i>
+              <span>Ajouter au panier</span>
+            </a>
+            <a href="#" class="basket-link">Voir le Panier</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <article>
+          <h5>NumericBees</h5>
+          <p>
+            56 rue du Dauphiné<br />
+            69007, Lyon, France
+          </p>
+          <div>
+            <i class="bx bxs-phone"></i>
+            <small>+1232456789</small>
+          </div>
+          <div>
+            <i class="bx bx-mail-send"></i>
+            <small>support@numericbees.com</small>
+          </div>
+        </article>
+        <article>
+          <h5>Support</h5>
+          <a href="#">Conditions générales de vente</a>
+          <a href="#">Mentions Légales</a>
+          <a href="#">Contact</a>
+        </article>
+      </div>
+      <div class="copyright">Copyright NumericBees. Tous droits réservés.</div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!--  PROJECT JS -->
+    <script src="./js/main.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
+    </script>
+  </body>
+</html>

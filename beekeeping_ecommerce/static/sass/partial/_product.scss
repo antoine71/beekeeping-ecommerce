@@ -1,0 +1,35 @@
+section.product {
+  .container {
+    display: grid;
+    grid-template-columns: 47% 47%;
+    gap: 6%;
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+
+      .add-to-cart {
+        text-align: center;
+        margin-top: 2rem;;
+        .btn-primary {
+          margin: auto;
+          margin-bottom: 0.4rem;
+        }
+        .basket-link {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+/* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
+@media screen and (max-width: 600px) {
+  section.product {
+    .container {
+      display: grid;
+      grid-template-columns: 100%;
+      gap: 2rem;
+    }
+  }
+}

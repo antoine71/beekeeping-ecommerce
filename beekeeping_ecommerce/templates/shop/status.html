@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+  <section class="shop status">
+    <h2>Récapitulatif de paiement</h2>
+    <p>
+      Votre commande a été enregistrée et un e-mail de confirmation a été envoyé - votre numéro de commande est {{ invoice.invoice_number }}. Veuillez prendre note de cette référence ou imprimer cette page et nous la rappeler dans tout échange concernant votre commande.
+    </p>
+    <div class="container">
+      {% include 'shop/order_info.html' %}
+      {% include 'shop/billing_info.html' %}
+      {% include 'shop/payment_info.html' %}
+    </div>
+    <a href="{% url 'shop:home' %}" class="btn-primary btn-primary_center">Retour à l'accueil</a>
+
+  </section>
+{% endblock content %}
+{% block additional_head_scripts %}
+  <!-- Stripe JS -->
+  <script src="https://js.stripe.com/v3/"></script>
+{% endblock additional_head_scripts %}
+{% block additional_scripts %}
+  <script>var STRIPE_API_PUBLIC_KEY = "{{stripe_api_public_key}}"</script>
+  <script src="{% static 'js/status.js' %}"></script>
+{% endblock additional_scripts %}

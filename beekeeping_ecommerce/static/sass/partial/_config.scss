@@ -1,0 +1,38 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,600;1,700&family=Roboto:wght@400;500;700&display=swap');
+
+// values applicables to every element by default
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: all 400ms ease;
+}
+
+// variables colors
+$primary-color: #89230E;
+$primary-color-variant: #cd907e;
+//$primary-color-variant: #4cc9f0;
+//$secondary-color: #C6C6C6;
+$white-color: #FFFEF9;
+$light-color: rgba($white-color, 0.7);
+$black-color: #0c031b;
+$dark-color: rgba($black-color, 0.7);
+$success-color: #54eb72;
+$danger-color: rgb(244, 56, 56);
+$warning-color: orange;
+
+$border-color: #C6C6C6;
+
+// variables containers width for different screen sizes
+$container-lg: 82%;
+$container-md: 90%;
+
+// box shadow variable
+
+$box-shadow:  0 1rem 1rem rgba($black-color, 0.1);

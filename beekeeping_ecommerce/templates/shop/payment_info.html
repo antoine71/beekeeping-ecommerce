@@ -1,0 +1,31 @@
+<div class="payment-info">
+  <h3>Vos Informations de paiement</h3>
+  <article class="card">
+    <h4>Récapitulatif de paiement</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td>Type de la transaction</td>
+          <td>{{ charges.payment_method_details.card.brand }}</td>
+        </tr>
+        <tr>
+          <td>Montant de la transaction</td>
+          <td>{{ amount_charged | floatformat:2 }} {{ charges.currency }} </td>
+        </tr>
+        <tr>
+          <td>Date de la transaction</td>
+          <td>{{ date_created }}</td>
+        </tr>
+        <tr>
+          <td>Numéro de carte</td>
+          <td>XXXX XXXX XXXX {{ charges.payment_method_details.card.last4 }}</td>
+        </tr>
+        <tr>
+          <td>Numéro d'autorisation</td>
+          <td>{{ charges.id }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="{{ charges.receipt_url }}" target="_blank" class="btn-primary btn-primary_center">Télécharger un reçu</a>
+  </article>
+</div>

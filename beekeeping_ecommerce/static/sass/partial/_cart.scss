@@ -1,0 +1,100 @@
+section.cart {
+  .container {
+    .table {
+      font-size: 1.1rem;
+      text-align: center;
+      width: 100%;
+      border-spacing: 0 2rem;
+      img {
+        max-width: 100px;
+      }
+      th.remove > a {
+        font-size: 1.5rem;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+      }
+      td {
+        border-bottom: 0;
+        &.product > div {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          align-items: center;
+        }
+        &.quantity > div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          & > span {
+            margin: 0 0.8rem;
+          }
+        }
+        &:nth-child(3) {
+          text-align: right;
+        }
+      }
+    }
+
+    .cart-summary {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .back-to-shop {
+        justify-self: end;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      article {
+        @include card;
+        margin: 0;
+        h3 {
+          text-align: center;
+        }
+        table {
+          margin-bottom: 2rem;
+          tbody {
+            tr:last-child {
+              font-weight: 600;
+            }
+          }
+        }
+        a {
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+/* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  section.cart {
+    .container {
+      .table {
+        thead {
+          display: none;
+        }
+        tr {
+          display: grid;
+          gap: 0.6rem;
+          grid-template-columns: auto auto auto;
+          align-items: center;
+          margin-bottom: 2rem;
+          th {
+            grid-row-start: span 2;
+          }
+        }
+      }
+
+      .cart-summary {
+        justify-content: center;
+        flex-direction: column-reverse;
+        gap: 2rem;
+      }
+    }
+  }
+}

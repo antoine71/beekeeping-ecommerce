@@ -1,0 +1,7 @@
+# Django
+# ------------------------------------------------------------------------------
+django  # https://www.djangoproject.com/
+psycopg2-binary  # https://github.com/psycopg/psycopg2
+django-autoslug # https://django-autoslug.readthedocs.io/
+django-environ # https://django-environ.readthedocs.io/
+whitenoise # http://whitenoise.evans.io/en/stable/index.html

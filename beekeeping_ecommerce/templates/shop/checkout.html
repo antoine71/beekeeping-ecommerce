@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+  <section class="shop checkout">
+    <h2>Récapitulatif de la commande</h2>
+    <p>Veuillez entrer les informations relatives à votre commande</p>
+    <div class="container">
+
+      {% include 'shop/order_info.html' %}
+
+      <div class="checkout-form">
+        <h3>Détails de facturation</h3>
+        <article>
+          <form action="" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="form__group">
+                {{ field.errors }}
+                {{ field.label_tag }} {{ field }}
+              </div>
+            {% endfor %}
+            <button class="btn-primary btn-primary_center" type="sumbit">Commander</button>
+          </form>
+        </article>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

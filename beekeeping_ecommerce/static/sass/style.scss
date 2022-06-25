@@ -1,0 +1,27 @@
+//config files
+@import './partial/config';
+@import './partial/mixins';
+
+// general styles
+@import './partial/general';
+
+// components styles
+@import './partial/messages';
+@import './partial/tables';
+@import './partial/card';
+
+//section styles
+@import './partial/nav';
+@import './partial/hero';
+@import './partial/knowmore';
+@import './partial/features';
+@import './partial/demo';
+@import './partial/footer';
+@import './partial/buy';
+@import './partial/product';
+@import './partial/cart';
+@import './partial/checkout';
+@import './partial/order_info';
+@import './partial/payment';
+
+

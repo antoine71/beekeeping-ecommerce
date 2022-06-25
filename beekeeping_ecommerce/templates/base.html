@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>beekeeping-website</title>
+    {% block additional_head_scripts %}
+    {% endblock additional_head_scripts %}
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- BOXICONS CDN  -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+          rel="stylesheet"/>
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <a href="{% url 'shop:home' %}" class="nav__logo">
+          <h3>NumericBees</h3>
+        </a>
+        <ul id="nav__items">
+          <li>
+            <a href="{% url 'shop:home' %}">Accueil</a>
+          </li>
+          <li>
+            <a href="{% url 'shop:home' %}#buy">Acheter</a>
+          </li>
+          <li>
+            <a href="{% url 'shop:home' %}#demo">Démonstration</a>
+          </li>
+          <li>
+            <a href="#">Articles</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="buttons">
+          {% if order and order.get_products_quantity and not order.ordered %}
+            <a href="{% url 'shop:cart' %}" class="cart">
+              <span class="cart-quantity">{{ order.get_products_quantity }}</span>
+              <span class="icon"><i class="bx bx-cart"></i></span>
+            </a>
+          {% endif %}
+          <button id="open__nav-btn">
+            <i class="bx bx-menu"></i>
+          </button>
+          <button id="close__nav-btn">
+            <i class="bx bx-x"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- END OF NAV -->
+    <section class="hero">
+      <div class="hero-bg-image">
+        <div class="hero-text">
+          <h1>NumericBees</h1>
+          <h2>L'Apiculture Simplifiée</h2>
+        </div>
+      </div>
+    </section>
+    {% if messages %}
+      <ul class="django-messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+            <span>{{ message }}</span>
+            <button class="close_message_btn"><i class="bx bx-x-circle"></i></button>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% block content %}
+    {% endblock content %}
+    <footer>
+      <div class="container">
+        <article>
+          <h5>NumericBees</h5>
+          <p>
+            56 rue du Dauphiné
+            <br />
+            69007, Lyon, France
+          </p>
+          <div>
+            <i class="bx bxs-phone"></i>
+            <small>+1232456789</small>
+          </div>
+          <div>
+            <i class="bx bx-mail-send"></i>
+            <small>support@numericbees.com</small>
+          </div>
+        </article>
+        <article>
+          <h5>Support</h5>
+          <a href="#">Conditions générales de vente</a>
+          <a href="#">Mentions Légales</a>
+          <a href="#">Contact</a>
+        </article>
+      </div>
+      <div class="copyright">Copyright NumericBees. Tous droits réservés.</div>
+    </footer>
+    {% block additional_scripts %}
+    {% endblock additional_scripts %}
+    <!--  PROJECT JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/messages.js' %}"></script>
+  </body>
+</html>

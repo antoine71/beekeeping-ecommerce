@@ -1,0 +1,36 @@
+<div class="order-info">
+  <h3>Votre Commande</h3>
+  <article class="card">
+    <table>
+      <thead>
+        <tr>
+          <td>Produit</td>
+          <td>Sous-Total</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order_product in order.products.all %}
+          <tr>
+            <td>
+              {{ order_product.product.name }} <b>x {{ order_product.quantity }}</b>
+            </td>
+            <td>{{ order_product.get_order_product_price|floatformat:2 }} EUR</td>
+          </tr>
+        {% endfor %}
+        <tr>
+          <td><b>Sous-Total</b></td>
+          <td><b>{{ order.get_order_price_ex_delivery|floatformat:2 }} EUR</b></td>
+        </tr>
+        <tr>
+          <td>Livraison</td>
+          <td>{{ order.get_order_delivery_price|floatformat:2 }} EUR</td>
+        </tr>
+        <tr>
+          <td><b>Total</b></td>
+          <td><b>{{ order.get_order_total_price|floatformat:2 }} EUR</b></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="{% url 'shop:cart' %}" class="btn-primary btn-primary_center">Modifier</a>
+  </article>
+</div>

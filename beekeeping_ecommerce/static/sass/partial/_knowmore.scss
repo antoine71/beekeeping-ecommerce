@@ -1,0 +1,11 @@
+#knowmore {
+  .swiper-wrapper {
+    
+    // brings .swiper-pagination down
+    margin-bottom: 3rem;
+    
+  }
+  .swiper-pagination-bullet {
+    background: $primary-color;
+  }
+}

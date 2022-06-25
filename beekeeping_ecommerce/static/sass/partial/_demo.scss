@@ -1,0 +1,52 @@
+#demo {
+  .container {
+    max-width: 700px;
+    form {
+      display: flex;
+      flex-direction: column;
+      fieldset {
+        margin-bottom: 1.5rem;
+        legend {
+          text-align: center;
+          font-size: 1.2rem;
+          font-weight: 500;
+          margin: 0 auto 0.6rem;
+        }
+        .form__group {
+          margin-bottom: 0.3rem;
+          label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.1rem;
+            display: inline-block;
+            
+          }
+          &_checkbox {
+            display: flex;
+            gap: 0.3rem;
+            font-size: 0.8rem;
+
+            a {
+              text-decoration: underline;
+            }
+            
+          }
+          input {
+            background: white;
+            border: 1px solid $border-color;
+            padding: 0.85rem 1rem;
+            display: block;
+            width: 100%;
+            border-radius: 0.4rem;
+            appearance: none;
+
+          }
+        }
+      }
+
+      .btn-primary {
+       margin: auto;
+      }
+    }
+  }
+}

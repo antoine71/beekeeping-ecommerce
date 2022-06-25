@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <section class="shop payment">
+    <h2>Paiement</h2>
+    <p>Veuillez entrer vos informations de paiement</p>
+    <div class="container">
+      {% include 'shop/order_info.html' %}
+      {% include 'shop/billing_info.html' %}
+      <div class="credit-card-frame">
+        <h3>Votre carte de paiement</h3>
+        <article class="card">
+          <div class="payment-form">
+            <form id="payment-form">
+              <div id="payment-element">
+                <!-- Elements will create form elements here -->
+              </div>
+              <button id="submit" class="btn-primary">Payer {{ order.get_order_total_price|floatformat:2 }} EUR</button>
+              <div id="error-message">
+                <!-- Display error message to your customers here -->
+              </div>
+            </form>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
+{% block additional_head_scripts %}
+  <!-- Stripe JS -->
+  <script src="https://js.stripe.com/v3/"></script>
+{% endblock additional_head_scripts %}
+{% block additional_scripts %}
+  <script>
+      var CLIENT_SECRET = "{{ client_secret }}"
+      var STRIPE_API_PUBLIC_KEY = "{{ stripe_api_public_key }}"
+      var PAYMENT_REDIRECT_URL = "{{ payment_redirect_url }}"
+  </script>
+  <script src="{% static 'js/payment.js' %}"></script>
+{% endblock additional_scripts %}

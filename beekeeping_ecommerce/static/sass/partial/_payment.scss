@@ -1,0 +1,51 @@
+section.payment {
+  .container {
+    display: grid;
+    grid-template-columns: 47% 47%;
+    gap: 6%;
+
+    & > div > {
+      height: 100%;
+    }
+    .credit-card-frame {
+      max-width: 500px;
+      grid-column-start: span 2;
+      width: 100%;
+      margin: 1rem auto;
+      .card {
+        min-height: 315px;
+
+        button {
+          margin: 1.5rem auto 0;
+        }
+        #error-message {
+          text-align: center;
+          color: $danger-color;
+          width: 100%;
+          margin-top: 1rem;
+        }
+      }
+    }
+    .order-info,
+    .billing_info {
+      .btn-primary {
+        display: none;
+      }
+    }
+  }
+}
+
+/* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  section.payment {
+    .container {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+
+      .credit-card-frame {
+        max-width: 500px;
+        grid-column-start: 1;
+      }
+    }
+  }
+}

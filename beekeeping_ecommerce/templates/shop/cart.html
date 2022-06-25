@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <section class="shop cart">
+    <h2>Récapitulatif de la commande</h2>
+    <p>Voici le contenu de votre panier</p>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Produit</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Sous-total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order_product in products %}
+            <tr>
+              <th scope="row" class="remove">
+                <a href="{% url 'shop:remove-from-cart' slug=order_product.product.slug %}"><i class="bx bx-x"></i></a>
+              </th>
+              <td class="product">
+                <div>
+                  <img src="{{ order_product.product.photo.url }}"
+                       alt="{{ order_product.product.name }}"/>
+                  <p>{{ order_product.product.name }}</p>
+                </div>
+              </td>
+              <td>{{ order_product.product.get_price_incl_vat | floatformat:2 }} EUR</td>
+              <td class="quantity">
+                <div>
+                  <a href="{% url "shop:remove-item-from-cart" slug=order_product.product.slug %}"
+                     class="btn-primary"><i class="bx bxs-minus-circle"></i></a>
+                  <span>{{ order_product.quantity }}</span>
+                  <a href="{% url "shop:add-to-cart" slug=order_product.product.slug %}"
+                     class="btn-primary"><i class="bx bxs-plus-circle"></i></a>
+                </div>
+              </td>
+              <td>
+                <strong>{{ order_product.get_order_product_price | floatformat:2 }} EUR</strong>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="cart-summary">
+        <div class="back-to-shop">
+          <a href="{% url 'shop:home' %}#buy" class="btn-primary">
+            <i class='bx bx-chevrons-left'></i>
+            <span>Retour vers la boutique</span>
+          </a>
+        </div>
+        <article>
+          <h3>Total Panier</h3>
+          <table>
+            <tbody>
+              <tr>
+                <td>Sous-Total</td>
+                <td>{{ order.get_order_price_ex_delivery | floatformat:2 }} EUR</td>
+              </tr>
+              <tr>
+                <td>Frais de livraison</td>
+                <td>{{ order.get_order_delivery_price | floatformat:2 }} EUR</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>{{ order.get_order_total_price | floatformat:2 }} EUR</td>
+              </tr>
+            </tbody>
+          </table>
+          <a href="{% url 'shop:checkout' %}" class="btn-primary">Valider la commande</a>
+        </article>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

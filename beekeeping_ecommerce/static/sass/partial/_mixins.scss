@@ -1,0 +1,51 @@
+@mixin button($textColor: $white-color, $backgroundColor: $primary-color) {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: fit-content;
+  padding: 0.75rem 1rem;
+  border-radius: 0.4rem;
+  background: $backgroundColor;
+  color: $textColor;
+  cursor: pointer;
+  transition: all 400ms ease;
+  text-decoration: none;
+
+  &:hover {
+    background: lighten($backgroundColor, 8%);
+    box-shadow: 0 1rem 1.6rem rgba($black-color, 0.15);
+    color: $textColor;
+  }
+}
+
+@mixin logoStyleLarge {
+  font-family: "Kanit", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@mixin logoStyleNormal {
+  font-family: "Kanit", serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+@mixin gradientBackground {
+  background: linear-gradient(135deg, $primary-color, $primary-color-variant);
+  color: $white-color;
+
+  h1, h2, h3, h4, h5 {
+    color: $white-color;
+  }
+}
+
+@mixin card {
+    background: white;
+    color: $black-color;
+    padding: 1.5rem;
+    height: fit-content;
+    border-radius: 1rem;
+    box-shadow: $box-shadow;
+    border: 1px solid $primary-color;
+    margin: 1rem 0;
+}

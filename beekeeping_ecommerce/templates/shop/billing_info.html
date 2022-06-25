@@ -1,0 +1,28 @@
+<div class="order-info">
+  <h3>Vos Informations de Contact</h3>
+  <article class="card">
+    <h4>Contact</h4>
+    <p>{{ order.billing_address.first_name }} {{ order.billing_address.last_name }}</p>
+    {% if order.billing_address.company_name %}
+    <p>{{ order.billing_address.company_name }}</p>
+    {% endif %}
+    <p>{{ order.billing_address.street_address }}</p>
+    {% if order.billing_address.street_address_line_2 %}
+    <p>{{ order.billing_address.street_address_line_2 }}</p>
+    {% endif %}
+    <p>{{ order.billing_address.zip_code }} {{ order.billing_address.city }}</p>
+    <p>{{ order.billing_address.country }}</p>
+    <h4>Expédition</h4>
+    <p>{{ order.billing_address.first_name }} {{ order.billing_address.last_name }}</p>
+    {% if order.billing_address.company_name %}
+    <p>{{ order.billing_address.company_name }}</p>
+    {% endif %}
+    <p>{{ order.billing_address.street_address }}</p>
+    {% if order.billing_address.street_address_line_2 %}
+    <p>{{ order.billing_address.street_address_line_2 }}</p>
+    {% endif %}
+    <p>{{ order.billing_address.zip_code }} {{ order.billing_address.city }}</p>
+    <p>{{ order.billing_address.country }}</p>
+    <a href="{% url 'shop:checkout' %}" class="btn-primary btn-primary_center">Modifier</a>
+  </article>
+</div>

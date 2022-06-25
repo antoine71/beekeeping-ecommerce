@@ -1,0 +1,27 @@
+section.checkout {
+  .container {
+    display: grid;
+    grid-template-columns: 42% 52%;
+    gap: 6%;
+    .checkout-form {
+      article {
+        @include card;
+      }
+    }
+  }
+}
+
+/* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  section.checkout {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
+@media screen and (max-width: 600px) {
+  section.checkout {
+  }
+}

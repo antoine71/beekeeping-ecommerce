@@ -1,0 +1,152 @@
+/* ================== GENERAL TAGS SETTINGS ======================= */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  color: $black-color;
+  background: $white-color;
+  user-select: none;
+}
+
+.container {
+  width: $container-lg;
+  margin: 0 auto;
+
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.2;
+}
+
+a {
+  color: $black-color;
+
+  &:hover {
+    color: $dark-color;
+  }
+}
+
+section {
+  margin-top: 6rem;
+
+  &.shop, &.blog {
+  
+    margin-top: 3rem;
+
+    h1, h2, h3, h4, h5, h6 {
+      color: $primary-color;
+      margin-bottom: 0.3rem;
+      margin-top: 0.5rem;
+    }
+    h1, h2, h3 {
+      margin-bottom: 0.6rem;
+      margin-top: 1.6rem;
+    }
+  }
+
+  & > h2 {
+    // each section start with a centered title
+    text-align: center;
+  }
+
+  & > p {
+    // each section start with a description below the title
+    text-align: center;
+    width: 42%;
+    margin: 0.6rem auto 2.5rem; // top - left&right // bottom
+  }
+}
+
+.btn {
+  @include button;
+}
+
+.btn-primary {
+  @include button($white-color, $primary-color);
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+
+  &_center {
+    margin: 1.5rem auto 0;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+fieldset {
+  margin-bottom: 1.5rem;
+  legend {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0 auto 0.6rem;
+  }
+}
+.form__group {
+  margin-bottom: 0.3rem;
+  label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 0.1rem;
+    display: inline-block;
+  }
+  &_checkbox {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+  input[type="text"] {
+    background: white;
+    border: 1px solid $border-color;
+    padding: 0.85rem 1rem;
+    display: block;
+    width: 100%;
+    border-radius: 0.4rem;
+    appearance: none;
+  }
+}
+
+/* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  .container {
+    width: $container-md;
+  }
+
+  section {
+    & > p {
+      width: 55%;
+    }
+  }
+}
+
+/* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
+@media screen and (max-width: 600px) {
+  section {
+    & > p {
+      width: $container-md;
+    }
+  }
+}

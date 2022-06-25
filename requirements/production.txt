@@ -1,0 +1,5 @@
+-r base.txt
+
+# Deployment
+# ------------------------------------------------------------------------------
+gunicorn # https://docs.gunicorn.org/en/latest/index.html
