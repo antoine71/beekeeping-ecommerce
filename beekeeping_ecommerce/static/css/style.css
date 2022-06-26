@@ -55,16 +55,30 @@ section {
 section.shop, section.blog {
   margin-top: 3rem;
 }
-section.shop h1, section.shop h2, section.shop h3, section.shop h4, section.shop h5, section.shop h6, section.blog h1, section.blog h2, section.blog h3, section.blog h4, section.blog h5, section.blog h6 {
+section.shop h1,
+section.shop h2,
+section.shop h3,
+section.shop h4,
+section.shop h5,
+section.shop h6, section.blog h1,
+section.blog h2,
+section.blog h3,
+section.blog h4,
+section.blog h5,
+section.blog h6 {
   color: #89230E;
   margin-bottom: 0.3rem;
   margin-top: 0.5rem;
 }
-section.shop h1, section.shop h2, section.shop h3, section.blog h1, section.blog h2, section.blog h3 {
+section.shop h1,
+section.shop h2,
+section.shop h3, section.blog h1,
+section.blog h2,
+section.blog h3 {
   margin-bottom: 0.6rem;
   margin-top: 1.6rem;
 }
-section > h2, section > h1 {
+section > h1, section > h2 {
   text-align: center;
 }
 section > p {

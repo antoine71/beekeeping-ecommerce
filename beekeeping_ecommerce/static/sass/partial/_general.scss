@@ -14,7 +14,6 @@ body {
 .container {
   width: $container-lg;
   margin: 0 auto;
-
 }
 
 img {
@@ -41,22 +40,29 @@ a {
 section {
   margin-top: 6rem;
 
-  &.shop, &.blog {
-  
+  &.shop,
+  &.blog {
     margin-top: 3rem;
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: $primary-color;
       margin-bottom: 0.3rem;
       margin-top: 0.5rem;
     }
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       margin-bottom: 0.6rem;
       margin-top: 1.6rem;
     }
   }
-
-  & > h2, & > h1 {
+  & > h1,
+  & > h2 {
     // each section start with a centered title
     text-align: center;
   }
