@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block title %}
+  NumericBees: {% translate "demande de démonstration - confirmation" %}.
+{% endblock title %}
+{% block content %}
+  <section class="blog demo-confirmation">
+    <h2>{% translate "Demande de démonstration prise en compte" %}</h2>
+    <p>
+      {% translate "Nous avons bien pris en compte votre demande de démonstration. Nous vous recontacterons prochainement." %}
+    </p>
+    <div class="container">
+      <article class="card">
+        <h3 class=" mb-3">{% translate "Contact" %}</h3>
+        <p>{{ demo_request.first_name }} {{ demo_request.last_name }}</p>
+        <p>{{ demo_request.email }}</p>
+        <h3 class=" mb-3">{% translate "Magasin" %}</h3>
+        <p>{{ demo_request.post_code }} {{ demo_request.city }}</p>
+        <h3 class=" mb-3">{% translate "Date Souhaitée" %}</h3>
+        <p>{{ demo_request.requested_date }}</p>
+      </article>
+      <div>
+        <a class="btn btn-primary btn-primary_center"
+           href="{% url 'shop:home' %}">{% translate "Retour vers l'accueil" %}</a>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

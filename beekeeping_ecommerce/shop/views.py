@@ -1,4 +1,5 @@
 from datetime import datetime
+from urllib import request
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
@@ -8,6 +9,7 @@ from django.contrib import messages
 from django.urls import reverse
 from .models import Product, Order, OrderProduct, BillingAddress, Payment, Invoice
 from .forms import CheckoutForm
+from beekeeping_ecommerce.contact.forms import DemoRequestForm
 from django.conf import settings
 
 import stripe
@@ -18,14 +20,31 @@ stripe.api_key = settings.STRIPE_API_SECRET_KEY
 
 class HomeView(View):
     def get(self, *args, **kwargs):
+        form = DemoRequestForm()
+        context = self.get_context_data(form)
+        return render(self.request, "home.html", context)
+
+    def post(self, *args, **kwargs):
+        form = DemoRequestForm(self.request.POST or None)
+        if form.is_valid():
+            demo_request = form.save()
+            context = {'demo_request': demo_request}
+            messages.info(self.request, "Votre demande a bien été prise en compte.")
+            return render(self.request, "contact/confirmation.html", context)
+        else:
+            context = self.get_context_data(form)
+            messages.warning(self.request, "Le formulaire comporte des erreurs, merci de corriger et de le soumettre à nouveau.")
+            return render(self.request, "home.html", context)
+
+    def get_context_data(self, form):
         try:
             order = Order.objects.get(
                 user_id=self.request.session.session_key, ordered=False
             )
         except ObjectDoesNotExist:
             order = False
-        context = {"order": order, "products": Product.objects.all()}
-        return render(self.request, "home.html", context)
+        context = {"order": order, "products": Product.objects.all(), "form": form}
+        return context
 
 
 class CartView(View):

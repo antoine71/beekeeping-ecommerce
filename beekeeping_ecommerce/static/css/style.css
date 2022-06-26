@@ -191,6 +191,7 @@ ul.django-messages {
   flex-direction: column;
   gap: 0.5rem;
   margin: 0.5rem 0;
+  padding: 0;
 }
 ul.django-messages li {
   display: flex;
@@ -729,6 +730,7 @@ section.cart .container .table th.remove > a {
   flex-direction: row;
   gap: 1rem;
   align-items: center;
+  text-decoration: none;
 }
 section.cart .container .table td {
   border-bottom: 0;
@@ -876,7 +878,7 @@ section.payment .container .billing_info .btn-primary {
     grid-column-start: 1;
   }
 }
-section.blog p {
+section.blog .container p {
   margin: 1rem 0;
 }
 

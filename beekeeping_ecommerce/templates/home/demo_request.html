@@ -1,0 +1,21 @@
+<section id="demo">
+  <h2>Dans Quel Magasin Souhaiteriez-vous Avoir Une Démonstration ?</h2>
+  <p>
+    Renseignez-les informations ci-dessous et nous vous recontacterons pour
+    planifier avec vous une démonstration.
+  </p>
+  <div class="container">
+    <article>
+      <form action="" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form__group">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+          </div>
+        {% endfor %}
+        <button class="btn-primary btn-primary_center" type="sumbit">Commander</button>
+      </form>
+    </article>
+  </div>
+</section>
