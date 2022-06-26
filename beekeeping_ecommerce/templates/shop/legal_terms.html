@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block title %}
+  NumericBees: {% translate "mentions légales" %}
+{% endblock title %}
+{% block content %}
+  <section class="blog legal-terms">
+    <div class="container">
+      <h1>{% translate "Mentions légales" %}</h1>
+      <h2>1 - {% translate "Édition du site" %}</h2>
+      <p>
+        En vertu de <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000801164/#LEGIARTI000042038977">l'article 6 de la loi n° 2004-575 du 21 juin 2004</a> pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site internet <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi:
+      </p>
+      <p>
+        <strong>Propriétaire du site :</strong>
+        <br>
+        SAS NumericBees
+        <br>
+        &emsp; info@numericbees.com
+        <br>
+        &emsp; +33 626 580 715
+        <br>
+        &emsp; 56, Rue du Dauphiné
+        <br>
+        &emsp; 69003 LYON
+        <br>
+        &emsp; FRANCE
+        <br>
+      </p>
+      <p>
+        <strong>Identification de l'entreprise :</strong>
+        <br>
+        &emsp; SAS NumericBees au capital social de 1000€
+        <br>
+        &emsp; SIREN : 90282655
+        <br>
+        &emsp; RCS LYON : 902826551
+        <br>
+        &emsp; TVA : FR75902826551
+      </p>
+      <p>
+        <strong>Conditions générales de vente :</strong>
+        <br>
+        &emsp; <a href="{% url 'shop:sales-conditions' %}">https://www.numericbees.com/cgv</a>
+      </p>
+      <p>
+        <strong>Directeur de la publication :</strong>
+        <br>
+        &emsp; Emmanuel JALLAS
+        <br>
+        &emsp; Contact : <a href="mailto:info@numericbees.com">info@numericbees.com</a>
+      </p>
+      <p>
+        <strong>Hébergeur :</strong>
+        <br>
+        &emsp; OVH SAS
+        <br>
+        &emsp; 2 rue Kellermann
+        <br>
+        &emsp; BP 80157
+        <br>
+        &emsp; 59053 Roubaix Cedex 1
+        <br>
+        &emsp; Téléphone : 1007
+        <br>
+      </p>
+      <p>
+        <strong>Délégué à la protection des données personnelles :</strong>
+        <br>
+        &emsp; Emmanuel JALLAS
+        <br>
+        &emsp; <a href="mailto:info@numericbees.com">info@numericbees.com</a>
+      </p>
+      <p>
+        <strong>Autres contributeurs :</strong>
+        <br>
+        &emsp; Conception du site web : Antoine REBILLARD
+      </p>
+      <h2>2 - {% translate "Propriété intellectuelle et contrefaçons" %}</h2>
+      <p>
+        <strong>SAS NumericBees</strong> est propriétaire des droits de propriété intellectuelle et détient les droits d’usage sur tous les éléments accessibles sur le site internet, notamment les textes, images, graphismes, logos, vidéos, architecture, icônes et sons.
+      </p>
+      <p>
+        Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de <strong>SAS NumericBees</strong>.
+      </p>
+      <p>
+        Toute exploitation non autorisée du site ou de l’un quelconque des éléments qu’il contient sera considérée comme constitutive d’une contrefaçon et poursuivie conformément aux dispositions des articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032655082/">L.335-2 et suivants du Code de Propriété Intellectuelle</a>.
+      </p>
+      <h2>3 - Limitations de responsabilité.</h2>
+      <p>
+        <strong>SAS NumericBees</strong> ne pourra être tenu pour responsable des dommages directs et indirects causés au matériel de l’utilisateur, lors de l’accès au site <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a>.
+      </p>
+      <p>
+        <strong>SAS NumericBees</strong> décline toute responsabilité quant à l’utilisation qui pourrait être faite des informations et contenus présents sur <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a>.
+      </p>
+      <p>
+        <strong>SAS NumericBees</strong> s’engage à sécuriser au mieux le site <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a>, cependant sa responsabilité ne pourra être mise en cause si des données indésirables sont importées et installées sur son site à son insu.
+      </p>
+      <p>
+        Le cas échéant, <strong>SAS NumericBees</strong> se réserve également la possibilité de mettre en cause la responsabilité civile et/ou pénale de l’utilisateur, notamment en cas de message à caractère raciste, injurieux, diffamant, ou pornographique, quel que soit le support ou média utilisé (texte, photographie, forum, réseau social,  …).
+      </p>
+      <h2>
+        4 - CNIL et gestion des données personnelles.
+      </h2>
+      <p>
+        Conformément aux dispositions de <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460/">la loi 78-17 du 6 janvier 1978 modifiée</a>, l’utilisateur du site <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a> dispose d’un droit d’accès, de modification et de suppression des informations collectées. Pour exercer ce droit, envoyez un message à notre Délégué à la Protection des Données : <strong>Emmanuel JALLAS</strong> - <a href="mailto:info@numericbees.com">info@numericbees.com</a>.
+      </p>
+      <p>
+        Pour plus d'informations sur la façon dont nous traitons vos données (type de données, finalité, destinataire...), lisez notre <a href="{% url 'shop:confidentiality' %}">Politique de Confidentialité</a>.
+      </p>
+      <p>
+        Il est également possible de <a href="https://www.cnil.fr/fr/plaintes">déposer une réclamation auprès de la CNIL</a>.
+      </p>
+      <h2>
+        5 - Liens hypertextes et cookies
+      </h2>
+      <p>
+        Le site <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a> contient des liens hypertextes vers d’autres sites et dégage toute responsabilité à propos de ces liens externes ou des liens créés par d’autres sites vers <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a>.
+      </p>
+      <p>
+        La navigation sur le site <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a> est susceptible de provoquer l’installation de cookie(s) sur l’ordinateur de l’utilisateur.
+        <br>
+        Un "cookie" est un fichier de petite taille qui enregistre des informations relatives à la navigation d’un utilisateur sur un site. Les données ainsi obtenues permettent d'obtenir des mesures de fréquentation, par exemple.
+      </p>
+      <p>
+        Vous avez la possibilité <strong>d’accepter ou de refuser les cookies</strong> en modifiant les paramètres de votre navigateur. Aucun cookie ne sera déposé sans votre consentement.
+      </p>
+      <p>
+        Les cookies sont enregistrés pour une durée maximale de 1 mois.
+      </p>
+      <p>
+        Pour plus d'informations sur la façon dont nous faisons usage des cookies, lisez notre <a href="{% url 'shop:confidentiality' %}">Politique de Confidentialité</a>.
+      </p>
+      <p>
+        Vous pouvez utiliser le service <a href="https://tools.google.com/dlpage/gaoptout">Google Analytics Opt Out</a> pour ne pas participer aux services d'amélioration des sites web.
+      </p>
+      <h2>
+        6 - Droit applicable et attribution de juridiction.
+      </h2>
+      <p>
+        Tout litige en relation avec l’utilisation du site <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a> est soumis au droit français. En dehors des cas où la loi ne le permet pas, il est fait attribution exclusive de juridiction aux tribunaux compétents de <strong>LYON</strong>.
+      </p>
+    </div>
+  </section>
+{% endblock content %}

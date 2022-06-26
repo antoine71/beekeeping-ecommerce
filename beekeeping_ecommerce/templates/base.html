@@ -33,10 +33,10 @@
             <a href="{% url 'shop:home' %}#demo">Démonstration</a>
           </li>
           <li>
-            <a href="#">Articles</a>
+            <a href="{% url 'blog:article-list' %}">Articles</a>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <a href="{% url 'shop:contact' %}">Contact</a>
           </li>
         </ul>
         <div class="buttons">
@@ -96,9 +96,10 @@
         </article>
         <article>
           <h5>Support</h5>
-          <a href="#">Conditions générales de vente</a>
-          <a href="#">Mentions Légales</a>
-          <a href="#">Contact</a>
+          <a href="{% url 'shop:sales-conditions' %}">Conditions générales de vente</a>
+          <a href="{% url 'shop:legal-terms' %}">Mentions Légales</a>
+          <a href="{% url 'shop:confidentiality' %}">Politique de confidentialité</a>
+          <a href="{% url 'shop:contact' %}">Contact</a>
         </article>
       </div>
       <div class="copyright">Copyright NumericBees. Tous droits réservés.</div>

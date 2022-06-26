@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <section class="blog article-list">
+    <div class="container">
+      {% for article in articles %}
+        <article class="article_card card">
+            <h2 class="post-title">{{ article.title }}</h2>
+            <small>
+              Publié par {{ article.author.first_name }} {{ article.author.last_name }}
+              le {{ article.date_created | date:"j F Y" }}
+            </small>
+            <h3 class="post-subtitle">{{ article.abstract }}</h3>
+
+          <a href="{% url 'blog:article-detail' slug=article.slug %}" class="btn-primary btn-primary_center">Lire l'Article</a>
+          
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

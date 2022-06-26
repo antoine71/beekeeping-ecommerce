@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load markdown_extras %}
+{% block content %}
+  <section class="blog article-detail">
+    <div class="container">
+      <h1>{{ article.title }}</h1>
+      <small>
+        Publié par {{ article.author.first_name }} {{ article.author.last_name }} le {{ article.date_created | date:"j F Y" }}
+      </small>
+      <h2 class="abstract"><b>Résumé: </b>{{ article.abstract }}</h2>
+      <p>{{ article.content | markdown | safe }}</p>
+    </div>
+  </section>
+{% endblock content %}

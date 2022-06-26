@@ -2,10 +2,13 @@
   .swiper-wrapper {
     
     // brings .swiper-pagination down
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     
   }
   .swiper-pagination-bullet {
     background: $primary-color;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    color: $primary-color;
   }
 }

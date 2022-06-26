@@ -1,6 +1,6 @@
 .card {
   @include card;
-  h4:first-child {
+  h4:first-child, h2:first-child {
     margin-top: 0;
   }
 }

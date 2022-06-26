@@ -7,6 +7,10 @@ nav {
   z-index: 10;
   background: $white-color;
 
+  a {
+    text-decoration: none;
+  }
+
   .container {
     height: 5rem;
     display: flex;
@@ -20,6 +24,8 @@ nav {
     #nav__items {
       display: flex;
       gap: 2rem;
+      list-style: none;
+      padding: 0;
     }
     .buttons {
       display: flex;

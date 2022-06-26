@@ -8,3 +8,4 @@ whitenoise # http://whitenoise.evans.io/en/stable/index.html
 django-countries
 stripe
 pillow
+markdown

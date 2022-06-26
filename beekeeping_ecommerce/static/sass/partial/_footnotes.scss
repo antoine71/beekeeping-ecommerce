@@ -1,0 +1,11 @@
+.footnote {
+  border-top: 1px solid $border-color;
+  padding-top: 3rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  line-height: 1.6rem;
+
+  a.footnote-backref {
+    text-decoration: none;
+  }
+}

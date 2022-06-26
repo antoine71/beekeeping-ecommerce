@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block title %}NumericBees: {% translate "contactez-nous" %}{% endblock title %}
+
+{% block content %}
+<section class="blog contact">
+    <h1 class=" mb-3">{% translate "Contactez-nous" %}</h1>
+    <div class="container">
+    <p>
+        <strong>SAS NumericBees</strong><br>
+        &emsp; 56, Rue du Dauphiné<br>
+        &emsp; 69003 LYON<br>
+        &emsp; FRANCE
+    </p>
+    <p>
+        <strong>Emmanuel JALLAS</strong><br>
+        &emsp; Contact : <a href="mailto:info@numericbees.com">info@numericbees.com</a><br>
+        &emsp; +33 626 580 715
+    </p>
+  </div>
+</section>
+{% endblock content %}

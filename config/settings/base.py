@@ -74,6 +74,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'beekeeping_ecommerce.users.apps.UsersConfig',
     'beekeeping_ecommerce.shop.apps.ShopConfig',
+    'beekeeping_ecommerce.blog.apps.BlogConfig',
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 

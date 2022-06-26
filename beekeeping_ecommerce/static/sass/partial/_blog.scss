@@ -1,0 +1,43 @@
+section.blog {
+  p {
+    margin: 1rem 0;
+   }
+}
+
+section.article-detail {
+  h2.abstract {
+    font-weight: 400;
+    color: $black-color;
+    font-size: 1.2rem;
+  }
+}
+
+section.article-list {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: stretch;
+    
+    .article_card {
+      text-decoration: none;
+      height: auto;
+      & > h3 {
+        color: $black-color;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+/* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  section.article-list {
+    .container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+}

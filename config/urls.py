@@ -25,5 +25,6 @@ urlpatterns = [
 
 urlpatterns += [
     path("__debug__/", include("debug_toolbar.urls")),
-    path("", include("beekeeping_ecommerce.shop.urls", namespace="shop"))
+    path("", include("beekeeping_ecommerce.shop.urls", namespace="shop")),
+    path("blog/", include("beekeeping_ecommerce.blog.urls", namespace="blog")),
 ] 

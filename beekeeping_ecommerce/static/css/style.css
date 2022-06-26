@@ -2,11 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,600;1,700&family=Roboto:wght@400;500;700&display=swap");
 * {
   margin: 0;
-  padding: 0;
   border: 0;
   outline: 0;
-  list-style: none;
-  text-decoration: none;
   box-sizing: border-box;
   transition: all 400ms ease;
 }
@@ -67,7 +64,7 @@ section.shop h1, section.shop h2, section.shop h3, section.blog h1, section.blog
   margin-bottom: 0.6rem;
   margin-top: 1.6rem;
 }
-section > h2 {
+section > h2, section > h1 {
   text-align: center;
 }
 section > p {
@@ -245,8 +242,19 @@ table tbody tr td:last-child {
   border: 1px solid #89230E;
   margin: 1rem 0;
 }
-.card h4:first-child {
+.card h4:first-child, .card h2:first-child {
   margin-top: 0;
+}
+
+.footnote {
+  border-top: 1px solid #C6C6C6;
+  padding-top: 3rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  line-height: 1.6rem;
+}
+.footnote a.footnote-backref {
+  text-decoration: none;
 }
 
 nav {
@@ -257,6 +265,9 @@ nav {
   right: 0;
   z-index: 10;
   background: #FFFEF9;
+}
+nav a {
+  text-decoration: none;
 }
 nav .container {
   height: 5rem;
@@ -272,6 +283,8 @@ nav .container .nav__logo {
 nav .container #nav__items {
   display: flex;
   gap: 2rem;
+  list-style: none;
+  padding: 0;
 }
 nav .container .buttons {
   display: flex;
@@ -402,7 +415,9 @@ section.highlight .container .hero-content .left .check > p {
   margin-left: 1rem;
 }
 section.highlight .container .hero-content .left .buttons {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: start;
   gap: 1.6rem;
 }
 section.highlight .container .hero-content .left .buttons a {
@@ -429,18 +444,21 @@ section.highlight .container .hero-content .right {
     justify-content: center;
   }
   section.highlight .container .hero-content .left .buttons {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: auto;
+    justify-items: center;
   }
   section.highlight .container .hero-content .right {
     display: none;
   }
 }
 #knowmore .swiper-wrapper {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 #knowmore .swiper-pagination-bullet {
   background: #89230E;
+}
+#knowmore .swiper-button-next, #knowmore .swiper-button-prev {
+  color: #89230E;
 }
 
 #services .container {
@@ -856,5 +874,39 @@ section.payment .container .billing_info .btn-primary {
   section.payment .container .credit-card-frame {
     max-width: 500px;
     grid-column-start: 1;
+  }
+}
+section.blog p {
+  margin: 1rem 0;
+}
+
+section.article-detail h2.abstract {
+  font-weight: 400;
+  color: #0c031b;
+  font-size: 1.2rem;
+}
+
+section.article-list .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: stretch;
+}
+section.article-list .container .article_card {
+  text-decoration: none;
+  height: auto;
+}
+section.article-list .container .article_card > h3 {
+  color: #0c031b;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+/* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  section.article-list .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }/*# sourceMappingURL=style.css.map */

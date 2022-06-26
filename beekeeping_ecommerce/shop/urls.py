@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic import TemplateView
 
 from .views import (
     HomeView,
@@ -8,7 +9,7 @@ from .views import (
     remove_item_from_cart,
     CheckoutView,
     PaymentView,
-    StatusView
+    StatusView,
 )
 
 
@@ -26,5 +27,24 @@ urlpatterns = [
     path("checkout/", CheckoutView.as_view(), name="checkout"),
     path("payment/<payment_option>", PaymentView.as_view(), name="payment"),
     path("status/", StatusView.as_view(), name="status"),
-
+    path(
+        "sales-conditions",
+        TemplateView.as_view(template_name="shop/sales_conditions.html"),
+        name="sales-conditions",
+    ),
+    path(
+        "contact",
+        TemplateView.as_view(template_name="shop/contact.html"),
+        name="contact",
+    ),
+    path(
+        "legal-terms",
+        TemplateView.as_view(template_name="shop/legal_terms.html"),
+        name="legal-terms",
+    ),
+    path(
+        "confidentiality",
+        TemplateView.as_view(template_name="shop/confidentiality.html"),
+        name="confidentiality",
+    ),
 ]
