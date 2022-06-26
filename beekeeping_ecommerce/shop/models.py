@@ -48,23 +48,23 @@ class BillingAddress(models.Model):
     first_name = models.CharField("Prénom", max_length=100)
     last_name = models.CharField("Nom", max_length=100)
     company_name = models.CharField(
-        "Société (optionnel)", max_length=100, null=True, blank=True
+        "Société (optionnel)", max_length=100, null=True, blank=True, help_text="Optionnel"
     )
     street_address = models.CharField("Adresse", max_length=100)
     street_address_line_2 = models.CharField(
-        "Complément d'adresse (optionnel)", max_length=100, null=True, blank=True
+        "Complément d'adresse", max_length=100, null=True, blank=True, help_text="Optionnel"
     )
     city = models.CharField("Ville", max_length=100)
     country = CountryField("Pays", multiple=False)
     zip_code = models.CharField("Code postal", max_length=15)
     same_shipping_address = models.BooleanField(
-        "L'adresse d'expédition est identique à l'adresse de facturation",
-        null=True,
-        blank=True,
+        "L'adresse d'expédition est identique à l'adresse de facturation", default=True
     )
     payment_option = models.CharField(
         "Options de payment", max_length=1, choices=PAYMENT_CHOICES
     )
+    email = models.CharField("Adresse Email", max_length=50)
+    phone = models.CharField("Numéro de téléphone", max_length=50)
 
     def __str__(self):
         return f"{self.first_name}, {self.last_name}, {self.city}"

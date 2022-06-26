@@ -1,0 +1,14 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<section id="demo">
+  <h2>Dans Quel Magasin Souhaiteriez-vous Avoir Une Démonstration ?</h2>
+  <p>
+    Renseignez-les informations ci-dessous et nous vous recontacterons pour
+    planifier avec vous une démonstration.
+  </p>
+  <div class="container">
+    <article class="card">
+      {% crispy form %}
+    </article>
+  </div>
+</section>

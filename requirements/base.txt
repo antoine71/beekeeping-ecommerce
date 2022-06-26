@@ -9,3 +9,5 @@ django-countries
 stripe
 pillow
 markdown
+django-crispy-forms
+crispy-bootstrap5

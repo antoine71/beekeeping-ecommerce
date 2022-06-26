@@ -4,8 +4,11 @@ section.payment {
     grid-template-columns: 47% 47%;
     gap: 6%;
 
-    & > div > {
-      height: 100%;
+    & > div {
+      article.card {
+        height: auto;
+      }
+
     }
     .credit-card-frame {
       max-width: 500px;

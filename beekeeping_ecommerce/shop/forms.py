@@ -1,5 +1,7 @@
 from django import forms
-from django_countries.fields import CountryField
+
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Fieldset, Submit, Div, Field
 
 from .models import BillingAddress
 
@@ -12,27 +14,35 @@ PAYMENT_CHOICES = (
 )
 
 
-# class CheckoutForm(forms.Form):
-#     first_name = forms.CharField(label="Prénom")
-#     last_name = forms.CharField(label="Nom")
-#     company_name = forms.CharField(label="Société (optionnel)", required=False)
-#     street_address = forms.CharField(label="Adresse")
-#     street_address_line_2 = forms.CharField(
-#         label="Complément d'adresse (optionnel)", required=False
-#     )
-#     country = CountryField(blank_label="(choisissez le pays)").formfield()
-#     zip_code = forms.CharField(label="Code postal")
-#     city = forms.CharField(label="Ville")
-#     same_shipping_address = forms.BooleanField(
-#         label="L'adresse d'expédition est identique à l'adresse de facturation",
-#         widget=forms.CheckboxInput(attrs={"class": "form__group_checkbox"}),
-#         required=False,
-#     )
-#     payment_option = forms.ChoiceField(
-#         widget=forms.RadioSelect(), choices=PAYMENT_CHOICES, label="Options de payment"
-#     )
-
 class CheckoutForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            Fieldset(
+                "Saisissez vos informations de contact",
+                Div("first_name", "last_name", css_class="inline-form-wrapper"),
+                "company_name",
+                Div("phone", "email", css_class="inline-form-wrapper"),
+            ),
+            Fieldset(
+                "Saisissez votre adresse de Livraison",
+                "street_address",
+                "street_address_line_2",
+                Div("zip_code", "city", css_class="inline-form-wrapper"),
+                "country",
+                "same_shipping_address",
+            ),
+            Fieldset(
+                "Sélectionnez un moyen de paiement",
+                "payment_option",
+            ),
+        )
+        self.helper.add_input(
+            Submit("submit", "Commander", css_class="btn-primary btn-primary_center")
+        )
+        self.helper.form_method = "post"
+
     class Meta:
         model = BillingAddress
         fields = [
@@ -46,4 +56,6 @@ class CheckoutForm(forms.ModelForm):
             "city",
             "same_shipping_address",
             "payment_option",
+            "email",
+            "phone",
         ]
