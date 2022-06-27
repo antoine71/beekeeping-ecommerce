@@ -1,13 +1,10 @@
-from email.policy import default
-from random import choices
 from django import forms
+from django.db import models
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Submit, Div, Field
 
-from .models import Address
 
-from django_countries.widgets import CountrySelectWidget
 from django_countries.fields import CountryField
 
 
@@ -26,17 +23,28 @@ class CheckoutForm(forms.Form):
     )
     phone = forms.CharField(label="Numéro de téléphone")
     email = forms.EmailField(label="Adresse Email")
-    street_address = forms.CharField(label="Adresse")
-    street_address_line_2 = forms.CharField(
+    shipping_street_address = forms.CharField(label="Adresse")
+    shipping_street_address_line_2 = forms.CharField(
         label="Complément d'Adresse", help_text="optionnel", required=False
     )
-    country = CountryField().formfield(label="Prénom", widget=CountrySelectWidget())
-    zip_code = forms.CharField(label="Code Postal")
-    city = forms.CharField(label="Ville")
-    same_shipping_address = forms.BooleanField(
-        label="L'adresse de livraison est identique à l'adresse de facturation"
+    shipping_country = CountryField().formfield(label="Pays")
+    shipping_zip_code = forms.CharField(label="Code Postal")
+    shipping_city = forms.CharField(label="Ville")
+    billing_street_address = forms.CharField(label="Adresse")
+    billing_street_address_line_2 = forms.CharField(
+        label="Complément d'Adresse", help_text="optionnel", required=False
     )
-    payment_option = forms.ChoiceField(label="Options de paiement", choices=PAYMENT_CHOICES)
+    billing_country = CountryField().formfield(label="Pays")
+    billing_zip_code = forms.CharField(label="Code Postal")
+    billing_city = forms.CharField(label="Ville")
+    same_billing_address = forms.BooleanField(
+        label="L'adresse de facturation est identique à l'adresse de livraison",
+        required=False,
+        initial=True,
+    )
+    payment_option = forms.ChoiceField(
+        label="Options de paiement", choices=PAYMENT_CHOICES
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -50,11 +58,26 @@ class CheckoutForm(forms.Form):
             ),
             Fieldset(
                 "Saisissez votre adresse de Livraison",
-                "street_address",
-                "street_address_line_2",
-                Div("zip_code", "city", css_class="inline-form-wrapper"),
-                "country",
-                Div("same_shipping_address", css_class="custom-form-checkbox"),
+                "shipping_street_address",
+                "shipping_street_address_line_2",
+                Div(
+                    "shipping_zip_code",
+                    "shipping_city",
+                    css_class="inline-form-wrapper",
+                ),
+                "shipping_country",
+            ),
+            Div(
+                "same_billing_address",
+                css_class="custom-form-checkbox",
+            ),
+            Fieldset(
+                "Saisissez votre adresse de Facturation",
+                "billing_street_address",
+                "billing_street_address_line_2",
+                Div("billing_zip_code", "billing_city", css_class="inline-form-wrapper"),
+                "billing_country",
+                css_class="hideable-shipping-form",
             ),
             Fieldset(
                 "Sélectionnez un moyen de paiement",
@@ -64,7 +87,6 @@ class CheckoutForm(forms.Form):
         self.helper.add_input(
             Submit("submit", "Commander", css_class="btn-primary btn-primary_center")
         )
-        self.helper.form_method = "post"
 
 
 class RefundForm(forms.Form):

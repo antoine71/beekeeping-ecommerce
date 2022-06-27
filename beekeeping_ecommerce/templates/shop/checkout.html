@@ -10,7 +10,9 @@
       <div class="checkout-form">
         <h3>Détails de facturation</h3>
         <article>
-          {% crispy form %}
+          <form method="post" novalidate>
+            {% crispy form %}
+          </form>
         </article>
       </div>
     </div>

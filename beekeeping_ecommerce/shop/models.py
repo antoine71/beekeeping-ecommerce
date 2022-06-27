@@ -1,8 +1,8 @@
 from django.db import models
-from django.forms import CharField
 
 from django_countries.fields import CountryField
 from autoslug import AutoSlugField
+from requests import request
 
 
 PAYMENT_CHOICES = (
@@ -53,8 +53,8 @@ class OrderProduct(models.Model):
 
 class Customer(models.Model):
     user_id = models.CharField("User id (session_key)", max_length=40, unique=True)
-    first_name = models.CharField("Prénom", max_length=100, default="Anonymous")
-    last_name = models.CharField("Nom", max_length=100, default="User")
+    first_name = models.CharField("Prénom", max_length=100)
+    last_name = models.CharField("Nom", max_length=100)
     company_name = models.CharField(
         "Société", max_length=100, null=True, blank=True, help_text="Optionnel"
     )
@@ -62,6 +62,7 @@ class Customer(models.Model):
     phone = models.CharField(
         "Numéro de téléphone", max_length=20, null=True, blank=True
     )
+    anonymous = models.BooleanField(default=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -91,6 +92,9 @@ class Address(models.Model):
     def __str__(self):
         return f"{self.city}"
 
+    class Meta:
+        verbose_name_plural = "Addresses"
+
 
 class Payment(models.Model):
     stripe_intent_id = models.CharField(max_length=100)
@@ -112,6 +116,7 @@ class Order(models.Model):
     start_date = models.DateTimeField("Date created", auto_now_add=True)
     ordered_date = models.DateTimeField("Date ordered", null=True, blank=True)
     ordered = models.BooleanField("Order completed", default=False)
+    same_billing_address = models.BooleanField(default=True)
     billing_address = models.ForeignKey(
         Address,
         verbose_name="Adresse de facturation",

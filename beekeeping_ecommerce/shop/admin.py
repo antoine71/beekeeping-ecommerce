@@ -70,11 +70,13 @@ class OrderAdmin(admin.ModelAdmin):
         "refund_requested",
         "refund_granted",
         "billing_address",
+        "shipping_address",
         "payment",
         "invoice",
     ]
     list_display_links = [
         "ref_code",
+        "shipping_address",
         "billing_address",
         "payment",
         "invoice",
@@ -93,10 +95,31 @@ class OrderAdmin(admin.ModelAdmin):
     actions = [confirm_expedition, confirm_delivery, make_refund_accepted]
 
 
+class AddressAdmin(admin.ModelAdmin):
+    list_display = [
+        'customer',
+        'street_address',
+        'street_address_line_2',
+        'city',
+        'country',
+        'zip_code',
+        'address_type',
+    ]
+    list_filter = ['address_type', 'country']
+    search_fields = [
+        'customer',
+        'street_address',
+        'city',
+        'zip_code',
+    ]
+
+
+
+
 admin.site.register(Product)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderProduct)
-admin.site.register(Address)
+admin.site.register(Address, AddressAdmin)
 admin.site.register(Payment)
 admin.site.register(Invoice)
 admin.site.register(Refund)

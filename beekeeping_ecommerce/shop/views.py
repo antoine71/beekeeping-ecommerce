@@ -5,8 +5,10 @@ from datetime import datetime
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, ValidationError
+from django.utils.datastructures import MultiValueDictKeyError
 from django.contrib import messages
+from django.forms import model_to_dict
 
 from django.urls import reverse
 from .models import (
@@ -36,7 +38,7 @@ def create_ref_code():
 def get_customer(request):
     """
     This function is used to retrieve a customer.
-    It is used at each step of the purchasing process 
+    It is used at each step of the purchasing process
     to get all info related to the order. If the customer
     does not exists, an error message is sent and the user
     redirected to the home page
@@ -45,7 +47,10 @@ def get_customer(request):
         customer = Customer.objects.get(user_id=request.session.session_key)
         return customer
     except ObjectDoesNotExist:
-        messages.error(request, "Erreur d'identification de l'utilisateur. La procédure d'achat est interrompue")
+        messages.error(
+            request,
+            "Erreur d'identification de l'utilisateur. La procédure d'achat est interrompue",
+        )
         return False
 
 
@@ -65,7 +70,6 @@ def get_order_product(request, product):
         messages.error(request, "Le produit n'existe pas dans le panier")
         return False
 
-    
 
 def get_order(request):
     # retrieve customer
@@ -100,7 +104,8 @@ class HomeView(View):
             context = self.get_context_data(form)
             messages.warning(
                 self.request,
-                "Le formulaire comporte des erreurs, merci de corriger et de le soumettre à nouveau.",
+                "Le formulaire comporte des erreurs, merci de corriger"
+                " et de le soumettre à nouveau.",
             )
             return render(self.request, "home.html", context)
 
@@ -110,9 +115,7 @@ class HomeView(View):
         except ObjectDoesNotExist:
             customer = False
         try:
-            order = Order.objects.get(
-                customer=customer, ordered=False
-            )
+            order = Order.objects.get(customer=customer, ordered=False)
         except ObjectDoesNotExist:
             order = False
         context = {"order": order, "products": Product.objects.all(), "form": form}
@@ -123,8 +126,8 @@ class CartView(View):
     def get(self, *args, **kwargs):
         order = get_order(self.request)
         if not order:
-            return redirect("shop:home")        
-        context = {"order": order, "products": order.products.all().order_by('id')}
+            return redirect("shop:home")
+        context = {"order": order, "products": order.products.all().order_by("id")}
         return render(self.request, "shop/cart.html", context)
 
 
@@ -135,14 +138,46 @@ class CheckoutView(View):
         if not order:
             return redirect("shop:home")
 
-        ## if the order contains already a billing address this
-        ## billing address is passed to the form
-        #if order.billing_address:
-        #    form = CheckoutForm(instance=order.billing_address)
+        # if the order contains already a billing address, shipping address
+        # or customer information and pass it to the form
+        data = {}
+        if order.shipping_address:
+            data.update(
+                {
+                    "shipping_street_address": order.shipping_address.street_address,
+                    "shipping_street_address_line_2": order.shipping_address.street_address_line_2,
+                    "shipping_country": order.shipping_address.country,
+                    "shipping_zip_code": order.shipping_address.zip_code,
+                    "shipping_city": order.shipping_address.city,
+                }
+            )
+        if order.billing_address:
+            data.update(
+                {
+                    "billing_street_address": order.shipping_address.street_address,
+                    "billing_street_address_line_2": order.shipping_address.street_address_line_2,
+                    "billing_country": order.shipping_address.country,
+                    "billing_zip_code": order.shipping_address.zip_code,
+                    "billing_city": order.shipping_address.city,
+                }
+            )
+        if not order.customer.anonymous:
+            data.update(
+                {
+                    "first_name": order.customer.first_name,
+                    "last_name": order.customer.last_name,
+                    "company_name": order.customer.company_name,
+                    "phone": order.customer.phone,
+                    "email": order.customer.email,
+                }
+            )
+        if order.payment_option:
+            data.update({
+                "payment_option": order.payment_option
+            })
+        data.update({'same_billing_address': order.same_billing_address})
+        form = CheckoutForm(data)
 
-        # else the form is blank
-        else:
-            form = CheckoutForm()
         context = {"order": order, "form": form}
         return render(self.request, "shop/checkout.html", context)
 
@@ -151,23 +186,85 @@ class CheckoutView(View):
         # get the order and the customer
         customer = get_customer(self.request)
         if not customer:
-            return redirect("shop:home")  
-        order = get_order(self.request)      
+            return redirect("shop:home")
+        order = get_order(self.request)
         if not order:
             return redirect("shop:home")
 
         form = CheckoutForm(self.request.POST or None)
+
+        try:
+            same_billing_address = form.fields["same_billing_address"].clean(
+                form.data["same_billing_address"]
+            )
+        except MultiValueDictKeyError:
+            same_billing_address = False
+        except ValidationError:
+            context = {"order": order, "form": form}
+            return render(self.request, "shop/checkout.html", context)
+
+        # assign the billing_address fields if same shipping address is selected
+        if same_billing_address:
+            data = {value: self.request.POST[value] for value in self.request.POST}
+            data.update(
+                {
+                    "billing_street_address": form.data["shipping_street_address"],
+                    "billing_street_address_line_2": form.data[
+                        "shipping_street_address_line_2"
+                    ],
+                    "billing_country": form.data["shipping_country"],
+                    "billing_zip_code": form.data["shipping_zip_code"],
+                    "billing_city": form.data["shipping_city"],
+                }
+            )
+            form = CheckoutForm(data)
+
         if form.is_valid():
+            # create shipping_address_object
+            shipping_address = Address(
+                street_address=form.cleaned_data["shipping_street_address"],
+                street_address_line_2=form.cleaned_data[
+                    "shipping_street_address_line_2"
+                ],
+                country=form.cleaned_data["shipping_country"],
+                zip_code=form.cleaned_data["shipping_zip_code"],
+                city=form.cleaned_data["shipping_city"],
+                customer=customer,
+                address_type="S",
+            )
+
+            # create customer object
+            customer.first_name = form.cleaned_data["first_name"]
+            customer.last_name = form.cleaned_data["last_name"]
+            customer.company_name = form.cleaned_data["company_name"]
+            customer.phone = form.cleaned_data["phone"]
+            customer.email = form.cleaned_data["email"]
+            customer.anonmymou = False
+
             # create a new object or update the existing object
             billing_address = Address(
-                street_address=form.cleaned_data['street_address'],
-                street_address_line_2=form.cleaned_data['street_address_line_2'],
-                country=form.cleaned_data['country'],
-                zip_code=form.cleaned_data['zip_code'],
-                city=form.cleaned_data['city'],
+                street_address=form.cleaned_data["billing_street_address"],
+                street_address_line_2=form.cleaned_data[
+                    "billing_street_address_line_2"
+                ],
+                country=form.cleaned_data["billing_country"],
+                zip_code=form.cleaned_data["billing_zip_code"],
+                city=form.cleaned_data["billing_city"],
                 customer=customer,
-                address_type='B',
+                address_type="B",
             )
+
+            # saves or updates the shipping address and the order
+            if order.shipping_address:
+                # updates the shipping address if it already exists
+                shipping_address.id = order.shipping_address.pk
+                shipping_address.save()
+            else:
+                # else create a new one
+                shipping_address.save()
+                order.shipping_address = shipping_address
+                order.save()
+
 
             # saves or updates the billing address and the order
             if order.billing_address:
@@ -180,17 +277,13 @@ class CheckoutView(View):
                 order.billing_address = billing_address
                 order.save()
 
-            # save the customer information
-            customer.first_name = form.cleaned_data['first_name']
-            customer.last_name = form.cleaned_data['last_name']
-            customer.company_name = form.cleaned_data['company_name']
-            customer.phone = form.cleaned_data['phone']
-            customer.email = form.cleaned_data['email']
+            # save the customer info
             customer.save()
 
             # save the payment information and the same_address_information
-            order.payment_option = form.cleaned_data['payment_option']
-            order.same_shipping_address = form.cleaned_data['same_shipping_address']
+            order.payment_option = form.cleaned_data["payment_option"]
+            order.same_billing_address = form.cleaned_data["same_billing_address"]
+            order.save()
 
             # check which payment option is selected to redirect to the appropriate view
             if order.payment_option == "S":
@@ -210,7 +303,10 @@ class CheckoutView(View):
 
 class PaymentView(View):
     def get(self, *args, **kwargs):
-        # Check if the order exists, otherwise return to homepage
+        # get the order and the customer
+        customer = get_customer(self.request)
+        if not customer:
+            return redirect("shop:home")
         order = get_order(self.request)
         if not order:
             return redirect("shop:home")
@@ -244,6 +340,7 @@ class PaymentView(View):
             return redirect("shop:checkout")
         # else define context and render the view normally
         context = {
+            "customer": customer,
             "order": order,
             "client_secret": intent.client_secret,
             "stripe_api_public_key": settings.STRIPE_API_PUBLIC_KEY,
@@ -256,7 +353,10 @@ class PaymentView(View):
 
 class StatusView(View):
     def get(self, *args, **kwargs):
-        # Check if the order exists, otherwise return to homepage
+        # get the order and the customer
+        customer = get_customer(self.request)
+        if not customer:
+            return redirect("shop:home")
         order = get_order(self.request)
         if not order:
             return redirect("shop:home")
@@ -320,6 +420,7 @@ class StatusView(View):
             "stripe_api_public_key": settings.STRIPE_API_PUBLIC_KEY,
             "payment_status": payment_status,
             "charges": payment_intent_obj.charges.data[0],
+            "customer": customer,
             "order": order,
             "date_created": charges_date_created,
             "amount": amount_charged,
@@ -374,7 +475,7 @@ def remove_from_cart(request, slug):
     order = get_order(request)
     if not order:
         return redirect("shop:home")
-    
+
     # remove the product from the order
     order_product.delete()
     messages.info(request, "Le produit a été supprimé du panier")
