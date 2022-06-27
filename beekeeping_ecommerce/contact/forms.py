@@ -21,7 +21,7 @@ class DemoRequestForm(forms.ModelForm):
                 "Comment pouvons nous vous joindre ?",
                 Div("first_name", "last_name", css_class="inline-form-wrapper"),
                 Div("email", "phone", css_class="inline-form-wrapper"),
-                "accept_conditions",
+                Div("accept_conditions", css_class="custom-form-checkbox"),
             ),
             Fieldset(
                 "A quelle date souhaitez-vous que la démonstration ait lieu ?",

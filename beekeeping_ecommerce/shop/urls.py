@@ -10,6 +10,7 @@ from .views import (
     CheckoutView,
     PaymentView,
     StatusView,
+    RequestRefundView,
 )
 
 
@@ -27,23 +28,24 @@ urlpatterns = [
     path("checkout/", CheckoutView.as_view(), name="checkout"),
     path("payment/<payment_option>", PaymentView.as_view(), name="payment"),
     path("status/", StatusView.as_view(), name="status"),
+    path("request-refund/", RequestRefundView.as_view(), name="request-refund"),
     path(
         "sales-conditions",
         TemplateView.as_view(template_name="shop/sales_conditions.html"),
         name="sales-conditions",
     ),
     path(
-        "contact",
+        "contact/",
         TemplateView.as_view(template_name="shop/contact.html"),
         name="contact",
     ),
     path(
-        "legal-terms",
+        "legal-terms/",
         TemplateView.as_view(template_name="shop/legal_terms.html"),
         name="legal-terms",
     ),
     path(
-        "confidentiality",
+        "confidentiality/",
         TemplateView.as_view(template_name="shop/confidentiality.html"),
         name="confidentiality",
     ),

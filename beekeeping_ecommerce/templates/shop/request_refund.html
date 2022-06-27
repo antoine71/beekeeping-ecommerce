@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<section class="shop">
+  <h2>Formulaire de demande de remboursement</h2>
+  <p>
+    Renseignez-les informations ci-dessous pour effectuer une demande de remboursement.
+  </p>
+  <div class="container">
+    <article class="card">
+      {% crispy form %}
+    </article>
+  </div>
+</section>
+{% endblock content %}

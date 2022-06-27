@@ -16,12 +16,7 @@ section.checkout {
   section.checkout {
     .container {
       grid-template-columns: 1fr;
+      gap: 0;
     }
-  }
-}
-
-/* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
-@media screen and (max-width: 600px) {
-  section.checkout {
   }
 }

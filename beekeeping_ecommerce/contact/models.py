@@ -26,7 +26,7 @@ class DemoRequest(models.Model):
     last_name = models.CharField("Nom de Famille", max_length=100)
     first_name = models.CharField("Prénom", max_length=100)
     email = models.EmailField("Adresse Email")
-    phone = models.CharField("Téléphone", max_length=20)
+    phone = models.CharField("Numéro de téléphone", max_length=20)
     accept_conditions = models.BooleanField(
         "Accepter la politique de confidentialité",
         validators=[validate_confidentiality],

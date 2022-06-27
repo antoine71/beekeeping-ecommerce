@@ -94,6 +94,7 @@ section.highlight {
 @media screen and (max-width: 600px) {
   section.highlight {
     .container {
+      height: auto;
       .hero-content {
         grid-template-columns: 1fr;
         .left {

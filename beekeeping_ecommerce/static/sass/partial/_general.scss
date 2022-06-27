@@ -93,7 +93,15 @@ button {
   cursor: pointer;
 }
 
+.inline-icon-text {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.3rem;
 
+  > i {
+    margin-top: 2px;
+  }
+}
 
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
 @media screen and (max-width: 1024px) {
