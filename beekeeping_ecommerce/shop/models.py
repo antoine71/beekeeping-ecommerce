@@ -6,13 +6,13 @@ from requests import request
 
 
 PAYMENT_CHOICES = (
-    ("S", "Stripe"),
-    ("P", "Paypal"),
+    ("S", "Carte Bancaire"),
+#    ("P", "Paypal"),
 )
 
 DELIVERY_CHOICES = (
     ("H", "Livraison à Domicile"),
-    ("P", "Livraison en Point Relais"),
+#    ("P", "Livraison en Point Relais"),
 )
 
 ADDRESS_CHOICES = (

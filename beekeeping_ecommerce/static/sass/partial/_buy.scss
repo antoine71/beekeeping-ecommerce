@@ -13,10 +13,11 @@
         justify-self: start;
       }
       @include card;
-      max-width: 300px;
+      max-width: 350px;
       display: grid;
       grid-template-columns: 1fr;
       gap: 0.8rem;
+  
 
       h3,
       h4 {

@@ -119,6 +119,6 @@ class RefundForm(forms.Form):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.add_input(
-            Submit("submit", "Commander", css_class="btn-primary btn-primary_center")
+            Submit("submit", "Envoyer", css_class="btn-primary btn-primary_center")
         )
         self.helper.form_method = "post"

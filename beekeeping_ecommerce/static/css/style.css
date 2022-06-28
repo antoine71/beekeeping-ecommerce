@@ -198,23 +198,34 @@ ul.django-messages li button {
   background: transparent;
 }
 
-table {
+table.standard {
   width: 100%;
-  text-align: center;
+  border-collapse: collapse;
+  table-layout: auto;
 }
-table thead {
+table.standard thead {
+  text-align: center;
   font-weight: 600;
   color: #89230E;
 }
-table tbody tr:last-child > td {
+table.standard tbody tr:last-child > td {
   border-bottom: 0;
+  font-weight: 600;
 }
-table tbody tr td {
+table.standard tbody tr td {
   padding: 0.5rem;
   border-bottom: 1px solid #C6C6C6;
+  word-wrap: break-word;
 }
-table tbody tr td:last-child {
+table.standard tbody tr td:first-child {
+  text-align: left;
+}
+table.standard tbody tr td:last-child {
   text-align: right;
+}
+
+td {
+  overflow-wrap: break-word;
 }
 
 .card {
@@ -1168,7 +1179,7 @@ footer .container article > div {
   box-shadow: 0 1rem 1rem rgba(12, 3, 27, 0.1);
   border: 1px solid #C6C6C6;
   margin: 1rem 0;
-  max-width: 300px;
+  max-width: 350px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.8rem;
@@ -1329,7 +1340,12 @@ section.cart .container .cart-summary article table tbody tr:last-child {
   section.cart .container .cart-summary {
     justify-content: center;
     flex-direction: column-reverse;
-    gap: 2rem;
+    gap: 0;
+    max-width: 300px;
+    margin: auto;
+  }
+  section.cart .container .cart-summary .back-to-shop > a {
+    margin-top: 2rem;
   }
 }
 section.checkout .container {
@@ -1392,6 +1408,9 @@ section.payment .container .credit-card-frame .card #error-message {
     max-width: 500px;
     grid-column-start: 1;
   }
+}
+section.status .container {
+  max-width: 650px;
 }
 section.status .container .order-info .btn-primary,
 section.status .container .billing_info .btn-primary {

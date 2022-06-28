@@ -169,4 +169,4 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # DJANGO COUNTRIES
 # ------------------------------------------------------------------------------
 
-COUNTRIES_ONLY = ['FR', 'ES', 'IT', 'DE', 'NL', 'PL']
+COUNTRIES_ONLY = ['FR'] # + ['ES', 'IT', 'DE', 'NL', 'PL']
