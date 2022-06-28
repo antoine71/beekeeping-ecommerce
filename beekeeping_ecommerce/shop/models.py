@@ -10,6 +10,11 @@ PAYMENT_CHOICES = (
     ("P", "Paypal"),
 )
 
+DELIVERY_CHOICES = (
+    ("H", "Livraison à Domicile"),
+    ("P", "Livraison en Point Relais"),
+)
+
 ADDRESS_CHOICES = (
     ("B", "Facturation"),
     ("S", "Expédition"),
@@ -36,9 +41,6 @@ class Product(models.Model):
 
 
 class OrderProduct(models.Model):
-    customer = models.ForeignKey(
-        "Customer", verbose_name="Client", on_delete=models.CASCADE
-    )
     user_id = models.CharField("User id (session_key)", max_length=40)
     ordered = models.BooleanField("Order completed", default=False)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -51,27 +53,21 @@ class OrderProduct(models.Model):
         return f"{self.quantity} of {self.product.name}"
 
 
-class Customer(models.Model):
-    user_id = models.CharField("User id (session_key)", max_length=40, unique=True)
-    first_name = models.CharField("Prénom", max_length=100)
-    last_name = models.CharField("Nom", max_length=100)
-    company_name = models.CharField(
-        "Société", max_length=100, null=True, blank=True, help_text="Optionnel"
-    )
+class ContactInfo(models.Model):
     email = models.EmailField("Adresse Email", null=True, blank=True)
     phone = models.CharField(
         "Numéro de téléphone", max_length=20, null=True, blank=True
     )
-    anonymous = models.BooleanField(default=True)
-    date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.email}"
 
 
 class Address(models.Model):
-    customer = models.ForeignKey(
-        Customer, verbose_name="Client", on_delete=models.CASCADE
+    first_name = models.CharField("Prénom", max_length=100)
+    last_name = models.CharField("Nom", max_length=100)
+    company_name = models.CharField(
+        "Société", max_length=100, null=True, blank=True, help_text="Optionnel"
     )
     street_address = models.CharField("Adresse", max_length=100)
     street_address_line_2 = models.CharField(
@@ -90,7 +86,7 @@ class Address(models.Model):
     address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
 
     def __str__(self):
-        return f"{self.city}"
+        return f"{self.first_name} {self.last_name} ({self.address_type})"
 
     class Meta:
         verbose_name_plural = "Addresses"
@@ -108,22 +104,18 @@ class Payment(models.Model):
 
 
 class Order(models.Model):
-    customer = models.ForeignKey(
-        Customer, verbose_name="Client", on_delete=models.CASCADE
-    )
     ref_code = models.CharField(max_length=20)
+    user_id = models.CharField("User id (session_key)", max_length=40)
     products = models.ManyToManyField(OrderProduct, related_name="orders", blank=True)
     start_date = models.DateTimeField("Date created", auto_now_add=True)
     ordered_date = models.DateTimeField("Date ordered", null=True, blank=True)
     ordered = models.BooleanField("Order completed", default=False)
-    same_billing_address = models.BooleanField(default=True)
-    billing_address = models.ForeignKey(
-        Address,
-        verbose_name="Adresse de facturation",
-        on_delete=models.SET_NULL,
+    contact_info = models.ForeignKey(
+        ContactInfo,
+        verbose_name="Client",
+        on_delete=models.CASCADE,
         blank=True,
         null=True,
-        related_name="billing_address",
     )
     shipping_address = models.ForeignKey(
         Address,
@@ -133,8 +125,20 @@ class Order(models.Model):
         null=True,
         related_name="shipping_address",
     )
+    same_billing_address = models.BooleanField(default=True)
+    billing_address = models.ForeignKey(
+        Address,
+        verbose_name="Adresse de facturation",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name="billing_address",
+    )
     payment_option = models.CharField(
         "Options de payment", max_length=1, choices=PAYMENT_CHOICES
+    )
+    delivery_option = models.CharField(
+        "Options de livraison", max_length=1, choices=DELIVERY_CHOICES
     )
     payment = models.OneToOneField(
         Payment, on_delete=models.SET_NULL, blank=True, null=True, related_name="order"
@@ -165,6 +169,9 @@ class Order(models.Model):
 
     def get_order_total_price(self):
         return self.get_order_price_ex_delivery() + self.get_order_delivery_price()
+
+    def delivery_verbose(self):
+        return dict(DELIVERY_CHOICES)[self.delivery_option]
 
     def __str__(self):
         return self.ref_code

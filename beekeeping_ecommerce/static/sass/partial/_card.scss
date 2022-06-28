@@ -1,6 +1,17 @@
 .card {
   @include card;
-  h4:first-child, h2:first-child {
+  h4:first-child,
+  h3:first-child,
+  h2:first-child {
     margin-top: 0;
+  }
+  & > .card {
+    box-shadow: none;
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

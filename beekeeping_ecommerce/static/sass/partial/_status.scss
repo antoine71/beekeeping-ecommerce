@@ -1,0 +1,10 @@
+section.status {
+  .container {
+    .order-info,
+    .billing_info {
+      .btn-primary {
+        display: none;
+      }
+    }
+  }
+}

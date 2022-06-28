@@ -1,27 +1,40 @@
 <div class="order-info">
-  <h3>Vos Informations de Contact</h3>
+  <h3>Vos Informations</h3>
   <article class="card">
-    <h4>Vos Informations Personnelles</h4>
-    <p>{{ customer.first_name }} {{ customer.last_name }}</p>
-    {% if customer.company_name %}
-    <p>{{ customer.company_name }}</p>
-    {% endif %}
-    <p>Adresse email: {{ customer.email }}</p>
-    <p>Numéro de Téléphone: {{ customer.phone }}</p>
-    <h4>Votre adresse de Livraison</h4>
-    <p>{{ order.shipping_address.street_address }}</p>
-    {% if order.shipping_address.street_address_line_2 %}
-    <p>{{ order.shipping_address.street_address_line_2 }}</p>
-    {% endif %}
-    <p>{{ order.shipping_address.zip_code }} {{ order.shipping_address.city }}</p>
-    <p>{{ order.shipping_address.country }}</p>
-    <h4>Votre adresse de Facturation</h4>
-    <p>{{ order.billing_address.street_address }}</p>
-    {% if order.billing_address.street_address_line_2 %}
-    <p>{{ order.billing_address.street_address_line_2 }}</p>
-    {% endif %}
-    <p>{{ order.billing_address.zip_code }} {{ order.billing_address.city }}</p>
-    <p>{{ order.billing_address.country }}</p>
-    <a href="{% url 'shop:checkout' %}" class="btn-primary btn-primary_center toggle">Modifier</a>
+    <div class="card">
+      <h4>Vos Informations de contact</h4>
+      <p>
+        <span class="text-muted">Email:</span>
+        <span>{{ order.contact_info.email }}</span>
+      </p>
+      <p>
+        <span class="text-muted">Téléphone:</span>
+        <span>{{ order.contact_info.phone }}</span>
+      </p>
+    </div>
+    <div class="card">
+      <h4>Votre mode de livraison</h4>
+      <p>{{ order.delivery_verbose }}</p>
+    </div>
+    <div class="card">
+      <h4>Votre adresse de Livraison</h4>
+      <p>{{ order.shipping_address.first_name }} {{ order.shipping_address.last_name }}</p>
+      {% if order.shipping_address.company_name %}<p>{{ order.shipping_address.company_name }}</p>{% endif %}
+      <p>{{ order.shipping_address.street_address }}</p>
+      {% if order.shipping_address.street_address_line_2 %}
+        <p>{{ order.shipping_address.street_address_line_2 }}</p>
+      {% endif %}
+      <p>{{ order.shipping_address.zip_code }} {{ order.shipping_address.city }}, {{ order.shipping_address.country.name }}</p>
+    </div>
+    <div class="card">
+      <h4>Votre adresse de Facturation</h4>
+      <p>{{ order.billing_address.first_name }} {{ order.billing_address.last_name }}</p>
+      {% if order.billing_address.company_name %}<p>{{ order.billing_address.company_name }}</p>{% endif %}
+      <p>{{ order.billing_address.street_address }}</p>
+      {% if order.billing_address.street_address_line_2 %}<p>{{ order.billing_address.street_address_line_2 }}</p>{% endif %}
+      <p>{{ order.billing_address.zip_code }} {{ order.billing_address.city }}, {{ order.billing_address.country.name }}</p>
+    </div>
+    <a href="{% url 'shop:checkout' %}"
+       class="btn-primary btn-primary_center">Modifier</a>
   </article>
 </div>

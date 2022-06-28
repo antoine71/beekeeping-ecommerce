@@ -9,7 +9,7 @@ from .models import (
     Payment,
     Invoice,
     Refund,
-    Customer,
+    ContactInfo,
 )
 
 
@@ -97,7 +97,6 @@ class OrderAdmin(admin.ModelAdmin):
 
 class AddressAdmin(admin.ModelAdmin):
     list_display = [
-        'customer',
         'street_address',
         'street_address_line_2',
         'city',
@@ -107,13 +106,10 @@ class AddressAdmin(admin.ModelAdmin):
     ]
     list_filter = ['address_type', 'country']
     search_fields = [
-        'customer',
         'street_address',
         'city',
         'zip_code',
     ]
-
-
 
 
 admin.site.register(Product)
@@ -123,4 +119,4 @@ admin.site.register(Address, AddressAdmin)
 admin.site.register(Payment)
 admin.site.register(Invoice)
 admin.site.register(Refund)
-admin.site.register(Customer)
+admin.site.register(ContactInfo)

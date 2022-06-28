@@ -147,6 +147,10 @@ button {
   margin-top: 2px;
 }
 
+.text-muted {
+  color: rgba(12, 3, 27, 0.7);
+}
+
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
 @media screen and (max-width: 1024px) {
   .container {
@@ -223,8 +227,19 @@ table tbody tr td:last-child {
   border: 1px solid #C6C6C6;
   margin: 1rem 0;
 }
-.card h4:first-child, .card h2:first-child {
+.card h4:first-child,
+.card h3:first-child,
+.card h2:first-child {
   margin-top: 0;
+}
+.card > .card {
+  box-shadow: none;
+}
+.card > .card:first-child {
+  margin-top: 0;
+}
+.card > .card:last-child {
+  margin-bottom: 0;
 }
 
 .footnote {
@@ -251,11 +266,16 @@ table tbody tr td:last-child {
 .custom-form-checkbox > div > div {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 0.5rem;
+  grid-template-rows: auto auto;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
 }
 .custom-form-checkbox > div > div > input {
   margin-top: 3px;
   font-size: 1.1rem;
+}
+.custom-form-checkbox > div > div > span {
+  grid-column-start: span 2;
 }
 
 /* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
@@ -1361,10 +1381,6 @@ section.payment .container .credit-card-frame .card #error-message {
   width: 100%;
   margin-top: 1rem;
 }
-section.payment .container .order-info .btn-primary,
-section.payment .container .billing_info .btn-primary {
-  display: none;
-}
 
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
 @media screen and (max-width: 1024px) {
@@ -1377,6 +1393,11 @@ section.payment .container .billing_info .btn-primary {
     grid-column-start: 1;
   }
 }
+section.status .container .order-info .btn-primary,
+section.status .container .billing_info .btn-primary {
+  display: none;
+}
+
 section.blog .container p {
   margin: 1rem 0;
 }

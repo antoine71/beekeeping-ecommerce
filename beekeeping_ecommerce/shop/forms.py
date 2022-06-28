@@ -3,26 +3,20 @@ from django.db import models
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Submit, Div, Field
-
-
 from django_countries.fields import CountryField
 
-
-PAYMENT_CHOICES = (
-    ("S", "Stripe"),
-    ("P", "Paypal"),
-)
+from .models import DELIVERY_CHOICES, PAYMENT_CHOICES
 
 
 class CheckoutForm(forms.Form):
 
-    first_name = forms.CharField(label="Prénom")
-    last_name = forms.CharField(label="Nom")
-    company_name = forms.CharField(
-        label="Société", help_text="optionnel", required=False
-    )
     phone = forms.CharField(label="Numéro de téléphone")
     email = forms.EmailField(label="Adresse Email")
+    shipping_first_name = forms.CharField(label="Prénom")
+    shipping_last_name = forms.CharField(label="Nom")
+    shipping_company_name = forms.CharField(
+        label="Société", help_text="optionnel", required=False
+    )
     shipping_street_address = forms.CharField(label="Adresse")
     shipping_street_address_line_2 = forms.CharField(
         label="Complément d'Adresse", help_text="optionnel", required=False
@@ -30,6 +24,11 @@ class CheckoutForm(forms.Form):
     shipping_country = CountryField().formfield(label="Pays")
     shipping_zip_code = forms.CharField(label="Code Postal")
     shipping_city = forms.CharField(label="Ville")
+    billing_first_name = forms.CharField(label="Prénom")
+    billing_last_name = forms.CharField(label="Nom")
+    billing_company_name = forms.CharField(
+        label="Société", help_text="optionnel", required=False
+    )
     billing_street_address = forms.CharField(label="Adresse")
     billing_street_address_line_2 = forms.CharField(
         label="Complément d'Adresse", help_text="optionnel", required=False
@@ -45,6 +44,9 @@ class CheckoutForm(forms.Form):
     payment_option = forms.ChoiceField(
         label="Options de paiement", choices=PAYMENT_CHOICES
     )
+    delivery_option = forms.ChoiceField(
+        label="Options de livraison", choices=DELIVERY_CHOICES
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -52,12 +54,16 @@ class CheckoutForm(forms.Form):
         self.helper.layout = Layout(
             Fieldset(
                 "Saisissez vos informations de contact",
-                Div("first_name", "last_name", css_class="inline-form-wrapper"),
-                "company_name",
                 Div("phone", "email", css_class="inline-form-wrapper"),
             ),
             Fieldset(
                 "Saisissez votre adresse de Livraison",
+                Div(
+                    "shipping_first_name",
+                    "shipping_last_name",
+                    css_class="inline-form-wrapper",
+                ),
+                "shipping_company_name",
                 "shipping_street_address",
                 "shipping_street_address_line_2",
                 Div(
@@ -73,15 +79,27 @@ class CheckoutForm(forms.Form):
             ),
             Fieldset(
                 "Saisissez votre adresse de Facturation",
+                Div(
+                    "billing_first_name",
+                    "billing_last_name",
+                    css_class="inline-form-wrapper",
+                ),
+                "billing_company_name",
                 "billing_street_address",
                 "billing_street_address_line_2",
-                Div("billing_zip_code", "billing_city", css_class="inline-form-wrapper"),
+                Div(
+                    "billing_zip_code", "billing_city", css_class="inline-form-wrapper"
+                ),
                 "billing_country",
-                css_class="hideable-shipping-form",
+                css_id="hideable-shipping-form",
             ),
             Fieldset(
                 "Sélectionnez un moyen de paiement",
                 "payment_option",
+            ),
+            Fieldset(
+                "Sélectionnez un mode de livraison",
+                "delivery_option",
             ),
         )
         self.helper.add_input(

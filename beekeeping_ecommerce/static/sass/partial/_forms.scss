@@ -11,11 +11,16 @@
 .custom-form-checkbox > div > div {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 0.5rem;
+  grid-template-rows: auto auto;
+  column-gap: 0.5rem;
 
   > input {
     margin-top: 3px;
     font-size: 1.1rem;
+  }
+
+  > span {
+    grid-column-start: span 2;
   }
 }
 

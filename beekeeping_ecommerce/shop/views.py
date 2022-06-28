@@ -8,12 +8,12 @@ from django.views.generic import View
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
 from django.utils.datastructures import MultiValueDictKeyError
 from django.contrib import messages
-from django.forms import model_to_dict
+from django.forms import EmailField, model_to_dict
 
 from django.urls import reverse
 from .models import (
     Product,
-    Customer,
+    ContactInfo,
     Order,
     OrderProduct,
     Address,
@@ -35,33 +35,11 @@ def create_ref_code():
     return "".join(random.choices(string.ascii_lowercase + string.digits, k=20))
 
 
-def get_customer(request):
-    """
-    This function is used to retrieve a customer.
-    It is used at each step of the purchasing process
-    to get all info related to the order. If the customer
-    does not exists, an error message is sent and the user
-    redirected to the home page
-    """
-    try:
-        customer = Customer.objects.get(user_id=request.session.session_key)
-        return customer
-    except ObjectDoesNotExist:
-        messages.error(
-            request,
-            "Erreur d'identification de l'utilisateur. La procédure d'achat est interrompue",
-        )
-        return False
-
-
 def get_order_product(request, product):
-    # retrieve customer
-    customer = get_customer(request)
-
     # check if the order_product exists else send an error message
     try:
         order_product = OrderProduct.objects.get(
-            customer=customer,
+            user_id=request.session.session_key,
             ordered=False,
             product=product,
         )
@@ -72,13 +50,10 @@ def get_order_product(request, product):
 
 
 def get_order(request):
-    # retrieve customer
-    customer = get_customer(request)
-
     # check if the order exists else send an error message
     try:
         order = Order.objects.get(
-            customer=customer,
+            user_id=request.session.session_key,
             ordered=False,
         )
         return order
@@ -111,11 +86,10 @@ class HomeView(View):
 
     def get_context_data(self, form):
         try:
-            customer = Customer.objects.get(user_id=self.request.session.session_key)
-        except ObjectDoesNotExist:
-            customer = False
-        try:
-            order = Order.objects.get(customer=customer, ordered=False)
+            order = Order.objects.get(
+                user_id=self.request.session.session_key,
+                ordered=False,
+            )
         except ObjectDoesNotExist:
             order = False
         context = {"order": order, "products": Product.objects.all(), "form": form}
@@ -133,7 +107,7 @@ class CartView(View):
 
 class CheckoutView(View):
     def get(self, *args, **kwargs):
-        # Retrieve the customer and the order
+        # Retrieve the the order
         order = get_order(self.request)
         if not order:
             return redirect("shop:home")
@@ -144,6 +118,9 @@ class CheckoutView(View):
         if order.shipping_address:
             data.update(
                 {
+                    "shipping_first_name": order.shipping_address.first_name,
+                    "shipping_last_name": order.shipping_address.last_name,
+                    "shipping_company_name": order.shipping_address.company_name,
                     "shipping_street_address": order.shipping_address.street_address,
                     "shipping_street_address_line_2": order.shipping_address.street_address_line_2,
                     "shipping_country": order.shipping_address.country,
@@ -154,39 +131,40 @@ class CheckoutView(View):
         if order.billing_address:
             data.update(
                 {
-                    "billing_street_address": order.shipping_address.street_address,
-                    "billing_street_address_line_2": order.shipping_address.street_address_line_2,
-                    "billing_country": order.shipping_address.country,
-                    "billing_zip_code": order.shipping_address.zip_code,
-                    "billing_city": order.shipping_address.city,
+                    "billing_first_name": order.billing_address.first_name,
+                    "billing_last_name": order.billing_address.last_name,
+                    "billing_company_name": order.billing_address.company_name,
+                    "billing_street_address": order.billing_address.street_address,
+                    "billing_street_address_line_2": order.billing_address.street_address_line_2,
+                    "billing_country": order.billing_address.country,
+                    "billing_zip_code": order.billing_address.zip_code,
+                    "billing_city": order.billing_address.city,
                 }
             )
-        if not order.customer.anonymous:
+        if order.contact_info:
             data.update(
                 {
-                    "first_name": order.customer.first_name,
-                    "last_name": order.customer.last_name,
-                    "company_name": order.customer.company_name,
-                    "phone": order.customer.phone,
-                    "email": order.customer.email,
+                    "phone": order.contact_info.phone,
+                    "email": order.contact_info.email,
                 }
             )
-        if order.payment_option:
-            data.update({
-                "payment_option": order.payment_option
-            })
-        data.update({'same_billing_address': order.same_billing_address})
-        form = CheckoutForm(data)
+
+        if not data:
+            form = CheckoutForm()
+        else:
+            if order.payment_option:
+                data.update({"payment_option": order.payment_option})
+            if order.delivery_option:
+                data.update({"delivery_option": order.delivery_option})
+            data.update({"same_billing_address": order.same_billing_address})
+            form = CheckoutForm(data)
 
         context = {"order": order, "form": form}
         return render(self.request, "shop/checkout.html", context)
 
     def post(self, *args, **kwargs):
 
-        # get the order and the customer
-        customer = get_customer(self.request)
-        if not customer:
-            return redirect("shop:home")
+        # get the order
         order = get_order(self.request)
         if not order:
             return redirect("shop:home")
@@ -208,6 +186,9 @@ class CheckoutView(View):
             data = {value: self.request.POST[value] for value in self.request.POST}
             data.update(
                 {
+                    "billing_first_name": form.data["shipping_first_name"],
+                    "billing_last_name": form.data["shipping_last_name"],
+                    "billing_company_name": form.data["shipping_company_name"],
                     "billing_street_address": form.data["shipping_street_address"],
                     "billing_street_address_line_2": form.data[
                         "shipping_street_address_line_2"
@@ -220,8 +201,17 @@ class CheckoutView(View):
             form = CheckoutForm(data)
 
         if form.is_valid():
+            # create contact_info object
+            contact_info = ContactInfo(
+                phone=form.cleaned_data["phone"],
+                email=form.cleaned_data["email"],
+            )
+
             # create shipping_address_object
             shipping_address = Address(
+                first_name=form.cleaned_data["shipping_first_name"],
+                last_name=form.cleaned_data["shipping_last_name"],
+                company_name=form.cleaned_data["shipping_company_name"],
                 street_address=form.cleaned_data["shipping_street_address"],
                 street_address_line_2=form.cleaned_data[
                     "shipping_street_address_line_2"
@@ -229,20 +219,14 @@ class CheckoutView(View):
                 country=form.cleaned_data["shipping_country"],
                 zip_code=form.cleaned_data["shipping_zip_code"],
                 city=form.cleaned_data["shipping_city"],
-                customer=customer,
                 address_type="S",
             )
 
-            # create customer object
-            customer.first_name = form.cleaned_data["first_name"]
-            customer.last_name = form.cleaned_data["last_name"]
-            customer.company_name = form.cleaned_data["company_name"]
-            customer.phone = form.cleaned_data["phone"]
-            customer.email = form.cleaned_data["email"]
-            customer.anonmymou = False
-
             # create a new object or update the existing object
             billing_address = Address(
+                first_name=form.cleaned_data["billing_first_name"],
+                last_name=form.cleaned_data["billing_last_name"],
+                company_name=form.cleaned_data["billing_company_name"],
                 street_address=form.cleaned_data["billing_street_address"],
                 street_address_line_2=form.cleaned_data[
                     "billing_street_address_line_2"
@@ -250,9 +234,18 @@ class CheckoutView(View):
                 country=form.cleaned_data["billing_country"],
                 zip_code=form.cleaned_data["billing_zip_code"],
                 city=form.cleaned_data["billing_city"],
-                customer=customer,
                 address_type="B",
             )
+
+            # saves or updates the contact_info and the order
+            if order.contact_info:
+                # updates the shipping address if it already exists
+                contact_info.id = order.contact_info.pk
+                contact_info.save()
+            else:
+                # else create a new one
+                contact_info.save()
+                order.contact_info = contact_info
 
             # saves or updates the shipping address and the order
             if order.shipping_address:
@@ -263,8 +256,6 @@ class CheckoutView(View):
                 # else create a new one
                 shipping_address.save()
                 order.shipping_address = shipping_address
-                order.save()
-
 
             # saves or updates the billing address and the order
             if order.billing_address:
@@ -275,15 +266,21 @@ class CheckoutView(View):
                 # else create a new one
                 billing_address.save()
                 order.billing_address = billing_address
-                order.save()
-
-            # save the customer info
-            customer.save()
 
             # save the payment information and the same_address_information
             order.payment_option = form.cleaned_data["payment_option"]
+            order.delivery_option = form.cleaned_data["delivery_option"]
             order.same_billing_address = form.cleaned_data["same_billing_address"]
+
             order.save()
+
+            # check which delivery option is selected to redirect to the appropriate view
+            if order.delivery_option != "H":
+                messages.warning(
+                    self.request, "Seule la livraison à domicile est disponible actuellement"
+                )
+                context = {"order": order, "form": form}
+                return render(self.request, "shop/checkout.html", context)
 
             # check which payment option is selected to redirect to the appropriate view
             if order.payment_option == "S":
@@ -292,7 +289,7 @@ class CheckoutView(View):
                 )
             else:
                 messages.warning(
-                    self.request, "Only Stripe payment is available right now"
+                    self.request, "Seul le paiement par carte bancaire est disponible actuellement"
                 )
                 context = {"order": order, "form": form}
                 return render(self.request, "shop/checkout.html", context)
@@ -303,10 +300,7 @@ class CheckoutView(View):
 
 class PaymentView(View):
     def get(self, *args, **kwargs):
-        # get the order and the customer
-        customer = get_customer(self.request)
-        if not customer:
-            return redirect("shop:home")
+        # get the order
         order = get_order(self.request)
         if not order:
             return redirect("shop:home")
@@ -340,7 +334,6 @@ class PaymentView(View):
             return redirect("shop:checkout")
         # else define context and render the view normally
         context = {
-            "customer": customer,
             "order": order,
             "client_secret": intent.client_secret,
             "stripe_api_public_key": settings.STRIPE_API_PUBLIC_KEY,
@@ -353,10 +346,7 @@ class PaymentView(View):
 
 class StatusView(View):
     def get(self, *args, **kwargs):
-        # get the order and the customer
-        customer = get_customer(self.request)
-        if not customer:
-            return redirect("shop:home")
+        # get the order
         order = get_order(self.request)
         if not order:
             return redirect("shop:home")
@@ -386,6 +376,7 @@ class StatusView(View):
         order.payment = payment
         order.ref_code = create_ref_code()
         order.ordered = True
+        order.ordered_date = datetime.now()
         order.save()
         order_products = order.products.all()
         order_products.update(ordered=True)
@@ -420,7 +411,6 @@ class StatusView(View):
             "stripe_api_public_key": settings.STRIPE_API_PUBLIC_KEY,
             "payment_status": payment_status,
             "charges": payment_intent_obj.charges.data[0],
-            "customer": customer,
             "order": order,
             "date_created": charges_date_created,
             "amount": amount_charged,
@@ -437,19 +427,14 @@ def add_to_cart(request, slug):
     if not request.session.session_key:
         request.session.create()
 
-    # a customer is created or retrieved from the database
-    customer, is_customer_created = Customer.objects.get_or_create(
-        user_id=request.session.session_key
-    )
-
     # get or create an order_product and an order
     order_product, is_order_product_created = OrderProduct.objects.get_or_create(
-        customer=customer,
+        user_id=request.session.session_key,
         ordered=False,
         product=product,
     )
     order, is_order_created = Order.objects.get_or_create(
-        customer=customer,
+        user_id=request.session.session_key,
         ordered=False,
     )
 
