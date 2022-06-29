@@ -27,6 +27,7 @@ class DemoRequestForm(forms.ModelForm):
                 "A quelle date souhaitez-vous que la démonstration ait lieu ?",
                 Field("requested_date", placeholder="24/08/2022"),
             ),
+            Div(css_class="g-recaptcha", **{'data-sitekey': "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"})
         )
         self.helper.add_input(Submit('submit', 'Demander une Démonstration', css_class="btn-primary btn-primary_center"))
         self.helper.form_method = 'post'

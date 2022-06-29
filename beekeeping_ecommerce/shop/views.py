@@ -3,6 +3,7 @@ import string
 
 from datetime import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
