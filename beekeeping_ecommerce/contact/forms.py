@@ -24,7 +24,7 @@ class DemoRequestForm(forms.ModelForm):
                 Div("accept_conditions", css_class="custom-form-checkbox"),
             ),
             Fieldset(
-                "A quelle date souhaitez-vous que la démonstration ait lieu ?",
+                "A quelle date souhaitezP-vous que la démonstration ait lieu ?",
                 Field("requested_date", placeholder="24/08/2022"),
             ),
             Div(css_class="g-recaptcha", **{'data-sitekey': "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"})

@@ -151,6 +151,12 @@ button {
   color: rgba(12, 3, 27, 0.7);
 }
 
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
 @media screen and (max-width: 1024px) {
   .container {
@@ -222,10 +228,6 @@ table.standard tbody tr td:first-child {
 }
 table.standard tbody tr td:last-child {
   text-align: right;
-}
-
-td {
-  overflow-wrap: break-word;
 }
 
 .card {
@@ -1112,6 +1114,13 @@ section.highlight .container .hero-content .right {
 }
 #demo .container {
   max-width: 700px;
+}
+
+.g-recaptcha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
 footer {

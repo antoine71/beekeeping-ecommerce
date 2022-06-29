@@ -80,9 +80,6 @@ class Address(models.Model):
     city = models.CharField("Ville", max_length=100)
     country = CountryField("Pays", multiple=False)
     zip_code = models.CharField("Code postal", max_length=15)
-    # same_shipping_address = models.BooleanField(
-    #     "L'adresse d'expédition est identique à l'adresse de facturation", default=True
-    # )
     address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
 
     def __str__(self):
@@ -104,7 +101,7 @@ class Payment(models.Model):
 
 
 class Order(models.Model):
-    ref_code = models.CharField(max_length=20)
+    ref_code = models.CharField(max_length=20, default="0")
     user_id = models.CharField("User id (session_key)", max_length=40)
     products = models.ManyToManyField(OrderProduct, related_name="orders", blank=True)
     start_date = models.DateTimeField("Date created", auto_now_add=True)

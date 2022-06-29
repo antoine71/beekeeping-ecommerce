@@ -137,3 +137,7 @@ static_old/
 
 # staticfiles
 staticfiles/
+
+# media files 
+
+media/
