@@ -5,8 +5,8 @@
 {% endblock title %}
 {% block content %}
   <section class="blog legal-terms">
+    <h1>{% translate "Mentions légales" %}</h1>
     <div class="container">
-      <h1>{% translate "Mentions légales" %}</h1>
       <h2>1 - {% translate "Édition du site" %}</h2>
       <p>
         En vertu de <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000801164/#LEGIARTI000042038977">l'article 6 de la loi n° 2004-575 du 21 juin 2004</a> pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site internet <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi:
@@ -18,7 +18,7 @@
         <br>
         &emsp; info@numericbees.com
         <br>
-        &emsp; +33 626 580 715
+        &emsp; +33 X XX XX XX XX
         <br>
         &emsp; 56, Rue du Dauphiné
         <br>
@@ -41,14 +41,14 @@
       <p>
         <strong>Conditions générales de vente :</strong>
         <br>
-        &emsp; <a href="{% url 'shop:sales-conditions' %}">https://www.numericbees.com/cgv</a>
+        &emsp; <a href="{% url 'shop:sales-conditions' %}">https://www.numericbees.com/{% url 'shop:sales-conditions' %}</a>
       </p>
       <p>
         <strong>Directeur de la publication :</strong>
         <br>
         &emsp; Emmanuel JALLAS
         <br>
-        &emsp; Contact : <a href="mailto:info@numericbees.com">info@numericbees.com</a>
+        &emsp; Contact : <a href="mailto:info@numericbees.com">infor@numericbees.com</a>
       </p>
       <p>
         <strong>Hébergeur :</strong>
@@ -69,7 +69,7 @@
         <br>
         &emsp; Emmanuel JALLAS
         <br>
-        &emsp; <a href="mailto:info@numericbees.com">info@numericbees.com</a>
+        &emsp; <a href="mailto:rgpd@numericbees.com">rgpd@numericbees.com</a>
       </p>
       <p>
         <strong>Autres contributeurs :</strong>
@@ -103,7 +103,7 @@
         4 - CNIL et gestion des données personnelles.
       </h2>
       <p>
-        Conformément aux dispositions de <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460/">la loi 78-17 du 6 janvier 1978 modifiée</a>, l’utilisateur du site <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a> dispose d’un droit d’accès, de modification et de suppression des informations collectées. Pour exercer ce droit, envoyez un message à notre Délégué à la Protection des Données : <strong>Emmanuel JALLAS</strong> - <a href="mailto:info@numericbees.com">info@numericbees.com</a>.
+        Conformément aux dispositions de <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000886460/">la loi 78-17 du 6 janvier 1978 modifiée</a>, l’utilisateur du site <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a> dispose d’un droit d’accès, de modification et de suppression des informations collectées. Pour exercer ce droit, envoyez un message à notre Délégué à la Protection des Données : <strong>Emmanuel JALLAS</strong> - <a href="mailto:rgpd@numericbees.com">rgpd@numericbees.com</a>.
       </p>
       <p>
         Pour plus d'informations sur la façon dont nous traitons vos données (type de données, finalité, destinataire...), lisez notre <a href="{% url 'shop:confidentiality' %}">Politique de Confidentialité</a>.

@@ -170,3 +170,5 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # ------------------------------------------------------------------------------
 
 COUNTRIES_ONLY = ['FR'] # + ['ES', 'IT', 'DE', 'NL', 'PL']
+
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8080', 'http://192.168.0.19:8080']

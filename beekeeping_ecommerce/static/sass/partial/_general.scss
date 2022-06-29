@@ -38,7 +38,8 @@ a {
 }
 
 section {
-  margin-top: 6rem;
+  &.home {
+  padding-top: 6rem;}
 
   &.shop,
   &.blog {

@@ -1,13 +1,14 @@
 {% load static %}
 
-<section id="buy">
-  <h2>Commandez Votre Zephyr 1</h2>
-  <p>Livraison en France Métropolitaine</p>
+<section id="buy" class="home">
+  <h2>Commandez votre Zephyr 1</h2>
+  <p>Livraison en France métropolitaine</p>
   <div class="container">
     {% for product in products %}
       <article>
         <h3>{{ product.name }}</h3>
         <h4>{{ product.short_description }}</h4>
+        <p>{{ product.long_description }}</p>
         <table class="standard">
           <tbody>
             <tr>

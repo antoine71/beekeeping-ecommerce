@@ -18,15 +18,7 @@ class DemoRequest(models.Model):
     shop_name = models.CharField("Nom du Magasin", max_length=255)
     city = models.CharField("Ville", max_length=100)
     post_code = models.CharField("Code Postal", max_length=10)
-    requested_date = models.DateField(
-        "Date souhaitée",
-        help_text=("au format jj/mm/aaaa"),
-        validators=[validate_date_requested]
-    )
-    last_name = models.CharField("Nom de Famille", max_length=100)
-    first_name = models.CharField("Prénom", max_length=100)
     email = models.EmailField("Adresse Email")
-    phone = models.CharField("Numéro de téléphone", max_length=20)
     accept_conditions = models.BooleanField(
         "Accepter la politique de confidentialité",
         validators=[validate_confidentiality],

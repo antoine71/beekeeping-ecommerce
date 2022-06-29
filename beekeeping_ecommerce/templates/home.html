@@ -11,7 +11,7 @@
       <div class="hero-content">
         <div class="left">
           <h1>Zephyr 1</h1>
-          <h2>L'enfumoir Apicole Qui Facilite La Vie Au Rucher</h2>
+          <h2>L'enfumoir apicole qui facilite la vie au rucher</h2>
           <div class="check">
             <i class="bx bx-check-square"></i>
             <p>Allumage sans effort</p>
@@ -41,26 +41,31 @@
     </div>
   </section>
   <!-- END  OF  HERO -->
-  <section id="knowmore" class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <video width="100%" autoplay muted loop controls>
-          <source src="{% static 'assets/video/ouverture-ruche.mp4' %}"
-                  type="video/mp4"/>
-          Your browser does not support the video.
-        </video>
-      </div>
-      <div class="swiper-slide">
-        <video width="100%" autoplay muted loop controls>
-          <source src="{% static 'assets/video/faire-descendre-les-abeilles.mp4' %}"
-                  type="video/mp4"/>
-          Your browser does not support the video.
-        </video>
+  <section id="knowmore" class="home">
+    <div class="container">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <video width="100%" muted controls>
+              <source src="{% static 'assets/video/ouverture-ruche.mp4' %}"
+                      type="video/mp4"/>
+              Your browser does not support the video.
+            </video>
+          </div>
+          <div class="swiper-slide">
+            <video width="100%" muted controls>
+              <source src="{% static 'assets/video/faire-descendre-les-abeilles.mp4' %}"
+                      type="video/mp4"/>
+              Your browser does not support the video.
+            </video>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
+  </div>
   </section>
   <!-- END OF KNOWMORE -->
   {% include 'home/features.html' %}

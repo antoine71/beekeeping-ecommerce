@@ -49,8 +49,8 @@ a:hover {
   color: rgba(12, 3, 27, 0.7);
 }
 
-section {
-  margin-top: 6rem;
+section.home {
+  padding-top: 6rem;
 }
 section.shop, section.blog {
   margin-top: 3rem;
@@ -942,6 +942,7 @@ nav .container .buttons button {
 }
 section.hero {
   margin-top: 5rem;
+  padding-top: 0;
   overflow: hidden;
 }
 section.hero .hero-bg-image {
@@ -1060,7 +1061,8 @@ section.highlight .container .hero-content .right {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
-  gap: 2rem;
+  gap: 4rem;
+  max-width: 1100px;
 }
 #services .container article {
   background: #fffffd;
@@ -1072,6 +1074,7 @@ section.highlight .container .hero-content .right {
   border: 1px solid #C6C6C6;
   margin: 1rem 0;
   margin: 0;
+  border: 0px;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1.5rem;
@@ -1107,6 +1110,7 @@ section.highlight .container .hero-content .right {
   #services .container {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
+    gap: 2rem;
   }
   #services .container article .description h4 {
     margin-bottom: 0.8rem;

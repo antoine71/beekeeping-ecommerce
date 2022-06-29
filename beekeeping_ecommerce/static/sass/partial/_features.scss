@@ -3,11 +3,16 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 1fr;
-    gap: 2rem;
+    gap: 4rem;
+    max-width: 1100px;
 
     article {
       @include card;
       margin: 0;
+      border: 0px;
+      // // @include gradientBackground;
+      // border-radius: 1rem;
+      // box-shadow: $box-shadow;
 
       display: grid;
       grid-template-columns: auto 1fr;
@@ -57,6 +62,7 @@
     .container {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(6, 1fr);
+      gap: 2rem;
 
       article {
         .description {

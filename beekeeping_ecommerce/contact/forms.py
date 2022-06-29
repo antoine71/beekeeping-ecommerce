@@ -18,14 +18,9 @@ class DemoRequestForm(forms.ModelForm):
                 Div("post_code", "city", css_class="inline-form-wrapper"),
             ),
             Fieldset(
-                "Comment pouvons nous vous joindre ?",
-                Div("first_name", "last_name", css_class="inline-form-wrapper"),
-                Div("email", "phone", css_class="inline-form-wrapper"),
+                "Comment pouvons nous vous prévenir de la démonstration ?",
+                "email",
                 Div("accept_conditions", css_class="custom-form-checkbox"),
-            ),
-            Fieldset(
-                "A quelle date souhaitezP-vous que la démonstration ait lieu ?",
-                Field("requested_date", placeholder="24/08/2022"),
             ),
             Div(css_class="g-recaptcha", **{'data-sitekey': "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"})
         )
@@ -39,10 +34,6 @@ class DemoRequestForm(forms.ModelForm):
             "shop_name",
             "city",
             "post_code",
-            "requested_date",
-            "last_name",
-            "first_name",
             "email",
-            "phone",
             "accept_conditions",
         ]
