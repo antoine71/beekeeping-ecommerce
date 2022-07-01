@@ -1,0 +1,35 @@
+#users {
+  width: 90%;
+
+  .swiper-wrapper {
+    // brings .swiper- pagination down
+    margin-bottom: 3rem;
+
+    article {
+      border: 0;
+      
+      & > p {
+        margin-bottom: 1rem;
+      }
+      .user-profile {
+        display: flex;
+        align-items: center;
+      }
+      .image-wrapper {
+        width: 4rem;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .user-info {
+        margin-left: 1rem;
+        & > p {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .swiper-pagination-bullet {
+    background: $primary-color;
+  }
+}

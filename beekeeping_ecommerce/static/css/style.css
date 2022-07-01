@@ -1070,7 +1070,12 @@ section.highlight .container .hero-content .right {
   }
 }
 #knowmore {
-  padding-bottom: 5rem;
+  background: #F1C06A;
+}
+#knowmore .container {
+  width: 100%;
+  max-width: 1024px;
+  padding-bottom: 8rem;
 }
 #knowmore .swiper {
   padding: 50px;
@@ -1499,4 +1504,35 @@ section.article-list .container .article_card > h3 {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+}
+#users {
+  width: 90%;
+}
+#users .swiper-wrapper {
+  margin-bottom: 3rem;
+}
+#users .swiper-wrapper article {
+  border: 0;
+}
+#users .swiper-wrapper article > p {
+  margin-bottom: 1rem;
+}
+#users .swiper-wrapper article .user-profile {
+  display: flex;
+  align-items: center;
+}
+#users .swiper-wrapper article .image-wrapper {
+  width: 4rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#users .swiper-wrapper article .user-info {
+  margin-left: 1rem;
+}
+#users .swiper-wrapper article .user-info > p {
+  font-weight: 600;
+}
+#users .swiper-pagination-bullet {
+  background: #a61916;
 }/*# sourceMappingURL=style.css.map */

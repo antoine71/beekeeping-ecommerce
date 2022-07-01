@@ -3,7 +3,7 @@
   <h2>Découvrez Zephyr 1</h2>
   <p>Découvrez l'enfumoir automatique Zephyr 1</p>  
   <div class="container">
-    <div class="swiper mySwiper">
+    {% comment %} <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <video width="100%" muted controls>
@@ -21,7 +21,11 @@
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-pagination"></div>
-    </div>
+    </div> {% endcomment %}
+    <video width="100%" muted controls>
+      <source src="{% static 'assets/video/ouverture-ruche.mp4' %}" type="video/mp4"/>
+      Your browser does not support the video.
+    </video>
   </div>
 </section>
 

@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
   <section class="highlight">
     <div class="container">
@@ -41,13 +40,15 @@
   <!-- END OF DISCOVER -->
   {% include 'home/features.html' %}
   <!-- END OF FEATURES -->
+  {% include 'home/users.html' %}
+  <!-- END OF FEATURUSERSES -->
   {% include 'shop/buy.html' %}
   <!-- END OF BUY -->
   {% include 'contact/demo_request.html' %}
   <!-- END OF DEMO -->
   <button type="button" class="btn-primary" id="btn-back-to-top">
     <i class='bx bxs-up-arrow-circle'></i>
-  </button>  
+  </button>
 {% endblock content %}
 {% block additional_scripts %}
   <script src="{% static 'js/scroll_top.js' %}"></script>
@@ -56,19 +57,25 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <!-- Initialize Swiper -->
   <script>
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 50,
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    
+      // responsive breakpoints
+      breakpoints: {
+        //when window width is >= 600px
+        600: {
+          slidesPerView: 2,
+        },
+        //when window width is >= 1024px
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
   </script>
 {% endblock additional_scripts %}
-k
