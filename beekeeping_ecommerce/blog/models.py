@@ -11,6 +11,7 @@ class Article(models.Model):
     abstract = models.CharField(max_length=512)
     content = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to="blog_images", null=True, blank=True)
     author = models.ForeignKey(
         to=settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
 

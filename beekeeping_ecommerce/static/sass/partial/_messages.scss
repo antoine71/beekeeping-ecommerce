@@ -13,15 +13,16 @@ ul.django-messages {
   li {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1.6rem 1rem;
     &.info {
-      background: $success-color;
+      background: rgba($success-color, 0.8);
     }
     &.error {
-      background: $danger-color;
+      background: rgba($danger-color, 0.8);
     }
     &.warning {
-      background: $warning-color;
+      background: rgba($warning-color, 0.8);
     }
 
     button {

@@ -3,11 +3,10 @@ from django import forms
 from .models import DemoRequest
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Submit, Div, Field
+from crispy_forms.layout import Layout, Fieldset, Submit, Div
 
 
 class DemoRequestForm(forms.ModelForm):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -22,10 +21,19 @@ class DemoRequestForm(forms.ModelForm):
                 "email",
                 Div("accept_conditions", css_class="custom-form-checkbox"),
             ),
-            Div(css_class="g-recaptcha", **{'data-sitekey': "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"})
+            Div(
+                css_class="g-recaptcha",
+                **{"data-sitekey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
+            ),
         )
-        self.helper.add_input(Submit('submit', 'Demander une Démonstration', css_class="btn-primary btn-primary_center"))
-        self.helper.form_method = 'post'
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Demander une Démonstration",
+                css_class="btn-primary btn-primary_center",
+            )
+        )
+        self.helper.form_method = "post"
 
     class Meta:
         model = DemoRequest

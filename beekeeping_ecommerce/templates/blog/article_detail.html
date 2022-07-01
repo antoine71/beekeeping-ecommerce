@@ -4,12 +4,31 @@
 {% block content %}
   <section class="blog article-detail">
     <div class="container">
-      <h1>{{ article.title }}</h1>
-      <small>
-        Publié par {{ article.author.first_name }} {{ article.author.last_name }} le {{ article.date_created | date:"j F Y" }}
-      </small>
-      <h2 class="abstract"><b>Résumé: </b>{{ article.abstract }}</h2>
-      <p>{{ article.content | markdown | safe }}</p>
+      <div>
+        <a href="{% url 'blog:article-list' %}" class="btn-primary">
+          <i class='bx bx-chevrons-left'></i>
+          <span>Retour vers le sommaire</span>
+        </a>
+      </div>
+      <div class="article_content">
+        <h1>{{ article.title }}</h1>
+        <small class="text-muted">Publié le {{ article.date_created | date:"j F Y" }}</small>
+        <h2 class="abstract">
+          <b>Résumé: </b>{{ article.abstract }}
+        </h2>
+        <div class="article-image">
+          <img src="{{ article.image.url }}" alt="illustration apiculture">
+        </div>
+        {{ article.content | markdown | safe }}
+      </div>
     </div>
+    <!-- Back to top button -->
+    <button type="button" class="btn-primary" id="btn-back-to-top">
+      <i class='bx bxs-up-arrow-circle'></i>
+    </button>
   </section>
 {% endblock content %}
+{% block additional_scripts %}
+  <script src="{% static 'js/anchor_offset.js' %}"></script>
+  <script src="{% static 'js/scroll_top.js' %}"></script>
+{% endblock additional_scripts %}

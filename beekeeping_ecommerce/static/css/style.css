@@ -66,7 +66,7 @@ section.blog h3,
 section.blog h4,
 section.blog h5,
 section.blog h6 {
-  color: #89230E;
+  color: #a61916;
   margin-bottom: 0.3rem;
   margin-top: 0.5rem;
 }
@@ -96,14 +96,14 @@ section > p {
   width: fit-content;
   padding: 0.75rem 1rem;
   border-radius: 0.4rem;
-  background: #89230E;
+  background: #a61916;
   color: #FFFEF9;
   cursor: pointer;
   transition: all 400ms ease;
   text-decoration: none;
 }
 .btn:hover {
-  background: #ae2c12;
+  background: #ca1e1b;
   box-shadow: 0 1rem 1.6rem rgba(12, 3, 27, 0.15);
   color: #FFFEF9;
 }
@@ -117,7 +117,7 @@ section > p {
   width: fit-content;
   padding: 0.75rem 1rem;
   border-radius: 0.4rem;
-  background: #89230E;
+  background: #a61916;
   color: #FFFEF9;
   cursor: pointer;
   transition: all 400ms ease;
@@ -126,7 +126,7 @@ section > p {
   font-family: "Roboto", sans-serif;
 }
 .btn-primary:hover {
-  background: #ae2c12;
+  background: #ca1e1b;
   box-shadow: 0 1rem 1.6rem rgba(12, 3, 27, 0.15);
   color: #FFFEF9;
 }
@@ -155,6 +155,13 @@ input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
 }
 
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
@@ -188,16 +195,17 @@ ul.django-messages {
 ul.django-messages li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1.6rem 1rem;
 }
 ul.django-messages li.info {
-  background: #54eb72;
+  background: rgba(84, 235, 114, 0.8);
 }
 ul.django-messages li.error {
-  background: rgb(244, 56, 56);
+  background: rgba(244, 56, 56, 0.8);
 }
 ul.django-messages li.warning {
-  background: orange;
+  background: rgba(255, 165, 0, 0.8);
 }
 ul.django-messages li button {
   font-size: 1.4rem;
@@ -212,7 +220,7 @@ table.standard {
 table.standard thead {
   text-align: center;
   font-weight: 600;
-  color: #89230E;
+  color: #a61916;
 }
 table.standard tbody tr:last-child > td {
   border-bottom: 0;
@@ -266,10 +274,6 @@ table.standard tbody tr td:last-child {
   text-decoration: none;
 }
 
-.asteriskField {
-  display: none;
-}
-
 .inline-form-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -289,6 +293,13 @@ table.standard tbody tr td:last-child {
 }
 .custom-form-checkbox > div > div > span {
   grid-column-start: span 2;
+}
+
+.g-recaptcha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
 /* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
@@ -388,9 +399,9 @@ textarea {
 .form-control:focus {
   color: #212529;
   background-color: #fff;
-  border-color: #89230E;
+  border-color: #a61916;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(137, 35, 14, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(166, 25, 22, 0.25);
 }
 
 .form-control::-webkit-date-and-time-value {
@@ -766,14 +777,14 @@ textarea.form-control.is-invalid {
 }
 
 .form-check-input:focus {
-  border-color: #89230E;
+  border-color: #a61916;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(137, 35, 14, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(166, 25, 22, 0.25);
 }
 
 .form-check-input:checked {
-  background-color: #89230E;
-  border-color: #89230E;
+  background-color: #a61916;
+  border-color: #a61916;
 }
 
 .form-check-input:checked[type=checkbox] {
@@ -871,6 +882,17 @@ nav .container .nav__logo {
   font-family: "Kanit", serif;
   font-weight: 600;
   font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav .container .nav__logo > h3 {
+  font-size: 1.2rem;
+  color: #a61916;
+  margin-left: 1rem;
+}
+nav .container .nav__logo > img {
+  height: 2rem;
 }
 nav .container #nav__items {
   display: flex;
@@ -895,7 +917,7 @@ nav .container .buttons .cart .cart-quantity {
   font-size: 0.8rem;
   width: 1.4rem;
   height: 1.4rem;
-  background: #89230E;
+  background: #a61916;
   color: #FFFEF9;
   border-radius: 50%;
 }
@@ -1047,14 +1069,15 @@ section.highlight .container .hero-content .right {
     display: none;
   }
 }
-#knowmore .swiper-wrapper {
-  margin-bottom: 2rem;
+#knowmore .swiper {
+  padding: 50px;
 }
 #knowmore .swiper-pagination-bullet {
-  background: #89230E;
+  background: #a61916;
 }
 #knowmore .swiper-button-next, #knowmore .swiper-button-prev {
-  color: #89230E;
+  color: #a61916;
+  font-size: 10rem;
 }
 
 #services .container {
@@ -1079,18 +1102,18 @@ section.highlight .container .hero-content .right {
   grid-template-columns: auto 1fr;
   gap: 1.5rem;
   transition: all 400ms ease;
-  border-color: #89230E;
+  border-color: #a61916;
 }
 #services .container article:hover {
   box-shadow: none;
 }
 #services .container article > i {
   font-size: 1.7rem;
-  color: #89230E;
+  color: #a61916;
 }
 #services .container article .description h4 {
   margin-bottom: 1rem;
-  color: #89230E;
+  color: #a61916;
 }
 
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
@@ -1118,13 +1141,6 @@ section.highlight .container .hero-content .right {
 }
 #demo .container {
   max-width: 700px;
-}
-
-.g-recaptcha {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
 }
 
 footer {
@@ -1434,10 +1450,18 @@ section.blog .container p {
   margin: 1rem 0;
 }
 
-section.article-detail h2.abstract {
+section.article-detail .container .article_content {
+  max-width: 700px;
+  margin: 3rem auto 0;
+}
+section.article-detail .container .article_content h2.abstract {
   font-weight: 400;
   color: #0c031b;
   font-size: 1.2rem;
+}
+section.article-detail .container .article_content p {
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
 section.article-list .container {
@@ -1450,11 +1474,20 @@ section.article-list .container .article_card {
   text-decoration: none;
   height: auto;
 }
+section.article-list .container .article_card > h2 {
+  margin-bottom: 0;
+}
 section.article-list .container .article_card > h3 {
   color: #0c031b;
   font-size: 1rem;
   font-weight: 400;
-  margin-top: 1rem;
+  margin-top: 0;
+}
+
+.article-image {
+  padding: 0.6rem 0;
+  max-width: 400px;
+  margin: auto;
 }
 
 /* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */

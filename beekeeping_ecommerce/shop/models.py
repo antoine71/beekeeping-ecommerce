@@ -2,17 +2,16 @@ from django.db import models
 
 from django_countries.fields import CountryField
 from autoslug import AutoSlugField
-from requests import request
 
 
 PAYMENT_CHOICES = (
     ("S", "Carte Bancaire"),
-#    ("P", "Paypal"),
+    #    ("P", "Paypal"),
 )
 
 DELIVERY_CHOICES = (
     ("H", "Livraison à Domicile"),
-#    ("P", "Livraison en Point Relais"),
+    #    ("P", "Livraison en Point Relais"),
 )
 
 ADDRESS_CHOICES = (

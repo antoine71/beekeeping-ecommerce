@@ -19,6 +19,18 @@ nav {
 
     .nav__logo {
       @include logoStyleNormal;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & > h3 {
+        font-size: 1.2rem;
+        color: $primary-color;
+        margin-left: 1rem;
+      }
+      & > img {
+        height: 2rem;
+      }
+
     }
 
     #nav__items {

@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block additional_head_scripts %}
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-{% endblock additional_head_scripts %}
-
 {% block content %}
   <section class="highlight">
     <div class="container">
@@ -65,7 +61,6 @@
         <div class="swiper-pagination"></div>
       </div>
     </div>
-  </div>
   </section>
   <!-- END OF KNOWMORE -->
   {% include 'home/features.html' %}
@@ -74,15 +69,19 @@
   <!-- END OF BUY -->
   {% include 'contact/demo_request.html' %}
   <!-- END OF DEMO -->
+  <button type="button" class="btn-primary" id="btn-back-to-top">
+    <i class='bx bxs-up-arrow-circle'></i>
+  </button>  
 {% endblock content %}
 {% block additional_scripts %}
+  <script src="{% static 'js/scroll_top.js' %}"></script>
   <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <!-- Initialize Swiper -->
   <script>
   var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
-    spaceBetween: 0,
+    spaceBetween: 50,
     loop: true,
     pagination: {
       el: ".swiper-pagination",
@@ -95,3 +94,4 @@
   });
   </script>
 {% endblock additional_scripts %}
+k

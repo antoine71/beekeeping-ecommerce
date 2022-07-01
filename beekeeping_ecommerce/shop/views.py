@@ -3,13 +3,12 @@ import string
 
 from datetime import datetime
 
-from django.contrib.auth.decorators import login_required
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
-from django.core.exceptions import ObjectDoesNotExist, ValidationError
+from django.core.exceptions import ObjectDoesNotExist, ValidationError, MultipleObjectsReturned
 from django.utils.datastructures import MultiValueDictKeyError
 from django.contrib import messages
-from django.forms import EmailField, model_to_dict
 
 from django.urls import reverse
 from .models import (
@@ -352,8 +351,8 @@ class StatusView(View):
         if not order:
             return redirect("shop:home")
 
-        ## todo: mettre un check sur le paiement pour eviter que la page ne se
-        ## charge si l'order n'a pas été payé
+        # todo: mettre un check sur le paiement pour eviter que la page ne se
+        # charge si l'order n'a pas été payé
 
         # Retrieve the payment intent ids returned by stripe after processing the payment
         payment_intent = self.request.GET.get("payment_intent")
@@ -525,10 +524,11 @@ class RequestRefundView(View):
                     "Votre demande de remboursement a bien été prise en compte.",
                 )
 
-                return redirect("shop:request-refund")
-
+                return render(self.request, "shop/request_refund_confirmation.html")
             except ObjectDoesNotExist:
                 messages.warning(self.request, "Ce numéro de commande n'existe pas.")
+            except MultipleObjectsReturned:
+                messages.warning(self.request, "Ce numéro de commande est invalide.")
 
             context = {"form": form}
             return render(self.request, "shop/request_refund.html", context)

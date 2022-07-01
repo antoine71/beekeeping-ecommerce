@@ -1,5 +1,10 @@
 {% load crispy_forms_tags %}
 {% load static %}
+
+{% block additional_head_scripts %}
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock additional_head_scripts %}
+
 <section id="demo" class="home">
   <h2>Dans quel magasin souhaiteriez-vous avoir une démonstration ?</h2>
   <p>
@@ -8,6 +13,7 @@
   <div class="container">
     <article class="card">
       {% crispy form %}
+      <small class="text-muted">* Ce champ est obligatoire</small>
     </article>
   </div>
 </section>

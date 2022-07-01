@@ -3,6 +3,10 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+{% block additional_head_scripts %}
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock additional_head_scripts %}
+
 {% block content %}
 <section class="shop">
   <h2>Formulaire de demande de remboursement</h2>
@@ -12,6 +16,7 @@
   <div class="container">
     <article class="card">
       {% crispy form %}
+      <small class="text-muted">* Ce champ est obligatoire</small>
     </article>
   </div>
 </section>

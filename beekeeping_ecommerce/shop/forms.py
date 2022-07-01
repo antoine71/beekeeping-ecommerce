@@ -1,5 +1,4 @@
 from django import forms
-from django.db import models
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Submit, Div, Field
@@ -46,6 +45,11 @@ class CheckoutForm(forms.Form):
     )
     delivery_option = forms.ChoiceField(
         label="Options de livraison", choices=DELIVERY_CHOICES
+    )
+    accept_confidentiality = forms.BooleanField(
+        label="J'accepte la politique de confidentialité et de traitement"
+        " des données personnelles",
+        initial=False,
     )
 
     def __init__(self, *args, **kwargs):
@@ -101,6 +105,7 @@ class CheckoutForm(forms.Form):
                 "Sélectionnez un mode de livraison",
                 "delivery_option",
             ),
+            Div("accept_confidentiality", css_class="custom-form-checkbox"),
         )
         self.helper.add_input(
             Submit("submit", "Commander", css_class="btn-primary btn-primary_center")
@@ -114,10 +119,25 @@ class RefundForm(forms.Form):
         label="Message décrivant la ou les raisons de votre demande de remboursement:",
         widget=forms.Textarea(attrs={"rows": 6}),
     )
+    accept_conditions = forms.BooleanField(
+        label="J'accepte les conditions s'appliquant à l'exercice du droit de rétractation "
+              "mentionnées dans les conditions générales de ventes",
+              required=True,
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
+        self.helper.layout = Layout(
+            "ref_code",
+            "email",
+            "message",
+            Div("accept_conditions", css_class="custom-form-checkbox"),
+            Div(
+                css_class="g-recaptcha",
+                **{"data-sitekey": "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"}
+            ),
+        )
         self.helper.add_input(
             Submit("submit", "Envoyer", css_class="btn-primary btn-primary_center")
         )
