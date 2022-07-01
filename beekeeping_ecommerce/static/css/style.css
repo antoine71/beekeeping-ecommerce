@@ -873,7 +873,7 @@ nav a {
   text-decoration: none;
 }
 nav .container {
-  height: 5rem;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1068,6 +1068,9 @@ section.highlight .container .hero-content .right {
   section.highlight .container .hero-content .right {
     display: none;
   }
+}
+#knowmore {
+  padding-bottom: 5rem;
 }
 #knowmore .swiper {
   padding: 50px;

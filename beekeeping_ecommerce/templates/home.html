@@ -37,32 +37,8 @@
     </div>
   </section>
   <!-- END  OF  HERO -->
-  <section id="knowmore" class="home">
-    <div class="container">
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <video width="100%" muted controls>
-              <source src="{% static 'assets/video/ouverture-ruche.mp4' %}"
-                      type="video/mp4"/>
-              Your browser does not support the video.
-            </video>
-          </div>
-          <div class="swiper-slide">
-            <video width="100%" muted controls>
-              <source src="{% static 'assets/video/faire-descendre-les-abeilles.mp4' %}"
-                      type="video/mp4"/>
-              Your browser does not support the video.
-            </video>
-          </div>
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-  </section>
-  <!-- END OF KNOWMORE -->
+  {% include 'home/discover.html' %}
+  <!-- END OF DISCOVER -->
   {% include 'home/features.html' %}
   <!-- END OF FEATURES -->
   {% include 'shop/buy.html' %}
@@ -75,6 +51,7 @@
 {% endblock content %}
 {% block additional_scripts %}
   <script src="{% static 'js/scroll_top.js' %}"></script>
+  <script src="{% static 'js/anchor_offset.js' %}"></script>
   <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <!-- Initialize Swiper -->

@@ -6,7 +6,7 @@
 
   var anchorScrolls = {
     ANCHOR_REGEX: /^#[^ ]+$/,
-    OFFSET_HEIGHT_PX: 90,
+    OFFSET_HEIGHT_PX: 80,
 
     /**
      * Establish events, and fix initial scroll position if a hash is provided.

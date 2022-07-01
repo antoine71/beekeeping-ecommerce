@@ -1,21 +1,9 @@
 #knowmore {
-
+  padding-bottom: 5rem;
   .swiper {
     padding: 50px;
   }
 
-  .swiper-wrapper {
-    
-    // brings .swiper-pagination down
-    // margin-bottom: 2rem;
-    // margin-left: 5rem;
-    // padding-right: 5rem;
-    
-  }
-
-  // .swiper-slide.swiper-slide-next {
-  //   mafgin-left: 100px;
-  // }
   .swiper-pagination-bullet {
     background: $primary-color;
   }
