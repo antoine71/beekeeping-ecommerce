@@ -16,9 +16,11 @@
         <h2 class="abstract">
           <b>Résumé: </b>{{ article.abstract }}
         </h2>
-        <div class="article-image">
-          <img src="{{ article.image.url }}" alt="illustration apiculture">
-        </div>
+        {% if article.image %}
+          <div class="article-image">
+            <img src="{{ article.image.url }}" alt="illustration apiculture">
+          </div>
+        {% endif %}
         {{ article.content | markdown | safe }}
       </div>
     </div>

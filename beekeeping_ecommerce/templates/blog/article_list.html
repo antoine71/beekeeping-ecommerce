@@ -7,9 +7,11 @@
         <article class="article_card card">
           <h2 class="post-title">{{ article.title }}</h2>
           <small class="text-muted">Publié le {{ article.date_created | date:"j F Y" }}</small>
-          <div class="article-image">
-            <img src="{{ article.image.url }}" alt="illustration apiculture">
-          </div>
+          {% if article.image %}
+            <div class="article-image">
+              <img src="{{ article.image.url }}" alt="illustration apiculture">
+            </div>
+          {% endif %}
           <h3 class="post-subtitle">{{ article.abstract }}</h3>
           <a href="{% url 'blog:article-detail' slug=article.slug %}"
              class="btn-primary btn-primary_center">Lire l'Article</a>
