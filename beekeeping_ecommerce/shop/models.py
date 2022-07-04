@@ -11,7 +11,7 @@ PAYMENT_CHOICES = (
 
 DELIVERY_CHOICES = (
     ("H", "Livraison à Domicile"),
-    #    ("P", "Livraison en Point Relais"),
+    ("R", "Livraison en Point Relay"),
 )
 
 ADDRESS_CHOICES = (
@@ -47,6 +47,12 @@ class OrderProduct(models.Model):
 
     def get_order_product_price(self):
         return self.product.get_price_incl_vat() * self.quantity
+
+    def get_order_product_price_ex_vat(self):
+        return self.product.price * self.quantity
+
+    def get_order_product_vat_price(self):
+        return self.product.get_vat_price() * self.quantity
 
     def __str__(self):
         return f"{self.quantity} of {self.product.name}"
@@ -86,6 +92,16 @@ class Address(models.Model):
 
     class Meta:
         verbose_name_plural = "Addresses"
+
+
+class MondialRelayInfo(models.Model):
+    mr_ID = models.CharField(max_length=10)
+    mr_Nom = models.CharField(max_length=50)
+    mr_Adresse1 = models.CharField(max_length=50)
+    mr_Adresse2 = models.CharField(max_length=50, null=True, blank=True)
+    mr_CP = models.CharField(max_length=10)
+    mr_Ville = models.CharField(max_length=50)
+    mr_Pays = models.CharField(max_length=2)
 
 
 class Payment(models.Model):
@@ -130,6 +146,14 @@ class Order(models.Model):
         null=True,
         related_name="billing_address",
     )
+    mondial_relay_info = models.ForeignKey(
+        MondialRelayInfo,
+        verbose_name="Adresse du point relais",
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name="mondial_relay_info",
+    )
     payment_option = models.CharField(
         "Options de payment", max_length=1, choices=PAYMENT_CHOICES
     )
@@ -154,6 +178,18 @@ class Order(models.Model):
     def get_products_quantity(self):
         return sum(product.quantity for product in self.products.all())
 
+    def get_order_price_ex_vat(self):
+        return sum(
+            order_product.get_order_product_price_ex_vat()
+            for order_product in self.products.all()
+        )
+
+    def get_order_vat_price(self):
+        return sum(
+            order_product.get_order_product_vat_price()
+            for order_product in self.products.all()
+        )
+
     def get_order_price_ex_delivery(self):
         return sum(
             order_product.get_order_product_price()
@@ -161,8 +197,13 @@ class Order(models.Model):
         )
 
     def get_order_delivery_price(self):
-        return 5
-
+        if self.delivery_option == 'R':
+            return 0
+        elif self.delivery_option == 'H':
+            return 5
+        else:
+            return 0
+            
     def get_order_total_price(self):
         return self.get_order_price_ex_delivery() + self.get_order_delivery_price()
 

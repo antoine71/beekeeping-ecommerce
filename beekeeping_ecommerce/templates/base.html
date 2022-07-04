@@ -15,12 +15,16 @@
     <!-- BOXICONS CDN  -->
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
           rel="stylesheet"/>
+    {% block additional_css %}
+    {% endblock additional_css %}          
   </head>
   <body>
     <nav>
       <div class="container">
         <a href="{% url 'shop:home' %}" class="nav__logo">
-          <img src="{% static 'assets/img/logo.svg' %}" alt="logo">
+          <div>
+            <img src="{% static 'assets/img/logo.svg' %}" alt="logo">
+          </div>
           <h3>NumericBees</h3>
         </a>
         <ul id="nav__items">
@@ -40,20 +44,18 @@
             <a href="{% url 'shop:contact' %}">Contact</a>
           </li>
         </ul>
-        <div class="buttons">
-          {% if order and order.get_products_quantity and not order.ordered %}
-            <a href="{% url 'shop:cart' %}" class="cart">
-              <span class="cart-quantity">{{ order.get_products_quantity }}</span>
-              <span class="icon"><i class="bx bx-cart"></i></span>
-            </a>
-          {% endif %}
-          <button id="open__nav-btn">
-            <i class="bx bx-menu"></i>
-          </button>
-          <button id="close__nav-btn">
-            <i class="bx bx-x"></i>
-          </button>
-        </div>
+        {% if order and order.get_products_quantity and not order.ordered %}
+          <a href="{% url 'shop:cart' %}" class="cart">
+            <span class="cart-quantity">{{ order.get_products_quantity }}</span>
+            <span class="icon"><i class="bx bx-cart"></i></span>
+          </a>
+        {% endif %}
+        <button id="open__nav-btn">
+          <i class="bx bx-menu"></i>
+        </button>
+        <button id="close__nav-btn">
+          <i class="bx bx-x"></i>
+        </button>
       </div>
     </nav>
     <!-- END OF NAV -->
@@ -70,7 +72,9 @@
         {% for message in messages %}
           <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
             <span>{{ message }}</span>
-            <button class="close_message_btn"><i class="bx bx-x-circle"></i></button>
+            <button class="close_message_btn">
+              <i class="bx bx-x-circle"></i>
+            </button>
           </li>
         {% endfor %}
       </ul>

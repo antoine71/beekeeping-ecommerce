@@ -1,0 +1,6 @@
+.shipping-info {
+  .shipping-line {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+}

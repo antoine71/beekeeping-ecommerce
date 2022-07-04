@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
   <section class="shop cart">
     <h2>Récapitulatif de la commande</h2>
@@ -52,25 +53,26 @@
             <span>Retour vers la boutique</span>
           </a>
         </div>
-        <article>
+        <article class="card">
           <h3>Total Panier</h3>
           <table class="standard">
             <tbody>
               <tr>
-                <td>Sous-Total</td>
+                <td>Sous-Total HT</td>
+                <td>{{ order.get_order_price_ex_vat | floatformat:2 }} EUR</td>
+              </tr>
+              <tr>
+                <td>TVA</td>
+                <td>{{ order.get_order_vat_price | floatformat:2 }} EUR</td>
+              </tr>
+              <tr>
+                <td>Total TTC</td>
                 <td>{{ order.get_order_price_ex_delivery | floatformat:2 }} EUR</td>
-              </tr>
-              <tr>
-                <td>Frais de livraison</td>
-                <td>{{ order.get_order_delivery_price | floatformat:2 }} EUR</td>
-              </tr>
-              <tr>
-                <td>Total</td>
-                <td>{{ order.get_order_total_price | floatformat:2 }} EUR</td>
               </tr>
             </tbody>
           </table>
-          <a href="{% url 'shop:checkout' %}" class="btn-primary btn-primary_center">Valider la commande</a>
+          <a href="{% url 'shop:shipping' %}"
+             class="btn-primary btn-primary_center">Valider la commande</a>
         </article>
       </div>
     </div>

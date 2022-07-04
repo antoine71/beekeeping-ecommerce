@@ -1,8 +1,7 @@
 const billingAddressForm = document.querySelector("#hideable-shipping-form");
 const formToggler = document.querySelector("#id_same_billing_address");
 
-console.log(billingAddressForm)
-console.log(formToggler)
+// Billing address form toggler
 
 const toggleForm = () => {
   formToggler.checked

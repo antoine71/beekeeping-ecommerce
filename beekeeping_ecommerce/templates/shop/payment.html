@@ -5,8 +5,10 @@
     <h2>Paiement</h2>
     <p>Veuillez entrer vos informations de paiement</p>
     <div class="container">
-      {% include 'shop/order_info.html' %}
-      {% include 'shop/billing_info.html' %}
+      <div class="hide-a">{% include 'shop/cart_info.html' %}</div>
+      <div class="hide-a">{% include 'shop/shipping_info.html' %}</div>
+      <div class="hide-a">{% include 'shop/billing_info.html' %}</div>
+      <div class="hide-a">{% include 'shop/order_info.html' %}</div>
       <div class="credit-card-frame">
         <h3>Votre carte de paiement</h3>
         <article class="card">

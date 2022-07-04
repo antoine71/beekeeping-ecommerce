@@ -7,6 +7,8 @@
       Votre commande a été enregistrée et un e-mail de confirmation a été envoyé - votre numéro de commande est {{ invoice.invoice_number }}. Veuillez prendre note de cette référence ou imprimer cette page et nous la rappeler dans tout échange concernant votre commande.
     </p>
     <div class="container">
+      <div class="hide-a">{% include 'shop/cart_info.html' %}</div>
+      <div class="hide-a">{% include 'shop/shipping_info.html' %}</div>
       <div class="hide-a">{% include 'shop/order_info.html' %}</div>
       <div class="hide-a">{% include 'shop/billing_info.html' %}</div>
       {% include 'shop/payment_info.html' %}

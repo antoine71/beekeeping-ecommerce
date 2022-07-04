@@ -1,16 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% block additional_head_scripts %}
+  <!-- SCRIPTS MONDIAL RELAY -->
+  <!-- JQuery required (>1.6.4) -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <!-- Leaflet dependency is not required since it is loaded by the plugin -->
+  <script src="//unpkg.com/leaflet/dist/leaflet.js"></script>
+  <!-- JS plugin for the Parcelshop Picker Widget MR using JQuery -->
+  <script src="//widget.mondialrelay.com/parcelshop-picker/jquery.plugin.mondialrelay.parcelshoppicker.min.js"></script>
+  <!-- END OF SCRIPTS MONDIAL RELAY -->
+{% endblock additional_head_scripts %}
+{% block additional_css %}
+  <link rel="stylesheet"
+        type="text/css"
+        href="//unpkg.com/leaflet/dist/leaflet.css"/>
+{% endblock additional_css %}
 {% block content %}
   <section class="shop checkout">
     <h2>Récapitulatif de la commande</h2>
     <p>Veuillez entrer les informations relatives à votre commande</p>
     <div class="container">
+      <div>
+      {% include 'shop/cart_info.html' %}
+      {% include 'shop/shipping_info.html' %}
       {% include 'shop/order_info.html' %}
+    </div>
       <div class="checkout-form">
         <h3>Détails de facturation</h3>
         <article>
-          <form method="post" novalidate>
+          <form method="post" id="checkout_form" novalidate>
             {% crispy form %}
           </form>
           <small class="text-muted">* Ce champ est obligatoire</small>
@@ -21,4 +40,5 @@
 {% endblock content %}
 {% block additional_scripts %}
   <script src="{% static 'js/checkout.js' %}"></script>
+  <script src="{% static 'js/mondial_relay.js' %}"></script>
 {% endblock additional_scripts %}

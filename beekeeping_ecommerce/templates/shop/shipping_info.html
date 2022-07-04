@@ -1,0 +1,21 @@
+{% load static %}
+<div class="shipping-info">
+  <h3>Votre Livraison</h3>
+  <article class="card">
+    <div>
+      <div class="shipping-line">
+        <span>{{ order.delivery_verbose }}</span>
+        <span>{{ order.get_order_delivery_price|floatformat:2 }} EUR</span>
+      </div>
+      <div class="transporter_logo">
+        {% if order.delivery_option == 'H' %}
+          <img src="{% static 'assets/img/colissimo.svg' %}" alt="">
+        {% elif order.delivery_option == 'R' %}
+          <img src="{% static 'assets/img/logomondial-relay.svg' %}" alt="">
+        {% endif %}
+      </div>
+    </div>
+    <a href="{% url 'shop:shipping' %}"
+       class="btn-primary btn-primary_center toggle">Modifier</a>
+  </article>
+</div>

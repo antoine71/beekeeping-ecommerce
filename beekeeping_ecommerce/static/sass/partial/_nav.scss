@@ -19,18 +19,18 @@ nav {
 
     .nav__logo {
       @include logoStyleNormal;
+      flex-grow: 1;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       & > h3 {
         font-size: 1.2rem;
         color: $primary-color;
         margin-left: 1rem;
       }
-      & > img {
+      & > div > img {
         height: 2rem;
       }
-
     }
 
     #nav__items {
@@ -39,35 +39,36 @@ nav {
       list-style: none;
       padding: 0;
     }
-    .buttons {
+
+    .cart {
       display: flex;
       align-items: center;
-      gap: 2rem;
-      .cart {
+      margin-left: 2rem;
+      .cart-quantity {
         display: flex;
         align-items: center;
-        gap: 0.6rem;
-        .cart-quantity {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 0.8rem;
-          width: 1.4rem;
-          height: 1.4rem;
-          background: $primary-color;
-          color: $white-color;
-          border-radius: 50%;
-        }
-        .icon {
-          font-size: 1.5rem;
-        }
+        justify-content: center;
+        font-size: 0.8rem;
+        width: 1.4rem;
+        height: 1.4rem;
+        background: $primary-color;
+        color: $white-color;
+        border-radius: 50%;
       }
-      button {
-        display: none;
-        background: transparent;
-        font-size: 2rem;
-        cursor: pointer;
+      .icon {
+        display: flex;
+        align-items: center;
+        margin-left: 0.3rem;
+        font-size: 1.5rem;
       }
+    }
+    button {
+      display: none;
+      background: transparent;
+      font-size: 2rem;
+      cursor: pointer;
+      align-items: center;
+      margin-left: 0.5rem;
     }
   }
 }
@@ -99,7 +100,7 @@ nav {
         }
       }
       #open__nav-btn {
-        display: inline-block;
+        display: flex;
       }
       #close__nav-btn {
         display: none;

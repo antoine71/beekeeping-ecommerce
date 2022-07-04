@@ -7,12 +7,12 @@ const closeNavBtn = document.querySelector("#close__nav-btn");
 const openMenu = () => {
   navItems.style.display = "flex";
   openNavBtn.style.display = "none";
-  closeNavBtn.style.display = "inline-block";
+  closeNavBtn.style.display = "flex";
 };
 
 const closeMenu = () => {
   navItems.style.display = "none";
-  openNavBtn.style.display = "inline-block";
+  openNavBtn.style.display = "flex";
   closeNavBtn.style.display = "none";
 };
 

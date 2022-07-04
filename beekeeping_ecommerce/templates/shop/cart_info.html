@@ -1,10 +1,11 @@
 <div class="order-info">
-  <h3>Résumé de votre commande</h3>
+  <h3>Votre Panier</h3>
   <article class="card">
     <table class="standard">
       <thead>
         <tr>
           <td>Produit</td>
+          <td>TVA</td>
           <td>Prix TTC</td>
         </tr>
       </thead>
@@ -14,18 +15,17 @@
             <td>
               {{ order_product.product.name }} <b>x {{ order_product.quantity }}</b>
             </td>
+            <td>{{ order_product.get_order_product_vat_price|floatformat:2 }} EUR</td>
             <td>{{ order_product.get_order_product_price|floatformat:2 }} EUR</td>
           </tr>
         {% endfor %}
         <tr>
-          <td>Livraison</td>
-          <td>{{ order.get_order_delivery_price|floatformat:2 }} EUR</td>
-        </tr>
-        <tr>
           <td><b>Total</b></td>
-          <td><b>{{ order.get_order_total_price|floatformat:2 }} EUR</b></td>
+          <td></td>
+          <td><b>{{ order.get_order_price_ex_delivery|floatformat:2 }} EUR</b></td>
         </tr>
       </tbody>
     </table>
+    <a href="{% url 'shop:cart' %}" class="btn-primary btn-primary_center toggle">Modifier</a>
   </article>
 </div>

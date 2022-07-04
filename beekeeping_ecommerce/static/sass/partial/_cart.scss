@@ -50,7 +50,6 @@ section.cart {
         justify-content: center;
       }
       article {
-        @include card;
         margin: 0;
         h3 {
           text-align: center;

@@ -27,6 +27,7 @@ body {
 .container {
   width: 82%;
   margin: 0 auto;
+  max-width: 1280px;
 }
 
 img {
@@ -50,7 +51,8 @@ a:hover {
 }
 
 section.home {
-  padding-top: 6rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 section.shop, section.blog {
   margin-top: 3rem;
@@ -882,16 +884,17 @@ nav .container .nav__logo {
   font-family: "Kanit", serif;
   font-weight: 600;
   font-style: italic;
+  flex-grow: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 nav .container .nav__logo > h3 {
   font-size: 1.2rem;
   color: #a61916;
   margin-left: 1rem;
 }
-nav .container .nav__logo > img {
+nav .container .nav__logo > div > img {
   height: 2rem;
 }
 nav .container #nav__items {
@@ -900,17 +903,12 @@ nav .container #nav__items {
   list-style: none;
   padding: 0;
 }
-nav .container .buttons {
+nav .container .cart {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  margin-left: 2rem;
 }
-nav .container .buttons .cart {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-nav .container .buttons .cart .cart-quantity {
+nav .container .cart .cart-quantity {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -921,14 +919,19 @@ nav .container .buttons .cart .cart-quantity {
   color: #FFFEF9;
   border-radius: 50%;
 }
-nav .container .buttons .cart .icon {
+nav .container .cart .icon {
+  display: flex;
+  align-items: center;
+  margin-left: 0.3rem;
   font-size: 1.5rem;
 }
-nav .container .buttons button {
+nav .container button {
   display: none;
   background: transparent;
   font-size: 2rem;
   cursor: pointer;
+  align-items: center;
+  margin-left: 0.5rem;
 }
 
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
@@ -956,7 +959,7 @@ nav .container .buttons button {
     color: #0c031b;
   }
   nav .container #open__nav-btn {
-    display: inline-block;
+    display: flex;
   }
   nav .container #close__nav-btn {
     display: none;
@@ -1074,8 +1077,6 @@ section.highlight .container .hero-content .right {
 }
 #knowmore .container {
   width: 100%;
-  max-width: 1024px;
-  padding-bottom: 8rem;
 }
 #knowmore .swiper {
   padding: 50px;
@@ -1093,7 +1094,6 @@ section.highlight .container .hero-content .right {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
   gap: 4rem;
-  max-width: 1100px;
 }
 #services .container article {
   background: #fffffd;
@@ -1339,14 +1339,6 @@ section.cart .container .cart-summary .back-to-shop {
   justify-content: center;
 }
 section.cart .container .cart-summary article {
-  background: #fffffd;
-  color: #0c031b;
-  padding: 1.5rem;
-  height: auto;
-  border-radius: 0;
-  box-shadow: 0 1rem 1rem rgba(12, 3, 27, 0.1);
-  border: 1px solid #C6C6C6;
-  margin: 1rem 0;
   margin: 0;
 }
 section.cart .container .cart-summary article h3 {
@@ -1385,6 +1377,38 @@ section.cart .container .cart-summary article table tbody tr:last-child {
     margin-top: 2rem;
   }
 }
+section.shipping .container {
+  display: grid;
+  grid-template-columns: 42% 52%;
+  gap: 6%;
+}
+
+.transporter_logo {
+  margin: 0.5rem 0 1rem;
+}
+.transporter_logo > img {
+  height: 2rem;
+  width: auto;
+  margin: 0;
+}
+
+.shipping_form_line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+/* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  section.shipping .container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+.shipping-info .shipping-line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
 section.checkout .container {
   display: grid;
   grid-template-columns: 42% 52%;
@@ -1399,6 +1423,12 @@ section.checkout .container .checkout-form article {
   box-shadow: 0 1rem 1rem rgba(12, 3, 27, 0.1);
   border: 1px solid #C6C6C6;
   margin: 1rem 0;
+}
+
+#Img_Pays,
+.MRW-fl-Item > img {
+  display: inline;
+  width: auto;
 }
 
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
@@ -1449,6 +1479,7 @@ section.payment .container .credit-card-frame .card #error-message {
 section.status .container {
   max-width: 650px;
 }
+section.status .container .shipping-info .btn-primary,
 section.status .container .order-info .btn-primary,
 section.status .container .billing_info .btn-primary {
   display: none;
@@ -1504,9 +1535,6 @@ section.article-list .container .article_card > h3 {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-}
-#users {
-  width: 90%;
 }
 #users .swiper-wrapper {
   margin-bottom: 3rem;

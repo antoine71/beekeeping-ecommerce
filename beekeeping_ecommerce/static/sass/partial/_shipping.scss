@@ -1,28 +1,28 @@
-section.checkout {
+section.shipping {
   .container {
     display: grid;
     grid-template-columns: 42% 52%;
     gap: 6%;
-    .checkout-form {
-      article {
-        @include card;
-      }
-    }
   }
 }
 
-
-// corrections for Mondial Relay Widget
-#Img_Pays,
-.MRW-fl-Item > img {
-  display: inline;
-  width: auto;
+.transporter_logo {
+  margin: 0.5rem 0 1rem;
+  & > img {
+    height: 2rem;
+    width: auto;
+    margin: 0;
+  }
 }
 
+.shipping_form_line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
 
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
 @media screen and (max-width: 1024px) {
-  section.checkout {
+  section.shipping {
     .container {
       grid-template-columns: 1fr;
       gap: 0;
