@@ -609,7 +609,7 @@ class ConfidentialityView(View):
 class LegalTermsView(View):
     def get(self, *args, **kwargs):
         lang = get_language()
-        path = str(settings.APPS_DIR / ("pages" + lang + "_legal_terms.md"))
+        path = str(settings.APPS_DIR / ("pages/" + lang + "_legal_terms.md"))
         if not exists(path):
             lang = 'fr'
         with open(
