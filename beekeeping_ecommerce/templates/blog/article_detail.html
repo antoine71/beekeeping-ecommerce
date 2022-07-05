@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load i18n static %}
 {% load markdown_extras %}
 {% block content %}
   <section class="blog article-detail">
@@ -7,14 +7,14 @@
       <div>
         <a href="{% url 'blog:article-list' %}" class="btn-primary">
           <i class='bx bx-chevrons-left'></i>
-          <span>Retour vers le sommaire</span>
+          <span>{% translate "Retour vers le sommaire" %}</span>
         </a>
       </div>
       <div class="article_content">
         <h1>{{ article.title }}</h1>
-        <small class="text-muted">Publié le {{ article.date_created | date:"j F Y" }}</small>
+        <small class="text-muted">{% translate "Publié le" %} {{ article.date_created | date:"j F Y" }}</small>
         <h2 class="abstract">
-          <b>Résumé: </b>{{ article.abstract }}
+          <b>{% translate "Résumé" %}: </b>{{ article.abstract }}
         </h2>
         {% if article.image %}
           <div class="article-image">

@@ -1,18 +1,15 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load i18n static %}
 {% load crispy_forms_tags %}
-{% block additional_head_scripts %}
-{% endblock additional_head_scripts %}
-{% block additional_css %}
-{% endblock additional_css %}
+
 {% block content %}
   <section class="shop shipping">
-    <h2>Récapitulatif de la commande</h2>
-    <p>Veuillez sélectionner un mode de livraison</p>
+    <h2>{% translate "Récapitulatif de la commande" %}</h2>
+    <p>{% translate "Veuillez sélectionner un mode de livraison" %}</p>
     <div class="container">
       {% include 'shop/cart_info.html' %}
       <div class="delivery-form">
-        <h3>Choix du mode de livraison</h3>
+        <h3>{% translate "Choix du mode de livraison" %}</h3>
         <article class="card">
           <form method="post" id="shipping_form" novalidate="">
             {% csrf_token %}
@@ -25,9 +22,9 @@
                          value="R"
                          id="id_delivery_option_1"
                          required=""/>
-                  <label for="id_delivery_option_1" class="form-check-label">Livraison en Point Relais</label>
+                  <label for="id_delivery_option_1" class="form-check-label">{% translate "Livraison en Point Relais" %}</label>
                 </div>
-                <div>Gratuit</div>
+                <div>{% translate "Gratuit" %}</div>
               </div>
               <div class="transporter_logo">
                 <img src="{% static 'assets/img/logomondial-relay.svg' %}" alt="">
@@ -43,7 +40,7 @@
                          id="id_delivery_option_0"
                          required=""
                          data-com.bitwarden.browser.user-edited="yes"/>
-                  <label for="id_delivery_option_0" class="form-check-label">Livraison à Domicile</label>
+                  <label for="id_delivery_option_0" class="form-check-label">{% translate "Livraison à Domicile" %}</label>
                 </div>
                 <div>5,00 EUR</div>
               </div>
@@ -54,7 +51,7 @@
             <div class="mb-3">
               <input type="submit"
                      name="submit"
-                     value="Envoyer"
+                     value="{% translate 'Envoyer' %}"
                      class="btn btn-primary btn-primary btn-primary_center"
                      id="submit-id-submit"/>
             </div>

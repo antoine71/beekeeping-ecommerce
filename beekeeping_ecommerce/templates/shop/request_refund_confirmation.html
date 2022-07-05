@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
-{% load static %}
+{% load i18n static %}
 {% block content %}
   <section class="blog">
-    <h2>Confirmation de demande de remboursement</h2>
-    <p>Votre demande de remboursement a bien été prise en compte et un email de confirmation vous a été envoyé</p>
+    <h2>{% translate "Confirmation de demande de remboursement" %}</h2>
+    <p>{% translate "Votre demande de remboursement a bien été prise en compte et un email de confirmation vous a été envoyé." %}</p>
     <div class="container">
       <p>
-        Vous disposez de 14 jours pour faire parvenir à votre charge la commande ou la preuve de réexpédition de la commande à NUMERICBEES (retractation@numericbees.com)
+        {% translate "Vous disposez de 14 jours pour faire parvenir à votre charge la commande ou la preuve de réexpédition de la commande à NUMERICBEES" %} (retractation@numericbees.com)
       </p>
       <p>
-        Vous serez remboursé intégralement de la commande initiale dès réception, par le même moyen de paiement que celui utilisé lors de la commande initiale.
+        {% translate "Vous serez remboursé intégralement de la commande initiale dès réception, par le même moyen de paiement que celui utilisé lors de la commande initiale." %}
       </p>
-      <p>Rappel des conditions:</p>
+      <p>{% translate "Rappel des conditions:" %}</p>
       <ul>
-        <li>Votre commande doit avoir été passée moins de 90 jours avant l'exercice de votre droit de rétractation.</li>
-        <li>Votre commande doit nous parvenir complète avec tous ses accessoires.</li>
+        <li>{% translate "Votre commande doit avoir été passée moins de 90 jours avant l'exercice de votre droit de rétractation." %}</li>
+        <li>{% translate "Votre commande doit nous parvenir complète avec tous ses accessoires." %}</li>
       </ul>
-      <a href="{% url 'shop:home' %}" class="btn-primary btn-primary_center">Retour à l'accueil</a>
+      <a href="{% url 'shop:home' %}" class="btn-primary btn-primary_center">{% translate "Retour à l'accueil" %}</a>
     </div>
   </section>
 {% endblock content %}

@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load i18n static %}
 {% block content %}
   <section class="shop payment">
-    <h2>Paiement</h2>
-    <p>Veuillez entrer vos informations de paiement</p>
+    <h2>{% translate "Paiement" %}</h2>
+    <p>{% translate "Veuillez entrer vos informations de paiement" %}</p>
     <div class="container">
       <div class="hide-a">{% include 'shop/cart_info.html' %}</div>
       <div class="hide-a">{% include 'shop/shipping_info.html' %}</div>
       <div class="hide-a">{% include 'shop/billing_info.html' %}</div>
       <div class="hide-a">{% include 'shop/order_info.html' %}</div>
       <div class="credit-card-frame">
-        <h3>Votre carte de paiement</h3>
+        <h3>{% translate "Votre carte de paiement" %}</h3>
         <article class="card">
           <div class="payment-form">
             <form id="payment-form">
               <div id="payment-element">
                 <!-- Elements will create form elements here -->
               </div>
-              <button id="submit" class="btn-primary">Payer {{ order.get_order_total_price|floatformat:2 }} EUR</button>
+              <button id="submit" class="btn-primary">{% translate "Payer" %} {{ order.get_order_total_price|floatformat:2 }} EUR</button>
               <div id="error-message">
                 <!-- Display error message to your customers here -->
               </div>

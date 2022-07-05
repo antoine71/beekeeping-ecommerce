@@ -16,6 +16,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
     .nav__logo {
       @include logoStyleNormal;
@@ -32,12 +33,43 @@ nav {
         height: 2rem;
       }
     }
-
+    
     #nav__items {
       display: flex;
       gap: 2rem;
       list-style: none;
       padding: 0;
+    }
+    
+    #lang__items {
+      display: none;
+      list-style: none;
+      padding: 0;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      gap: 0;
+      box-shadow: $box-shadow;
+      li {
+        a {
+          background: $white-color;
+          display: block;
+          padding: 1rem 2rem;
+          transition: all 400ms ease;
+          &:hover {
+            background: darken($white-color, 3);
+            color: $black-color;
+          }
+        }
+      }      
+    }
+
+    #open__lang-btn {
+      display: flex;
+    }
+    #close__lang-btn {
+      display: none;
     }
 
     .cart {
@@ -104,6 +136,9 @@ nav {
       }
       #close__nav-btn {
         display: none;
+      }
+      #lang__items {
+        right: 3rem;
       }
     }
   }

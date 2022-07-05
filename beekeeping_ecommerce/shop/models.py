@@ -1,22 +1,22 @@
 from django.db import models
-
+from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from autoslug import AutoSlugField
 
 
 PAYMENT_CHOICES = (
-    ("S", "Carte Bancaire"),
+    ("S", _("Carte Bancaire")),
     #    ("P", "Paypal"),
 )
 
 DELIVERY_CHOICES = (
-    ("H", "Livraison à Domicile"),
-    ("R", "Livraison en Point Relay"),
+    ("H", _("Livraison à Domicile")),
+    ("R", _("Livraison en Point Relay")),
 )
 
 ADDRESS_CHOICES = (
-    ("B", "Facturation"),
-    ("S", "Expédition"),
+    ("B", _("Facturation")),
+    ("S", _("Expédition")),
 )
 
 

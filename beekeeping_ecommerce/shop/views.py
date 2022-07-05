@@ -1,8 +1,7 @@
 import random
 import string
-
+from os.path import exists
 from datetime import datetime
-
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
@@ -13,7 +12,7 @@ from django.core.exceptions import (
 )
 from django.utils.datastructures import MultiValueDictKeyError
 from django.contrib import messages
-
+from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
 from .models import (
     Product,
@@ -29,7 +28,7 @@ from .models import (
 from django.conf import settings
 from .forms import CheckoutForm, RefundForm, ShippingSelectForm
 from beekeeping_ecommerce.contact.forms import DemoRequestForm
-from crispy_forms.layout import Layout, Fieldset, Submit, Div
+from django.utils.translation import get_language
 
 import stripe
 
@@ -51,7 +50,7 @@ def get_order_product(request, product):
         )
         return order_product
     except ObjectDoesNotExist:
-        messages.error(request, "Le produit n'existe pas dans le panier")
+        messages.error(request, _("Le produit n'existe pas dans le panier"))
         return False
 
 
@@ -64,7 +63,7 @@ def get_order(request):
         )
         return order
     except ObjectDoesNotExist:
-        messages.error(request, "Le panier n'existe pas")
+        messages.error(request, _("Le panier n'existe pas"))
         return False
 
 
@@ -79,14 +78,16 @@ class HomeView(View):
         if form.is_valid():
             demo_request = form.save()
             context = {"demo_request": demo_request}
-            messages.info(self.request, "Votre demande a bien été prise en compte.")
+            messages.info(self.request, _("Votre demande a bien été prise en compte."))
             return render(self.request, "contact/confirmation.html", context)
         else:
             context = self.get_context_data(form)
             messages.warning(
                 self.request,
-                "Le formulaire comporte des erreurs, merci de corriger"
-                " et de le soumettre à nouveau.",
+                _(
+                    "Le formulaire comporte des erreurs, merci de corriger"
+                    " et de le soumettre à nouveau."
+                ),
             )
             return render(self.request, "home.html", context)
 
@@ -121,7 +122,7 @@ class ShippingView(View):
             return redirect("shop:home")
         form = ShippingSelectForm()
         context = {"order": order, "form": form}
-        return render(self.request, "shop/shipping.html", context)            
+        return render(self.request, "shop/shipping.html", context)
 
     def post(self, *args, **kwargs):
         order = get_order(self.request)
@@ -135,7 +136,7 @@ class ShippingView(View):
             return redirect("shop:checkout")
         else:
             context = {"order": order, "form": form}
-            return render(self.request, "shop/shipping.html", context)                 
+            return render(self.request, "shop/shipping.html", context)
 
 
 class CheckoutView(View):
@@ -202,7 +203,9 @@ class CheckoutView(View):
         if not order:
             return redirect("shop:home")
 
-        form = CheckoutForm(self.request.POST or None, delivery_option=order.delivery_option)
+        form = CheckoutForm(
+            self.request.POST or None, delivery_option=order.delivery_option
+        )
 
         try:
             same_billing_address = form.fields["same_billing_address"].clean(
@@ -215,7 +218,7 @@ class CheckoutView(View):
             return render(self.request, "shop/checkout.html", context)
 
         # assign the billing_address fields if same shipping address is selected
-        if same_billing_address or order.delivery_option != 'H':
+        if same_billing_address or order.delivery_option != "H":
             data = {value: self.request.POST[value] for value in self.request.POST}
             data.update(
                 {
@@ -256,7 +259,7 @@ class CheckoutView(View):
             )
 
             # create shipping_address_object
-            if order.delivery_option == 'H':
+            if order.delivery_option == "H":
                 shipping_address = Address(
                     first_name=form.cleaned_data["shipping_first_name"],
                     last_name=form.cleaned_data["shipping_last_name"],
@@ -279,7 +282,7 @@ class CheckoutView(View):
                     shipping_address.save()
                     order.shipping_address = shipping_address
 
-            elif order.delivery_option == 'R':
+            elif order.delivery_option == "R":
                 mondial_relay_info = MondialRelayInfo(
                     mr_ID=form.cleaned_data["mr_ID"],
                     mr_Nom=form.cleaned_data["mr_Nom"],
@@ -287,7 +290,7 @@ class CheckoutView(View):
                     mr_Adresse2=form.cleaned_data["mr_Adresse2"],
                     mr_CP=form.cleaned_data["mr_CP"],
                     mr_Ville=form.cleaned_data["mr_Ville"],
-                    mr_Pays=form.cleaned_data["mr_Pays"]
+                    mr_Pays=form.cleaned_data["mr_Pays"],
                 )
                 if order.mondial_relay_info:
                     # updates the info if it already exists
@@ -324,8 +327,10 @@ class CheckoutView(View):
 
             order.save()
 
-            if order.delivery_option == 'R' and not order.mondial_relay_info.mr_ID:
-                messages.error(self.request, "Erreur: vous devez sélectionner un point relais.")
+            if order.delivery_option == "R" and not order.mondial_relay_info.mr_ID:
+                messages.error(
+                    self.request, _("Erreur: vous devez sélectionner un point relais.")
+                )
                 context = {"order": order, "form": form}
                 return render(self.request, "shop/checkout.html", context)
 
@@ -337,7 +342,9 @@ class CheckoutView(View):
             else:
                 messages.warning(
                     self.request,
-                    "Seul le paiement par carte bancaire est disponible actuellement",
+                    _(
+                        "Seul le paiement par carte bancaire est disponible actuellement"
+                    ),
                 )
                 context = {"order": order, "form": form}
                 return render(self.request, "shop/checkout.html", context)
@@ -377,7 +384,8 @@ class PaymentView(View):
             return redirect("shop:checkout")
         except Exception:
             messages.error(
-                self.request, "Another problem occurred, maybe unrelated to Stripe."
+                self.request,
+                _("Erreur interne, votre paiement n'a pas pu être effectué."),
             )
             return redirect("shop:checkout")
         # else define context and render the view normally
@@ -432,22 +440,24 @@ class StatusView(View):
         # If the payment is sucessful, create an invoice
         if payment_status == "succeeded":
             invoice = Invoice.objects.create()
-            messages.info(self.request, "Votre paiement a été validé.")
+            messages.info(self.request, _("Votre paiement a été validé."))
             order.invoice = invoice
             order.save()
         elif payment_status == "processing":
             messages.warning(
                 self.request,
-                "Votre paiement est en cours de validation."
-                " Nous vous recontacterons lorsque le paiement aura été validé",
+                _(
+                    "Votre paiement est en cours de validation."
+                    " Nous vous recontacterons lorsque le paiement aura été validé"
+                ),
             )
         elif payment_status == "requires_payment_method":
             messages.warning(
-                self.request, "Votre paiement a échoué. La commande a été annulée."
+                self.request, _("Votre paiement a échoué. La commande a été annulée.")
             )
         else:
             messages.warning(
-                self.request, "Votre paiement a échoué. La commande a été annulée."
+                self.request, _("Votre paiement a échoué. La commande a été annulée.")
             )
 
         # convert stripe timestamp to datetime and amount to eur
@@ -490,11 +500,11 @@ def add_to_cart(request, slug):
     if is_order_created or is_order_product_created:
         order.products.add(order_product)
         order.save()
-        messages.info(request, "Le produit a été ajouté au panier")
+        messages.info(request, _("Le produit a été ajouté au panier"))
     else:
         order_product.quantity += 1
         order_product.save()
-        messages.info(request, "Le panier a été mis à jour")
+        messages.info(request, _("Le panier a été mis à jour"))
     return redirect("shop:cart")
 
 
@@ -511,12 +521,12 @@ def remove_from_cart(request, slug):
 
     # remove the product from the order
     order_product.delete()
-    messages.info(request, "Le produit a été supprimé du panier")
+    messages.info(request, _("Le produit a été supprimé du panier"))
 
     # delete the order if it contains no more products
     if not order.products.all().exists():
         order.delete()
-        messages.info(request, "Le panier a été supprimé")
+        messages.info(request, _("Le panier a été supprimé"))
         return redirect("shop:home")
     return redirect("shop:cart")
 
@@ -534,14 +544,14 @@ def remove_item_from_cart(request, slug):
 
     if order_product.quantity == 1:
         order_product.delete()
-        messages.info(request, "Le produit a été supprimé du panier")
+        messages.info(request, _("Le produit a été supprimé du panier"))
     else:
         order_product.quantity -= 1
         order_product.save()
-        messages.info(request, "Le panier a été mis á jour")
+        messages.info(request, _("Le panier a été mis á jour"))
     if not order.products.all().exists():
         order.delete()
-        messages.info(request, "Le panier a été supprimé")
+        messages.info(request, _("Le panier a été supprimé"))
         return redirect("shop:home")
     return redirect("shop:cart")
 
@@ -569,14 +579,56 @@ class RequestRefundView(View):
                 Refund.objects.create(order=order, message=message, email=email)
                 messages.info(
                     self.request,
-                    "Votre demande de remboursement a bien été prise en compte.",
+                    _("Votre demande de remboursement a bien été prise en compte."),
                 )
 
                 return render(self.request, "shop/request_refund_confirmation.html")
             except ObjectDoesNotExist:
-                messages.warning(self.request, "Ce numéro de commande n'existe pas.")
+                messages.warning(self.request, _("Ce numéro de commande n'existe pas."))
             except MultipleObjectsReturned:
-                messages.warning(self.request, "Ce numéro de commande est invalide.")
+                messages.warning(self.request, _("Ce numéro de commande est invalide."))
 
             context = {"form": form}
             return render(self.request, "shop/request_refund.html", context)
+
+
+class ConfidentialityView(View):
+    def get(self, *args, **kwargs):
+        lang = get_language()
+        path = str(settings.APPS_DIR / ("pages/" + lang + "_confidentiality.md"))
+        if not exists(path):
+            lang = 'fr'
+        with open(
+            str(settings.APPS_DIR / ("pages/" + lang + "_confidentiality.md"))
+        ) as f:
+            content = f.read()
+        context = {"content": content}
+        return render(self.request, "shop/confidentiality.html", context)
+
+
+class LegalTermsView(View):
+    def get(self, *args, **kwargs):
+        lang = get_language()
+        path = str(settings.APPS_DIR / ("pages" + lang + "_legal_terms.md"))
+        if not exists(path):
+            lang = 'fr'
+        with open(
+            str(settings.APPS_DIR / ("pages/" + lang + "_legal_terms.md"))
+        ) as f:
+            content = f.read()
+        context = {"content": content}
+        return render(self.request, "shop/legal_terms.html", context)
+
+
+class SalesConditionsView(View):
+    def get(self, *args, **kwargs):
+        lang = get_language()
+        path = str(settings.APPS_DIR / ("pages/" + lang + "_sales_conditions.md"))
+        if not exists(path):
+            lang = 'fr'
+        with open(
+            str(settings.APPS_DIR / ("pages/" + lang + "_sales_conditions.md"))
+        ) as f:
+            content = f.read()
+        context = {"content": content}
+        return render(self.request, "shop/sales_conditions.html", context)

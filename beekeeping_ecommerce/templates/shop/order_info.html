@@ -1,11 +1,13 @@
+{% load i18n %}
+
 <div class="order-info">
-  <h3>Résumé de votre commande</h3>
+  <h3>{% translate "Résumé de votre commande" %}</h3>
   <article class="card">
     <table class="standard">
       <thead>
         <tr>
-          <td>Produit</td>
-          <td>Prix TTC</td>
+          <td>{% translate "Produit" %}</td>
+          <td>{% translate "Prix TTC" %}</td>
         </tr>
       </thead>
       <tbody>
@@ -18,11 +20,11 @@
           </tr>
         {% endfor %}
         <tr>
-          <td>Livraison</td>
+          <td>{% translate "Livraison" %}</td>
           <td>{{ order.get_order_delivery_price|floatformat:2 }} EUR</td>
         </tr>
         <tr>
-          <td><b>Total</b></td>
+          <td><b>{% translate "Total" %}</b></td>
           <td><b>{{ order.get_order_total_price|floatformat:2 }} EUR</b></td>
         </tr>
       </tbody>

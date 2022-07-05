@@ -12,6 +12,8 @@ from pathlib import Path
 
 import environ
 
+from django.utils.translation import gettext_lazy as _
+
 env = environ.Env()
 # reading .env file
 environ.Env.read_env()
@@ -27,11 +29,27 @@ APPS_DIR = BASE_DIR / "beekeeping_ecommerce"
 # In Windows, this must be set to your system time zone.
 TIME_ZONE = "CET"
 # https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = "fr"
+LANGUAGE_CODE = "fr-FR"
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
 USE_I18N = True
+USE_L10N = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
 USE_TZ = True
+
+LANGUAGES = [
+    ("fr", _("Français")),
+    ("en", _("Anglais")),
+    ("es", _("Espagnol")),
+    ("de", _("Allemand")),
+    ("it", _("Italien")),
+    ("pl", _("Polonais")),
+    ("nl", _("Néerlandais")),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / "locale",
+]
+
 
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -68,11 +86,7 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
-THIRD_PARTY_APPS = [
-    "django_countries",
-    "crispy_forms",
-    "crispy_bootstrap5",
-]
+THIRD_PARTY_APPS = ["django_countries", "crispy_forms", "crispy_bootstrap5", "rosetta"]
 LOCAL_APPS = [
     "beekeeping_ecommerce.users.apps.UsersConfig",
     "beekeeping_ecommerce.shop.apps.ShopConfig",
@@ -105,6 +119,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -156,19 +171,28 @@ TEMPLATES = [
 
 # STRIPE
 # ------------------------------------------------------------------------------
-
 STRIPE_API_SECRET_KEY = env("STRIPE_API_SECRET_KEY")
 STRIPE_API_PUBLIC_KEY = env("STRIPE_API_PUBLIC_KEY")
 
 # CRISPY FORMS
 # ------------------------------------------------------------------------------
-
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # DJANGO COUNTRIES
 # ------------------------------------------------------------------------------
+COUNTRIES_ONLY = ["FR"]  # + ['ES', 'IT', 'DE', 'NL', 'PL']
 
-COUNTRIES_ONLY = ['FR'] # + ['ES', 'IT', 'DE', 'NL', 'PL']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8080', 'http://192.168.0.19:8080']
+# CSRF_TRUSTED_ORIGINS = ["http://localhost:8080", "http://192.168.0.19:8080"]
+
+
+# django-rosetta settings
+# https://django-rosetta.readthedocs.io/settings.html
+
+ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
+DEEPL_AUTH_KEY = env("DEEPL_AUTH_KEY")
+ROSETTA_MESSAGES_SOURCE_LANGUAGE_CODE = "fr"
+ROSETTA_MESSAGES_SOURCE_LANGUAGE_NAME = "fr"
+ROSETTA_EXCLUDED_APPLICATIONS = ("django",)
+ROSETTA_SHOW_AT_ADMIN_PANEL = True

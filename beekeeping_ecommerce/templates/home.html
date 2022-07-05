@@ -1,28 +1,28 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load i18n static %}
 {% block content %}
   <section class="highlight">
     <div class="container">
       <div class="hero-content">
         <div class="left">
-          <h1>Zephyr 1</h1>
-          <h2>L'enfumoir apicole qui facilite la vie au rucher</h2>
+          <h1>{% translate "Zephyr 1" %}</h1>
+          <h2>{% translate "L'enfumoir apicole qui facilite la vie au rucher" %}</h2>
           <div class="check">
             <i class="bx bx-check-square"></i>
-            <p>Allumage sans effort</p>
+            <p>{% translate "Allumage sans effort" %}</p>
           </div>
           <div class="check">
             <i class="bx bx-check-square"></i>
-            <p>Enfumage automatique</p>
+            <p>{% translate "Enfumage automatique" %}</p>
           </div>
           <div class="buttons">
             <a href="#knowmore" class="btn-primary">
               <i class="bx bx-chevrons-down"></i>
-              <span>En Savoir Plus</span>
+              <span>{% translate "En Savoir Plus" %}</span>
             </a>
             <a href="#buy" class="btn-primary">
               <i class="bx bx-cart"></i>
-              <span>Acheter</span>
+              <span>{% translate "Acheter" %}</span>
             </a>
           </div>
         </div>
@@ -40,8 +40,6 @@
   <!-- END OF DISCOVER -->
   {% include 'home/features.html' %}
   <!-- END OF FEATURES -->
-  {% include 'home/users.html' %}
-  <!-- END OF FEATURUSERSES -->
   {% include 'shop/buy.html' %}
   <!-- END OF BUY -->
   {% include 'contact/demo_request.html' %}

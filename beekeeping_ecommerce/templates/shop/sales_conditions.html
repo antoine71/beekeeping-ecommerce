@@ -1,13 +1,14 @@
 {% extends "base.html" %}
-{% load i18n static %}
+{% load i18n static markdown_extras %}
 {% block title %}
   NumericBees: {% translate "conditions générales de vente" %}
 {% endblock title %}
 {% block content %}
   <section class="blog sales-conditions">
-    <h1>Conditions générales de vente e-boutique NumericBees</h1>
+    <h1>{% translate "Conditions générales de vente e-boutique NumericBees" %}</h1>
     <div class="container">
-      <h2>Préambule</h2>
+      {{ content | markdown | safe }}
+      {% comment %} <h2>Préambule</h2>
       <p>
         La société NUMERICBEES met en place un site de commerce électronique accessible via le réseau internet à l’adresse <a href="{% url 'shop:home' %}">https://www.numericbees.com/</a> Il est ouvert à tout utilisateur de ce réseau (ci-après désigné « Internaute, ou prospect »). Il est édité par la société NUMERICBEES, SAS au capital de 1000 €, dont le siège est à LYON, 69003, 56, Rue du Dauphiné immatriculée au Registre du commerce et des sociétés de LYON sous le numéro 902 826 551, ci-après dénommé « vendeur ».
       </p>
@@ -447,7 +448,7 @@
         <li>
           <a href="https://www.economie.gouv.fr/dgccrf/Publications/Vie-pratique/Fiches-pratiques/Les-garanties-legales">Garanties légales.</a>
         </li>
-      </ul>
+      </ul> {% endcomment %}
     </div>
   </section>
 {% endblock content %}

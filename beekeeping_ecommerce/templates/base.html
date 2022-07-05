@@ -1,11 +1,14 @@
-{% load static %}
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>beekeeping-website</title>
+    <meta name="description" content="{% block description %}{% translate "NumerciBees développe des outils pour faciliter l'apiculture. Notre enfumoir pour abeilles Zephyr1 à soufflerie électrique élimine le besoin de pomper sur un soufflet qui se perce au bout de quelques mois." %}{% endblock description %}" />
+    <title>{% block title %}{% translate "Numericbees, l'apiculture simplifiée" %}{% endblock title %}</title>
     {% block additional_head_scripts %}
     {% endblock additional_head_scripts %}
     <!-- Link Swiper's CSS -->
@@ -16,7 +19,7 @@
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
           rel="stylesheet"/>
     {% block additional_css %}
-    {% endblock additional_css %}          
+    {% endblock additional_css %}
   </head>
   <body>
     <nav>
@@ -29,27 +32,45 @@
         </a>
         <ul id="nav__items">
           <li>
-            <a href="{% url 'shop:home' %}">Accueil</a>
+            <a href="{% url 'shop:home' %}">{% translate "Accueil" %}</a>
           </li>
           <li>
-            <a href="{% url 'shop:home' %}#buy">Acheter</a>
+            <a href="{% url 'shop:home' %}#buy">{% translate "Acheter" %}</a>
           </li>
           <li>
-            <a href="{% url 'shop:home' %}#demo">Démonstration</a>
+            <a href="{% url 'shop:home' %}#demo">{% translate "Démonstration" %}</a>
           </li>
           <li>
-            <a href="{% url 'blog:article-list' %}">Apiculture</a>
+            <a href="{% url 'blog:article-list' %}">{% translate "Apiculture" %}</a>
           </li>
           <li>
-            <a href="{% url 'shop:contact' %}">Contact</a>
+            <a href="{% url 'shop:contact' %}">{% translate "Contact" %}</a>
           </li>
         </ul>
+        <ul id="lang__items">
+          {% get_available_languages as LANGUAGES %}
+          {% get_language_info_list for LANGUAGES as languages %}
+          {% for language in languages %}
+              <li>
+                {% language language.code %}
+                  <a href="{% url 'shop:home' %}">{{ language.name_local }} ({{ language.code }})</a>
+                {% endlanguage %}                                             
+              </li>
+          {% endfor %}             
+        </ul>
+        
         {% if order and order.get_products_quantity and not order.ordered %}
           <a href="{% url 'shop:cart' %}" class="cart">
             <span class="cart-quantity">{{ order.get_products_quantity }}</span>
             <span class="icon"><i class="bx bx-cart"></i></span>
           </a>
         {% endif %}
+        <button id="open__lang-btn">
+          <i class='bx bx-globe'></i>
+        </button>
+        <button id="close__lang-btn">
+          <i class="bx bx-x"></i>
+        </button>   
         <button id="open__nav-btn">
           <i class="bx bx-menu"></i>
         </button>
@@ -62,8 +83,8 @@
     <section class="hero">
       <div class="hero-bg-image">
         <div class="hero-text">
-          <h1>NumericBees</h1>
-          <h2>L'Apiculture Simplifiée</h2>
+          <h1>{% translate "NumericBees" %}</h1>
+          <h2>{% translate "L'Apiculture Simplifiée" %}</h2>
         </div>
       </div>
     </section>
@@ -101,13 +122,13 @@
         </article>
         <article>
           <h5>Support</h5>
-          <a href="{% url 'shop:sales-conditions' %}">Conditions générales de vente</a>
-          <a href="{% url 'shop:legal-terms' %}">Mentions Légales</a>
-          <a href="{% url 'shop:confidentiality' %}">Politique de confidentialité</a>
-          <a href="{% url 'shop:contact' %}">Contact</a>
+          <a href="{% url 'shop:sales-conditions' %}">{% translate "Conditions générales de vente" %}</a>
+          <a href="{% url 'shop:legal-terms' %}">{% translate "Mentions Légales" %}</a>
+          <a href="{% url 'shop:confidentiality' %}">{% translate "Politique de confidentialité" %}</a>
+          <a href="{% url 'shop:contact' %}">{% translate "Contact" %}</a>
         </article>
       </div>
-      <div class="copyright">Copyright NumericBees. Tous droits réservés.</div>
+      <div class="copyright">{% translate "Copyright NumericBees. Tous droits réservés." %}</div>
     </footer>
     {% block additional_scripts %}
     {% endblock additional_scripts %}

@@ -1,13 +1,13 @@
-{% load static %}
+{% load i18n static %}
 <section class="home" id="users">
-  <h2>Ce que disent les utilisateurs de Zephyr 1</h2>
-  <p>Zephyr 1 simplifie le travail des apiculteurs</p>
+  <h2>{% translate "Ce que disent les utilisateurs de Zephyr 1" %}</h2>
+  <p>{% translate "Zephyr 1 simplifie le travail des apiculteurs" %}</p>
   <div class="container">
     <div class="swiper mySwiper ">
       <div class="swiper-wrapper">
         <article class="swiper-slide card">
           <p>
-            Notre première préoccupation est que l'apiculteur soit serein quand il ouvre ses ruches. Un apiculteur non stressé est un apiculteur doux avec ses abeilles, et heureux d'aller au rucher.
+            {% translate "Notre première préoccupation est que l'apiculteur soit serein quand il ouvre ses ruches. Un apiculteur non stressé est un apiculteur doux avec ses abeilles, et heureux d'aller au rucher." %}
           </p>
           <div class="user-profile">
             <div class="image-wrapper">
@@ -15,7 +15,7 @@
             </div>
             <div class="user-info">
               <p>Emmanuel Jallas</p>
-              <small class="text-muted">Apiculteur, entrepreneur et fondateur de NumericBees</small>
+              <small class="text-muted">{% translate "Apiculteur, entrepreneur et fondateur de NumericBees" %}</small>
             </div>
           </div>
         </article>
@@ -29,7 +29,7 @@
             </div>
             <div class="user-info">
               <p>Jean Riondet</p>
-              <small class="text-muted">Apiculteur et auteur de plusieurs livres d'apiculture</small>
+              <small class="text-muted">{% translate "Apiculteur et auteur de plusieurs livres d'apiculture" %}</small>
             </div>
           </div>
         </article>
@@ -42,8 +42,8 @@
               <img src="{% static 'assets/img/apiculteur-anonyme.png' %}" alt="">
             </div>
             <div class="user-info">
-              <p>Apiculteur Anonyme</p>
-              <small class="text-muted">Apiculteur</small>
+              <p>{% translate "Apiculteur Anonyme" %}</p>
+              <small class="text-muted">{% translate "Apiculteur" %}</small>
             </div>
           </div>
         </article>
@@ -56,8 +56,8 @@
               <img src="{% static 'assets/img/apiculteur-anonyme.png' %}" alt="">
             </div>
             <div class="user-info">
-              <p>Apiculteur Anonyme</p>
-              <small class="text-muted">Apiculteur</small>
+              <p>{% translate "Apiculteur Anonyme" %}</p>
+              <small class="text-muted">{% translate "Apiculteur" %}</small>
             </div>
           </div>
         </article>
@@ -70,8 +70,8 @@
               <img src="{% static 'assets/img/apiculteur-anonyme.png' %}" alt="">
             </div>
             <div class="user-info">
-              <p>Apiculteur Anonyme</p>
-              <small class="text-muted">Apiculteur</small>
+              <p>{% translate "Apiculteur Anonyme" %}</p>
+              <small class="text-muted">{% translate "Apiculteur" %}</small>
             </div>
           </div>
         </article>

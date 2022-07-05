@@ -1,7 +1,7 @@
-{% load static %}
+{% load i18n static %}
 <section id="knowmore" class="home">
-  <h2>Découvrez Zephyr 1</h2>
-  <p>Découvrez l'enfumoir automatique Zephyr 1</p>  
+  <h2>{% translate "Découvrez Zephyr 1" %}</h2>
+  <p>{% translate "Découvrez l'enfumoir automatique Zephyr 1" %}</p>  
   <div class="container">
     {% comment %} <div class="swiper mySwiper">
       <div class="swiper-wrapper">
@@ -24,7 +24,7 @@
     </div> {% endcomment %}
     <video width="100%" muted controls>
       <source src="{% static 'assets/video/ouverture-ruche.mp4' %}" type="video/mp4"/>
-      Your browser does not support the video.
+      {% translate "Votre navigateur ne prend pas en charge la lecture de cette video." %}
     </video>
   </div>
 </section>

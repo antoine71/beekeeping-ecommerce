@@ -17,14 +17,21 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
 
 
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+urlpatterns += i18n_patterns(
+    path("", include("beekeeping_ecommerce.shop.urls", namespace="shop")),
+    path(_("apiculture/"), include("beekeeping_ecommerce.blog.urls", namespace="blog")),
+)
+
 urlpatterns += [
     path("__debug__/", include("debug_toolbar.urls")),
-    path("", include("beekeeping_ecommerce.shop.urls", namespace="shop")),
-    path("blog/", include("beekeeping_ecommerce.blog.urls", namespace="blog")),
-] 
+    path('rosetta/', include('rosetta.urls')),
+#   path("i18n/", include("django.conf.urls.i18n")),
+]

@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Submit, Div
@@ -18,55 +19,55 @@ class ShippingSelectForm(forms.Form):
         self.helper = FormHelper()
         self.helper.layout = Layout(
             Fieldset(
-                "Choisissez un mode de livraison",
+                _("Choisissez un mode de livraison"),
                 "delivery_option",
             )
         )
         self.helper.add_input(
-            Submit("submit", "Envoyer", css_class="btn-primary btn-primary_center")
+            Submit("submit", _("Envoyer"), css_class="btn-primary btn-primary_center")
         )
         self.helper.form_method = "post"
 
 
 class CheckoutForm(forms.Form):
 
-    phone = forms.CharField(label="Numéro de téléphone")
-    email = forms.EmailField(label="Adresse Email")
-    shipping_first_name = forms.CharField(label="Prénom")
-    shipping_last_name = forms.CharField(label="Nom")
+    phone = forms.CharField(label=_("Numéro de téléphone"))
+    email = forms.EmailField(label=_("Adresse Email"))
+    shipping_first_name = forms.CharField(label=_("Prénom"))
+    shipping_last_name = forms.CharField(label=_("Nom"))
     shipping_company_name = forms.CharField(
-        label="Société", help_text="optionnel", required=False
+        label=_("Société"), help_text="optionnel", required=False
     )
-    shipping_street_address = forms.CharField(label="Adresse")
+    shipping_street_address = forms.CharField(label=_("Adresse"))
     shipping_street_address_line_2 = forms.CharField(
-        label="Complément d'Adresse", help_text="optionnel", required=False
+        label=_("Complément d'Adresse"), help_text="optionnel", required=False
     )
-    shipping_country = CountryField().formfield(label="Pays")
-    shipping_zip_code = forms.CharField(label="Code Postal")
-    shipping_city = forms.CharField(label="Ville")
-    billing_first_name = forms.CharField(label="Prénom")
-    billing_last_name = forms.CharField(label="Nom")
+    shipping_country = CountryField().formfield(label=_("Pays"))
+    shipping_zip_code = forms.CharField(label=_("Code Postal"))
+    shipping_city = forms.CharField(label=_("Ville"))
+    billing_first_name = forms.CharField(label=_("Prénom"))
+    billing_last_name = forms.CharField(label=_("Nom"))
     billing_company_name = forms.CharField(
-        label="Société", help_text="optionnel", required=False
+        label=_("Société"), help_text="optionnel", required=False
     )
-    billing_street_address = forms.CharField(label="Adresse")
+    billing_street_address = forms.CharField(label=_("Adresse"))
     billing_street_address_line_2 = forms.CharField(
-        label="Complément d'Adresse", help_text="optionnel", required=False
+        label=_("Complément d'Adresse"), help_text="optionnel", required=False
     )
-    billing_country = CountryField().formfield(label="Pays")
-    billing_zip_code = forms.CharField(label="Code Postal")
-    billing_city = forms.CharField(label="Ville")
+    billing_country = CountryField().formfield(label=_("Pays"))
+    billing_zip_code = forms.CharField(label=_("Code Postal"))
+    billing_city = forms.CharField(label=_("Ville"))
     same_billing_address = forms.BooleanField(
-        label="L'adresse de livraison est identique à l'adresse de facturation",
+        label=_("L'adresse de livraison est identique à l'adresse de facturation"),
         required=False,
         initial=True,
     )
     payment_option = forms.ChoiceField(
-        label="Options de paiement", choices=PAYMENT_CHOICES
+        label=_("Options de paiement"), choices=PAYMENT_CHOICES
     )
     accept_confidentiality = forms.BooleanField(
-        label="J'accepte la politique de confidentialité et de traitement"
-        " des données personnelles",
+        label=_("J'accepte la politique de confidentialité et de traitement"
+                " des données personnelles"),
         initial=False,
     )
     mr_ID = forms.CharField(required=False)
@@ -78,7 +79,7 @@ class CheckoutForm(forms.Form):
     mr_Pays = forms.CharField(required=False)
 
     home_shipping_fieldset = Fieldset(
-        "Saisissez vos informations de livraison",
+        _("Saisissez vos informations de livraison"),
         "phone",
         Div(
             "same_billing_address",
@@ -104,7 +105,7 @@ class CheckoutForm(forms.Form):
     )
 
     mondial_relay_shipping_fieldset = Fieldset(
-        "Saisissez vos informations de livraison",
+        _("Saisissez vos informations de livraison"),
         "phone",
         Div(css_id="Zone_Widget"),
     )
@@ -114,11 +115,11 @@ class CheckoutForm(forms.Form):
         self.helper = FormHelper()
         self.helper.layout = Layout(
             Fieldset(
-                "Saisissez vos informations de contact",
+                _("Saisissez vos informations de contact"),
                 "email",
             ),
             Fieldset(
-                "Saisissez votre adresse de Facturation",
+                _("Saisissez votre adresse de Facturation"),
                 Div(
                     "billing_first_name",
                     "billing_last_name",
@@ -133,13 +134,13 @@ class CheckoutForm(forms.Form):
                 "billing_country",
             ),
             Fieldset(
-                "Sélectionnez un moyen de paiement",
+                _("Sélectionnez un moyen de paiement"),
                 "payment_option",
             ),
             Div("accept_confidentiality", css_class="custom-form-checkbox"),
         )
         self.helper.add_input(
-            Submit("submit", "Commander", css_class="btn-primary btn-primary_center")
+            Submit("submit", _("Commander"), css_class="btn-primary btn-primary_center")
         )
         if delivery_option == 'H':
             self.helper.layout.fields.insert(-2, CheckoutForm.home_shipping_fieldset)
@@ -166,15 +167,15 @@ class MondialRelayForm(forms.Form):
 
 
 class RefundForm(forms.Form):
-    ref_code = forms.CharField(label="Numéro de référence de la commande")
-    email = forms.EmailField(label="Adresse Email")
+    ref_code = forms.CharField(label=_("Numéro de référence de la commande"))
+    email = forms.EmailField(label=_("Adresse Email"))
     message = forms.CharField(
-        label="Message décrivant la ou les raisons de votre demande de remboursement:",
+        label=_("Message décrivant la ou les raisons de votre demande de remboursement:"),
         widget=forms.Textarea(attrs={"rows": 6}),
     )
     accept_conditions = forms.BooleanField(
-        label="J'accepte les conditions s'appliquant à l'exercice du droit de rétractation "
-        "mentionnées dans les conditions générales de ventes",
+        label=_("J'accepte les conditions s'appliquant à l'exercice du droit de rétractation "
+                "mentionnées dans les conditions générales de ventes"),
         required=True,
     )
 
@@ -192,6 +193,6 @@ class RefundForm(forms.Form):
             ),
         )
         self.helper.add_input(
-            Submit("submit", "Envoyer", css_class="btn-primary btn-primary_center")
+            Submit("submit", _("Envoyer"), css_class="btn-primary btn-primary_center")
         )
         self.helper.form_method = "post"

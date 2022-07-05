@@ -1,6 +1,6 @@
-{% load static %}
+{% load i18n static %}
 <div class="shipping-info">
-  <h3>Votre Livraison</h3>
+  <h3>{% translate "Votre Livraison" %}</h3>
   <article class="card">
     <div>
       <div class="shipping-line">
@@ -16,6 +16,6 @@
       </div>
     </div>
     <a href="{% url 'shop:shipping' %}"
-       class="btn-primary btn-primary_center toggle">Modifier</a>
+       class="btn-primary btn-primary_center toggle">{% translate "Modifier" %}</a>
   </article>
 </div>

@@ -1,5 +1,6 @@
 from django.urls import path
 from django.views.generic import TemplateView
+from django.utils.translation import gettext_lazy as _
 
 from .views import (
     HomeView,
@@ -12,43 +13,47 @@ from .views import (
     PaymentView,
     StatusView,
     RequestRefundView,
+    ConfidentialityView,
+    LegalTermsView,
+    SalesConditionsView
 )
 
 
 app_name = "shop"
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
-    path("cart/", CartView.as_view(), name="cart"),
-    path("add-to-cart/<slug>", add_to_cart, name="add-to-cart"),
-    path("remove-from-cart/<slug>", remove_from_cart, name="remove-from-cart"),
+    path(_("panier/"), CartView.as_view(), name="cart"),
+    path(_("ajouter-au-panier/<slug>"), add_to_cart, name="add-to-cart"),
+    path(_("supprimer-du-panier/<slug>"), remove_from_cart, name="remove-from-cart"),
     path(
-        "remove-item-from-cart/<slug>",
+        _("enlever-un-element-du-panier/<slug>"),
         remove_item_from_cart,
         name="remove-item-from-cart",
     ),
-    path("shipping/", ShippingView.as_view(), name="shipping"),
-    path("checkout/", CheckoutView.as_view(), name="checkout"),
-    path("payment/<payment_option>", PaymentView.as_view(), name="payment"),
-    path("status/", StatusView.as_view(), name="status"),
-    path("request-refund/", RequestRefundView.as_view(), name="request-refund"),
+    path(_("expedition/"), ShippingView.as_view(), name="shipping"),
+    path(_("informations/"), CheckoutView.as_view(), name="checkout"),
+    path(_("paiement/<payment_option>"), PaymentView.as_view(), name="payment"),
+    path(_("status/"), StatusView.as_view(), name="status"),
+    path(_("remboursement/"), RequestRefundView.as_view(), name="request-refund"),
     path(
-        "sales-conditions",
-        TemplateView.as_view(template_name="shop/sales_conditions.html"),
+        _("conditions-generales-de-vente"),
+        SalesConditionsView.as_view(),
         name="sales-conditions",
     ),
     path(
-        "contact/",
+        _("contact/"),
         TemplateView.as_view(template_name="shop/contact.html"),
         name="contact",
     ),
     path(
-        "legal-terms/",
-        TemplateView.as_view(template_name="shop/legal_terms.html"),
+        _("mentions-legales/"),
+        LegalTermsView.as_view(),
         name="legal-terms",
     ),
     path(
-        "confidentiality/",
-        TemplateView.as_view(template_name="shop/confidentiality.html"),
+        _("confidentialite/"),
+        ConfidentialityView.as_view(),
         name="confidentiality",
     ),
+
 ]

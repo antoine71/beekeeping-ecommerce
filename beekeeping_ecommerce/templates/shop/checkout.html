@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load i18n static %}
 {% load crispy_forms_tags %}
 {% block additional_head_scripts %}
   <!-- SCRIPTS MONDIAL RELAY -->
@@ -18,8 +18,8 @@
 {% endblock additional_css %}
 {% block content %}
   <section class="shop checkout">
-    <h2>Récapitulatif de la commande</h2>
-    <p>Veuillez entrer les informations relatives à votre commande</p>
+    <h2>{% translate "Récapitulatif de la commande" %}</h2>
+    <p>{% translate "Veuillez entrer les informations relatives à votre commande" %}</p>
     <div class="container">
       <div>
       {% include 'shop/cart_info.html' %}
@@ -27,12 +27,12 @@
       {% include 'shop/order_info.html' %}
     </div>
       <div class="checkout-form">
-        <h3>Détails de facturation</h3>
+        <h3>{% translate "Détails de facturation" %}</h3>
         <article>
           <form method="post" id="checkout_form" novalidate>
             {% crispy form %}
           </form>
-          <small class="text-muted">* Ce champ est obligatoire</small>
+          <small class="text-muted">* {% translate "Ce champ est obligatoire" %}</small>
         </article>
       </div>
     </div>

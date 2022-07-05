@@ -1,19 +1,19 @@
 {% load crispy_forms_tags %}
-{% load static %}
+{% load i18n static %}
 
 {% block additional_head_scripts %}
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 {% endblock additional_head_scripts %}
 
 <section id="demo" class="home">
-  <h2>Dans quel magasin souhaiteriez-vous avoir une démonstration ?</h2>
+  <h2>{% translate "Dans quel magasin souhaiteriez-vous avoir une démonstration ?" %}</h2>
   <p>
-    Renseignez-les informations ci-dessous et nous vous informerons de la date de démonstration.
+    {% translate "Renseignez-les informations ci-dessous et nous vous informerons de la date de démonstration." %}
   </p>
   <div class="container">
     <article class="card">
       {% crispy form %}
-      <small class="text-muted">* Ce champ est obligatoire</small>
+      <small class="text-muted">* {% translate "Ce champ est obligatoire" %}</small>
     </article>
   </div>
 </section>

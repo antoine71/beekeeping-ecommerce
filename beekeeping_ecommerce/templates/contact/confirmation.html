@@ -13,12 +13,12 @@
       <article class="card">
         <div class="card">
           <h3 class=" mb-3">{% translate "Contact" %}</h3>
-          <p><span class="text-muted">Email: </span><span>{{ demo_request.email }}</span></p>
+          <p><span class="text-muted">{% translate "Email" %}: </span><span>{{ demo_request.email }}</span></p>
         </div>
         <div class="card">
           <h3 class=" mb-3">{% translate "Magasin" %}</h3>
-          <p><span class="text-muted">Nom du magasin: </span><span>{{ demo_request.shop_name }}</span></p>
-          <p><span class="text-muted">Code postal, ville: </span><span>{{ demo_request.post_code }}, {{ demo_request.city }}</span></p>
+          <p><span class="text-muted">{% translate "Nom du magasin" %}: </span><span>{{ demo_request.shop_name }}</span></p>
+          <p><span class="text-muted">{% translate "Code postal, ville" %}: </span><span>{{ demo_request.post_code }}, {{ demo_request.city }}</span></p>
         </div>
       </article>
       <div>

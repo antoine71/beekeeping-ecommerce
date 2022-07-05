@@ -1,12 +1,14 @@
+{% load i18n %}
+
 <div class="order-info">
-  <h3>Votre Panier</h3>
+  <h3>{% translate "Votre Panier" %}</h3>
   <article class="card">
     <table class="standard">
       <thead>
         <tr>
-          <td>Produit</td>
-          <td>TVA</td>
-          <td>Prix TTC</td>
+          <td>{% translate "Produit" %}</td>
+          <td>{% translate "TVA" %}</td>
+          <td>{% translate "Prix TTC" %}</td>
         </tr>
       </thead>
       <tbody>
@@ -20,12 +22,12 @@
           </tr>
         {% endfor %}
         <tr>
-          <td><b>Total</b></td>
+          <td><b>{% translate "Total" %}</b></td>
           <td></td>
           <td><b>{{ order.get_order_price_ex_delivery|floatformat:2 }} EUR</b></td>
         </tr>
       </tbody>
     </table>
-    <a href="{% url 'shop:cart' %}" class="btn-primary btn-primary_center toggle">Modifier</a>
+    <a href="{% url 'shop:cart' %}" class="btn-primary btn-primary_center toggle">{% translate "Modifier" %}</a>
   </article>
 </div>

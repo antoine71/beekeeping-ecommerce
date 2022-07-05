@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load i18n static %}
 {% block content %}
   <section class="blog article-list">
     <div class="container">
+      {% get_current_language as LANGUAGE_CODE %}
       {% for article in articles %}
-        <article class="article_card card">
-          <h2 class="post-title">{{ article.title }}</h2>
-          <small class="text-muted">Publié le {{ article.date_created | date:"j F Y" }}</small>
-          {% if article.image %}
-            <div class="article-image">
-              <img src="{{ article.image.url }}" alt="illustration apiculture">
-            </div>
-          {% endif %}
-          <h3 class="post-subtitle">{{ article.abstract }}</h3>
-          <a href="{% url 'blog:article-detail' slug=article.slug %}"
-             class="btn-primary btn-primary_center">Lire l'Article</a>
-        </article>
+        {% if article.language == LANGUAGE_CODE %}
+          <article class="article_card card">
+            <h2 class="post-title">{{ article.title }}</h2>
+            <small class="text-muted">{% translate "Publié le" %} {{ article.date_created | date:"j F Y" }}</small>
+            {% if article.image %}
+              <div class="article-image">
+                <img src="{{ article.image.url }}" alt="illustration apiculture">
+              </div>
+            {% endif %}
+            <h3 class="post-subtitle">{{ article.abstract }}</h3>
+            <a href="{% url 'blog:article-detail' slug=article.slug %}"
+               class="btn-primary btn-primary_center">{% translate "Lire l'Article" %}</a>
+          </article>
+        {% endif %}
       {% endfor %}
     </div>
   </section>

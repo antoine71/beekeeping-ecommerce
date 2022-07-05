@@ -1,19 +1,21 @@
+{% load i18n %}
+
 <div class="payment-info">
-  <h3>Vos Informations de paiement</h3>
+  <h3>{% translate "Vos Informations de paiement" %}</h3>
   <article class="card">
-    <h4>Récapitulatif de paiement</h4>
-    <h5 class="text-muted">Type de la transaction</h5>
+    <h4>{% translate "Récapitulatif de paiement" %}</h4>
+    <h5 class="text-muted">{% translate "Type de la transaction" %}</h5>
     <p class="mb-3">{{ charges.payment_method_details.card.brand }}</p>
-    <h5 class="text-muted">Montant de la transaction</h5>
+    <h5 class="text-muted">{% translate "Montant de la transaction" %}</h5>
     <p class="mb-3">{{ amount | floatformat:2 }} {{ charges.currency }}</p>
-    <h5 class="text-muted">Date de la transaction</h5>
+    <h5 class="text-muted">{% translate "Date de la transaction" %}</h5>
     <p class="mb-3">{{ date_created }}</p>
-    <h5 class="text-muted">Numéro de carte</h5>
+    <h5 class="text-muted">{% translate "Numéro de carte" %}</h5>
     <p class="mb-3">XXXX XXXX XXXX {{ charges.payment_method_details.card.last4 }}</p>
-    <h5 class="text-muted">Numéro d'autorisation</h5>
+    <h5 class="text-muted">{% translate "Numéro d'autorisation" %}</h5>
     <p class="mb-3">{{ charges.id }}</p>
     <a href="{{ charges.receipt_url }}"
        target="_blank"
-       class="btn-primary btn-primary_center">Télécharger un reçu</a>
+       class="btn-primary btn-primary_center">{% translate "Télécharger un reçu" %}</a>
   </article>
 </div>

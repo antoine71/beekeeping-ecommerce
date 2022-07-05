@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load i18n static %}
 {% load crispy_forms_tags %}
 {% block content %}
   <section class="shop cart">
-    <h2>Récapitulatif de la commande</h2>
-    <p>Voici le contenu de votre panier</p>
+    <h2>{% translate "Récapitulatif de la commande" %}</h2>
+    <p>{% translate "Voici le contenu de votre panier" %}</p>
     <div class="container">
       <table class="table">
         <thead>
           <tr>
             <th scope="col"></th>
-            <th scope="col">Produit</th>
-            <th scope="col">Prix</th>
-            <th scope="col">Quantité</th>
-            <th scope="col">Sous-total</th>
+            <th scope="col">{% translate "Produit" %}</th>
+            <th scope="col">{% translate "Prix" %}</th>
+            <th scope="col">{% translate "Quantité" %}</th>
+            <th scope="col">{% translate "Sous-total" %}</th>
           </tr>
         </thead>
         <tbody>
@@ -50,29 +50,29 @@
         <div class="back-to-shop">
           <a href="{% url 'shop:home' %}#buy" class="btn-primary">
             <i class='bx bx-chevrons-left'></i>
-            <span>Retour vers la boutique</span>
+            <span>{% translate "Retour vers la boutique" %}</span>
           </a>
         </div>
         <article class="card">
-          <h3>Total Panier</h3>
+          <h3>{% translate "Total Panier" %}</h3>
           <table class="standard">
             <tbody>
               <tr>
-                <td>Sous-Total HT</td>
+                <td>{% translate "Sous-Total HT" %}</td>
                 <td>{{ order.get_order_price_ex_vat | floatformat:2 }} EUR</td>
               </tr>
               <tr>
-                <td>TVA</td>
+                <td>{% translate "TVA" %}</td>
                 <td>{{ order.get_order_vat_price | floatformat:2 }} EUR</td>
               </tr>
               <tr>
-                <td>Total TTC</td>
+                <td>{% translate "Total TTC" %}</td>
                 <td>{{ order.get_order_price_ex_delivery | floatformat:2 }} EUR</td>
               </tr>
             </tbody>
           </table>
           <a href="{% url 'shop:shipping' %}"
-             class="btn-primary btn-primary_center">Valider la commande</a>
+             class="btn-primary btn-primary_center">{% translate "Valider la commande" %}</a>
         </article>
       </div>
     </div>

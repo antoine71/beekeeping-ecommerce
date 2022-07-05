@@ -1,19 +1,21 @@
+{% load i18n %}
+
 <div class="order-info">
-  <h3>Vos Informations</h3>
+  <h3>{% translate "Vos Informations" %}</h3>
   <article class="card">
     <div class="card">
-      <h4>Vos Informations de contact</h4>
+      <h4>{% translate "Vos Informations de contact" %}</h4>
       <p>
-        <span class="text-muted">Email:</span>
+        <span class="text-muted">{% translate "Email" %}:</span>
         <span>{{ order.contact_info.email }}</span>
       </p>
       <p>
-        <span class="text-muted">Téléphone:</span>
+        <span class="text-muted">{% translate "Téléphone" %}:</span>
         <span>{{ order.contact_info.phone }}</span>
       </p>
     </div>
     <div class="card">
-      <h4>Votre adresse de Facturation</h4>
+      <h4>{% translate "Votre adresse de Facturation" %}</h4>
       <p>{{ order.billing_address.first_name }} {{ order.billing_address.last_name }}</p>
       {% if order.billing_address.company_name %}<p>{{ order.billing_address.company_name }}</p>{% endif %}
       <p>{{ order.billing_address.street_address }}</p>
@@ -22,7 +24,7 @@
     </div>
     <div class="card">
       {% if order.delivery_option == 'H' %}
-        <h4>Votre adresse de Livraison</h4>
+        <h4>{% translate "Votre adresse de Livraison" %}</h4>
         <p>{{ order.shipping_address.first_name }} {{ order.shipping_address.last_name }}</p>
         {% if order.shipping_address.company_name %}<p>{{ order.shipping_address.company_name }}</p>{% endif %}
         <p>{{ order.shipping_address.street_address }}</p>
@@ -35,7 +37,7 @@
       </div>
     {% endif %}
     {% if order.delivery_option == 'R' %}
-    <h4>Votre point de livraison</h4>
+    <h4>{% translate "Votre point de livraison" %}</h4>
     <p>{{ order.mondial_relay_info.mr_Nom }}</p>
     <p>{{ order.mondial_relay_info.mr_Adresse1 }}</p>
     {% if order.mondial_relay_info.mr_Adresse2 != "null" %}
@@ -47,6 +49,6 @@
   </div>
 {% endif %}    
     <a href="{% url 'shop:checkout' %}"
-       class="btn-primary btn-primary_center">Modifier</a>
+       class="btn-primary btn-primary_center">{% translate "Modifier" %}</a>
   </article>
 </div>

@@ -1,0 +1,929 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-05 16:06+0200\n"
+"PO-Revision-Date: 2022-07-05 16:24+0200\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: beekeeping_ecommerce/contact/forms.py:16
+msgid "Saisissez le nom et la ville du magasin"
+msgstr "Introduzca el nombre y la ciudad de la tienda"
+
+#: beekeeping_ecommerce/contact/forms.py:21
+msgid "Comment pouvons nous vous prévenir de la démonstration ?"
+msgstr "¿Cómo podemos avisar de la manifestación?"
+
+#: beekeeping_ecommerce/contact/forms.py:33
+msgid "Demander une Démonstration"
+msgstr "Solicite una demostración"
+
+#: beekeeping_ecommerce/contact/models.py:10
+msgid "Vous devez accepter la politique de confidentialité"
+msgstr "Debe aceptar la política de privacidad"
+
+#: beekeeping_ecommerce/contact/models.py:15
+msgid "La date saisie est déjà passée"
+msgstr "La fecha introducida ya ha pasado"
+
+#: beekeeping_ecommerce/contact/models.py:19
+msgid "Nom du Magasin"
+msgstr "Nombre de la tienda"
+
+#: beekeeping_ecommerce/contact/models.py:20
+#: beekeeping_ecommerce/shop/forms.py:47 beekeeping_ecommerce/shop/forms.py:59
+msgid "Ville"
+msgstr "Ciudad"
+
+#: beekeeping_ecommerce/contact/models.py:21
+#: beekeeping_ecommerce/shop/forms.py:46 beekeeping_ecommerce/shop/forms.py:58
+msgid "Code Postal"
+msgstr "Código postal"
+
+#: beekeeping_ecommerce/contact/models.py:22
+#: beekeeping_ecommerce/shop/forms.py:35
+#: beekeeping_ecommerce/shop/forms.py:171
+msgid "Adresse Email"
+msgstr "Dirección Correo electrónico"
+
+#: beekeeping_ecommerce/contact/models.py:24
+msgid "Accepter la politique de confidentialité"
+msgstr "Aceptar la política de privacidad"
+
+#: beekeeping_ecommerce/contact/models.py:27
+msgid "Date de création"
+msgstr "Fecha de creación"
+
+#: beekeeping_ecommerce/shop/forms.py:22
+msgid "Choisissez un mode de livraison"
+msgstr "Elija un método de entrega"
+
+#: beekeeping_ecommerce/shop/forms.py:27
+#: beekeeping_ecommerce/shop/forms.py:196
+#: beekeeping_ecommerce/templates/shop/shipping.html:54
+msgid "Envoyer"
+msgstr "Enviar"
+
+#: beekeeping_ecommerce/shop/forms.py:34
+msgid "Numéro de téléphone"
+msgstr "Número de teléfono"
+
+#: beekeeping_ecommerce/shop/forms.py:36 beekeeping_ecommerce/shop/forms.py:48
+msgid "Prénom"
+msgstr "Nombre"
+
+#: beekeeping_ecommerce/shop/forms.py:37 beekeeping_ecommerce/shop/forms.py:49
+msgid "Nom"
+msgstr "Nom"
+
+#: beekeeping_ecommerce/shop/forms.py:39 beekeeping_ecommerce/shop/forms.py:51
+msgid "Société"
+msgstr "Empresa"
+
+#: beekeeping_ecommerce/shop/forms.py:41 beekeeping_ecommerce/shop/forms.py:53
+msgid "Adresse"
+msgstr "Dirección"
+
+#: beekeeping_ecommerce/shop/forms.py:43 beekeeping_ecommerce/shop/forms.py:55
+msgid "Complément d'Adresse"
+msgstr "Dirección adicional"
+
+#: beekeeping_ecommerce/shop/forms.py:45 beekeeping_ecommerce/shop/forms.py:57
+msgid "Pays"
+msgstr "País"
+
+#: beekeeping_ecommerce/shop/forms.py:61
+msgid "L'adresse de livraison est identique à l'adresse de facturation"
+msgstr "La dirección de entrega es idéntica a la dirección de facturación"
+
+#: beekeeping_ecommerce/shop/forms.py:66
+msgid "Options de paiement"
+msgstr "Opciones de pago"
+
+#: beekeeping_ecommerce/shop/forms.py:69
+msgid ""
+"J'accepte la politique de confidentialité et de traitement des données "
+"personnelles"
+msgstr "Acepto la política de privacidad y tratamiento de datos"
+
+#: beekeeping_ecommerce/shop/forms.py:82
+#: beekeeping_ecommerce/shop/forms.py:108
+msgid "Saisissez vos informations de livraison"
+msgstr "Introduzca sus datos de entrega"
+
+#: beekeeping_ecommerce/shop/forms.py:118
+msgid "Saisissez vos informations de contact"
+msgstr "Introduzca sus datos de contacto"
+
+#: beekeeping_ecommerce/shop/forms.py:122
+msgid "Saisissez votre adresse de Facturation"
+msgstr "Introduzca su dirección de facturación"
+
+#: beekeeping_ecommerce/shop/forms.py:137
+msgid "Sélectionnez un moyen de paiement"
+msgstr "Seleccione un método de pago"
+
+#: beekeeping_ecommerce/shop/forms.py:143
+msgid "Commander"
+msgstr "Pida"
+
+#: beekeeping_ecommerce/shop/forms.py:170
+msgid "Numéro de référence de la commande"
+msgstr "Número de referencia del pedido"
+
+#: beekeeping_ecommerce/shop/forms.py:173
+msgid "Message décrivant la ou les raisons de votre demande de remboursement:"
+msgstr "Mensaje que describe el motivo de su reclamación:"
+
+#: beekeeping_ecommerce/shop/forms.py:177
+msgid ""
+"J'accepte les conditions s'appliquant à l'exercice du droit de rétractation "
+"mentionnées dans les conditions générales de ventes"
+msgstr ""
+"Acepto las condiciones de ejercicio del derecho de desistimiento que figuran"
+" en las condiciones generales de venta"
+
+#: beekeeping_ecommerce/shop/models.py:8
+msgid "Carte Bancaire"
+msgstr "Carta Bancaria"
+
+#: beekeeping_ecommerce/shop/models.py:13
+#: beekeeping_ecommerce/templates/shop/shipping.html:43
+msgid "Livraison à Domicile"
+msgstr "Entrega a domicilio"
+
+#: beekeeping_ecommerce/shop/models.py:14
+msgid "Livraison en Point Relay"
+msgstr "Entrega en relé de puntos"
+
+#: beekeeping_ecommerce/shop/models.py:18
+msgid "Facturation"
+msgstr "Facturación"
+
+#: beekeeping_ecommerce/shop/models.py:19
+msgid "Expédition"
+msgstr "Envío"
+
+#: beekeeping_ecommerce/shop/urls.py:25
+msgid "panier/"
+msgstr "cesta/"
+
+#: beekeeping_ecommerce/shop/urls.py:26
+msgid "ajouter-au-panier/<slug>"
+msgstr "añadir-a-la-cesta/<slug>"
+
+#: beekeeping_ecommerce/shop/urls.py:27
+msgid "supprimer-du-panier/<slug>"
+msgstr "borrar-de-la-cesta/<slug>"
+
+#: beekeeping_ecommerce/shop/urls.py:29
+msgid "enlever-un-element-du-panier/<slug>"
+msgstr "quitar-un-elemento-del-cubo/<slug>"
+
+#: beekeeping_ecommerce/shop/urls.py:33
+msgid "expedition/"
+msgstr "expedicion/"
+
+#: beekeeping_ecommerce/shop/urls.py:34
+msgid "informations/"
+msgstr "informacion/"
+
+#: beekeeping_ecommerce/shop/urls.py:35
+msgid "paiement/<payment_option>"
+msgstr "pago/<payment_option>"
+
+#: beekeeping_ecommerce/shop/urls.py:36
+msgid "status/"
+msgstr "estado/"
+
+#: beekeeping_ecommerce/shop/urls.py:37
+msgid "remboursement/"
+msgstr "reembolso/"
+
+#: beekeeping_ecommerce/shop/urls.py:39
+msgid "conditions-generales-de-vente"
+msgstr "condiciones de venta"
+
+#: beekeeping_ecommerce/shop/urls.py:44
+msgid "contact/"
+msgstr "contact/"
+
+#: beekeeping_ecommerce/shop/urls.py:49
+msgid "mentions-legales/"
+msgstr "menciones-legales/"
+
+#: beekeeping_ecommerce/shop/urls.py:54
+msgid "confidentialite/"
+msgstr "confidencialidad/"
+
+#: beekeeping_ecommerce/shop/views.py:53
+msgid "Le produit n'existe pas dans le panier"
+msgstr "El producto no existe en la cesta"
+
+#: beekeeping_ecommerce/shop/views.py:66
+msgid "Le panier n'existe pas"
+msgstr "La cesta no existe"
+
+#: beekeeping_ecommerce/shop/views.py:81
+msgid "Votre demande a bien été prise en compte."
+msgstr "Su petición ha sido tenida en cuenta."
+
+#: beekeeping_ecommerce/shop/views.py:88
+msgid ""
+"Le formulaire comporte des erreurs, merci de corriger et de le soumettre à "
+"nouveau."
+msgstr ""
+"El formulario tiene errores, por favor, corríjalos y vuelva a enviarlo."
+
+#: beekeeping_ecommerce/shop/views.py:332
+msgid "Erreur: vous devez sélectionner un point relais."
+msgstr "Error: hay que seleccionar un punto de relevo."
+
+#: beekeeping_ecommerce/shop/views.py:346
+msgid "Seul le paiement par carte bancaire est disponible actuellement"
+msgstr "Actualmente sólo está disponible el pago con tarjeta de crédito"
+
+#: beekeeping_ecommerce/shop/views.py:388
+msgid "Erreur interne, votre paiement n'a pas pu être effectué."
+msgstr "Error interno, no se ha podido realizar el pago."
+
+#: beekeeping_ecommerce/shop/views.py:443
+msgid "Votre paiement a été validé."
+msgstr "Su pago ha sido validado."
+
+#: beekeeping_ecommerce/shop/views.py:450
+msgid ""
+"Votre paiement est en cours de validation. Nous vous recontacterons lorsque "
+"le paiement aura été validé"
+msgstr ""
+"Su pago está siendo validado. Nos pondremos en contacto con usted cuando el "
+"pago haya sido validado"
+
+#: beekeeping_ecommerce/shop/views.py:456
+#: beekeeping_ecommerce/shop/views.py:460
+msgid "Votre paiement a échoué. La commande a été annulée."
+msgstr "Su pago ha fallado. El pedido ha sido cancelado."
+
+#: beekeeping_ecommerce/shop/views.py:503
+msgid "Le produit a été ajouté au panier"
+msgstr "El producto se ha añadido a la cesta"
+
+#: beekeeping_ecommerce/shop/views.py:507
+msgid "Le panier a été mis à jour"
+msgstr "La cesta se ha actualizado"
+
+#: beekeeping_ecommerce/shop/views.py:524
+#: beekeeping_ecommerce/shop/views.py:547
+msgid "Le produit a été supprimé du panier"
+msgstr "El producto ha sido retirado de la cesta"
+
+#: beekeeping_ecommerce/shop/views.py:529
+#: beekeeping_ecommerce/shop/views.py:554
+msgid "Le panier a été supprimé"
+msgstr "La cesta ha sido eliminada"
+
+#: beekeeping_ecommerce/shop/views.py:551
+msgid "Le panier a été mis á jour"
+msgstr "La cesta se ha actualizado"
+
+#: beekeeping_ecommerce/shop/views.py:582
+msgid "Votre demande de remboursement a bien été prise en compte."
+msgstr "Su solicitud de reembolso ha sido tenida en cuenta."
+
+#: beekeeping_ecommerce/shop/views.py:587
+msgid "Ce numéro de commande n'existe pas."
+msgstr "Este número de pedido no existe."
+
+#: beekeeping_ecommerce/shop/views.py:589
+msgid "Ce numéro de commande est invalide."
+msgstr "Este número de pedido no es válido."
+
+#: beekeeping_ecommerce/templates/base.html:10
+msgid ""
+"NumerciBees développe des outils pour faciliter l'apiculture. Notre enfumoir"
+" pour abeilles Zephyr1 à soufflerie électrique élimine le besoin de pomper "
+"sur un soufflet qui se perce au bout de quelques mois."
+msgstr ""
+"NumerciBees desarrolla herramientas para facilitar la apicultura. Nuestro "
+"ahumador eléctrico de abejas Zephyr1 elimina la necesidad de bombear en un "
+"fuelle que se rompe después de unos meses."
+
+#: beekeeping_ecommerce/templates/base.html:11
+msgid "Numericbees, l'apiculture simplifiée"
+msgstr "Numericbees, la apicultura más fácil"
+
+#: beekeeping_ecommerce/templates/base.html:35
+msgid "Accueil"
+msgstr "Inicio"
+
+#: beekeeping_ecommerce/templates/base.html:38
+#: beekeeping_ecommerce/templates/home.html:25
+msgid "Acheter"
+msgstr "Acheter"
+
+#: beekeeping_ecommerce/templates/base.html:41
+msgid "Démonstration"
+msgstr "Demostración"
+
+#: beekeeping_ecommerce/templates/base.html:44
+msgid "Apiculture"
+msgstr "Apicultura"
+
+#: beekeeping_ecommerce/templates/base.html:47
+#: beekeeping_ecommerce/templates/base.html:128
+#: beekeeping_ecommerce/templates/contact/confirmation.html:15
+msgid "Contact"
+msgstr "Contact"
+
+#: beekeeping_ecommerce/templates/base.html:86
+msgid "NumericBees"
+msgstr "NumericBees"
+
+#: beekeeping_ecommerce/templates/base.html:87
+msgid "L'Apiculture Simplifiée"
+msgstr "Apicultura simplificada"
+
+#: beekeeping_ecommerce/templates/base.html:125
+msgid "Conditions générales de vente"
+msgstr "Condiciones generales de venta"
+
+#: beekeeping_ecommerce/templates/base.html:126
+msgid "Mentions Légales"
+msgstr "Aviso legal"
+
+#: beekeeping_ecommerce/templates/base.html:127
+#: beekeeping_ecommerce/templates/shop/confidentiality.html:4
+msgid "Politique de confidentialité"
+msgstr "Política de privacidad"
+
+#: beekeeping_ecommerce/templates/base.html:131
+msgid "Copyright NumericBees. Tous droits réservés."
+msgstr "Copyright NumericBees. Todos los derechos reservados."
+
+#: beekeeping_ecommerce/templates/blog/article_detail.html:10
+msgid "Retour vers le sommaire"
+msgstr "Volver al índice"
+
+#: beekeeping_ecommerce/templates/blog/article_detail.html:15
+#: beekeeping_ecommerce/templates/blog/article_list.html:11
+msgid "Publié le"
+msgstr "Publicado en"
+
+#: beekeeping_ecommerce/templates/blog/article_detail.html:17
+msgid "Résumé"
+msgstr "Resumen"
+
+#: beekeeping_ecommerce/templates/blog/article_list.html:19
+msgid "Lire l'Article"
+msgstr "Leer el artículo"
+
+#: beekeeping_ecommerce/templates/contact/confirmation.html:4
+msgid "demande de démonstration - confirmation"
+msgstr "solicitud de demostración - confirmación"
+
+#: beekeeping_ecommerce/templates/contact/confirmation.html:8
+msgid "Demande de démonstration prise en compte"
+msgstr "Se tiene en cuenta la solicitud de demostración"
+
+#: beekeeping_ecommerce/templates/contact/confirmation.html:10
+msgid ""
+"Nous avons bien pris en compte votre demande de démonstration. Nous vous "
+"recontacterons prochainement."
+msgstr ""
+"Hemos tenido en cuenta su solicitud de demostración. Nos pondremos en "
+"contacto con usted en breve."
+
+#: beekeeping_ecommerce/templates/contact/confirmation.html:16
+#: beekeeping_ecommerce/templates/shop/billing_info.html:9
+msgid "Email"
+msgstr "Envíe un correo electrónico a"
+
+#: beekeeping_ecommerce/templates/contact/confirmation.html:19
+msgid "Magasin"
+msgstr "He dormido"
+
+#: beekeeping_ecommerce/templates/contact/confirmation.html:20
+msgid "Nom du magasin"
+msgstr "Nombre de la tienda"
+
+#: beekeeping_ecommerce/templates/contact/confirmation.html:21
+msgid "Code postal, ville"
+msgstr "Código postal, ciudad"
+
+#: beekeeping_ecommerce/templates/contact/confirmation.html:26
+msgid "Retour vers l'accueil"
+msgstr "Volver a la página de inicio"
+
+#: beekeeping_ecommerce/templates/contact/demo_request.html:9
+msgid "Dans quel magasin souhaiteriez-vous avoir une démonstration ?"
+msgstr "¿En qué tienda le gustaría hacer una demostración?"
+
+#: beekeeping_ecommerce/templates/contact/demo_request.html:11
+msgid ""
+"Renseignez-les informations ci-dessous et nous vous informerons de la date "
+"de démonstration."
+msgstr ""
+"Rellene los datos siguientes y le informaremos de la fecha de la "
+"manifestación."
+
+#: beekeeping_ecommerce/templates/contact/demo_request.html:16
+#: beekeeping_ecommerce/templates/shop/checkout.html:35
+#: beekeeping_ecommerce/templates/shop/request_refund.html:19
+msgid "Ce champ est obligatoire"
+msgstr "Este campo es obligatorio"
+
+#: beekeeping_ecommerce/templates/home.html:8
+msgid "Zephyr 1"
+msgstr "Zephyr 1"
+
+#: beekeeping_ecommerce/templates/home.html:9
+msgid "L'enfumoir apicole qui facilite la vie au rucher"
+msgstr "El ahumador de abejas que facilita la vida en el colmenar"
+
+#: beekeeping_ecommerce/templates/home.html:12
+msgid "Allumage sans effort"
+msgstr "Encendido sin esfuerzo"
+
+#: beekeeping_ecommerce/templates/home.html:16
+msgid "Enfumage automatique"
+msgstr "Fumador automático"
+
+#: beekeeping_ecommerce/templates/home.html:21
+msgid "En Savoir Plus"
+msgstr "Leer más"
+
+#: beekeeping_ecommerce/templates/home/discover.html:3
+msgid "Découvrez Zephyr 1"
+msgstr "Descubra Zephyr 1"
+
+#: beekeeping_ecommerce/templates/home/discover.html:4
+msgid "Découvrez l'enfumoir automatique Zephyr 1"
+msgstr "Descubra el ahumador automático Zephyr 1"
+
+#: beekeeping_ecommerce/templates/home/discover.html:28
+msgid "Votre navigateur ne prend pas en charge la lecture de cette video."
+msgstr "Su navegador no admite la reproducción de este vídeo."
+
+#: beekeeping_ecommerce/templates/home/features.html:5
+msgid "Avantages"
+msgstr "Beneficios"
+
+#: beekeeping_ecommerce/templates/home/features.html:6
+msgid "Découvrez les avantages de l'enfumoir Zephyr 1"
+msgstr "Descubre las ventajas del ahumador Zephyr 1"
+
+#: beekeeping_ecommerce/templates/home/features.html:11
+msgid "Pratique"
+msgstr "Practica"
+
+#: beekeeping_ecommerce/templates/home/features.html:14
+msgid "Conçu par des apiculteurs pour les apiculteurs."
+msgstr "Diseñado por apicultores para apicultores."
+
+#: beekeeping_ecommerce/templates/home/features.html:18
+msgid "S'allume sans effort ni échec."
+msgstr "Se enciende sin esfuerzo y sin fallos."
+
+#: beekeeping_ecommerce/templates/home/features.html:25
+msgid "Ergonomique"
+msgstr "Ergonómico"
+
+#: beekeeping_ecommerce/templates/home/features.html:28
+msgid "Plus léger qu'un enfumoir à soufflet, pas de pompage sur le soufflet."
+msgstr "Más ligero que un ahumador de fuelle, no hay bombeo en el fuelle."
+
+#: beekeeping_ecommerce/templates/home/features.html:35
+msgid "Fiable"
+msgstr "Fiable"
+
+#: beekeeping_ecommerce/templates/home/features.html:38
+msgid "Sécurité par temporisation."
+msgstr "Seguridad por tiempo de espera."
+
+#: beekeeping_ecommerce/templates/home/features.html:41
+msgid "Composants industriels fiables."
+msgstr "Componentes industriales fiables."
+
+#: beekeeping_ecommerce/templates/home/features.html:44
+msgid "Autonomie de plusieurs semaines."
+msgstr "Autonomía de varias semanas."
+
+#: beekeeping_ecommerce/templates/home/features.html:51
+msgid "Robuste"
+msgstr "Robusto"
+
+#: beekeeping_ecommerce/templates/home/features.html:53
+msgid "Supporte les chutes répétées dans l'herbe."
+msgstr "Soporta repetidas caídas por la hierba."
+
+#: beekeeping_ecommerce/templates/home/features.html:56
+msgid "Ne se perce pas."
+msgstr "No perfora."
+
+#: beekeeping_ecommerce/templates/home/features.html:63
+msgid "Durable"
+msgstr "Sostenible"
+
+#: beekeeping_ecommerce/templates/home/features.html:65
+msgid "Plusieurs milliers d'heures de fonctionnement ou d'activations."
+msgstr "Varios miles de horas de funcionamiento o activaciones."
+
+#: beekeeping_ecommerce/templates/home/features.html:66
+msgid "Réparable"
+msgstr "Reparable"
+
+#: beekeeping_ecommerce/templates/home/features.html:73
+msgid "Garanti"
+msgstr "Garantes"
+
+#: beekeeping_ecommerce/templates/home/features.html:75
+msgid "Garantie 2 ans"
+msgstr "2 años de garantía"
+
+#: beekeeping_ecommerce/templates/home/users.html:3
+msgid "Ce que disent les utilisateurs de Zephyr 1"
+msgstr "Lo que dicen los usuarios sobre Zephyr 1"
+
+#: beekeeping_ecommerce/templates/home/users.html:4
+msgid "Zephyr 1 simplifie le travail des apiculteurs"
+msgstr "Zephyr 1 simplifica el trabajo de los apicultores"
+
+#: beekeeping_ecommerce/templates/home/users.html:10
+msgid ""
+"Notre première préoccupation est que l'apiculteur soit serein quand il ouvre"
+" ses ruches. Un apiculteur non stressé est un apiculteur doux avec ses "
+"abeilles, et heureux d'aller au rucher."
+msgstr ""
+"Nuestra primera preocupación es que el apicultor esté sereno cuando abra sus"
+" colmenas. Un apicultor sin estrés es un apicultor amable con sus abejas y "
+"feliz de ir al colmenar."
+
+#: beekeeping_ecommerce/templates/home/users.html:18
+msgid "Apiculteur, entrepreneur et fondateur de NumericBees"
+msgstr "Apicultor, empresario y fundador de NumericBees"
+
+#: beekeeping_ecommerce/templates/home/users.html:32
+msgid "Apiculteur et auteur de plusieurs livres d'apiculture"
+msgstr "Apicultor y autor de varios libros sobre apicultura"
+
+#: beekeeping_ecommerce/templates/home/users.html:45
+#: beekeeping_ecommerce/templates/home/users.html:59
+#: beekeeping_ecommerce/templates/home/users.html:73
+msgid "Apiculteur Anonyme"
+msgstr "Apicultor anónimo"
+
+#: beekeeping_ecommerce/templates/home/users.html:46
+#: beekeeping_ecommerce/templates/home/users.html:60
+#: beekeeping_ecommerce/templates/home/users.html:74
+msgid "Apiculteur"
+msgstr "Apicultor"
+
+#: beekeeping_ecommerce/templates/shop/billing_info.html:4
+msgid "Vos Informations"
+msgstr "Información de Vos"
+
+#: beekeeping_ecommerce/templates/shop/billing_info.html:7
+msgid "Vos Informations de contact"
+msgstr "Su información de contacto"
+
+#: beekeeping_ecommerce/templates/shop/billing_info.html:13
+msgid "Téléphone"
+msgstr "Teléfono"
+
+#: beekeeping_ecommerce/templates/shop/billing_info.html:18
+msgid "Votre adresse de Facturation"
+msgstr "Su dirección de facturación"
+
+#: beekeeping_ecommerce/templates/shop/billing_info.html:27
+msgid "Votre adresse de Livraison"
+msgstr "Su dirección de entrega"
+
+#: beekeeping_ecommerce/templates/shop/billing_info.html:40
+msgid "Votre point de livraison"
+msgstr "Su punto de entrega"
+
+#: beekeeping_ecommerce/templates/shop/billing_info.html:52
+#: beekeeping_ecommerce/templates/shop/cart_info.html:31
+#: beekeeping_ecommerce/templates/shop/shipping_info.html:19
+msgid "Modifier"
+msgstr "Editar"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:4
+msgid "Commandez votre Zephyr 1"
+msgstr "Pide tu Zephyr 1"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:5
+msgid "Livraison en France métropolitaine"
+msgstr "Entrega en Francia"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:15
+msgid "Prix HT"
+msgstr "El precio no incluye"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:19
+#: beekeeping_ecommerce/templates/shop/cart.html:65
+#: beekeeping_ecommerce/templates/shop/cart_info.html:10
+msgid "TVA"
+msgstr "IVA"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:23
+#: beekeeping_ecommerce/templates/shop/cart_info.html:11
+#: beekeeping_ecommerce/templates/shop/order_info.html:10
+msgid "Prix TTC"
+msgstr "Precio con IVA incluido"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:39
+msgid "Ajouter au panier"
+msgstr "Añadir a la cesta"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:43
+msgid "Voir le Panier"
+msgstr "Ver la cesta"
+
+#: beekeeping_ecommerce/templates/shop/cart.html:6
+#: beekeeping_ecommerce/templates/shop/checkout.html:21
+#: beekeeping_ecommerce/templates/shop/shipping.html:7
+msgid "Récapitulatif de la commande"
+msgstr "Resumen de la orden"
+
+#: beekeeping_ecommerce/templates/shop/cart.html:7
+msgid "Voici le contenu de votre panier"
+msgstr "Este es el contenido de su cesta"
+
+#: beekeeping_ecommerce/templates/shop/cart.html:13
+#: beekeeping_ecommerce/templates/shop/cart_info.html:9
+#: beekeeping_ecommerce/templates/shop/order_info.html:9
+msgid "Produit"
+msgstr "Producto"
+
+#: beekeeping_ecommerce/templates/shop/cart.html:14
+msgid "Prix"
+msgstr "Premios"
+
+#: beekeeping_ecommerce/templates/shop/cart.html:15
+msgid "Quantité"
+msgstr "Cantidad"
+
+#: beekeeping_ecommerce/templates/shop/cart.html:16
+msgid "Sous-total"
+msgstr "Subtotal"
+
+#: beekeeping_ecommerce/templates/shop/cart.html:53
+msgid "Retour vers la boutique"
+msgstr "Volver a la tienda"
+
+#: beekeeping_ecommerce/templates/shop/cart.html:57
+msgid "Total Panier"
+msgstr "Cesta total"
+
+#: beekeeping_ecommerce/templates/shop/cart.html:61
+msgid "Sous-Total HT"
+msgstr "Subtotal excl."
+
+#: beekeeping_ecommerce/templates/shop/cart.html:69
+msgid "Total TTC"
+msgstr "Total con IVA incluido"
+
+#: beekeeping_ecommerce/templates/shop/cart.html:75
+msgid "Valider la commande"
+msgstr "Validar el pedido"
+
+#: beekeeping_ecommerce/templates/shop/cart_info.html:4
+msgid "Votre Panier"
+msgstr "Su cesta de la compra"
+
+#: beekeeping_ecommerce/templates/shop/cart_info.html:25
+#: beekeeping_ecommerce/templates/shop/order_info.html:27
+msgid "Total"
+msgstr "Total"
+
+#: beekeeping_ecommerce/templates/shop/checkout.html:22
+msgid "Veuillez entrer les informations relatives à votre commande"
+msgstr "Por favor, introduzca los datos de su pedido"
+
+#: beekeeping_ecommerce/templates/shop/checkout.html:30
+msgid "Détails de facturation"
+msgstr "Datos de facturación"
+
+#: beekeeping_ecommerce/templates/shop/confidentiality.html:8
+msgid "Protection des données personnelles"
+msgstr "Protección de datos personales"
+
+#: beekeeping_ecommerce/templates/shop/contact.html:4
+msgid "contactez-nous"
+msgstr "contacte con nosotros"
+
+#: beekeeping_ecommerce/templates/shop/contact.html:8
+msgid "Contactez-nous"
+msgstr "Contacte con nosotros"
+
+#: beekeeping_ecommerce/templates/shop/legal_terms.html:4
+msgid "mentions légales"
+msgstr "avisos legales"
+
+#: beekeeping_ecommerce/templates/shop/legal_terms.html:8
+msgid "Mentions légales"
+msgstr "Información legal"
+
+#: beekeeping_ecommerce/templates/shop/order_info.html:4
+msgid "Résumé de votre commande"
+msgstr "Resumen de su pedido"
+
+#: beekeeping_ecommerce/templates/shop/order_info.html:23
+msgid "Livraison"
+msgstr "Entrega"
+
+#: beekeeping_ecommerce/templates/shop/payment.html:5
+msgid "Paiement"
+msgstr "Pago"
+
+#: beekeeping_ecommerce/templates/shop/payment.html:6
+msgid "Veuillez entrer vos informations de paiement"
+msgstr "Por favor, introduzca sus datos de pago"
+
+#: beekeeping_ecommerce/templates/shop/payment.html:13
+msgid "Votre carte de paiement"
+msgstr "Su tarjeta de pago"
+
+#: beekeeping_ecommerce/templates/shop/payment.html:20
+msgid "Payer"
+msgstr "Pagador"
+
+#: beekeeping_ecommerce/templates/shop/payment_info.html:4
+msgid "Vos Informations de paiement"
+msgstr "Su información de pago"
+
+#: beekeeping_ecommerce/templates/shop/payment_info.html:6
+#: beekeeping_ecommerce/templates/shop/status.html:5
+msgid "Récapitulatif de paiement"
+msgstr "Resumen de pagos"
+
+#: beekeeping_ecommerce/templates/shop/payment_info.html:7
+msgid "Type de la transaction"
+msgstr "Tipo de transacción"
+
+#: beekeeping_ecommerce/templates/shop/payment_info.html:9
+msgid "Montant de la transaction"
+msgstr "Importe de la transacción"
+
+#: beekeeping_ecommerce/templates/shop/payment_info.html:11
+msgid "Date de la transaction"
+msgstr "Fecha de la transacción"
+
+#: beekeeping_ecommerce/templates/shop/payment_info.html:13
+msgid "Numéro de carte"
+msgstr "Número de tarjeta"
+
+#: beekeeping_ecommerce/templates/shop/payment_info.html:15
+msgid "Numéro d'autorisation"
+msgstr "Número de autorización"
+
+#: beekeeping_ecommerce/templates/shop/payment_info.html:19
+msgid "Télécharger un reçu"
+msgstr "Descargar un recibo"
+
+#: beekeeping_ecommerce/templates/shop/request_refund.html:12
+msgid "Formulaire de demande de remboursement"
+msgstr "Formulario de solicitud de reembolso"
+
+#: beekeeping_ecommerce/templates/shop/request_refund.html:14
+msgid ""
+"Renseignez-les informations ci-dessous pour effectuer une demande de "
+"remboursement."
+msgstr "Rellene los datos siguientes para solicitar el reembolso."
+
+#: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:6
+msgid "Confirmation de demande de remboursement"
+msgstr "Confirmación de la demanda"
+
+#: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:7
+msgid ""
+"Votre demande de remboursement a bien été prise en compte et un email de "
+"confirmation vous a été envoyé."
+msgstr ""
+"Su solicitud de reembolso ha sido procesada y se le ha enviado un correo "
+"electrónico de confirmación."
+
+#: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:10
+msgid ""
+"Vous disposez de 14 jours pour faire parvenir à votre charge la commande ou "
+"la preuve de réexpédition de la commande à NUMERICBEES"
+msgstr ""
+"Dispone de 14 días para enviar el pedido o la prueba de reenvío del pedido a"
+" NUMERICBEES a su cargo"
+
+#: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:13
+msgid ""
+"Vous serez remboursé intégralement de la commande initiale dès réception, "
+"par le même moyen de paiement que celui utilisé lors de la commande "
+"initiale."
+msgstr ""
+"Recibirá el reembolso íntegro del pedido original cuando lo reciba, "
+"utilizando el mismo método de pago que el pedido original."
+
+#: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:15
+msgid "Rappel des conditions:"
+msgstr "Recordatorio de las condiciones:"
+
+#: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:17
+msgid ""
+"Votre commande doit avoir été passée moins de 90 jours avant l'exercice de "
+"votre droit de rétractation."
+msgstr ""
+"Su pedido debe haber sido realizado menos de 90 días antes de ejercer su "
+"derecho de desistimiento."
+
+#: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:18
+msgid "Votre commande doit nous parvenir complète avec tous ses accessoires."
+msgstr "Su pedido debe estar completo con todos los accesorios."
+
+#: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:20
+#: beekeeping_ecommerce/templates/shop/status.html:16
+msgid "Retour à l'accueil"
+msgstr "Volver a la página de inicio"
+
+#: beekeeping_ecommerce/templates/shop/sales_conditions.html:4
+msgid "conditions générales de vente"
+msgstr "condiciones generales de venta"
+
+#: beekeeping_ecommerce/templates/shop/sales_conditions.html:8
+msgid "Conditions générales de vente e-boutique NumericBees"
+msgstr "Condiciones generales de venta NumericBees e-shop"
+
+#: beekeeping_ecommerce/templates/shop/shipping.html:8
+msgid "Veuillez sélectionner un mode de livraison"
+msgstr "Seleccione un método de entrega"
+
+#: beekeeping_ecommerce/templates/shop/shipping.html:12
+msgid "Choix du mode de livraison"
+msgstr "Elección del método de entrega"
+
+#: beekeeping_ecommerce/templates/shop/shipping.html:25
+msgid "Livraison en Point Relais"
+msgstr "Entrega en punto de relevo"
+
+#: beekeeping_ecommerce/templates/shop/shipping.html:27
+msgid "Gratuit"
+msgstr "Gratis"
+
+#: beekeeping_ecommerce/templates/shop/shipping_info.html:3
+msgid "Votre Livraison"
+msgstr "Su entrega"
+
+#: beekeeping_ecommerce/templates/shop/status.html:7
+#, python-format
+msgid ""
+"Votre commande a été enregistrée et un e-mail de confirmation a été envoyé -"
+" votre numéro de commande est %(invoice_number)s. Veuillez prendre note de "
+"cette référence ou imprimer cette page et nous la rappeler dans tout échange"
+" concernant votre commande."
+msgstr ""
+"Su pedido ha sido registrado y se ha enviado un correo electrónico de "
+"confirmación - su número de pedido es %(número_de_factura)s. Anote esta "
+"referencia o imprima esta página y recuérdela en cualquier correspondencia "
+"relacionada con su pedido."
+
+#: config/settings/base.py:40
+msgid "Français"
+msgstr "Francés"
+
+#: config/settings/base.py:41
+msgid "Anglais"
+msgstr "Inglés"
+
+#: config/settings/base.py:42
+msgid "Espagnol"
+msgstr "Español"
+
+#: config/settings/base.py:43
+msgid "Allemand"
+msgstr "Alemán"
+
+#: config/settings/base.py:44
+msgid "Italien"
+msgstr "Italiano"
+
+#: config/settings/base.py:45
+msgid "Polonais"
+msgstr "Polaco"
+
+#: config/settings/base.py:46
+msgid "Néerlandais"
+msgstr "Holandés"
+
+#: config/urls.py:30
+msgid "apiculture/"
+msgstr "apicultura/"

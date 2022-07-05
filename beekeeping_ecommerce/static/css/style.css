@@ -879,6 +879,7 @@ nav .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 nav .container .nav__logo {
   font-family: "Kanit", serif;
@@ -902,6 +903,33 @@ nav .container #nav__items {
   gap: 2rem;
   list-style: none;
   padding: 0;
+}
+nav .container #lang__items {
+  display: none;
+  list-style: none;
+  padding: 0;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  gap: 0;
+  box-shadow: 0 1rem 1rem rgba(12, 3, 27, 0.1);
+}
+nav .container #lang__items li a {
+  background: #FFFEF9;
+  display: block;
+  padding: 1rem 2rem;
+  transition: all 400ms ease;
+}
+nav .container #lang__items li a:hover {
+  background: #fffbea;
+  color: #0c031b;
+}
+nav .container #open__lang-btn {
+  display: flex;
+}
+nav .container #close__lang-btn {
+  display: none;
 }
 nav .container .cart {
   display: flex;
@@ -963,6 +991,9 @@ nav .container button {
   }
   nav .container #close__nav-btn {
     display: none;
+  }
+  nav .container #lang__items {
+    right: 3rem;
   }
 }
 section.hero {

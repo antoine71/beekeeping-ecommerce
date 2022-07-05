@@ -27,3 +27,31 @@ if (window.innerWidth < 1024) {
   });
 }
 
+// open close lang toggler
+
+const langItems = document.querySelector("#lang__items");
+const openLangBtn = document.querySelector("#open__lang-btn");
+const closeLangBtn = document.querySelector("#close__lang-btn");
+
+const openLangMenu = () => {
+  langItems.style.display = "flex";
+  openLangBtn.style.display = "none";
+  closeLangBtn.style.display = "flex";
+};
+
+const closeLangMenu = () => {
+  langItems.style.display = "none";
+  openLangBtn.style.display = "flex";
+  closeLangBtn.style.display = "none";
+};
+
+openLangBtn.addEventListener("click", openLangMenu);
+closeLangBtn.addEventListener("click", closeLangMenu);
+
+// close nav when a menu item is clocked
+
+if (window.innerWidth < 1024) {
+  document.querySelectorAll("#nav__items li a").forEach((langItem) => {
+    langItem.addEventListener("click", closeLangMenu);
+  });
+}
