@@ -51,29 +51,4 @@
 {% block additional_scripts %}
   <script src="{% static 'js/scroll_top.js' %}"></script>
   <script src="{% static 'js/anchor_offset.js' %}"></script>
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    
-      // responsive breakpoints
-      breakpoints: {
-        //when window width is >= 600px
-        600: {
-          slidesPerView: 2,
-        },
-        //when window width is >= 1024px
-        1024: {
-          slidesPerView: 3,
-        },
-      },
-    });
-  </script>
 {% endblock additional_scripts %}
