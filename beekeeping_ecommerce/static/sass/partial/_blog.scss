@@ -23,6 +23,9 @@ section.article-detail {
       p {
         overflow: hidden;
         word-wrap: break-word;
+        & > img {
+          max-width: 350px;
+        }
       }
     }
   }
