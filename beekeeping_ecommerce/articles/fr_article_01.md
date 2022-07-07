@@ -5,10 +5,10 @@
 ### Pas d'apiculture sans enfumoir.
 
 L'apiculteur est obligé de s'équiper d'un enfumoir pour se protéger d'une attaque d'abeilles, qu'il l'ait provoquée ou non. A tel point qu'on ne peut être apiculteur sans enfumoir à abeilles. L'un ne va pas sans l'autre. Ceci depuis que l'homme prélève un butin - miel, cire - dans les ruches, c’est-à-dire depuis le néolithique ou l'âge du bronze.
- 
-Les **enfumoirs à abeilles** "modernes", c’est-à-dire à soufflet mécanique et chambre de combustion ont été inventés à la fin du 19e siècle par Moses QUINBY *[image Moses Quinby]*. Ils sont une évolution d'appareils utilisés pour désinsectiser, constitués de soufflets à manches, et de boites contenant un produit en poudre ou un combustible.
 
-![Moses Quinby](static/assets/img/moses_quinby.jpg)
+Les **enfumoirs à abeilles** "modernes", c’est-à-dire à soufflet mécanique et chambre de combustion ont été inventés à la fin du 19e siècle par Moses QUINBY. Ils sont une évolution d'appareils utilisés pour désinsectiser, constitués de soufflets à manches, et de boites contenant un produit en poudre ou un combustible.
+
+![Moses Quinby](/static/assets/img/moses_quinby.png)
 
 Depuis le début du 20e siècle les apiculteurs ont cherché à améliorer ces enfumoirs apicoles parce qu'ils ont deux inconvénients majeurs : ils sont compliqués à allumer correctement, et s'ils sont mal allumés ou s'ils ont des défauts de conception, ils s'éteignent en cours de **visite au rucher**, laissant l'apiculteur sans défense.
 
@@ -26,7 +26,7 @@ Les composants sont industriels et robustes, prévus pour des centaine de millie
 
 Zephyr1 vous assurera de longues années de service pour peu que vous en preniez soin.
 
-![Enfumoir Zephyr 1](static/assets/img/anfumoir_zephyr1.jpg)
+![Enfumoir Zephyr 1](/static/assets/img/enfumoir_zephyr1.png)
 
 L'autonomie du pack de batterie est prévue pour plusieurs heures de fonctionnement continu, ce qui représente quelques centaines de ruches visitées entre deux charges. La durée de vie des batteries est fonction du nombre de charges au cours de sa vie, nous vous invitons à réduire de nombre de ces charges en déchargeant au maximum la batterie avant de la recharger. L'autonomie restante est indiquée par 4 leds : 4 leds allumées - plus de 80% restant, 3 leds 60% restant, 2 leds 40% restants, 1 led 20% restant, aucune led quelques minutes d'utilisation restantes. Les leds s'allument dans les deux modes de fonctionnement allumage et enfumage.
 
@@ -35,7 +35,7 @@ L'autonomie du pack de batterie est prévue pour plusieurs heures de fonctionnem
 L'ergonomie de l'enfumoir pour abeilles Zephyr1 a été prévue pour faciliter sa prise en main et son utilisation. Il est plus léger qu'un enfumoir pour abeilles équipé d'un soufflet. Il se tient comme un enfumoir traditionnel, et il est facile de l'orienter vers le dessus des cadres. Cet enfumoir apicole ne nécessite plus aucune pression sur un soufflet ce qui va soulager les mains des apiculteurs professionnels et semi-professionnels et préserver leurs articulations. Zephyr1 n'a pas besoin d'un appui sur un bouton pour produire de la fumée. Il suffit de l'incliner vers votre objectif et **la fumée est produite automatiquement**. Déplacez l'enfumoir sur les têtes de cadres, Zephyr1 l'enfumoir automatique pour abeilles produit la fumée.
 
 <video width="100%" muted controls>
-  <source src="static/assets/video/ouverture-ruche.mp4" type="video/mp4"/>
+  <source src="/static/assets/video/faire-descendre-les-abeilles.mp4" type="video/mp4"/>
   "Votre navigateur ne prend pas en charge la lecture de cette video.
 </video>
 

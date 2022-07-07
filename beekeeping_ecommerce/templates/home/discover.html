@@ -3,7 +3,7 @@
   <h2>{% translate "Découvrez Zephyr 1" %}</h2>
   <p>{% translate "Découvrez l'enfumoir automatique Zephyr 1" %}</p>  
   <div class="container">
-    {% comment %} <div class="swiper mySwiper">
+    <div class="swiper mySwiperVideo">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <video width="100%" muted controls>
@@ -18,14 +18,34 @@
           </video>
         </div>
       </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-    </div> {% endcomment %}
-    <video width="100%" muted controls>
-      <source src="{% static 'assets/video/ouverture-ruche.mp4' %}" type="video/mp4"/>
-      {% translate "Votre navigateur ne prend pas en charge la lecture de cette video." %}
-    </video>
+    </div>
+    <div thumbsSlider="" class="swiper mySwiperVideoThumbs">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/ouverture-ruche.jpg' %}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/faire-descendre-les-abeilles.jpg' %}" />
+        </div>
+    </div>
   </div>
+  {% block additional_scripts %}
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    var swiperVideoThumbs = new Swiper(".mySwiperVideoThumbs", {
+      spaceBetween: 10,
+      slidesPerView: 2,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiperVideo = new Swiper(".mySwiperVideo", {
+      spaceBetween: 10,
+      thumbs: {
+        swiper: swiperVideoThumbs,
+      },
+    });
+  </script>
+
+  {% endblock additional_scripts%}
 </section>
 

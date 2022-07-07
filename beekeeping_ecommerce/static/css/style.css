@@ -1002,7 +1002,6 @@ section.hero {
   overflow: hidden;
 }
 section.hero .hero-bg-image {
-  background: blue;
   height: calc(38vh - 5rem);
   background: linear-gradient(rgba(4, 1, 18, 0.21), rgba(4, 1, 18, 0.21)), url(./../assets/img/hero-background.jpg);
   background-size: cover;
@@ -1103,21 +1102,73 @@ section.highlight .container .hero-content .right {
     display: none;
   }
 }
-#knowmore {
-  background: #F1C06A;
-}
 #knowmore .container {
   width: 100%;
 }
-#knowmore .swiper {
-  padding: 50px;
+
+.swiper {
+  width: 100%;
+  height: 100%;
 }
-#knowmore .swiper-pagination-bullet {
-  background: #a61916;
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#knowmore .swiper-button-next, #knowmore .swiper-button-prev {
-  color: #a61916;
-  font-size: 10rem;
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiperVideo {
+  height: 80%;
+  width: 100%;
+}
+
+.mySwiperVideoThumbs {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+  background: #0c031b;
+}
+
+.mySwiperVideoThumbs .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.mySwiperVideoThumbs .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #services .container {
