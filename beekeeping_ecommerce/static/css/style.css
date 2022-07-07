@@ -1533,6 +1533,10 @@ section.article-detail .container .article_content p {
   overflow: hidden;
   word-wrap: break-word;
 }
+section.article-detail .container .article_content p > img {
+  max-width: 400px;
+  margin: auto;
+}
 
 section.article-list .container {
   display: grid;
