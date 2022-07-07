@@ -57,3 +57,12 @@
 .swiper-pagination-bullet {
   background: $primary-color;
 }
+
+/* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
+@media screen and (max-width: 600px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
+  
+}

@@ -38,9 +38,11 @@
   <!-- END  OF  HERO -->
   {% include 'home/discover.html' %}
   <!-- END OF DISCOVER -->
+  {% include 'home/features.html' %}
+  <!-- END OF FEATURES -->
   {% include 'home/images.html' %}
   <!-- END OF IMAGES -->
-  {% include 'home/features.html' %}
+  {% include 'home/operation.html' %}
   <!-- END OF FEATURES -->
   {% include 'shop/buy.html' %}
   <!-- END OF BUY -->
@@ -51,12 +53,11 @@
   </button>
 {% endblock content %}
 {% block additional_scripts %}
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="{% static 'js/scroll_top.js' %}"></script>
-<script src="{% static 'js/anchor_offset.js' %}"></script>
-
-<!-- swiper videos script -->
-<script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="{% static 'js/scroll_top.js' %}"></script>
+  <script src="{% static 'js/anchor_offset.js' %}"></script>
+  <!-- swiper videos script -->
+  <script>
   var swiperVideoThumbs = new Swiper(".mySwiperVideoThumbs", {
     spaceBetween: 10,
     slidesPerView: 2,
@@ -69,10 +70,9 @@
       swiper: swiperVideoThumbs,
     },
   });
-</script>
-
-<!-- swiper images script -->
-<script>
+  </script>
+  <!-- swiper images script -->
+  <script>
   var swiper = new Swiper(".mySwiperImages", {
     slidesPerView: 1,
     spaceBetween: 10,
@@ -95,6 +95,5 @@
       },
     },
   });
-</script>
-
+  </script>
 {% endblock additional_scripts %}

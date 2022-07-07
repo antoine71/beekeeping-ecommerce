@@ -49,6 +49,16 @@ section.home {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
+section .section-quote {
+  width: 70%;
+  text-align: center;
+  margin: 5rem auto 0;
+}
+section .section-quote > h4 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #a61916;
+}
 section.shop, section.blog {
   margin-top: 3rem;
 }
@@ -159,6 +169,7 @@ input {
   bottom: 20px;
   right: 20px;
   display: none;
+  z-index: 99;
 }
 
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
@@ -909,6 +920,13 @@ textarea.form-control.is-invalid {
   background: #a61916;
 }
 
+/* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
+@media screen and (max-width: 600px) {
+  .swiper-button-next,
+.swiper-button-prev {
+    display: none;
+  }
+}
 nav {
   box-shadow: 0 1rem 1rem rgba(12, 3, 27, 0.1);
   position: fixed;
@@ -1261,6 +1279,47 @@ section.highlight .container .hero-content .right .hero-image {
   }
   #services .container article .description h4 {
     margin-bottom: 0.8rem;
+  }
+}
+section#operation .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+section#operation .container .card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 1.2rem;
+  margin: 0;
+  border: 0;
+}
+section#operation .container .card .left {
+  max-width: 12rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  justify-self: center;
+}
+section#operation .container .card .right {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+section#operation .container .card .right .operation-elts > div {
+  margin-bottom: 0.4rem;
+}
+
+/* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  section#operation .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
+@media screen and (max-width: 600px) {
+  section#operation .container {
+    grid-template-columns: 1fr;
   }
 }
 #demo .container {

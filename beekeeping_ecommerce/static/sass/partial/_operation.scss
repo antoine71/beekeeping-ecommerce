@@ -1,0 +1,44 @@
+section#operation {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    .card {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+      gap: 1.2rem;
+      margin: 0;
+      border: 0;
+      .left {
+        max-width: 12rem;
+        height: fit-content;
+        justify-self: center;
+      }
+      .right {
+
+        height: fit-content;
+        .operation-elts > div {
+          margin-bottom: 0.4rem;
+        }
+      }
+    }
+  }
+}
+
+/* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  section#operation {
+    .container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+/* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
+@media screen and (max-width: 600px) {
+  section#operation {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }
+}
