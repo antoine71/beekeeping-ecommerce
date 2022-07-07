@@ -1,5 +1,4 @@
 {% load i18n %}
-
 <section id="buy" class="home">
   <h2>{% translate "Commandez votre Zephyr 1" %}</h2>
   <p>{% translate "Livraison en France métropolitaine" %}</p>
@@ -7,8 +6,13 @@
     {% for product in products %}
       <article>
         <h3>{{ product.name }}</h3>
-        <h4>{{ product.short_description }}</h4>
-        <p>{{ product.long_description }}</p>
+        {% if product.slug == 'zephyr-1-pro' %}
+          <h4>{% translate "Enfumoir automatique Zephyr 1 Amateur" %}</h4>
+          <p>{% translate "Hauteur réservoir: 18 cm, hors tout: 29 cm" %}</p>
+        {% elif product.slug == 'zephyr-1-amateur' %}
+          <h4>{% translate "Enfumoir automatique Zephyr 1 Pro" %}</h4>
+          <p>{% translate "Hauteur réservoir: 22 cm, hors tout: 33 cm" %}</p>
+        {% endif %}
         <table class="standard">
           <tbody>
             <tr>
@@ -21,9 +25,7 @@
             </tr>
             <tr>
               <td>{% translate "Prix TTC" %}</td>
-              <td>
-                {{ product.get_price_incl_vat | floatformat:2 }} EUR
-              </td>
+              <td>{{ product.get_price_incl_vat | floatformat:2 }} EUR</td>
             </tr>
           </tbody>
         </table>

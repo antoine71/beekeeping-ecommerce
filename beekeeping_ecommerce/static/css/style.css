@@ -5,7 +5,6 @@
   border: 0;
   outline: 0;
   box-sizing: border-box;
-  transition: all 400ms ease;
 }
 
 /* ================== GENERAL TAGS SETTINGS ======================= */
@@ -18,10 +17,6 @@ body {
   line-height: 1.5;
   color: #0c031b;
   background: #FFFEF9;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 
 .container {
@@ -903,6 +898,7 @@ nav .container #nav__items {
   gap: 2rem;
   list-style: none;
   padding: 0;
+  margin-right: 1.2rem;
 }
 nav .container #lang__items {
   display: none;
@@ -922,14 +918,16 @@ nav .container #lang__items li a {
   transition: all 400ms ease;
 }
 nav .container #lang__items li a:hover {
-  background: #fffbea;
+  background: #fff6c6;
   color: #0c031b;
 }
 nav .container #open__lang-btn {
   display: flex;
+  font-size: 1.4rem;
 }
 nav .container #close__lang-btn {
   display: none;
+  font-size: 1.4rem;
 }
 nav .container .cart {
   display: flex;
@@ -975,6 +973,8 @@ nav .container button {
     right: 0;
     gap: 0;
     box-shadow: 0 1rem 1rem rgba(12, 3, 27, 0.1);
+    margin-right: 0;
+    transition: all 400ms ease;
   }
   nav .container #nav__items li a {
     background: #FFFEF9;
@@ -983,7 +983,7 @@ nav .container button {
     transition: all 400ms ease;
   }
   nav .container #nav__items li a:hover {
-    background: #fffbea;
+    background: #fff6c6;
     color: #0c031b;
   }
   nav .container #open__nav-btn {

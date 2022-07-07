@@ -1,4 +1,4 @@
-# Apiculture : l’enfumoir à abeilles.
+# Apiculture : l’enfumoir à abeilles
 
 ## Dans cet article nous expliquons l’origine de l’enfumoir apicole, Comment allumer son enfumoir ? Quel combustible utiliser dans un enfumoir pour abeilles ? Comment l’apiculteur utilise son enfumoir et quand il ne l’utilise pas ?
 

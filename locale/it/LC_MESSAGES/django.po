@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-05 16:06+0200\n"
-"PO-Revision-Date: 2022-07-05 16:24+0200\n"
+"POT-Creation-Date: 2022-07-06 08:42+0200\n"
+"PO-Revision-Date: 2022-07-06 08:45+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -325,51 +325,51 @@ msgstr ""
 msgid "Numericbees, l'apiculture simplifiée"
 msgstr "Numericbees, l'apicoltura resa semplice"
 
-#: beekeeping_ecommerce/templates/base.html:35
+#: beekeeping_ecommerce/templates/base.html:36
 msgid "Accueil"
 msgstr "Casa"
 
-#: beekeeping_ecommerce/templates/base.html:38
+#: beekeeping_ecommerce/templates/base.html:39
 #: beekeeping_ecommerce/templates/home.html:25
 msgid "Acheter"
 msgstr "Acquistare"
 
-#: beekeeping_ecommerce/templates/base.html:41
+#: beekeeping_ecommerce/templates/base.html:42
 msgid "Démonstration"
 msgstr "Dimostrazione"
 
-#: beekeeping_ecommerce/templates/base.html:44
+#: beekeeping_ecommerce/templates/base.html:45
 msgid "Apiculture"
 msgstr "Apicoltura"
 
-#: beekeeping_ecommerce/templates/base.html:47
-#: beekeeping_ecommerce/templates/base.html:128
+#: beekeeping_ecommerce/templates/base.html:48
+#: beekeeping_ecommerce/templates/base.html:129
 #: beekeeping_ecommerce/templates/contact/confirmation.html:15
 msgid "Contact"
 msgstr "Contatto"
 
-#: beekeeping_ecommerce/templates/base.html:86
+#: beekeeping_ecommerce/templates/base.html:87
 msgid "NumericBees"
 msgstr "NumericBees"
 
-#: beekeeping_ecommerce/templates/base.html:87
+#: beekeeping_ecommerce/templates/base.html:88
 msgid "L'Apiculture Simplifiée"
 msgstr "Apicoltura semplificata"
 
-#: beekeeping_ecommerce/templates/base.html:125
+#: beekeeping_ecommerce/templates/base.html:126
 msgid "Conditions générales de vente"
 msgstr "Condizioni generali di vendita"
 
-#: beekeeping_ecommerce/templates/base.html:126
+#: beekeeping_ecommerce/templates/base.html:127
 msgid "Mentions Légales"
 msgstr "Avviso legale"
 
-#: beekeeping_ecommerce/templates/base.html:127
+#: beekeeping_ecommerce/templates/base.html:128
 #: beekeeping_ecommerce/templates/shop/confidentiality.html:4
 msgid "Politique de confidentialité"
 msgstr "Informativa sulla privacy"
 
-#: beekeeping_ecommerce/templates/base.html:131
+#: beekeeping_ecommerce/templates/base.html:132
 msgid "Copyright NumericBees. Tous droits réservés."
 msgstr "Copyright NumericBees. Tutti i diritti riservati."
 
@@ -622,35 +622,54 @@ msgstr "Il vostro punto di consegna"
 msgid "Modifier"
 msgstr "Modifica"
 
-#: beekeeping_ecommerce/templates/shop/buy.html:4
+#: beekeeping_ecommerce/templates/shop/buy.html:3
 msgid "Commandez votre Zephyr 1"
 msgstr "Ordina il tuo Zephyr 1"
 
-#: beekeeping_ecommerce/templates/shop/buy.html:5
+#: beekeeping_ecommerce/templates/shop/buy.html:4
 msgid "Livraison en France métropolitaine"
 msgstr "Consegna in Francia"
 
-#: beekeeping_ecommerce/templates/shop/buy.html:15
+#: beekeeping_ecommerce/templates/shop/buy.html:10
+#| msgid "Découvrez l'enfumoir automatique Zephyr 1"
+msgid "Enfumoir automatique Zephyr 1 Amateur"
+msgstr "Affumicatore automatico Zephyr 1 Amateur"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:11
+msgid "Hauteur réservoir: 18 cm, hors tout: 29 cm"
+msgstr "Altezza serbatoio: 18 cm, ingombro: 29 cm"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:13
+#, fuzzy
+#| msgid "Découvrez l'enfumoir automatique Zephyr 1"
+msgid "Enfumoir automatique Zephyr 1 Pro"
+msgstr "Affumicatore automatico Zephyr 1 Pro"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:14
+msgid "Hauteur réservoir: 22 cm, hors tout: 33 cm"
+msgstr "Altezza serbatoio: 22 cm, altezza totale: 33 cm"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:19
 msgid "Prix HT"
 msgstr "Prezzo escl."
 
-#: beekeeping_ecommerce/templates/shop/buy.html:19
+#: beekeeping_ecommerce/templates/shop/buy.html:23
 #: beekeeping_ecommerce/templates/shop/cart.html:65
 #: beekeeping_ecommerce/templates/shop/cart_info.html:10
 msgid "TVA"
 msgstr "IVA"
 
-#: beekeeping_ecommerce/templates/shop/buy.html:23
+#: beekeeping_ecommerce/templates/shop/buy.html:27
 #: beekeeping_ecommerce/templates/shop/cart_info.html:11
 #: beekeeping_ecommerce/templates/shop/order_info.html:10
 msgid "Prix TTC"
 msgstr "Prezzo IVA inclusa"
 
-#: beekeeping_ecommerce/templates/shop/buy.html:39
+#: beekeeping_ecommerce/templates/shop/buy.html:41
 msgid "Ajouter au panier"
 msgstr "Aggiungi al carrello"
 
-#: beekeeping_ecommerce/templates/shop/buy.html:43
+#: beekeeping_ecommerce/templates/shop/buy.html:45
 msgid "Voir le Panier"
 msgstr "Carrello"
 
