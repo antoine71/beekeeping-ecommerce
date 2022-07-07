@@ -1,0 +1,29 @@
+{% load i18n static %}
+<section id="images" class="home">
+  <h2>{% translate "Découvrez Zephyr 1 en images" %}</h2>
+  <p>{% translate "Découvrez l'enfumoir automatique Zephyr  en images" %}</p>
+  <div class="container">
+    <div class="swiper mySwiperImages">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/enfumoir_zephyr1_01.jpg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/enfumoir_zephyr1_02.jpg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/enfumoir_zephyr1_03.jpg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/enfumoir_zephyr1_04.jpg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/enfumoir_zephyr1_05.jpg' %}" alt="">
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>   
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>

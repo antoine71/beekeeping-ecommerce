@@ -28,7 +28,7 @@
         </div>
         <div class="right">
           <div class="hero-image">
-            <img src="{% static 'assets/img/zephyr-1-automatic-bee-smoker.jpg' %}"
+            <img src="{% static 'assets/img/enfumoir_zephyr1_02.jpg' %}"
                  alt="Enfumoir Automatique Zephyr 1"/>
           </div>
         </div>
@@ -38,6 +38,8 @@
   <!-- END  OF  HERO -->
   {% include 'home/discover.html' %}
   <!-- END OF DISCOVER -->
+  {% include 'home/images.html' %}
+  <!-- END OF IMAGES -->
   {% include 'home/features.html' %}
   <!-- END OF FEATURES -->
   {% include 'shop/buy.html' %}
@@ -49,6 +51,50 @@
   </button>
 {% endblock content %}
 {% block additional_scripts %}
-  <script src="{% static 'js/scroll_top.js' %}"></script>
-  <script src="{% static 'js/anchor_offset.js' %}"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'js/scroll_top.js' %}"></script>
+<script src="{% static 'js/anchor_offset.js' %}"></script>
+
+<!-- swiper videos script -->
+<script>
+  var swiperVideoThumbs = new Swiper(".mySwiperVideoThumbs", {
+    spaceBetween: 10,
+    slidesPerView: 2,
+    freeMode: true,
+    watchSlidesProgress: true,
+  });
+  var swiperVideo = new Swiper(".mySwiperVideo", {
+    spaceBetween: 10,
+    thumbs: {
+      swiper: swiperVideoThumbs,
+    },
+  });
+</script>
+
+<!-- swiper images script -->
+<script>
+  var swiper = new Swiper(".mySwiperImages", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+      el: ".swiper-pagination",   
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",   
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 1,
+        spaceBetween: 40,
+      },
+      1024: {
+        slidesPerView: 2,
+        spaceBetween: 50,
+      },
+    },
+  });
+</script>
+
 {% endblock additional_scripts %}

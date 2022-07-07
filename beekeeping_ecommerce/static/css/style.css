@@ -857,6 +857,58 @@ textarea.form-control.is-invalid {
   text-shadow: 0 0 0 #212529;
 }
 
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #a61916;
+}
+
+.swiper-pagination-bullet {
+  background: #a61916;
+}
+
 nav {
   box-shadow: 0 1rem 1rem rgba(12, 3, 27, 0.1);
   position: fixed;
@@ -1078,6 +1130,9 @@ section.highlight .container .hero-content .right {
   place-items: center;
   padding: 0 5%;
 }
+section.highlight .container .hero-content .right .hero-image {
+  max-width: 330px;
+}
 
 /* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
 @media screen and (max-width: 600px) {
@@ -1106,41 +1161,6 @@ section.highlight .container .hero-content .right {
   width: 100%;
 }
 
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.swiper {
-  width: 100%;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-
 .mySwiperVideo {
   height: 80%;
   width: 100%;
@@ -1163,12 +1183,26 @@ section.highlight .container .hero-content .right {
   opacity: 1;
 }
 
-.swiper-slide img {
-  display: block;
+.mySwiperImages {
+  height: 80%;
   width: 100%;
+}
+
+.mySwiperImagesThumbs {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+  background: #0c031b;
+}
+
+.mySwiperImagesThumbs .swiper-slide {
+  width: 25%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  opacity: 0.4;
+}
+
+.mySwiperImagesThumbs .swiper-slide-thumb-active {
+  opacity: 1;
 }
 
 #services .container {

@@ -1,29 +1,21 @@
-#knowmore {
-  .container {
-    width: 100%;
-  }
-}
-
-.mySwiperVideo {
+.mySwiperImages {
   height: 80%;
   width: 100%;
 }
 
-.mySwiperVideoThumbs {
+.mySwiperImagesThumbs {
   height: 20%;
   box-sizing: border-box;
   padding: 10px 0;
   background: $black-color;
 }
 
-.mySwiperVideoThumbs .swiper-slide {
+.mySwiperImagesThumbs .swiper-slide {
   width: 25%;
   height: 100%;
   opacity: 0.4;
 }
 
-.mySwiperVideoThumbs .swiper-slide-thumb-active {
+.mySwiperImagesThumbs .swiper-slide-thumb-active {
   opacity: 1;
 }
-
-

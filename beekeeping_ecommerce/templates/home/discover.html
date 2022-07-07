@@ -29,23 +29,5 @@
         </div>
     </div>
   </div>
-  {% block additional_scripts %}
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script>
-    var swiperVideoThumbs = new Swiper(".mySwiperVideoThumbs", {
-      spaceBetween: 10,
-      slidesPerView: 2,
-      freeMode: true,
-      watchSlidesProgress: true,
-    });
-    var swiperVideo = new Swiper(".mySwiperVideo", {
-      spaceBetween: 10,
-      thumbs: {
-        swiper: swiperVideoThumbs,
-      },
-    });
-  </script>
-
-  {% endblock additional_scripts%}
 </section>
 
