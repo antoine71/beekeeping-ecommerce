@@ -141,6 +141,32 @@ section > p {
   margin: 1.5rem auto 0;
 }
 
+.btn-reverse {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.75rem 1rem;
+  border-radius: 0.4rem;
+  background: #FFFEF9;
+  color: #a61916;
+  cursor: pointer;
+  transition: all 400ms ease;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+.btn-reverse:hover {
+  background: white;
+  box-shadow: 0 1rem 1.6rem rgba(12, 3, 27, 0.15);
+  color: #a61916;
+}
+.btn-reverse_center {
+  margin: 1.5rem auto 0;
+}
+
 button {
   cursor: pointer;
 }
@@ -151,7 +177,7 @@ button {
   gap: 0.3rem;
 }
 .inline-icon-text > i {
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .text-muted {
@@ -1223,11 +1249,99 @@ section.highlight .container .hero-content .right .hero-image {
   opacity: 1;
 }
 
+section#presentation > .container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+.presentation-section-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.presentation-section-container .articles-container {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+.presentation-section-container .articles-container article:nth-child(3) .text, .presentation-section-container .articles-container article:nth-child(4) .text {
+  grid-column: 2;
+  grid-row: 1;
+}
+.presentation-section-container .articles-container article:nth-child(3) .image, .presentation-section-container .articles-container article:nth-child(4) .image {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.presentation-bg-image {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  background: linear-gradient(rgba(4, 1, 18, 0.21), rgba(4, 1, 18, 0.21)), url(./../assets/img/enfumoir_01.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #FFFEF9;
+  text-shadow: 0px 3px 6px #050503;
+  padding: 3rem;
+}
+.presentation-bg-image .presentation-title-text > h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.presentation-bg-image .presentation-title-text > h4 {
+  font-size: 1.2rem;
+}
+
+.presentation-section-container:nth-child(2) .presentation-bg-image {
+  background: linear-gradient(rgba(4, 1, 18, 0.21), rgba(4, 1, 18, 0.21)), url(./../assets/img/enfumoir_02.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.presentation-article {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 640px;
+  margin: auto;
+  align-items: center;
+}
+.presentation-article .text > h5 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* ================== MEDIA QUERIES (MEDIUM  SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  .presentation-section-container .articles-container {
+    grid-template-columns: 1fr;
+  }
+  .presentation-section-container .articles-container article:nth-child(2) .text {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .presentation-section-container .articles-container article:nth-child(2) .image {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .presentation-section-container .articles-container article:nth-child(3) .text {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .presentation-section-container .articles-container article:nth-child(3) .image {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
 #services .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
-  gap: 4rem;
+  gap: 1rem;
 }
 #services .container article {
   background: #fffffd;
@@ -1242,7 +1356,7 @@ section.highlight .container .hero-content .right .hero-image {
   border: 0px;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1.5rem;
+  gap: 0.8rem;
   transition: all 400ms ease;
   border-color: #a61916;
 }
@@ -1254,6 +1368,7 @@ section.highlight .container .hero-content .right .hero-image {
   color: #a61916;
 }
 #services .container article .description h4 {
+  font-size: 1.1rem;
   margin-bottom: 1rem;
   color: #a61916;
 }
@@ -1320,6 +1435,38 @@ section#operation .container .card .right .operation-elts > div {
 @media screen and (max-width: 600px) {
   section#operation .container {
     grid-template-columns: 1fr;
+  }
+}
+section#documentation .container {
+  background: #a61916;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+section#documentation .container .text {
+  display: grid;
+  align-items: center;
+  color: #FFFEF9;
+  padding: 0 6rem;
+}
+section#documentation .container .text > div > h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+/* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  section#documentation .container {
+    grid-template-columns: 1fr;
+  }
+  section#documentation .container .text {
+    padding: 5rem 1rem;
+  }
+  section#documentation .container .text > div > h3 {
+    text-align: center;
+  }
+  section#documentation .container .text > div > a {
+    margin: auto;
   }
 }
 #demo .container {

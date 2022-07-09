@@ -1,0 +1,40 @@
+section#documentation {
+  .container {
+    background: $primary-color;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    .text {
+      display: grid;
+      align-items: center;
+      color: $white-color;
+      padding: 0 6rem;
+      & > div {
+        & > h3 {
+          font-size: 1.6rem;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+/* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  section#documentation {
+    .container {
+      grid-template-columns: 1fr;
+      .text {
+        padding: 5rem 1rem;
+        & > div {
+          & > h3 {
+            text-align: center;
+          }
+          & > a {
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+}

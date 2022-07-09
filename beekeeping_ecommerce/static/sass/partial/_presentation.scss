@@ -1,0 +1,105 @@
+section#presentation {
+  & > .container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.presentation-section-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  
+
+  .articles-container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;  
+    gap: 2rem;
+    padding: 0 1rem;
+    & article:nth-child(3),
+    & article:nth-child(4) {
+      .text {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .image {
+        grid-column: 1;
+        grid-row: 1;
+      }
+    }
+  }
+}
+
+.presentation-bg-image {
+  height: fit-content;
+  background: linear-gradient(rgba(4, 1, 18, 0.21), rgba(4, 1, 18, 0.21)),
+    url(./../assets/img/enfumoir_01.jpg);
+  background-size: cover;
+  background-position: center;
+  color: $white-color;
+  text-shadow: 0px 3px 6px #050503;
+  padding: 3rem;
+  .presentation-title-text {
+    & > h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    & > h4 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.presentation-section-container:nth-child(2) .presentation-bg-image {
+  background: linear-gradient(rgba(4, 1, 18, 0.21), rgba(4, 1, 18, 0.21)),
+    url(./../assets/img/enfumoir_02.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+.presentation-article {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 640px;
+  margin: auto;
+  align-items: center;
+  .text {
+    & > h5 {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+/* ================== MEDIA QUERIES (MEDIUM  SCREENS) ======================= */
+@media screen and (max-width: 1024px) {
+  .presentation-section-container .articles-container {
+    grid-template-columns: 1fr;
+    & article:nth-child(2) {
+      .text {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .image {
+        grid-column: 1;
+        grid-row: 1;
+      }
+    }
+    & article:nth-child(3) {
+      .text {
+        grid-column: auto;
+        grid-row: auto;
+      }
+      .image {
+        grid-column: auto;
+        grid-row: auto;
+      }
+    }
+  }
+}
