@@ -4,7 +4,7 @@
   <section class="shop status">
     <h2>{% translate "Récapitulatif de paiement" %}</h2>
     <p>
-      {% blocktranslate with invoice_number = invoice.invoice_number %}Votre commande a été enregistrée et un e-mail de confirmation a été envoyé - votre numéro de commande est {{ invoice_number }}. Veuillez prendre note de cette référence ou imprimer cette page et nous la rappeler dans tout échange concernant votre commande.{% endblocktranslate %}
+      {% blocktranslate with invoice_number=invoice.invoice_number %}Votre commande a été enregistrée et un e-mail de confirmation a été envoyé - votre numéro de commande est {{ invoice_number }}. Veuillez prendre note de cette référence ou imprimer cette page et nous la rappeler dans tout échange concernant votre commande.{% endblocktranslate %}
     </p>
     <div class="container">
       <div class="hide-a">{% include 'shop/cart_info.html' %}</div>

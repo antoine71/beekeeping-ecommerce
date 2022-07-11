@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n static %}
 {% load crispy_forms_tags %}
-
 {% block content %}
   <section class="shop shipping">
     <h2>{% translate "Récapitulatif de la commande" %}</h2>
@@ -14,40 +13,60 @@
           <form method="post" id="shipping_form" novalidate="">
             {% csrf_token %}
             <div>
-              <div class="shipping_form_line">
-                <div class="form-check">
-                  <input type="radio"
-                         class="form-check-input"
-                         name="delivery_option"
-                         value="R"
-                         id="id_delivery_option_1"
-                         required=""/>
-                  <label for="id_delivery_option_1" class="form-check-label">{% translate "Livraison en Point Relais" %}</label>
+              {% if order.shipping_country != 'FR' %}
+                <div class="shipping_form_line">
+                  <div class="form-check">
+                    <input type="radio"
+                           class="form-check-input"
+                           name="delivery_option"
+                           value="I"
+                           id="id_delivery_option_2"
+                           required=""/>
+                    <label for="id_delivery_option_2" class="form-check-label">{% translate "Livraison internationale" %}</label>
+                  </div>
+                  <div>8,00 EUR</div>
                 </div>
-                <div>{% translate "Gratuit" %}</div>
-              </div>
-              <div class="transporter_logo">
-                <img src="{% static 'assets/img/logomondial-relay.svg' %}" alt="">
-              </div>
-            </div>
-            <div>
-              <div class="shipping_form_line">
-                <div class="form-check">
-                  <input type="radio"
-                         class="form-check-input"
-                         name="delivery_option"
-                         value="H"
-                         id="id_delivery_option_0"
-                         required=""
-                         data-com.bitwarden.browser.user-edited="yes"/>
-                  <label for="id_delivery_option_0" class="form-check-label">{% translate "Livraison à Domicile" %}</label>
+                <div class="transporter_logo">
+                  <img src="{% static 'assets/img/logo-dhl.svg' %}" alt="">
                 </div>
-                <div>5,00 EUR</div>
               </div>
-              <div class="transporter_logo">
-                <img src="{% static 'assets/img/colissimo.svg' %}" alt="">
+            {% else %}
+              <div>
+                <div class="shipping_form_line">
+                  <div class="form-check">
+                    <input type="radio"
+                           class="form-check-input"
+                           name="delivery_option"
+                           value="R"
+                           id="id_delivery_option_1"
+                           required=""/>
+                    <label for="id_delivery_option_1" class="form-check-label">{% translate "Livraison en Point Relais" %}</label>
+                  </div>
+                  <div>{% translate "Gratuit" %}</div>
+                </div>
+                <div class="transporter_logo">
+                  <img src="{% static 'assets/img/logomondial-relay.svg' %}" alt="">
+                </div>
               </div>
-            </div>
+              <div>
+                <div class="shipping_form_line">
+                  <div class="form-check">
+                    <input type="radio"
+                           class="form-check-input"
+                           name="delivery_option"
+                           value="H"
+                           id="id_delivery_option_0"
+                           required=""
+                           data-com.bitwarden.browser.user-edited="yes"/>
+                    <label for="id_delivery_option_0" class="form-check-label">{% translate "Livraison à Domicile" %}</label>
+                  </div>
+                  <div>5,00 EUR</div>
+                </div>
+                <div class="transporter_logo">
+                  <img src="{% static 'assets/img/colissimo.svg' %}" alt="">
+                </div>
+              </div>
+            {% endif %}
             <div class="mb-3">
               <input type="submit"
                      name="submit"

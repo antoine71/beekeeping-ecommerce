@@ -1,6 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Fieldset, Submit, Div
@@ -14,7 +15,7 @@ class ShippingSelectForm(forms.Form):
         label="", choices=DELIVERY_CHOICES, widget=forms.RadioSelect
     )
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, destination="FR", **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.layout = Layout(
@@ -27,6 +28,21 @@ class ShippingSelectForm(forms.Form):
             Submit("submit", _("Envoyer"), css_class="btn-primary btn-primary_center")
         )
         self.helper.form_method = "post"
+        if destination == "FR":
+            self.fields.get("delivery_option").choices = (
+                ("H", _("Livraison à Domicile")),
+                ("R", _("Livraison en Point Relay")),
+            )
+        else:
+            self.fields.get("delivery_option").choices = (
+                ("I", _("Livraison international {% static 'assets/img/dhl.svg'%}")),
+            )
+
+
+class CountrySelectForm(forms.Form):
+    shipping_country = CountryField(
+        blank_label=_("Sélectionnez le pays de livraison")
+    ).formfield(label=_("Livraison en"))
 
 
 class CheckoutForm(forms.Form):
@@ -66,8 +82,10 @@ class CheckoutForm(forms.Form):
         label=_("Options de paiement"), choices=PAYMENT_CHOICES
     )
     accept_confidentiality = forms.BooleanField(
-        label=_("J'accepte la politique de confidentialité et de traitement"
-                " des données personnelles"),
+        label=_(
+            "J'accepte la politique de confidentialité et de traitement"
+            " des données personnelles"
+        ),
         initial=False,
     )
     mr_ID = forms.CharField(required=False)
@@ -110,8 +128,9 @@ class CheckoutForm(forms.Form):
         Div(css_id="Zone_Widget"),
     )
 
-    def __init__(self, *args, delivery_option="", **kwargs):
+    def __init__(self, *args, delivery_option="", order=None, **kwargs):
         super().__init__(*args, **kwargs)
+        self.order = order
         self.helper = FormHelper()
         self.helper.layout = Layout(
             Fieldset(
@@ -142,18 +161,35 @@ class CheckoutForm(forms.Form):
         self.helper.add_input(
             Submit("submit", _("Commander"), css_class="btn-primary btn-primary_center")
         )
-        if delivery_option == 'H':
+        if delivery_option == "H" or delivery_option == "I":
             self.helper.layout.fields.insert(-2, CheckoutForm.home_shipping_fieldset)
-        elif delivery_option == 'R':
-            self.helper.layout.fields.insert(-2, CheckoutForm.mondial_relay_shipping_fieldset)
+        elif delivery_option == "R":
+            self.helper.layout.fields.insert(
+                -2, CheckoutForm.mondial_relay_shipping_fieldset
+            )
 
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     mr_ID = cleaned_data.get("mr_ID")
-    #     delivery_option = cleaned_data.get("delivery_option")
+    def clean_shipping_country(self):
+        data = self.cleaned_data["shipping_country"]
+        if str(self.order.shipping_country) != data:
+            raise ValidationError(
+                _("Vous devez sélectionner une adresse de livraison en ")
+                + self.order.shipping_country.name
+            )
+        return data
 
-    #     if delivery_option == "R" and (not mr_ID or mr_ID == "null"):
-    #         raise ValidationError("Vous devez sélectionner un point relais")
+    def clean(self):
+        cleaned_data = super().clean()
+        billing_country = cleaned_data.get("billing_country")
+        same_billing_address = cleaned_data.get("same_billing_address")
+
+        if same_billing_address and str(self.order.shipping_country) != billing_country:
+            self.add_error(
+                "billing_country",
+                ValidationError(
+                    _("Vous devez sélectionner une adresse de livraison en ")
+                    + self.order.shipping_country.name
+                ),
+            )
 
 
 class MondialRelayForm(forms.Form):
@@ -170,12 +206,16 @@ class RefundForm(forms.Form):
     ref_code = forms.CharField(label=_("Numéro de référence de la commande"))
     email = forms.EmailField(label=_("Adresse Email"))
     message = forms.CharField(
-        label=_("Message décrivant la ou les raisons de votre demande de remboursement:"),
+        label=_(
+            "Message décrivant la ou les raisons de votre demande de remboursement:"
+        ),
         widget=forms.Textarea(attrs={"rows": 6}),
     )
     accept_conditions = forms.BooleanField(
-        label=_("J'accepte les conditions s'appliquant à l'exercice du droit de rétractation "
-                "mentionnées dans les conditions générales de ventes"),
+        label=_(
+            "J'accepte les conditions s'appliquant à l'exercice du droit de rétractation "
+            "mentionnées dans les conditions générales de ventes"
+        ),
         required=True,
     )
 

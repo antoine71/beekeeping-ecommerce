@@ -20,12 +20,12 @@
               <td>{{ product.price | floatformat:2 }} EUR</td>
             </tr>
             <tr>
-              <td>{% translate "TVA" %} (20%)*</td>
-              <td>{{ product.get_vat_price | floatformat:2 }} EUR</td>
+              <td>{% translate "TVA" %} (20,0 %)*</td>
+              <td>{{ product.get_standard_vat_price | floatformat:2 }} EUR</td>
             </tr>
             <tr>
               <td>{% translate "Prix TTC" %}</td>
-              <td>{{ product.get_price_incl_vat | floatformat:2 }} EUR</td>
+              <td>{{ product.get_standard_price_incl_vat | floatformat:2 }} EUR</td>
             </tr>
           </tbody>
         </table>

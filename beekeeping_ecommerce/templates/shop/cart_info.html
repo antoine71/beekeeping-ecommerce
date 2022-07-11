@@ -22,12 +22,21 @@
           </tr>
         {% endfor %}
         <tr>
-          <td><b>{% translate "Total" %}</b></td>
+          <td><b>{% translate "Total" %}*</b></td>
           <td></td>
           <td><b>{{ order.get_order_price_ex_delivery|floatformat:2 }} EUR</b></td>
         </tr>
       </tbody>
     </table>
+    <table class="standard">
+      <tbody>
+        <tr>
+          <td>{% translate "Pays de livraison" %}</td>
+          <td>{{ order.shipping_country.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <small class="text-muted">* Le prix indiqué est valable uniquement pour le pays de livraison sélectionné.</small>    
     <a href="{% url 'shop:cart' %}" class="btn-primary btn-primary_center toggle">{% translate "Modifier" %}</a>
   </article>
 </div>

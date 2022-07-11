@@ -18,7 +18,7 @@
         </thead>
         <tbody>
           {% for order_product in products %}
-            <tr>
+            <tr class="order_product" id="{{ order_product.product.slug }}">
               <th scope="row" class="remove">
                 <a href="{% url 'shop:remove-from-cart' slug=order_product.product.slug %}"><i class="bx bx-x"></i></a>
               </th>
@@ -29,7 +29,7 @@
                   <p>{{ order_product.product.name }}</p>
                 </div>
               </td>
-              <td>{{ order_product.product.get_price_incl_vat | floatformat:2 }} EUR</td>
+              <td id="{{ order_product.product.slug }}-price"></td>
               <td class="quantity">
                 <div>
                   <a href="{% url "shop:remove-item-from-cart" slug=order_product.product.slug %}"
@@ -40,7 +40,7 @@
                 </div>
               </td>
               <td>
-                <strong>{{ order_product.get_order_product_price | floatformat:2 }} EUR</strong>
+                <strong id="{{ order_product.product.slug }}-total-price"></strong>
               </td>
             </tr>
           {% endfor %}
@@ -53,28 +53,57 @@
             <span>{% translate "Retour vers la boutique" %}</span>
           </a>
         </div>
-        <article class="card">
-          <h3>{% translate "Total Panier" %}</h3>
-          <table class="standard">
-            <tbody>
-              <tr>
-                <td>{% translate "Sous-Total HT" %}</td>
-                <td>{{ order.get_order_price_ex_vat | floatformat:2 }} EUR</td>
-              </tr>
-              <tr>
-                <td>{% translate "TVA" %}</td>
-                <td>{{ order.get_order_vat_price | floatformat:2 }} EUR</td>
-              </tr>
-              <tr>
-                <td>{% translate "Total TTC" %}</td>
-                <td>{{ order.get_order_price_ex_delivery | floatformat:2 }} EUR</td>
-              </tr>
-            </tbody>
-          </table>
-          <a href="{% url 'shop:shipping' %}"
-             class="btn-primary btn-primary_center">{% translate "Valider la commande" %}</a>
-        </article>
+        <div>
+          <article class="card">
+            {% crispy form %}
+          </article>
+          <article class="card">
+            <h3>{% translate "Total Panier" %}</h3>
+            <table class="standard">
+              <tbody>
+                <tr>
+                  <td>{% translate "Sous-Total HT" %}</td>
+                  <td id="order-price-ex-vat"></td>
+                </tr>
+                <tr>
+                  <td>
+                    {% translate "TVA" %} (<span id="vat-rate"></span>)
+                  </td>
+                  <td id="order-price-vat"></td>
+                </tr>
+                <tr>
+                  <td>{% translate "Total TTC" %}</td>
+                  <td id="order-price-ex-delivery"></td>
+                </tr>
+              </tbody>
+            </table>
+            <a href="{% url 'shop:shipping' %}"
+               class="btn-primary btn-primary_center">{% translate "Valider la commande" %}</a>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 {% endblock content %}
+{% block additional_scripts %}
+  <script>
+  const ORDER_PRICES_URL = "{{ order_pricea_url }}";
+  const PRODUCT_PRICES_URL =  "/product_prices";
+  const SELECT_COUNTRY_URL = "{{ select_country_url }}";
+  </script>
+  <script src="{% static 'js/cart.js' %}"></script>
+{% endblock additional_scripts %}
+{% comment %} <tbody>
+  <tr>
+    <td>{% translate "Sous-Total HT" %}</td>
+    <td id="order-price-ex-vat">{{ order.get_order_price_ex_vat | floatformat:2 }} EUR</td>
+  </tr>
+  <tr>
+    <td>{% translate "TVA" %}</td>
+    <td id="order-price-vat">{{ order.get_order_vat_price | floatformat:2 }} EUR</td>
+  </tr>
+  <tr>
+    <td>{% translate "Total TTC" %}</td>
+    <td id="order-price-ex-delivery">{{ order.get_order_price_ex_delivery | floatformat:2 }} EUR</td>
+  </tr>
+</tbody> {% endcomment %}

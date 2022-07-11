@@ -12,6 +12,8 @@
           <img src="{% static 'assets/img/colissimo.svg' %}" alt="">
         {% elif order.delivery_option == 'R' %}
           <img src="{% static 'assets/img/logomondial-relay.svg' %}" alt="">
+        {% elif order.delivery_option == 'I' %}
+          <img src="{% static 'assets/img/logo-dhl.svg' %}" alt="">
         {% endif %}
       </div>
     </div>

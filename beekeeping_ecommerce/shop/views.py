@@ -1,7 +1,9 @@
 import random
 import string
+import json
 from os.path import exists
 from datetime import datetime
+from django.http import JsonResponse
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import View
@@ -23,10 +25,9 @@ from .models import (
     Payment,
     Invoice,
     Refund,
-    MondialRelayInfo,
 )
 from django.conf import settings
-from .forms import CheckoutForm, RefundForm, ShippingSelectForm
+from .forms import CheckoutForm, RefundForm, ShippingSelectForm, CountrySelectForm
 from beekeeping_ecommerce.contact.forms import DemoRequestForm
 from django.utils.translation import get_language
 
@@ -108,9 +109,14 @@ class CartView(View):
         order = get_order(self.request)
         if not order:
             return redirect("shop:home")
+        form = CountrySelectForm(data={'shipping_country': order.shipping_country})
         context = {
             "order": order,
             "products": order.products.all().order_by("id"),
+            "form": form,
+            'order_pricea_url': reverse("shop:order_prices"),
+            'product_prices_url': reverse("shop:product_prices", kwargs={'product_slug': 'aa'}),
+            'select_country_url': reverse("select_country"),
         }
         return render(self.request, "shop/cart.html", context)
 
@@ -120,7 +126,7 @@ class ShippingView(View):
         order = get_order(self.request)
         if not order:
             return redirect("shop:home")
-        form = ShippingSelectForm()
+        form = ShippingSelectForm(destination=order.shipping_country)
         context = {"order": order, "form": form}
         return render(self.request, "shop/shipping.html", context)
 
@@ -128,7 +134,7 @@ class ShippingView(View):
         order = get_order(self.request)
         if not order:
             return redirect("shop:home")
-        form = ShippingSelectForm(self.request.POST)
+        form = ShippingSelectForm(self.request.POST, destination=order.shipping_country)
         if form.is_valid():
             delivery_option = form.cleaned_data.get("delivery_option")
             order.delivery_option = delivery_option
@@ -184,14 +190,14 @@ class CheckoutView(View):
             )
 
         if not data:
-            form = CheckoutForm(delivery_option=order.delivery_option)
+            form = CheckoutForm(delivery_option=order.delivery_option, order=order)
         else:
             if order.payment_option:
                 data.update({"payment_option": order.payment_option})
             if order.delivery_option:
                 data.update({"delivery_option": order.delivery_option})
             data.update({"same_billing_address": order.same_billing_address})
-            form = CheckoutForm(data, delivery_option=order.delivery_option)
+            form = CheckoutForm(data, delivery_option=order.delivery_option, order=order)
 
         context = {"order": order, "form": form}
         return render(self.request, "shop/checkout.html", context)
@@ -204,7 +210,7 @@ class CheckoutView(View):
             return redirect("shop:home")
 
         form = CheckoutForm(
-            self.request.POST or None, delivery_option=order.delivery_option
+            self.request.POST or None, delivery_option=order.delivery_option, order=order
         )
 
         try:
@@ -218,7 +224,7 @@ class CheckoutView(View):
             return render(self.request, "shop/checkout.html", context)
 
         # assign the billing_address fields if same shipping address is selected
-        if same_billing_address or order.delivery_option != "H":
+        if same_billing_address and order.delivery_option != "R":
             data = {value: self.request.POST[value] for value in self.request.POST}
             data.update(
                 {
@@ -234,16 +240,41 @@ class CheckoutView(View):
                     "shipping_city": form.data["billing_city"],
                 }
             )
-            form = CheckoutForm(data, delivery_option=order.delivery_option)
+            form = CheckoutForm(data, delivery_option=order.delivery_option, order=order)
+        if order.delivery_option == "R":
+            data = {value: self.request.POST[value] for value in self.request.POST}
+            data.update(
+                {
+                    "shipping_first_name": form.data["billing_first_name"],
+                    "shipping_last_name": form.data["billing_last_name"],
+                    "shipping_company_name": form.data.get("mr_Nom"),
+                    "shipping_street_address": form.data.get("mr_Adresse1"),
+                    "shipping_street_address_line_2": form.data.get(
+                        "mr_Adresse2"
+                    ),
+                    "shipping_country": form.data.get("mr_Pays"),
+                    "shipping_zip_code": form.data.get("mr_CP"),
+                    "shipping_city": form.data.get("mr_Ville"),
+                }
+            )
+            form = CheckoutForm(data, delivery_option=order.delivery_option, order=order)
 
         if form.is_valid():
-            # create contact_info object
+            # create ContactInfo object
             contact_info = ContactInfo(
                 phone=form.cleaned_data["phone"],
                 email=form.cleaned_data["email"],
             )
+            if order.contact_info:
+                # updates the order.contact_info if it already exists
+                contact_info.id = order.contact_info.pk
+                contact_info.save()
+            else:
+                # else create a new one
+                contact_info.save()
+                order.contact_info = contact_info
 
-            # create a new object or update the existing object
+            # create a new billing address
             billing_address = Address(
                 first_name=form.cleaned_data["billing_first_name"],
                 last_name=form.cleaned_data["billing_last_name"],
@@ -257,61 +288,6 @@ class CheckoutView(View):
                 city=form.cleaned_data["billing_city"],
                 address_type="B",
             )
-
-            # create shipping_address_object
-            if order.delivery_option == "H":
-                shipping_address = Address(
-                    first_name=form.cleaned_data["shipping_first_name"],
-                    last_name=form.cleaned_data["shipping_last_name"],
-                    company_name=form.cleaned_data["shipping_company_name"],
-                    street_address=form.cleaned_data["shipping_street_address"],
-                    street_address_line_2=form.cleaned_data[
-                        "shipping_street_address_line_2"
-                    ],
-                    country=form.cleaned_data["shipping_country"],
-                    zip_code=form.cleaned_data["shipping_zip_code"],
-                    city=form.cleaned_data["shipping_city"],
-                    address_type="S",
-                )
-                if order.shipping_address:
-                    # updates the shipping address if it already exists
-                    shipping_address.id = order.shipping_address.pk
-                    shipping_address.save()
-                else:
-                    # else create a new one
-                    shipping_address.save()
-                    order.shipping_address = shipping_address
-
-            elif order.delivery_option == "R":
-                mondial_relay_info = MondialRelayInfo(
-                    mr_ID=form.cleaned_data["mr_ID"],
-                    mr_Nom=form.cleaned_data["mr_Nom"],
-                    mr_Adresse1=form.cleaned_data["mr_Adresse1"],
-                    mr_Adresse2=form.cleaned_data["mr_Adresse2"],
-                    mr_CP=form.cleaned_data["mr_CP"],
-                    mr_Ville=form.cleaned_data["mr_Ville"],
-                    mr_Pays=form.cleaned_data["mr_Pays"],
-                )
-                if order.mondial_relay_info:
-                    # updates the info if it already exists
-                    mondial_relay_info.id = order.mondial_relay_info.pk
-                    mondial_relay_info.save()
-                else:
-                    # else create a new one
-                    mondial_relay_info.save()
-                    order.mondial_relay_info = mondial_relay_info
-
-            # saves or updates the contact_info and the order
-            if order.contact_info:
-                # updates the shipping address if it already exists
-                contact_info.id = order.contact_info.pk
-                contact_info.save()
-            else:
-                # else create a new one
-                contact_info.save()
-                order.contact_info = contact_info
-
-            # saves or updates the billing address and the order
             if order.billing_address:
                 # updates the billing address if it already exists
                 billing_address.id = order.billing_address.pk
@@ -320,6 +296,34 @@ class CheckoutView(View):
                 # else create a new one
                 billing_address.save()
                 order.billing_address = billing_address
+            
+            # create ShippingAddress object
+            shipping_address = Address(
+                first_name=form.cleaned_data["shipping_first_name"],
+                last_name=form.cleaned_data["shipping_last_name"],
+                company_name=form.cleaned_data["shipping_company_name"],
+                street_address=form.cleaned_data["shipping_street_address"],
+                street_address_line_2=form.cleaned_data[
+                    "shipping_street_address_line_2"
+                ],
+                country=form.cleaned_data["shipping_country"],
+                zip_code=form.cleaned_data["shipping_zip_code"],
+                city=form.cleaned_data["shipping_city"],
+            )
+            if order.delivery_option == "R":
+                order.mondial_relay_id = form.cleaned_data["mr_ID"]
+                shipping_address.address_type = "R"
+            else:
+                order.mondial_relay_id = ""
+                shipping_address.address_type = "S"
+            if order.shipping_address:
+                # updates the shipping address if it already exists
+                shipping_address.id = order.shipping_address.pk
+                shipping_address.save()
+            else:
+                # else create a new one
+                shipping_address.save()
+                order.shipping_address = shipping_address
 
             # save the payment information and the same_address_information
             order.payment_option = form.cleaned_data["payment_option"]
@@ -327,7 +331,7 @@ class CheckoutView(View):
 
             order.save()
 
-            if order.delivery_option == "R" and not order.mondial_relay_info.mr_ID:
+            if order.delivery_option == "R" and not order.mondial_relay_id:
                 messages.error(
                     self.request, _("Erreur: vous devez sélectionner un point relais.")
                 )
@@ -597,7 +601,7 @@ class ConfidentialityView(View):
         lang = get_language()
         path = str(settings.APPS_DIR / ("pages/" + lang + "_confidentiality.md"))
         if not exists(path):
-            lang = 'fr'
+            lang = "fr"
         with open(
             str(settings.APPS_DIR / ("pages/" + lang + "_confidentiality.md"))
         ) as f:
@@ -611,10 +615,8 @@ class LegalTermsView(View):
         lang = get_language()
         path = str(settings.APPS_DIR / ("pages/" + lang + "_legal_terms.md"))
         if not exists(path):
-            lang = 'fr'
-        with open(
-            str(settings.APPS_DIR / ("pages/" + lang + "_legal_terms.md"))
-        ) as f:
+            lang = "fr"
+        with open(str(settings.APPS_DIR / ("pages/" + lang + "_legal_terms.md"))) as f:
             content = f.read()
         context = {"content": content}
         return render(self.request, "shop/legal_terms.html", context)
@@ -625,10 +627,42 @@ class SalesConditionsView(View):
         lang = get_language()
         path = str(settings.APPS_DIR / ("pages/" + lang + "_sales_conditions.md"))
         if not exists(path):
-            lang = 'fr'
+            lang = "fr"
         with open(
             str(settings.APPS_DIR / ("pages/" + lang + "_sales_conditions.md"))
         ) as f:
             content = f.read()
         context = {"content": content}
         return render(self.request, "shop/sales_conditions.html", context)
+
+
+def select_country_view(request):
+    data = json.loads(request.body.decode("utf-8"))
+    form = CountrySelectForm(data)
+    order = get_order(request)
+    if form.is_valid():
+        order.shipping_country = form.cleaned_data.get("shipping_country")
+        order.save()
+    return JsonResponse({"shipping_country": str(order.shipping_country)})
+
+
+def order_prices_view(request):
+    order = get_order(request)
+    prices = {
+        "order_price_ex_vat": f"{order.get_order_price_ex_vat():.2f} EUR",
+        "order_vat_price": f"{order.get_order_vat_price():.2f} EUR",
+        "order_price_ex_delivery": f"{order.get_order_price_ex_delivery():.2f} EUR",
+        "vat_rate": f"{order.get_vat_rate():.1f} %",
+    }
+    return JsonResponse(prices)
+
+
+def product_prices_view(request, product_slug):
+    order = get_order(request)
+    product = Product.objects.get(slug=product_slug)
+    order_product = OrderProduct.objects.get(orders=order, product=product)
+    prices = {
+        "product_price_incl_vat": f"{product.get_price_incl_vat(order):.2f} EUR",
+        "order_product_price": f"{order_product.get_order_product_price():.2f} EUR",
+    }
+    return JsonResponse(prices)

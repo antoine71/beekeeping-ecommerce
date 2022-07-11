@@ -6,6 +6,7 @@ from .views import (
     HomeView,
     CartView,
     add_to_cart,
+    order_prices_view,
     remove_from_cart,
     remove_item_from_cart,
     ShippingView,
@@ -15,7 +16,10 @@ from .views import (
     RequestRefundView,
     ConfidentialityView,
     LegalTermsView,
-    SalesConditionsView
+    SalesConditionsView,
+    order_prices_view,
+    select_country_view,
+    product_prices_view,
 )
 
 
@@ -55,5 +59,14 @@ urlpatterns = [
         ConfidentialityView.as_view(),
         name="confidentiality",
     ),
-
+    path(
+        "order_prices/",
+        order_prices_view,
+        name="order_prices",
+    ),
+    path(
+        "product_prices/<product_slug>",
+        product_prices_view,
+        name="product_prices",
+    ),
 ]
