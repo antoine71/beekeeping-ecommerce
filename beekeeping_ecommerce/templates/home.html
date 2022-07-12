@@ -1,57 +1,64 @@
 {% extends 'base.html' %}
 {% load i18n static %}
+{% block additional_head_scripts %}
+{% endblock additional_head_scripts %}
+{% block additional_css %}
+
+{% endblock additional_css %}
 {% block content %}
-  <section class="highlight">
-    <div class="container">
-      <div class="hero-content">
-        <div class="left">
-          <h1>{% translate "Zephyr 1" %}</h1>
-          <h2>{% translate "L'enfumoir apicole qui facilite la vie au rucher" %}</h2>
-          <div class="check">
-            <i class="bx bx-check-square"></i>
-            <p>{% translate "Allumage sans effort" %}</p>
+  <div class="fullpage">
+    <section class="section highlight">
+      <div class="container">
+        <div class="hero-content">
+          <div class="left">
+            <h1>{% translate "Zephyr 1" %}</h1>
+            <h2>{% translate "L'enfumoir apicole qui facilite la vie au rucher" %}</h2>
+            <div class="check">
+              <i class="bx bx-check-square"></i>
+              <p>{% translate "Allumage sans effort" %}</p>
+            </div>
+            <div class="check">
+              <i class="bx bx-check-square"></i>
+              <p>{% translate "Enfumage automatique" %}</p>
+            </div>
+            <div class="buttons">
+              <a href="#knowmore" class="btn-primary">
+                <i class="bx bx-chevrons-down"></i>
+                <span>{% translate "En Savoir Plus" %}</span>
+              </a>
+              <a href="#buy" class="btn-primary">
+                <i class="bx bx-cart"></i>
+                <span>{% translate "Acheter" %}</span>
+              </a>
+            </div>
           </div>
-          <div class="check">
-            <i class="bx bx-check-square"></i>
-            <p>{% translate "Enfumage automatique" %}</p>
-          </div>
-          <div class="buttons">
-            <a href="#knowmore" class="btn-primary">
-              <i class="bx bx-chevrons-down"></i>
-              <span>{% translate "En Savoir Plus" %}</span>
-            </a>
-            <a href="#buy" class="btn-primary">
-              <i class="bx bx-cart"></i>
-              <span>{% translate "Acheter" %}</span>
-            </a>
-          </div>
-        </div>
-        <div class="right">
-          <div class="hero-image">
-            <img src="{% static 'assets/img/enfumoir_zephyr1_02.jpg' %}"
-                 alt="Enfumoir Automatique Zephyr 1"/>
+          <div class="right">
+            <div class="hero-image">
+              <img src="{% static 'assets/img/enfumoir_zephyr1_02.jpg' %}"
+                   alt="Enfumoir Automatique Zephyr 1"/>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- END  OF  HERO -->
-  {% include 'home/discover.html' %}
-  <!-- END OF DISCOVER -->
-  {% include 'home/presentation.html' %}
-  <!-- END OF PRESENTATION -->
-  {% include 'home/features.html' %}
-  <!-- END OF FEATURES -->
-  {% include 'home/images.html' %}
-  <!-- END OF IMAGES -->
-  {% include 'home/operation.html' %}
-  <!-- END OF OPERATION -->
-  {% include 'home/documentation.html' %}
-  <!-- END OF DOCUMENTATION -->
-  {% include 'shop/buy.html' %}
-  <!-- END OF BUY -->
-  {% include 'contact/demo_request.html' %}
-  <!-- END OF DEMO -->
+    </section>
+    <!-- END  OF  HERO -->
+    {% include 'home/discover.html' %}
+    <!-- END OF DISCOVER -->
+    {% include 'home/presentation.html' %}
+    <!-- END OF PRESENTATION -->
+    {% include 'home/features.html' %}
+    <!-- END OF FEATURES -->
+    {% include 'home/images.html' %}
+    <!-- END OF IMAGES -->
+    {% include 'home/operation.html' %}
+    <!-- END OF OPERATION -->
+    {% include 'home/documentation.html' %}
+    <!-- END OF DOCUMENTATION -->
+    {% include 'shop/buy.html' %}
+    <!-- END OF BUY -->
+    {% include 'contact/demo_request.html' %}
+    <!-- END OF DEMO -->
+  </div>
   <button type="button" class="btn-primary" id="btn-back-to-top">
     <i class='bx bxs-up-arrow-circle'></i>
   </button>
@@ -100,4 +107,5 @@
     },
   });
   </script>
+
 {% endblock additional_scripts %}
