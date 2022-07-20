@@ -41,6 +41,10 @@ section {
   &.home {
     padding-top: 3rem;
     padding-bottom: 3rem;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .section-quote {
@@ -95,18 +99,22 @@ section {
 
 .btn-primary {
   @include button($white-color, $primary-color);
-  font-size: 1rem;
-  font-family: "Roboto", sans-serif;
 
   &_center {
+    @include button($white-color, $primary-color);
     margin: 1.5rem auto 0;
+  }
+  &_large {
+    @include button($white-color, $primary-color);
+    margin: 1.5rem auto 0;
+    width: 100%;
+    max-width: 30rem;
+    justify-content: center;
   }
 }
 
 .btn-reverse {
   @include button($primary-color, $white-color);
-  font-size: 1rem;
-  font-family: "Roboto", sans-serif;
 
   &_center {
     margin: 1.5rem auto 0;
@@ -145,7 +153,6 @@ input {
   z-index: 99;
 }
 
-
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
 @media screen and (max-width: 1024px) {
   .container {
@@ -162,8 +169,13 @@ input {
 /* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
 @media screen and (max-width: 600px) {
   section {
+    &.home {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
     & > p {
       width: $container-md;
+      margin-bottom: 1.5rem;
     }
   }
 }

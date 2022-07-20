@@ -1,6 +1,5 @@
 {% load i18n static %}
 {% get_current_language as LANGUAGE_CODE %}
-
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
   <head>
@@ -8,8 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="{% block description %}{% translate "NumerciBees développe des outils pour faciliter l'apiculture. Notre enfumoir pour abeilles Zephyr1 à soufflerie électrique élimine le besoin de pomper sur un soufflet qui se perce au bout de quelques mois." %}{% endblock description %}" />
-    <title>{% block title %}{% translate "Numericbees, l'apiculture simplifiée" %}{% endblock title %}</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'assets/img/logo.svg' %}">
+    {% block opengraph_tags %}
+    {% endblock opengraph_tags %}
+    <title>
+      {% block title %}
+        {% translate "Numericbees, l'apiculture simplifiée" %}
+      {% endblock title %}
+    </title>
+    <link rel="icon"
+          type="image/x-icon"
+          href="{% static 'assets/img/logo.svg' %}">
     {% block additional_head_scripts %}
     {% endblock additional_head_scripts %}
     <!-- Link Swiper's CSS -->
@@ -52,14 +59,13 @@
           {% get_available_languages as LANGUAGES %}
           {% get_language_info_list for LANGUAGES as languages %}
           {% for language in languages %}
-              <li>
-                {% language language.code %}
-                  <a href="{% url 'shop:home' %}">{{ language.name_local }} ({{ language.code }})</a>
-                {% endlanguage %}                                             
-              </li>
-          {% endfor %}             
+            <li>
+              {% language language.code %}
+                <a href="{% url 'shop:home' %}">{{ language.name_local }} ({{ language.code }})</a>
+              {% endlanguage %}
+            </li>
+          {% endfor %}
         </ul>
-        
         {% if order and order.get_products_quantity and not order.ordered %}
           <a href="{% url 'shop:cart' %}" class="cart">
             <span class="cart-quantity">{{ order.get_products_quantity }}</span>
@@ -71,7 +77,7 @@
         </button>
         <button id="close__lang-btn">
           <i class="bx bx-x"></i>
-        </button>   
+        </button>
         <button id="open__nav-btn">
           <i class="bx bx-menu"></i>
         </button>

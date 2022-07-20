@@ -1,80 +1,114 @@
 <!-- END OF FEATURES -->
 {% load i18n static %}
-
-<section id="services" class="section home">
+<section id="features" class="section home">
   <h2>{% translate "Avantages" %}</h2>
-  <p>{% translate "L'enfumoir Zephyr 1 s'allume avec une simple allumette - la combustion démarre seule pendant que l'apiculteur s'équipe. La production de fumée est automatique et ne nécessite pas de pressions répétées sur un soufflet." %}</p>
+  <p>
+    {% translate "L'enfumoir Zephyr 1 s'allume avec une simple allumette - la combustion démarre seule pendant que l'apiculteur s'équipe. La production de fumée est automatique et ne nécessite pas de pressions répétées sur un soufflet." %}
+  </p>
   <div class="container">
-    <article class="features">
-      <i class='bx bx-bulb'></i>
-      <div class="description">
-        <h4>{% translate "Pratique" %}</h4>
-        <div class="inline-icon-text">
-          <i class='bx bx-check-square'></i>
-          <p>{% translate "Conçu par des apiculteurs pour les apiculteurs." %}</p>
+    <div class="swiper mySwiperFeatures">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <article class="features">
+            <i class='bx bx-bulb'></i>
+            <div class="description">
+              <h4>{% translate "Pratique" %}</h4>
+              <div class="inline-icon-text">
+                <i class='bx bx-check-square'></i>
+                <p>{% translate "Conçu par des apiculteurs pour les apiculteurs." %}</p>
+              </div>
+              <div class="inline-icon-text">
+                <i class='bx bx-check-square'></i>
+                <p>{% translate "S'allume sans effort ni échec." %}</p>
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="inline-icon-text">
-          <i class='bx bx-check-square'></i>
-          <p>{% translate "S'allume sans effort ni échec." %}</p>
+        <div class="swiper-slide">
+          <article class="features">
+            <i class='bx bx-user'></i>
+            <div class="description">
+              <h4>{% translate "Ergonomique" %}</h4>
+              <div class="inline-icon-text">
+                <i class='bx bx-check-square'></i>
+                <p>{% translate "Plus léger qu'un enfumoir à soufflet, pas de pompage sur le soufflet." %}</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="features">
+            <i class='bx bx-wrench'></i>
+            <div class="description">
+              <h4>{% translate "Fiable" %}</h4>
+              <div class="inline-icon-text">
+                <i class='bx bx-check-square'></i>
+                <p>{% translate "Sécurité par temporisation." %}</p>
+              </div>
+              <div class="inline-icon-text">
+                <i class='bx bx-check-square'></i>
+                <p>{% translate "Composants industriels fiables." %}</p>
+              </div>
+              <div class="inline-icon-text">
+                <i class='bx bx-check-square'></i>
+                <p>{% translate "Autonomie de plusieurs semaines." %}</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="features">
+            <i class='bx bx-hard-hat'></i></i>
+            <div class="description">
+              <h4>{% translate "Robuste" %}</h4>
+              <div class="inline-icon-text">
+                <i class='bx bx-check-square'></i>
+                <p>{% translate "Supporte les chutes répétées dans l'herbe." %}</p>
+              </div>
+              <div class="inline-icon-text">
+                <i class='bx bx-check-square'></i>
+                <p>{% translate "Ne se perce pas." %}</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="features">
+            <i class='bx bx-world'></i>
+            <div class="description">
+              <h4>{% translate "Durable" %}</h4>
+              <div class="inline-icon-text">
+                <i class='bx bx-check-square'></i>
+                <p>{% translate "Plusieurs milliers d'heures de fonctionnement ou d'activations." %}</p>
+                <i class='bx bx-check-square'></i>
+                <p>{% translate "Réparable" %}</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="features">
+            <i class='bx bx-phone'></i>
+            <div class="description">
+              <h4>{% translate "Garanti" %}</h4>
+              <div class="inline-icon-text">
+                <i class='bx bx-check-square'></i>
+                <p>{% translate "Garantie 2 ans" %}</p>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
-    </article>
-    <article class="features">
-      <i class='bx bx-user'></i>
-      <div class="description">
-        <h4>{% translate "Ergonomique" %}</h4>
-        <div class="inline-icon-text">
-          <i class='bx bx-check-square'></i>
-          <p>{% translate "Plus léger qu'un enfumoir à soufflet, pas de pompage sur le soufflet." %}</p>
-        </div>
-      </div>
-    </article>
-    <article class="features">
-      <i class='bx bx-wrench'></i>
-      <div class="description">
-        <h4>{% translate "Fiable" %}</h4>
-        <div class="inline-icon-text">
-          <i class='bx bx-check-square'></i>
-          <p>{% translate "Sécurité par temporisation." %}</p>
-        </div>
-        <div class="inline-icon-text">
-          <i class='bx bx-check-square'></i><p>{% translate "Composants industriels fiables." %}</p>
-        </div>
-        <div class="inline-icon-text">
-          <i class='bx bx-check-square'></i><p>{% translate "Autonomie de plusieurs semaines." %}</p>
-        </div>
-      </div>
-    </article>
-    <article class="features">
-      <i class='bx bx-hard-hat'></i></i>
-      <div class="description">
-        <h4>{% translate "Robuste" %}</h4>
-        <div class="inline-icon-text">
-          <i class='bx bx-check-square'></i><p>{% translate "Supporte les chutes répétées dans l'herbe." %}</p>
-        </div>
-        <div class="inline-icon-text">
-          <i class='bx bx-check-square'></i><p>{% translate "Ne se perce pas." %}</p>
-        </div>
-      </div>
-    </article>
-    <article class="features">
-      <i class='bx bx-world'></i>
-      <div class="description">
-        <h4>{% translate "Durable" %}</h4>
-        <div class="inline-icon-text">
-          <i class='bx bx-check-square'></i><p>{% translate "Plusieurs milliers d'heures de fonctionnement ou d'activations." %}</p>
-          <i class='bx bx-check-square'></i><p>{% translate "Réparable" %}</p>
-        </div>
-      </div>
-    </article>
-    <article class="features">
-      <i class='bx bx-phone'></i>
-      <div class="description">
-        <h4>{% translate "Garanti" %}</h4>
-        <div class="inline-icon-text">
-          <i class='bx bx-check-square'></i><p>{% translate "Garantie 2 ans" %}</p>
-        </div>
-      </div>
-    </article>
+      <div class="swiper-pagination"></div>
+    </div>
+    <a href="{% static 'assets/files/Enfumoir_automatique_Zephy_1_NumericBees.pdf' %}"
+       class="btn-primary_large">
+      <i class='bx bx-download'></i>
+      <span>Télécharger une documentation</span>
+    </a>
+    <a href="#images" class="btn-primary_large">
+      <i class="bx bx-chevrons-down"></i>
+      <span>{% translate "Plus besoin de lampe à souder pour allumer" %}</span>
+    </a>
   </div>
 </section>

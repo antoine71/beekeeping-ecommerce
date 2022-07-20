@@ -1,36 +1,31 @@
-#services {
+#features {
   .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    .swiper-wrapper{
+      .swiper-slide {
+        background: $white-color;
+        padding-bottom: 3rem;
+      }
+    }
 
-
-    article {
+    article.features {
       @include card;
-      margin: 0;
-      border: 0px;
-      // // @include gradientBackground;
-      // border-radius: 1rem;
-
+      margin: 0 1rem;;
+      text-align: left;
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 0.8rem;
-
-      transition: all 400ms ease;
-      border-color: $primary-color;
-
-      &:hover {
-        box-shadow: none;
-      }
+      border: 0;
+      height: auto;
+      width: 100%;
 
       & > i {
         font-size: 1.7rem;
         color: $primary-color;
       }
 
-      .description {
-        h4 {
+      & > .description {
+        font-size: 1rem;
+        & > h4 {
           font-size: 1.1rem;
           margin-bottom: 1rem;
           color: $primary-color;
@@ -42,11 +37,8 @@
 
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
 @media screen and (max-width: 1024px) {
-  #services {
+  #features {
     .container {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      gap: 1rem;
 
       article {
         padding: 1.2rem;
@@ -58,11 +50,10 @@
 
 /* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
 @media screen and (max-width: 600px) {
-  #services {
+  #features {
     .container {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(6, 1fr);
-      gap: 2rem;
+
+
 
       article {
         .description {

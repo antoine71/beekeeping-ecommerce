@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% load i18n static %}
-{% block additional_head_scripts %}
-{% endblock additional_head_scripts %}
-{% block additional_css %}
-
-{% endblock additional_css %}
+{% block opengraph_tags %}
+<meta property="og:url" content="https://www.numericbees.com"/>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{% translate "NumericBees, l'apiculture simplifiée" %}"/>
+<meta property="og:description" content="{% translate "NumerciBees développe des outils pour faciliter l'apiculture. Notre enfumoir pour abeilles Zephyr1 à soufflerie électrique élimine le besoin de pomper sur un soufflet qui se perce au bout de quelques mois." %}"/>
+<meta property="og:image"
+      content="http://{{ request.get_host }}{% static 'assets/img/hero-background.jpg' %}"/>
+<meta property="og:site_name" content="NumericBees" />
+<meta property="og:locale" content="{{ LANGUAGE_CODE }}"/>
+{% endblock opengraph_tags %}
 {% block content %}
   <div class="fullpage">
     <section class="section highlight">
@@ -22,13 +27,9 @@
               <p>{% translate "Enfumage automatique" %}</p>
             </div>
             <div class="buttons">
-              <a href="#knowmore" class="btn-primary">
+              <a href="#knowmore" class="btn-primary_large">
                 <i class="bx bx-chevrons-down"></i>
                 <span>{% translate "En Savoir Plus" %}</span>
-              </a>
-              <a href="#buy" class="btn-primary">
-                <i class="bx bx-cart"></i>
-                <span>{% translate "Acheter" %}</span>
               </a>
             </div>
           </div>
@@ -44,16 +45,12 @@
     <!-- END  OF  HERO -->
     {% include 'home/discover.html' %}
     <!-- END OF DISCOVER -->
-    {% include 'home/presentation.html' %}
-    <!-- END OF PRESENTATION -->
     {% include 'home/features.html' %}
     <!-- END OF FEATURES -->
     {% include 'home/images.html' %}
     <!-- END OF IMAGES -->
     {% include 'home/operation.html' %}
     <!-- END OF OPERATION -->
-    {% include 'home/documentation.html' %}
-    <!-- END OF DOCUMENTATION -->
     {% include 'shop/buy.html' %}
     <!-- END OF BUY -->
     {% include 'contact/demo_request.html' %}
@@ -67,6 +64,7 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="{% static 'js/scroll_top.js' %}"></script>
   <script src="{% static 'js/anchor_offset.js' %}"></script>
+  <script src="{% static 'js/home.js' %}"></script>
   <!-- swiper videos script -->
   <script>
   var swiperVideoThumbs = new Swiper(".mySwiperVideoThumbs", {
@@ -96,13 +94,33 @@
       prevEl: ".swiper-button-prev",   
     },
     breakpoints: {
-      768: {
+      600: {
         slidesPerView: 1,
         spaceBetween: 40,
       },
       1024: {
         slidesPerView: 2,
         spaceBetween: 50,
+      },
+    },
+  });
+  </script>
+  <script>
+  var swiper = new Swiper(".mySwiperFeatures", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+      el: ".swiper-pagination",   
+      clickable: true,
+    },
+    breakpoints: {
+      600: {
+        slidesPerView: 1,
+
+      },
+      1024: {
+        slidesPerView: 2,
+
       },
     },
   });

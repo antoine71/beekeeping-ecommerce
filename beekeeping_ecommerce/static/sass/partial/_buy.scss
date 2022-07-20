@@ -50,6 +50,7 @@
   #buy {
     .container {
       grid-template-columns: 1fr;
+      gap: 1rem;
       article {
         &:first-child {
           justify-self: center;

@@ -5,32 +5,42 @@
     {% translate "Zephyr 1 est un enfumoir automatisé qui apporte une solution aux problèmes récurrents des apiculteurs : l'enfumoir difficile à allumer, et qui s'éteint quand on en a besoin." %}
   </p>
   <div class="container">
-    <div class="swiper mySwiperVideo">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <video width="100%" muted controls>
-            <source src="{% static 'assets/video/ouverture-ruche.mp4' %}"
-                    type="video/mp4"/>
-            Your browser does not support the video.
-          </video>
-        </div>
-        <div class="swiper-slide">
-          <video width="100%" muted controls>
-            <source src="{% static 'assets/video/faire-descendre-les-abeilles.mp4' %}"
-                    type="video/mp4"/>
-            Your browser does not support the video.
-          </video>
+    <video width="100%" muted controls>
+      <source src="{% static 'assets/video/ouverture-ruche.mp4' %}"
+              type="video/mp4"/>
+      Your browser does not support the video.
+    </video>
+    <div class="container">
+      <button class="btn-primary btn-primary_large" id="btn-socials">
+        <i class='bx bx-share-alt'></i>
+        <span>{% translate "Trop génial" %}</span>
+      </button>
+      <div class="socials" id="div-socials">
+        <div class="social-share">{% translate "Partager avec vos amis" %}</div>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnumericbees.com%2F"
+             target="_blank">
+            <div class="icon-circle">
+              <i class='bx bxl-facebook'></i>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fnumericbees.com%2F"
+          target="_blank">
+          <div class="icon-circle">
+            <i class='bx bxl-linkedin'></i>
+          </div>
+        </a>
+        <a href="https://twitter.com/share?url=http%3A%2F%2Fnumericbees.com%2F"
+             target="_blank">
+            <div class="icon-circle">
+              <i class='bx bxl-twitter'></i>
+            </div>
+          </a>
         </div>
       </div>
-    </div>
-    <div thumbsSlider="" class="swiper mySwiperVideoThumbs">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="{% static 'assets/img/ouverture-ruche.jpg' %}" />
-        </div>
-        <div class="swiper-slide">
-          <img src="{% static 'assets/img/faire-descendre-les-abeilles.jpg' %}" />
-        </div>
-      </div>
+      <a href="#features" class="btn-primary btn-primary_large">
+        <i class="bx bx-chevrons-down"></i>
+        <span>{% translate "En Savoir Plus" %}</span>
+      </a>
     </div>
   </section>
