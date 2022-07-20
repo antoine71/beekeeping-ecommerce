@@ -1,29 +1,47 @@
 section#operation {
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-    .card {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr;
-      gap: 1.2rem;
-      margin: 0;
-      border: 0;
-      .left {
-        max-width: 12rem;
-        height: fit-content;
-        justify-self: center;
-      }
-      .right {
-
-        height: fit-content;
-        .operation-elts > div {
-          margin-bottom: 0.4rem;
+  & > .container:first-of-type {
+    margin-top: 1rem;
+    .swiper-wrapper {
+      .swiper-slide {
+        background: $white-color;
+        padding-bottom: 3rem;
+        .card {
+          margin: 0 1rem;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto 1fr;
+          gap: 1.2rem;
+          border: 0;
+          text-align: left;
+          font-size: 0.9rem;
+          height: 100%;
+          width: 100%;
+          .left {
+            max-width: 10rem;
+            height: fit-content;
+            justify-self: center;
+          }
+          .right {
+            height: fit-content;
+            .operation-elts > div {
+              margin-bottom: 0.4rem;
+            }
+          }
+          &.image-only {
+            grid-template-rows: auto;
+            align-items: center;
+            justify-items: center;
+          }
         }
       }
     }
   }
+}
+
+.mySwiperOperation {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  height: 28rem;
 }
 
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
@@ -37,8 +55,12 @@ section#operation {
 /* ================== MEDIA QUERIES (SMALL SCREENS) ======================= */
 @media screen and (max-width: 600px) {
   section#operation {
-    .container {
+    & > .container:first-of-type {
       grid-template-columns: 1fr;
     }
+  }
+  .mySwiperOperation {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

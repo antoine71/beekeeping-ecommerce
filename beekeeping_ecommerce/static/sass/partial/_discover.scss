@@ -1,13 +1,21 @@
 #knowmore {
   & > .container {
     width: 100%;
-    .buttons {
-      display: flex;
-      justify-content: space-evenly;
-      margin: 2.5rem 0;
-    }
     .socials {
       display: none;
     }
+    .video-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
   }
+}
+
+#knowmore-video {
+  height: calc(100vh - 31rem);
+  object-fit: cover;
+  max-width: 45rem;
+  margin: 0 auto;
 }

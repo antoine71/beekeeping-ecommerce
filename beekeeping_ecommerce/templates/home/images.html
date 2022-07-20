@@ -1,7 +1,7 @@
 {% load i18n static %}
 <section id="images" class="section home">
   <h2>{% translate "Découvrez Zephyr 1 en images" %}</h2>
-  <p>{% translate "Découvrez l'enfumoir automatique Zephyr 1 en images" %}</p>
+  {% comment %} <p>{% translate "Découvrez l'enfumoir automatique Zephyr 1 en images" %}</p> {% endcomment %}
   <div class="container">
     <div class="swiper mySwiperImages">
       <div class="swiper-wrapper">
@@ -25,5 +25,11 @@
       <div class="swiper-button-prev"></div>   
       <div class="swiper-pagination"></div>
     </div>
+  </div>
+  <div class="container">
+    <a href="#operation" class="btn-primary_large">
+      <i class="bx bx-chevrons-down"></i>
+      <span>{% translate "Un jeu d'enfant" %}</span>
+    </a>
   </div>
 </section>

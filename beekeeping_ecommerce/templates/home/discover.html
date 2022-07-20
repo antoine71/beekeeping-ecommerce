@@ -5,11 +5,13 @@
     {% translate "Zephyr 1 est un enfumoir automatisé qui apporte une solution aux problèmes récurrents des apiculteurs : l'enfumoir difficile à allumer, et qui s'éteint quand on en a besoin." %}
   </p>
   <div class="container">
-    <video width="100%" muted controls>
-      <source src="{% static 'assets/video/ouverture-ruche.mp4' %}"
-              type="video/mp4"/>
-      Your browser does not support the video.
-    </video>
+    <div class="video-wrapper">
+      <video id="knowmore-video" width="100%" muted controls>
+        <source src="{% static 'assets/video/ouverture-ruche.mp4' %}"
+                type="video/mp4"/>
+        Your browser does not support the video.
+      </video>
+    </div>
     <div class="container">
       <button class="btn-primary btn-primary_large" id="btn-socials">
         <i class='bx bx-share-alt'></i>
@@ -25,12 +27,12 @@
             </div>
           </a>
           <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fnumericbees.com%2F"
-          target="_blank">
-          <div class="icon-circle">
-            <i class='bx bxl-linkedin'></i>
-          </div>
-        </a>
-        <a href="https://twitter.com/share?url=http%3A%2F%2Fnumericbees.com%2F"
+             target="_blank">
+            <div class="icon-circle">
+              <i class='bx bxl-linkedin'></i>
+            </div>
+          </a>
+          <a href="https://twitter.com/share?url=http%3A%2F%2Fnumericbees.com%2F"
              target="_blank">
             <div class="icon-circle">
               <i class='bx bxl-twitter'></i>
@@ -40,7 +42,7 @@
       </div>
       <a href="#features" class="btn-primary btn-primary_large">
         <i class="bx bx-chevrons-down"></i>
-        <span>{% translate "En Savoir Plus" %}</span>
+        <span>{% translate "L'enfumoir bourré de qualités..." %}</span>
       </a>
     </div>
   </section>

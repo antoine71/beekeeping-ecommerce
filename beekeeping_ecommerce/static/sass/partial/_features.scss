@@ -1,21 +1,24 @@
 #features {
+  &>p {
+    margin-bottom: 0;
+  }
   .container {
     .swiper-wrapper{
       .swiper-slide {
         background: $white-color;
-        padding-bottom: 3rem;
+        padding-bottom: 2rem;
       }
     }
 
     article.features {
       @include card;
-      margin: 0 1rem;;
+      margin: 0 1rem;
       text-align: left;
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 0.8rem;
       border: 0;
-      height: auto;
+      height: 80%;
       width: 100%;
 
       & > i {
@@ -35,6 +38,12 @@
   }
 }
 
+.mySwiperFeatures {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  height: 18rem;
+}
+
 /* ================== MEDIA QUERIES (MEDIUM SCREENS) ======================= */
 @media screen and (max-width: 1024px) {
   #features {
@@ -52,9 +61,6 @@
 @media screen and (max-width: 600px) {
   #features {
     .container {
-
-
-
       article {
         .description {
           h4 {
@@ -63,5 +69,9 @@
         }
       }
     }
+  }
+  .mySwiperFeatures {
+    padding-left: 0;
+    padding-right: 0;
   }
 }

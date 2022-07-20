@@ -2,115 +2,136 @@
 {% load i18n static %}
 <section id="operation" class="section home">
   <h2>{% translate "Un fonctionnement simple" %}</h2>
-  <p>{% translate "La facilité d'utilisation et la sécurité sont au coeur du design de Zephyr 1" %}</p>
+  {% comment %} <p>{% translate "La facilité d'utilisation et la sécurité sont au coeur du design de Zephyr 1" %}</p> {% endcomment %}
   <div class="container">
-    <article class="card">
-      <img src="{% static 'assets/img/zephyr1_allumage.png' %}" alt="">
-    </article>
-    <article class="card">
-      <div class="left">
-        <img src="{% static 'assets/img/zephyr1_features_01.jpg' %}" alt="">
-      </div>
-      <div class="right">
-        <div class="operation-elts">
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>Charge USBC véhicule ou secteur</span>
-          </div>
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>Chargeur secteur inclus</span>
-          </div>
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>Câble indépendant</span>
-          </div>
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>LED rouge d’indication de charge</span>
-          </div>
+    <div class="swiper mySwiperOperation">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <article class="card image-only">
+            <div>
+              <img src="{% static 'assets/img/zephyr1_allumage.png' %}" alt="">
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="card">
+            <div class="left">
+              <img src="{% static 'assets/img/zephyr1_features_01.jpg' %}" alt="">
+            </div>
+            <div class="right">
+              <div class="operation-elts">
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>Charge USBC véhicule ou secteur</span>
+                </div>
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>Chargeur secteur inclus</span>
+                </div>
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>Câble indépendant</span>
+                </div>
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>LED rouge d’indication de charge</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="card">
+            <div class="left">
+              <img src="{% static 'assets/img/zephyr1_features_02.jpg' %}" alt="">
+            </div>
+            <div class="right">
+              <div class="operation-elts">
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>LED verte d’indication de fin de charge</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="card">
+            <div class="left">
+              <img src="{% static 'assets/img/zephyr1_features_03.jpg' %}" alt="">
+            </div>
+            <div class="right">
+              <div class="operation-elts">
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>Jauge d’autonomie de batterie 6000mAh</span>
+                </div>
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>Plusieurs semaines sans charger pour un amateur</span>
+                </div>
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>Une semaine d’autonomie en usage intense (Pro)</span>
+                </div>
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>Plus de 100 m3 de fumée</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="card">
+            <div class="left">
+              <img src="{% static 'assets/img/zephyr1_features_04.jpg' %}" alt="">
+            </div>
+            <div class="right">
+              <div class="operation-elts">
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>Coupure de sécurité automatique</span>
+                </div>
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>Temporisation d’une minute de fonctionnement continu maximum</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="card">
+            <div class="left">
+              <img src="{% static 'assets/img/zephyr1_features_05.jpg' %}" alt="">
+            </div>
+            <div class="right">
+              <div class="operation-elts">
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>Mode allumage (I) : soufflerie continue d’une minute.</span>
+                </div>
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span>Mode arrêt (0)</span>
+                </div>
+                <div class="inline-icon-text">
+                  <i class='bx bx-check-square'></i>
+                  <span><a href="{% url 'shop:home' %}#knowmore">Mode enfumage (II) : fume automatiquement dès qu’on incline l’enfumoir.</a> </span>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
-    </article>
-    <article class="card">
-      <div class="left">
-        <img src="{% static 'assets/img/zephyr1_features_02.jpg' %}" alt="">
-      </div>
-      <div class="right">
-        <div class="operation-elts">
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>LED verte d’indication de fin de charge</span>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="card">
-      <div class="left">
-        <img src="{% static 'assets/img/zephyr1_features_03.jpg' %}" alt="">
-      </div>
-      <div class="right">
-        <div class="operation-elts">
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>Jauge d’autonomie de batterie 6000mAh</span>
-          </div>
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>Plusieurs semaines sans charger pour un amateur</span>
-          </div>
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>Une semaine d’autonomie en usage intense (Pro)</span>
-          </div>
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>Plus de 100 m3 de fumée</span>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="card">
-      <div class="left">
-        <img src="{% static 'assets/img/zephyr1_features_04.jpg' %}" alt="">
-      </div>
-      <div class="right">
-        <div class="operation-elts">
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>Coupure de sécurité automatique</span>
-          </div>
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>Temporisation d’une minute de fonctionnement continu maximum</span>
-          </div>
-        </div>
-      </div>
-    </article>
-    <article class="card">
-      <div class="left">
-        <img src="{% static 'assets/img/zephyr1_features_05.jpg' %}" alt="">
-      </div>
-      <div class="right">
-        <div class="operation-elts">
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>Mode allumage (I) : soufflerie continue d’une minute.</span>
-          </div>
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span>Mode arrêt (0)</span>
-          </div>
-          <div class="inline-icon-text">
-            <i class='bx bx-check-square'></i>
-            <span><a href="{% url 'shop:home' %}#knowmore">Mode enfumage (II) : fume automatiquement dès qu’on incline l’enfumoir.</a> </span>
-          </div>
-        </div>
-      </div>
-    </article>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
   </div>
   <div class="container">
-    <a href="#buy" class="btn-primary btn-primary_large">
+    <a href="#buy" class="btn-primary_large">
       <i class="bx bx-chevrons-down"></i>
       <span>{% translate "Arrêtez de pomper sur vore soufflet" %}</span>
     </a>

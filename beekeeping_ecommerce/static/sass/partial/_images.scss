@@ -1,21 +1,8 @@
+
+
 .mySwiperImages {
   height: 80%;
   width: 100%;
-}
-
-.mySwiperImagesThumbs {
-  height: 20%;
-  box-sizing: border-box;
-  padding: 10px 0;
-  background: $black-color;
-}
-
-.mySwiperImagesThumbs .swiper-slide {
-  width: 25%;
-  height: 100%;
-  opacity: 0.4;
-}
-
-.mySwiperImagesThumbs .swiper-slide-thumb-active {
-  opacity: 1;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  max-height: 60vh;
 }

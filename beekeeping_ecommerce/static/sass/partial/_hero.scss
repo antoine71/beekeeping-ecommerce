@@ -29,10 +29,12 @@ section.hero {
   }
 }
 section.highlight {
+  display: grid;
+  justify-items: center;
   overflow: hidden;
   margin-top: 0;
+  height: 62vh;
   .container {
-    height: 62vh;
     display: grid;
     place-items: center;
     padding: 2rem 0;

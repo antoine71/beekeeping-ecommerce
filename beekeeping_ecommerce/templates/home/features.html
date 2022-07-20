@@ -3,7 +3,7 @@
 <section id="features" class="section home">
   <h2>{% translate "Avantages" %}</h2>
   <p>
-    {% translate "L'enfumoir Zephyr 1 s'allume avec une simple allumette - la combustion démarre seule pendant que l'apiculteur s'équipe. La production de fumée est automatique et ne nécessite pas de pressions répétées sur un soufflet." %}
+    {% translate "L'enfumoir Zephyr 1 s'allume avec une simple allumette et ne nécessite pas de pressions répétées sur un soufflet." %}
   </p>
   <div class="container">
     <div class="swiper mySwiperFeatures">
@@ -99,16 +99,18 @@
           </article>
         </div>
       </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>  
       <div class="swiper-pagination"></div>
     </div>
     <a href="{% static 'assets/files/Enfumoir_automatique_Zephy_1_NumericBees.pdf' %}"
        class="btn-primary_large">
       <i class='bx bx-download'></i>
-      <span>Télécharger une documentation</span>
+      <span>{% translate "Voici la documentation" %}</span>
     </a>
     <a href="#images" class="btn-primary_large">
       <i class="bx bx-chevrons-down"></i>
-      <span>{% translate "Plus besoin de lampe à souder pour allumer" %}</span>
+      <span>{% translate "Plus besoin de lampe à souder" %}</span>
     </a>
   </div>
 </section>
