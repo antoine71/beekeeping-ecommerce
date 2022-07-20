@@ -12,7 +12,6 @@
 
     article.features {
       @include card;
-      margin: 0 1rem;
       text-align: left;
       display: grid;
       grid-template-columns: auto 1fr;

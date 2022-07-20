@@ -1436,7 +1436,6 @@ section#presentation > .container {
   box-shadow: 0 1rem 1rem rgba(12, 3, 27, 0.1);
   border: 1px solid #C6C6C6;
   margin: 1rem 0;
-  margin: 0 1rem;
   text-align: left;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -1489,7 +1488,6 @@ section#operation > .container:first-of-type .swiper-wrapper .swiper-slide {
   padding-bottom: 3rem;
 }
 section#operation > .container:first-of-type .swiper-wrapper .swiper-slide .card {
-  margin: 0 1rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
