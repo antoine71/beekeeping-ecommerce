@@ -7,7 +7,7 @@
 L'abeille domestique, Apis mellifera mellifera, est un insecte sauvage "cultivé[^1]" et non pas élevé. Domestique vient du latin "domus", la maison, à proximité de laquelle l'apiculteur installe son rucher. L'abeille est équipée d'un dard et d'une glande à venin.
 
 ![Système venin](/static/assets/img/systeme_venin.jpg)
-<small class="text-muted">Crédit: <a href="https://www.researchgate.net/profile/Daniel-Elieh-Ali-Komi-2" target="_blank">Daniel Elieh-Ali-Komi</a></small>
+<small class="text-muted text-center">Crédit: <a href="https://www.researchgate.net/profile/Daniel-Elieh-Ali-Komi-2" target="_blank">Daniel Elieh-Ali-Komi</a></small>
 
 Elle ne peut s'en servir pour piquer qu'une seule fois. Le dard est équipé d'ardillons  qui lorsqu'ils sont plantés dans le derme de son ennemi, empêchent l'abeille de l'en retirer. La glande à venin et ses muscles ainsi que le dard restent solidaires du derme. Les muscles continuent d'injecter le venin dans la cible. L'abeille privée de son appendice de défense ne tarde pas à périr. Ce faisant elle s'offre en sacrifice pour la survie de la colonie.
 
@@ -15,6 +15,7 @@ Elle ne peut s'en servir pour piquer qu'une seule fois. Le dard est équipé d'a
   <source src="/static/assets/video/abeille_piqure.mp4" type="video/mp4"/>
   Votre navigateur ne prend pas en charge la lecture de cette video.
 </video>
+<small class="text-muted text-center">Crédit: <a href="https://journals.biologists.com/bio/article/4/7/921/1471/Structures-properties-and-functions-of-the-stings" target="_blank">Biology Open Journal</a></small>
 
 Cependant ce n'est pas la seule utilisation que peut en faire l'abeille. En effet celle-ci peut en redressant son abdomen extraire son dard et exprimer une goutte de venin à l'extrémité de celui-ci. Ensuite elle bat des ailes pour vaporiser le liquide. Ce faisant elle génère un signal d'alarme pour ses congénères, qui ne tardent pas à en faire autant et poursuivre l'ennemi. La cible une fois piquée est marquée par l'odeur de ce venin qui excite l'agressivité des abeilles, qui viennent piquer au même endroit.
 
@@ -65,13 +66,13 @@ Cela dit, l'enfumoir doit être totalement proscrit lors de la récolte, et en p
 [^1]: 
   [https://journals.openedition.org/tc/268](https://journals.openedition.org/tc/268)
   Tout comme l'huitre - ostréiculture - ou la moule - conchyliculture.
-[^2]: [https://lejournal.cnrs.fr/articles/des-abeilles-et-des-hommes](https://journals.openedition.org/tc/268)
+[^2]: [https://lejournal.cnrs.fr/articles/des-abeilles-et-des-hommes](https://lejournal.cnrs.fr/articles/des-abeilles-et-des-hommes)
 
 [^3]: [https://journals.openedition.org/tc/268](https://journals.openedition.org/tc/268) déjà cité.
 
 [^4]: Cette façon de faire est mise à profit aujourd'hui pour créer ce qu'on appelle un essaim nu en faisant fuir, dans une autre ruche superposée à la première, la reine et une partie des abeilles par un enfumage copieux et prolongé, associé à des vibrations fortes et répétées.
 
-[^5]: [https://www.beeculture.com/moses-quinby/ et https://en.wikipedia.org/wiki/Moses_Quinby](https://www.beeculture.com/moses-quinby/ et https://en.wikipedia.org/wiki/Moses_Quinby)
+[^5]: [https://www.beeculture.com/moses-quinby/] et https://en.wikipedia.org/wiki/Moses_Quinby](https://www.beeculture.com/moses-quinby/ et https://en.wikipedia.org/wiki/Moses_Quinby)
 
 [^6]: [https://patents.google.com/patent/US798982](https://patents.google.com/patent/US798982)
 

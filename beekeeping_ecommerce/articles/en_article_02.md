@@ -15,6 +15,7 @@ She can only use it to sting once. The stinger is equipped with barbs which, whe
   <source src="/static/assets/video/abeille_piqure.mp4" type="video/mp4"/>
   Your browser does not support playback of this video.
 </video>
+<small class="text-muted text-center">Credit: <a href="https://journals.biologists.com/bio/article/4/7/921/1471/Structures-properties-and-functions-of-the-stings" target="_blank">Biology Open Journal</a></small>
 
 However, this is not the only use the bee can make of it. In fact, by straightening its abdomen, the bee can extract its stinger and express a drop of venom at the end of it. It then flaps its wings to spray the liquid. In doing so, it generates an alarm signal for its fellow beetles, which are quick to do the same and pursue the enemy. Once stung, the target is marked by the smell of the venom, which arouses the aggressiveness of the bees, which come to sting in the same place.
 
