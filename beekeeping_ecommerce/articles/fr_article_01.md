@@ -36,7 +36,7 @@ L'ergonomie de l'enfumoir pour abeilles Zephyr1 a été prévue pour faciliter s
 
 <video width="100%" muted controls>
   <source src="/static/assets/video/faire-descendre-les-abeilles.mp4" type="video/mp4"/>
-  "Votre navigateur ne prend pas en charge la lecture de cette video.
+  Votre navigateur ne prend pas en charge la lecture de cette video.
 </video>
 
 ### Utilisation de l'enfumoir automatique pour abeilles Zephyr1
@@ -57,7 +57,7 @@ Nous sommes certains que **Zephyr1 aidera les apiculteurs débutants** à appré
 
 <video width="100%" muted controls>
   <source src="/static/assets/video/zephyr1-combustion.webm" type="video/webm" />
-  "Votre navigateur ne prend pas en charge la lecture de cette video.
+  Votre navigateur ne prend pas en charge la lecture de cette video.
 </video>
 <small class="text-muted">Crédits: Jean RIONDET, expert apicole et François MARRE pour la 
 prise de vue et de son</small>

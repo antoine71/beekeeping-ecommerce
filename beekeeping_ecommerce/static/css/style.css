@@ -241,6 +241,10 @@ button {
   color: rgba(12, 3, 27, 0.7);
 }
 
+.text-center {
+  text-align: center;
+}
+
 input {
   -webkit-appearance: none;
   -moz-appearance: none;
