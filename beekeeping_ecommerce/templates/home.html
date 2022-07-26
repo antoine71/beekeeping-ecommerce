@@ -55,6 +55,8 @@
     <!-- END OF BUY -->
     {% include 'contact/demo_request.html' %}
     <!-- END OF DEMO -->
+    {% include 'home/tutorial.html' %}
+    <!-- END OF DEMO -->
   </div>
   <button type="button" class="btn-primary" id="btn-back-to-top">
     <i class='bx bxs-up-arrow-circle'></i>
@@ -69,9 +71,14 @@
   <script>
   var swiperVideoThumbs = new Swiper(".mySwiperVideoThumbs", {
     spaceBetween: 10,
-    slidesPerView: 2,
+    slidesPerView: 3,
     freeMode: true,
     watchSlidesProgress: true,
+    breakpoints: {
+      600: {
+        slidesPerView: 5,
+      },
+    },
   });
   var swiperVideo = new Swiper(".mySwiperVideo", {
     spaceBetween: 10,

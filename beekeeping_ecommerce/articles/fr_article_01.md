@@ -5,7 +5,7 @@
 ### Pas d'apiculture sans enfumoir.
 
 L'apiculteur est obligé de s'équiper d'un enfumoir pour se protéger d'une attaque d'abeilles, qu'il l'ait provoquée ou non. A tel point qu'on ne peut être apiculteur sans enfumoir à abeilles. L'un ne va pas sans l'autre. Ceci depuis que l'homme prélève un butin - miel, cire - dans les ruches, c’est-à-dire depuis le néolithique ou l'âge du bronze.
-
+ 
 Les **enfumoirs à abeilles** "modernes", c’est-à-dire à soufflet mécanique et chambre de combustion ont été inventés à la fin du 19e siècle par Moses QUINBY. Ils sont une évolution d'appareils utilisés pour désinsectiser, constitués de soufflets à manches, et de boites contenant un produit en poudre ou un combustible.
 
 ![Moses Quinby](/static/assets/img/moses_quinby.png)
@@ -54,3 +54,10 @@ Sécurité. Pour éviter toute combustion non intentionnelle, Zephyr1 est équip
 Votre enfumoir pour ruches Zephyr1 est garanti contractuellement conformément aux directives européennes pendant deux ans contre tout vice de composant ou défaut de fabrication. Au-delà de cette durée de garantie vous accéderez simplement auprès de NumericBees aux composants de rechange nécessaires pour réparer votre appareil s'il vous arrivait de le détériorer. Fervents partisans de la réparabilité des équipements et opposés à ce qu'on appelle l'obsolescence programmée, nous avons voulu que Zephyr1 soit facilement réparable par son propriétaire pour qu'il continue à lui rendre les services qu'il attend pendant longtemps. Vous trouverez les plans éclatés et références des composants dans les fichiers mis à votre disposition sur le site web NumericBees. Nous publierons des vidéos d'instruction ou tutos. Vous pourrez acquérir les composants auprès de NumericBees à des prix très raisonnables.
 
 Nous sommes certains que **Zephyr1 aidera les apiculteurs débutants** à apprécier leur nouvelle passion apicole et leur évitera les galères qui ont fait abandonner beaucoup d'apprentis apiculteurs par le passé. Zephyr1 soulagera les apiculteurs professionnels, en particulier il supprimera les pressions répétées sur les soufflets à chaque ouverture de ruche. Zephyr1 pour qu'aller aux abeilles soit une plus grande source de satisfaction. NumericBees a pour mission de faciliter l'apiculture.
+
+<video width="100%" muted controls>
+  <source src="/static/assets/video/zephyr1-combustion.webm" type="video/webm" />
+  "Votre navigateur ne prend pas en charge la lecture de cette video.
+</video>
+<small class="text-muted">Crédits: Jean RIONDET, expert apicole et François MARRE pour la 
+prise de vue et de son</small>

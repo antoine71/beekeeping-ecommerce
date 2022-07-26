@@ -1,0 +1,63 @@
+{% load i18n static %}
+<section id="tutorial" class="section home">
+  <h2>{% translate "Tutoriel" %}</h2>
+  <p>{% translate "Les vidéos ci-dessous vous montrent le fonctionnement de Zephyr 1" %}</p>
+  <div class="container">
+    <div class="swiper mySwiperVideo">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <video width="100%" muted controls>
+            <source src="{% static 'assets/video/tuto_preparation.webm' %}"
+                    type="video/webm"/>
+            Your browser does not support the video.
+          </video>
+        </div>
+        <div class="swiper-slide">
+          <video width="100%" muted controls>
+            <source src="{% static 'assets/video/tuto_allumage.webm' %}"
+                    type="video/webm"/>
+            Your browser does not support the video.
+          </video>
+        </div>
+        <div class="swiper-slide">
+          <video width="100%" muted controls>
+            <source src="{% static 'assets/video/tuto_arret.webm' %}" type="video/webm"/>
+            Your browser does not support the video.
+          </video>
+        </div>
+        <div class="swiper-slide">
+          <video width="100%" muted controls>
+            <source src="{% static 'assets/video/tuto_charge.webm' %}" type="video/webm"/>
+            Your browser does not support the video.
+          </video>
+        </div>
+        <div class="swiper-slide">
+          <video width="100%" muted controls>
+            <source src="{% static 'assets/video/tuto_fin_de_charge.webm' %}"
+                    type="video/webm"/>
+            Your browser does not support the video.
+          </video>
+        </div>
+      </div>
+    </div>
+    <div thumbsSlider="" class="swiper mySwiperVideoThumbs">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/tuto_preparation.jpg' %}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/tuto_allumage.jpg' %}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/tuto_arret.jpg' %}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/tuto_charge.jpg' %}" />
+        </div>
+        <div class="swiper-slide">
+          <img src="{% static 'assets/img/tuto_fin_de_charge.jpg' %}" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
