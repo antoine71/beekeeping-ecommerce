@@ -6,10 +6,10 @@
     {% for product in products %}
       <article>
         <h3>{{ product.name }}</h3>
-        {% if product.slug == 'zephyr-1-pro' %}
+        {% if product.slug == 'zephyr-1-amateur' %}
           <h4>{% translate "Enfumoir automatique Zephyr 1 Amateur" %}</h4>
           <p>{% translate "Hauteur réservoir: 18 cm, hors tout: 29 cm" %}</p>
-        {% elif product.slug == 'zephyr-1-amateur' %}
+        {% elif product.slug == 'zephyr-1-pro' %}
           <h4>{% translate "Enfumoir automatique Zephyr 1 Pro" %}</h4>
           <p>{% translate "Hauteur réservoir: 22 cm, hors tout: 33 cm" %}</p>
         {% endif %}
