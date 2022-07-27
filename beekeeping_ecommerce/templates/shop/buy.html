@@ -44,7 +44,7 @@
         {% if order %}
           <a href="{% url 'shop:cart' %}" class="basket-link">{% translate "Voir le Panier" %}</a>
         {% endif %}
-        <small class="text-muted">* Le montant de la TVA peut varier en fonction du pays de livraison</small>
+        <small class="text-muted">* {% translate "Le montant de la TVA peut varier en fonction du pays de livraison<" %}</small>
       </article>
     {% endfor %}
   </div>

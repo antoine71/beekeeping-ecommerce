@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-26 17:07+0200\n"
+"POT-Creation-Date: 2022-07-27 09:40+0200\n"
 "PO-Revision-Date: 2022-07-06 08:45+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -629,6 +629,62 @@ msgstr ""
 msgid "Un fonctionnement simple"
 msgstr ""
 
+#: beekeeping_ecommerce/templates/home/operation.html:26
+msgid "Charge USBC véhicule ou secteur"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:30
+msgid "Chargeur secteur inclus"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:34
+msgid "Câble indépendant"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:38
+msgid "LED rouge d'indication de charge"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:53
+msgid "LED verte d'indication de fin de charge"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:68
+msgid "Jauge d'autonomie de batterie 6000mAh"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:72
+msgid "Plusieurs semaines sans charger pour un amateur"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:76
+msgid "Une semaine d'autonomie en usage intense (Pro)"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:80
+msgid "Plus de 100 m3 de fumée"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:95
+msgid "Coupure de sécurité automatique"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:99
+msgid "Temporisation d'une minute de fonctionnement continu maximum"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:114
+msgid "Mode allumage (I) : soufflerie continue d'une minute."
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:118
+msgid "Mode arrêt (0)"
+msgstr ""
+
+#: beekeeping_ecommerce/templates/home/operation.html:122
+msgid "Mode enfumage (II) : fume automatiquement dès qu'on incline l'enfumoir."
+msgstr ""
+
 #: beekeeping_ecommerce/templates/home/operation.html:137
 msgid "Arrêtez de pomper sur votre soufflet"
 msgstr ""
@@ -754,6 +810,10 @@ msgstr "Dodaj do koszyka"
 #: beekeeping_ecommerce/templates/shop/buy.html:45
 msgid "Voir le Panier"
 msgstr "Zobacz koszyk"
+
+#: beekeeping_ecommerce/templates/shop/buy.html:47
+msgid "Le montant de la TVA peut varier en fonction du pays de livraison<"
+msgstr ""
 
 #: beekeeping_ecommerce/templates/shop/buy.html:54
 msgid "Si vous préférez une démonstration"
