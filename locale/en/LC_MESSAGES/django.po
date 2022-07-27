@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-26 17:07+0200\n"
-"PO-Revision-Date: 2022-07-06 08:46+0200\n"
+"PO-Revision-Date: 2022-07-26 19:09+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: beekeeping_ecommerce/contact/forms.py:16
 msgid "Saisissez le nom et la ville du magasin"
-msgstr "Enter the name and city of the store"
+msgstr "Type name and city of store"
 
 #: beekeeping_ecommerce/contact/forms.py:21
 msgid "Comment pouvons nous vous prévenir de la démonstration ?"
@@ -33,7 +33,7 @@ msgstr "Request a Demo"
 
 #: beekeeping_ecommerce/contact/models.py:10
 msgid "Vous devez accepter la politique de confidentialité"
-msgstr "You must accept the privacy policy"
+msgstr "You must agree the privacy policy"
 
 #: beekeeping_ecommerce/contact/models.py:15
 msgid "La date saisie est déjà passée"
@@ -54,13 +54,14 @@ msgid "Code Postal"
 msgstr "Postal code"
 
 #: beekeeping_ecommerce/contact/models.py:22
-#: beekeeping_ecommerce/shop/forms.py:51 beekeeping_ecommerce/shop/forms.py:207
+#: beekeeping_ecommerce/shop/forms.py:51
+#: beekeeping_ecommerce/shop/forms.py:207
 msgid "Adresse Email"
 msgstr "Email address"
 
 #: beekeeping_ecommerce/contact/models.py:24
 msgid "Accepter la politique de confidentialité"
-msgstr "Accept the privacy policy"
+msgstr "Agree the privacy policy"
 
 #: beekeeping_ecommerce/contact/models.py:27
 msgid "Date de création"
@@ -70,39 +71,40 @@ msgstr "Date of creation"
 msgid "Choisissez un mode de livraison"
 msgstr "Choose a delivery method"
 
-#: beekeeping_ecommerce/shop/forms.py:28 beekeeping_ecommerce/shop/forms.py:236
+#: beekeeping_ecommerce/shop/forms.py:28
+#: beekeeping_ecommerce/shop/forms.py:236
 #: beekeeping_ecommerce/templates/shop/shipping.html:73
 msgid "Envoyer"
 msgstr "Send"
 
-#: beekeeping_ecommerce/shop/forms.py:33 beekeeping_ecommerce/shop/models.py:13
+#: beekeeping_ecommerce/shop/forms.py:33
+#: beekeeping_ecommerce/shop/models.py:13
 #: beekeeping_ecommerce/templates/shop/shipping.html:61
 msgid "Livraison à Domicile"
 msgstr "Home delivery"
 
-#: beekeeping_ecommerce/shop/forms.py:34 beekeeping_ecommerce/shop/models.py:14
+#: beekeeping_ecommerce/shop/forms.py:34
+#: beekeeping_ecommerce/shop/models.py:14
 msgid "Livraison en Point Relay"
-msgstr "Sgipping in Relay Point"
+msgstr "Relay point delivery"
 
 #: beekeeping_ecommerce/shop/forms.py:38
 msgid "Livraison international {% static 'assets/img/dhl.svg'%}"
-msgstr ""
+msgstr "International delivery {% static 'assets/img/dhl.svg'%}"
 
 #: beekeeping_ecommerce/shop/forms.py:44
-#, fuzzy
 #| msgid "Sélectionnez un moyen de paiement"
 msgid "Sélectionnez le pays de livraison"
-msgstr "Select a payment method"
+msgstr "Select country of delivery"
 
 #: beekeeping_ecommerce/shop/forms.py:45
-#, fuzzy
 #| msgid "Livraison"
 msgid "Livraison en"
-msgstr "Delivery"
+msgstr "Delivery to"
 
 #: beekeeping_ecommerce/shop/forms.py:50
 msgid "Numéro de téléphone"
-msgstr "Telephone number"
+msgstr "Phone number"
 
 #: beekeeping_ecommerce/shop/forms.py:52 beekeeping_ecommerce/shop/forms.py:64
 msgid "Prénom"
@@ -110,7 +112,7 @@ msgstr "First name"
 
 #: beekeeping_ecommerce/shop/forms.py:53 beekeeping_ecommerce/shop/forms.py:65
 msgid "Nom"
-msgstr "Nom"
+msgstr "Name"
 
 #: beekeeping_ecommerce/shop/forms.py:55 beekeeping_ecommerce/shop/forms.py:67
 msgid "Société"
@@ -130,7 +132,7 @@ msgstr "Country"
 
 #: beekeeping_ecommerce/shop/forms.py:77
 msgid "L'adresse de livraison est identique à l'adresse de facturation"
-msgstr "The delivery address is identical to the billing address"
+msgstr "Delivery address is identical to billing address"
 
 #: beekeeping_ecommerce/shop/forms.py:82
 msgid "Options de paiement"
@@ -140,20 +142,20 @@ msgstr "Payment options"
 msgid ""
 "J'accepte la politique de confidentialité et de traitement des données "
 "personnelles"
-msgstr "I accept the privacy and data processing policy"
+msgstr "I agree privacy and data processing policy"
 
 #: beekeeping_ecommerce/shop/forms.py:100
 #: beekeeping_ecommerce/shop/forms.py:126
 msgid "Saisissez vos informations de livraison"
-msgstr "Enter your delivery information"
+msgstr "Type your delivery information"
 
 #: beekeeping_ecommerce/shop/forms.py:137
 msgid "Saisissez vos informations de contact"
-msgstr "Enter your contact information"
+msgstr "Type your contact information"
 
 #: beekeeping_ecommerce/shop/forms.py:141
 msgid "Saisissez votre adresse de Facturation"
-msgstr "Enter your billing address"
+msgstr "Type your billing address"
 
 #: beekeeping_ecommerce/shop/forms.py:156
 msgid "Sélectionnez un moyen de paiement"
@@ -165,10 +167,9 @@ msgstr "Order"
 
 #: beekeeping_ecommerce/shop/forms.py:175
 #: beekeeping_ecommerce/shop/forms.py:189
-#, fuzzy
 #| msgid "Veuillez sélectionner un mode de livraison"
 msgid "Vous devez sélectionner une adresse de livraison en "
-msgstr "Please select a delivery method"
+msgstr "You must select a delivery address to"
 
 #: beekeeping_ecommerce/shop/forms.py:206
 msgid "Numéro de référence de la commande"
@@ -176,25 +177,24 @@ msgstr "Order reference number"
 
 #: beekeeping_ecommerce/shop/forms.py:210
 msgid "Message décrivant la ou les raisons de votre demande de remboursement:"
-msgstr "Message describing the reason(s) for your claim:"
+msgstr "Message describing reason(s) for your claim:"
 
 #: beekeeping_ecommerce/shop/forms.py:216
 msgid ""
 "J'accepte les conditions s'appliquant à l'exercice du droit de rétractation "
 "mentionnées dans les conditions générales de ventes"
 msgstr ""
-"I accept the conditions for exercising the right of withdrawal as set out in "
-"the general terms and conditions of sale"
+"I accept the conditions for exercising the right of withdrawal as set out in"
+" the general terms and conditions of sale"
 
 #: beekeeping_ecommerce/shop/models.py:8
 msgid "Carte Bancaire"
 msgstr "Credit Card"
 
 #: beekeeping_ecommerce/shop/models.py:15
-#, fuzzy
 #| msgid "Livraison en Point Relais"
 msgid "Livraison international"
-msgstr "Delivery in Relay Point"
+msgstr "International delivery"
 
 #: beekeeping_ecommerce/shop/models.py:25
 msgid "Facturation"
@@ -202,11 +202,11 @@ msgstr "Billing"
 
 #: beekeeping_ecommerce/shop/models.py:26
 msgid "Expédition"
-msgstr "shipping/"
+msgstr "Shipping"
 
 #: beekeeping_ecommerce/shop/models.py:27
 msgid "Point relais"
-msgstr ""
+msgstr "Relay point"
 
 #: beekeeping_ecommerce/shop/urls.py:29
 msgid "panier/"
@@ -242,7 +242,7 @@ msgstr "status/"
 
 #: beekeeping_ecommerce/shop/urls.py:41
 msgid "remboursement/"
-msgstr "reimbursement/"
+msgstr "refund/"
 
 #: beekeeping_ecommerce/shop/urls.py:43
 msgid "conditions-generales-de-vente"
@@ -262,11 +262,11 @@ msgstr "confidentiality/"
 
 #: beekeeping_ecommerce/shop/views.py:54
 msgid "Le produit n'existe pas dans le panier"
-msgstr "The product does not exist in the cart"
+msgstr "The product does not exist in cart"
 
 #: beekeeping_ecommerce/shop/views.py:67
 msgid "Le panier n'existe pas"
-msgstr "The cart does not exist"
+msgstr "Cart does not exist"
 
 #: beekeeping_ecommerce/shop/views.py:82
 msgid "Votre demande a bien été prise en compte."
@@ -276,7 +276,7 @@ msgstr "Your request has been taken into account."
 msgid ""
 "Le formulaire comporte des erreurs, merci de corriger et de le soumettre à "
 "nouveau."
-msgstr "The form has errors, please correct and resubmit."
+msgstr "Form has errors, please correct and resubmit."
 
 #: beekeeping_ecommerce/shop/views.py:336
 msgid "Erreur: vous devez sélectionner un point relais."
@@ -309,25 +309,25 @@ msgstr "Your payment failed. The order has been cancelled."
 
 #: beekeeping_ecommerce/shop/views.py:507
 msgid "Le produit a été ajouté au panier"
-msgstr "The product has been added to the cart"
+msgstr "Product has been added to cart"
 
 #: beekeeping_ecommerce/shop/views.py:511
 msgid "Le panier a été mis à jour"
-msgstr "The cart has been updated"
+msgstr "Cart has been updated"
 
 #: beekeeping_ecommerce/shop/views.py:528
 #: beekeeping_ecommerce/shop/views.py:551
 msgid "Le produit a été supprimé du panier"
-msgstr "The product has been removed from the cart"
+msgstr "Product has been removed from cart"
 
 #: beekeeping_ecommerce/shop/views.py:533
 #: beekeeping_ecommerce/shop/views.py:558
 msgid "Le panier a été supprimé"
-msgstr "The cart has been deleted"
+msgstr "Cart has been deleted"
 
 #: beekeeping_ecommerce/shop/views.py:555
 msgid "Le panier a été mis á jour"
-msgstr "The cart has been updated"
+msgstr "Cart has been updated"
 
 #: beekeeping_ecommerce/shop/views.py:586
 msgid "Votre demande de remboursement a bien été prise en compte."
@@ -344,13 +344,13 @@ msgstr "This order number is invalid."
 #: beekeeping_ecommerce/templates/base.html:9
 #: beekeeping_ecommerce/templates/home.html:7
 msgid ""
-"NumerciBees développe des outils pour faciliter l'apiculture. Notre enfumoir "
-"pour abeilles Zephyr1 à soufflerie électrique élimine le besoin de pomper "
+"NumerciBees développe des outils pour faciliter l'apiculture. Notre enfumoir"
+" pour abeilles Zephyr1 à soufflerie électrique élimine le besoin de pomper "
 "sur un soufflet qui se perce au bout de quelques mois."
 msgstr ""
 "NumerciBees develops tools to make beekeeping easier. Our Zephyr1 electric "
-"blower bee smoker eliminates the need to pump on a bellows that breaks after "
-"a few months."
+"blower bee smoker eliminates the need to pump on a bellows that breaks after"
+" a few months."
 
 #: beekeeping_ecommerce/templates/base.html:14
 msgid "Numericbees, l'apiculture simplifiée"
@@ -384,7 +384,7 @@ msgstr "NumericBees"
 
 #: beekeeping_ecommerce/templates/base.html:94
 msgid "L'Apiculture Simplifiée"
-msgstr "Simplified Beekeeping"
+msgstr "Beekeeping made easy"
 
 #: beekeeping_ecommerce/templates/base.html:132
 msgid "Conditions générales de vente"
@@ -433,8 +433,8 @@ msgid ""
 "Nous avons bien pris en compte votre demande de démonstration. Nous vous "
 "recontacterons prochainement."
 msgstr ""
-"We have taken into account your request for a demonstration. We will contact "
-"you shortly."
+"We have taken into account your request for a demonstration. We will contact"
+" you shortly."
 
 #: beekeeping_ecommerce/templates/contact/confirmation.html:16
 #: beekeeping_ecommerce/templates/shop/billing_info.html:8
@@ -443,11 +443,11 @@ msgstr "Email"
 
 #: beekeeping_ecommerce/templates/contact/confirmation.html:19
 msgid "Magasin"
-msgstr "I slept"
+msgstr "Store"
 
 #: beekeeping_ecommerce/templates/contact/confirmation.html:20
 msgid "Nom du magasin"
-msgstr "Name of the shop"
+msgstr "Store name"
 
 #: beekeeping_ecommerce/templates/contact/confirmation.html:21
 msgid "Code postal, ville"
@@ -455,7 +455,7 @@ msgstr "Postcode, city"
 
 #: beekeeping_ecommerce/templates/contact/confirmation.html:26
 msgid "En parler à un ami"
-msgstr ""
+msgstr "Tell a friend"
 
 #: beekeeping_ecommerce/templates/contact/demo_request.html:9
 msgid "Dans quel magasin souhaiteriez-vous avoir une démonstration ?"
@@ -466,7 +466,7 @@ msgid ""
 "Renseignez-les informations ci-dessous et nous vous informerons de la date "
 "de démonstration."
 msgstr ""
-"Fill in the information below and we will inform you of the date of the "
+"Fill in the information below and we will inform you of the date of "
 "demonstration."
 
 #: beekeeping_ecommerce/templates/contact/demo_request.html:16
@@ -476,10 +476,9 @@ msgid "Ce champ est obligatoire"
 msgstr "This field is mandatory"
 
 #: beekeeping_ecommerce/templates/home.html:6
-#, fuzzy
 #| msgid "Numericbees, l'apiculture simplifiée"
 msgid "NumericBees, l'apiculture simplifiée"
-msgstr "Numericbees, beekeeping made easy"
+msgstr "NumericBees, beekeeping made easy"
 
 #: beekeeping_ecommerce/templates/home.html:19
 msgid "Zephyr 1"
@@ -508,21 +507,24 @@ msgstr "Discover Zephyr 1"
 #: beekeeping_ecommerce/templates/home/discover.html:5
 msgid ""
 "Zephyr 1 est un enfumoir automatisé qui apporte une solution aux problèmes "
-"récurrents des apiculteurs : l'enfumoir difficile à allumer, et qui s'éteint "
-"quand on en a besoin."
+"récurrents des apiculteurs : l'enfumoir difficile à allumer, et qui s'éteint"
+" quand on en a besoin."
 msgstr ""
+"Zephyr 1 is an automated smoker that provides a solution to the recurring "
+"problems of beekeepers: the smoker that is difficult to light, and that "
+"turns off when needed."
 
 #: beekeeping_ecommerce/templates/home/discover.html:18
 msgid "Trop génial"
-msgstr ""
+msgstr "So awesome"
 
 #: beekeeping_ecommerce/templates/home/discover.html:21
 msgid "Partager avec vos amis"
-msgstr ""
+msgstr "Share with your friends"
 
 #: beekeeping_ecommerce/templates/home/discover.html:45
 msgid "L'enfumoir bourré de qualités..."
-msgstr ""
+msgstr "The smoker full of qualities..."
 
 #: beekeeping_ecommerce/templates/home/features.html:4
 msgid "Avantages"
@@ -533,10 +535,12 @@ msgid ""
 "L'enfumoir Zephyr 1 s'allume avec une simple allumette et ne nécessite pas "
 "de pressions répétées sur un soufflet."
 msgstr ""
+"The Zephyr 1 smoker is lit with a simple match and does not require repeated"
+" pressure on a bellows."
 
 #: beekeeping_ecommerce/templates/home/features.html:15
 msgid "Pratique"
-msgstr "Practice"
+msgstr "Handy"
 
 #: beekeeping_ecommerce/templates/home/features.html:18
 msgid "Conçu par des apiculteurs pour les apiculteurs."
@@ -558,7 +562,7 @@ msgstr "Lighter than a bellows smoker, no pumping on the bellows."
 #: beekeeping_ecommerce/templates/home/features.html:43
 #: beekeeping_ecommerce/templates/home/presentation.html:44
 msgid "Fiable"
-msgstr "Fiable"
+msgstr "Reliable"
 
 #: beekeeping_ecommerce/templates/home/features.html:46
 msgid "Sécurité par temporisation."
@@ -578,7 +582,7 @@ msgstr "Robust"
 
 #: beekeeping_ecommerce/templates/home/features.html:66
 msgid "Supporte les chutes répétées dans l'herbe."
-msgstr "Withstands repeated falls through the grass."
+msgstr "Withstands repeated falls in the grass."
 
 #: beekeeping_ecommerce/templates/home/features.html:70
 msgid "Ne se perce pas."
@@ -598,47 +602,45 @@ msgstr "Repairable"
 
 #: beekeeping_ecommerce/templates/home/features.html:93
 msgid "Garanti"
-msgstr "Guarantors"
+msgstr "Guaranteed"
 
 #: beekeeping_ecommerce/templates/home/features.html:96
 msgid "Garantie 2 ans"
-msgstr "2 year warranty"
+msgstr "2 years warranty"
 
 #: beekeeping_ecommerce/templates/home/features.html:109
 msgid "Voici la documentation"
-msgstr ""
+msgstr "Here is the documentation"
 
 #: beekeeping_ecommerce/templates/home/features.html:113
-#, fuzzy
 #| msgid "Allumage sans effort"
 msgid "Allumez sans lampe à souder!"
-msgstr "Effortless ignition"
+msgstr "Light up without a soldering lamp!"
 
 #: beekeeping_ecommerce/templates/home/images.html:3
-#, fuzzy
 #| msgid "Découvrez Zephyr 1"
 msgid "Découvrez Zephyr 1 en images"
-msgstr "Discover Zephyr 1"
+msgstr "Discover Zephyr 1 in pictures"
 
 #: beekeeping_ecommerce/templates/home/images.html:33
 msgid "Tout simplement..."
-msgstr ""
+msgstr "Quite simply..."
 
 #: beekeeping_ecommerce/templates/home/operation.html:4
 msgid "Un fonctionnement simple"
-msgstr ""
+msgstr "Easy to operate"
 
 #: beekeeping_ecommerce/templates/home/operation.html:137
 msgid "Arrêtez de pomper sur votre soufflet"
-msgstr ""
+msgstr "Stop pumping on your bellows"
 
 #: beekeeping_ecommerce/templates/home/tutorial.html:3
 msgid "Tutoriel"
-msgstr ""
+msgstr "Tutorial"
 
 #: beekeeping_ecommerce/templates/home/tutorial.html:4
 msgid "Les vidéos ci-dessous vous montrent le fonctionnement de Zephyr 1"
-msgstr ""
+msgstr "The videos below show you how Zephyr 1 works"
 
 #: beekeeping_ecommerce/templates/home/users.html:3
 msgid "Ce que disent les utilisateurs de Zephyr 1"
@@ -650,13 +652,13 @@ msgstr "Zephyr 1 simplifies the work of beekeepers"
 
 #: beekeeping_ecommerce/templates/home/users.html:10
 msgid ""
-"Notre première préoccupation est que l'apiculteur soit serein quand il ouvre "
-"ses ruches. Un apiculteur non stressé est un apiculteur doux avec ses "
+"Notre première préoccupation est que l'apiculteur soit serein quand il ouvre"
+" ses ruches. Un apiculteur non stressé est un apiculteur doux avec ses "
 "abeilles, et heureux d'aller au rucher."
 msgstr ""
 "Our first concern is that the beekeeper is serene when he opens his hives. "
-"An unstressed beekeeper is a beekeeper who is gentle with his bees and happy "
-"to go to the apiary."
+"An unstressed beekeeper is a beekeeper who is gentle with his bees and happy"
+" to go to the apiary."
 
 #: beekeeping_ecommerce/templates/home/users.html:18
 msgid "Apiculteur, entrepreneur et fondateur de NumericBees"
@@ -680,7 +682,7 @@ msgstr "Beekeeper"
 
 #: beekeeping_ecommerce/templates/shop/billing_info.html:3
 msgid "Vos Informations"
-msgstr "Vos Informations"
+msgstr "Your Information"
 
 #: beekeeping_ecommerce/templates/shop/billing_info.html:6
 msgid "Vos Informations de contact"
@@ -688,7 +690,7 @@ msgstr "Your Contact Information"
 
 #: beekeeping_ecommerce/templates/shop/billing_info.html:12
 msgid "Téléphone"
-msgstr "Telephone"
+msgstr "Phone"
 
 #: beekeeping_ecommerce/templates/shop/billing_info.html:17
 msgid "Votre adresse de Facturation"
@@ -709,14 +711,13 @@ msgid "Commandez votre Zephyr 1"
 msgstr "Order your Zephyr 1"
 
 #: beekeeping_ecommerce/templates/shop/buy.html:4
-#, fuzzy
 #| msgid "Livraison en Point Relay"
 msgid "Livraison en Union Européenne"
-msgstr "Sgipping in Relay Point"
+msgstr "Delivery in European Union"
 
 #: beekeeping_ecommerce/templates/shop/buy.html:10
 msgid "Enfumoir automatique Zephyr 1 Amateur"
-msgstr "Zephyr 1 Amateur automatic smoker "
+msgstr "Zephyr 1 backyard beekeeper automatic smoker"
 
 #: beekeeping_ecommerce/templates/shop/buy.html:11
 msgid "Hauteur réservoir: 18 cm, hors tout: 29 cm"
@@ -756,17 +757,17 @@ msgstr "View Cart"
 
 #: beekeeping_ecommerce/templates/shop/buy.html:54
 msgid "Si vous préférez une démonstration"
-msgstr ""
+msgstr "If you prefer a demonstration"
 
 #: beekeeping_ecommerce/templates/shop/cart.html:6
 #: beekeeping_ecommerce/templates/shop/checkout.html:21
 #: beekeeping_ecommerce/templates/shop/shipping.html:6
 msgid "Récapitulatif de la commande"
-msgstr "Summary of the order"
+msgstr "Summary of order"
 
 #: beekeeping_ecommerce/templates/shop/cart.html:7
 msgid "Voici le contenu de votre panier"
-msgstr "Here are the contents of your cart"
+msgstr "Here is the content of your cart"
 
 #: beekeeping_ecommerce/templates/shop/cart.html:13
 #: beekeeping_ecommerce/templates/shop/cart_info.html:9
@@ -776,7 +777,7 @@ msgstr "Product"
 
 #: beekeeping_ecommerce/templates/shop/cart.html:14
 msgid "Prix"
-msgstr "Awards"
+msgstr "Price"
 
 #: beekeeping_ecommerce/templates/shop/cart.html:15
 msgid "Quantité"
@@ -792,7 +793,7 @@ msgstr "Back to the shop"
 
 #: beekeeping_ecommerce/templates/shop/cart.html:61
 msgid "Total Panier"
-msgstr "Total Cart"
+msgstr "Cart's total"
 
 #: beekeeping_ecommerce/templates/shop/cart.html:65
 msgid "Sous-Total HT"
@@ -804,7 +805,7 @@ msgstr "Total incl. VAT"
 
 #: beekeeping_ecommerce/templates/shop/cart.html:81
 msgid "Valider la commande"
-msgstr "Validate the order"
+msgstr "Confirm order"
 
 #: beekeeping_ecommerce/templates/shop/cart_info.html:4
 msgid "Votre Panier"
@@ -816,10 +817,9 @@ msgid "Total"
 msgstr "Total"
 
 #: beekeeping_ecommerce/templates/shop/cart_info.html:34
-#, fuzzy
 #| msgid "Votre adresse de Livraison"
 msgid "Pays de livraison"
-msgstr "Your delivery address"
+msgstr "Country of delivery"
 
 #: beekeeping_ecommerce/templates/shop/checkout.html:22
 msgid "Veuillez entrer les informations relatives à votre commande"
@@ -863,7 +863,7 @@ msgstr "Payment"
 
 #: beekeeping_ecommerce/templates/shop/payment.html:6
 msgid "Veuillez entrer vos informations de paiement"
-msgstr "Please enter your payment details"
+msgstr "Please type your payment details"
 
 #: beekeeping_ecommerce/templates/shop/payment.html:13
 msgid "Votre carte de paiement"
@@ -871,7 +871,7 @@ msgstr "Your payment card"
 
 #: beekeeping_ecommerce/templates/shop/payment.html:20
 msgid "Payer"
-msgstr "Payer"
+msgstr "Pay"
 
 #: beekeeping_ecommerce/templates/shop/payment_info.html:4
 msgid "Vos Informations de paiement"
@@ -888,11 +888,11 @@ msgstr "Type of transaction"
 
 #: beekeeping_ecommerce/templates/shop/payment_info.html:9
 msgid "Montant de la transaction"
-msgstr "Amount of the transaction"
+msgstr "Transaction amount"
 
 #: beekeeping_ecommerce/templates/shop/payment_info.html:11
 msgid "Date de la transaction"
-msgstr "Date of the transaction"
+msgstr "Transaction date"
 
 #: beekeeping_ecommerce/templates/shop/payment_info.html:13
 msgid "Numéro de carte"
@@ -908,7 +908,7 @@ msgstr "Download a receipt"
 
 #: beekeeping_ecommerce/templates/shop/request_refund.html:12
 msgid "Formulaire de demande de remboursement"
-msgstr "Application form for reimbursement"
+msgstr "Application form for refund"
 
 #: beekeeping_ecommerce/templates/shop/request_refund.html:14
 msgid ""
@@ -918,7 +918,7 @@ msgstr "Fill in the information below to apply for a refund."
 
 #: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:6
 msgid "Confirmation de demande de remboursement"
-msgstr "Confirmation of claim"
+msgstr "Confirmation of request for refund"
 
 #: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:7
 msgid ""
@@ -933,20 +933,21 @@ msgid ""
 "Vous disposez de 14 jours pour faire parvenir à votre charge la commande ou "
 "la preuve de réexpédition de la commande à NUMERICBEES"
 msgstr ""
-"You have 14 days to send the order or the proof of reshipment of the order "
-"to NUMERICBEES at your expense"
+"You have 14 days to send the order or the proof of reshipment of your order "
+"to NUMERICBEES at your expenses"
 
 #: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:13
 msgid ""
 "Vous serez remboursé intégralement de la commande initiale dès réception, "
-"par le même moyen de paiement que celui utilisé lors de la commande initiale."
+"par le même moyen de paiement que celui utilisé lors de la commande "
+"initiale."
 msgstr ""
-"You will receive a full refund of the original order upon receipt, using the "
-"same payment method as the original order."
+"You will receive a full refund of the original order upon receipt, using the"
+" same payment method as the original order."
 
 #: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:15
 msgid "Rappel des conditions:"
-msgstr "Reminder of the conditions:"
+msgstr "Reminder of terms:"
 
 #: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:17
 msgid ""
@@ -970,10 +971,9 @@ msgid "conditions générales de vente"
 msgstr "general terms and conditions of sale"
 
 #: beekeeping_ecommerce/templates/shop/sales_conditions.html:8
-#, fuzzy
 #| msgid "Conditions générales de vente"
 msgid "Conditions générales de vente e-boutique NumericBees"
-msgstr "General terms and conditions of sale"
+msgstr "Terms and conditions of sale for NumericBees e-shop"
 
 #: beekeeping_ecommerce/templates/shop/shipping.html:7
 msgid "Veuillez sélectionner un mode de livraison"
@@ -984,40 +984,38 @@ msgid "Choix du mode de livraison"
 msgstr "Choice of delivery method"
 
 #: beekeeping_ecommerce/templates/shop/shipping.html:25
-#, fuzzy
 #| msgid "Livraison en Point Relais"
 msgid "Livraison internationale"
-msgstr "Delivery in Relay Point"
+msgstr "International delivery"
 
 #: beekeeping_ecommerce/templates/shop/shipping.html:43
 msgid "Livraison en Point Relais"
-msgstr "Delivery in Relay Point"
+msgstr "Relay point delivery"
 
 #: beekeeping_ecommerce/templates/shop/shipping.html:45
 msgid "Gratuit"
-msgstr "Gratuit"
+msgstr "Free"
 
 #: beekeeping_ecommerce/templates/shop/shipping_info.html:3
 msgid "Votre Livraison"
 msgstr "Your delivery"
 
 #: beekeeping_ecommerce/templates/shop/status.html:7
-#, fuzzy, python-format
+#, python-format
 #| msgid ""
-#| "Votre commande a été enregistrée et un e-mail de confirmation a été "
-#| "envoyé - votre numéro de commande est %(invoice.invoice_number)s. "
-#| "Veuillez prendre note de cette référence ou imprimer cette page et nous "
-#| "la rappeler dans tout échange concernant votre commande."
+#| "Votre commande a été enregistrée et un e-mail de confirmation a été envoyé -"
+#| " votre numéro de commande est %(invoice.invoice_number)s. Veuillez prendre "
+#| "note de cette référence ou imprimer cette page et nous la rappeler dans tout"
+#| " échange concernant votre commande."
 msgid ""
-"Votre commande a été enregistrée et un e-mail de confirmation a été envoyé - "
-"votre numéro de commande est %(invoice_number)s. Veuillez prendre note de "
-"cette référence ou imprimer cette page et nous la rappeler dans tout échange "
-"concernant votre commande."
+"Votre commande a été enregistrée et un e-mail de confirmation a été envoyé -"
+" votre numéro de commande est %(invoice_number)s. Veuillez prendre note de "
+"cette référence ou imprimer cette page et nous la rappeler dans tout échange"
+" concernant votre commande."
 msgstr ""
-"Your order has been registered and a confirmation email has been sent - your "
-"order number is %(invoice.invoice_number)s. Please make a note of this "
-"reference or print this page and remind us of it in any correspondence "
-"regarding your order."
+"Your order has been registered and a confirmation email has been sent - your"
+" order number is %(invoice_number)s. Please make a note of this reference or"
+" print this page and remind us of it in any exchange regarding your order."
 
 #: config/settings/base.py:40
 msgid "Français"
