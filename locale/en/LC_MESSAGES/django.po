@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-27 09:40+0200\n"
+"POT-Creation-Date: 2022-07-29 10:46+0200\n"
 "PO-Revision-Date: 2022-07-26 19:09+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -867,6 +867,11 @@ msgstr "Total"
 #: beekeeping_ecommerce/templates/shop/cart_info.html:34
 msgid "Pays de livraison"
 msgstr "Country of delivery"
+
+#: beekeeping_ecommerce/templates/shop/cart_info.html:39
+msgid ""
+"Le prix indiqué est valable uniquement pour le pays de livraison sélectionné."
+msgstr ""
 
 #: beekeeping_ecommerce/templates/shop/checkout.html:22
 msgid "Veuillez entrer les informations relatives à votre commande"

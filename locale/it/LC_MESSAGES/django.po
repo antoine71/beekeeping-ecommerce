@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-27 09:40+0200\n"
+"POT-Creation-Date: 2022-07-29 10:46+0200\n"
 "PO-Revision-Date: 2022-07-28 18:39+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,8 +54,7 @@ msgid "Code Postal"
 msgstr "Codice postale"
 
 #: beekeeping_ecommerce/contact/models.py:22
-#: beekeeping_ecommerce/shop/forms.py:51
-#: beekeeping_ecommerce/shop/forms.py:207
+#: beekeeping_ecommerce/shop/forms.py:51 beekeeping_ecommerce/shop/forms.py:207
 msgid "Adresse Email"
 msgstr "Indirizzo e-mail"
 
@@ -71,20 +70,17 @@ msgstr "Data di creazione"
 msgid "Choisissez un mode de livraison"
 msgstr "Scegliere un metodo di consegna"
 
-#: beekeeping_ecommerce/shop/forms.py:28
-#: beekeeping_ecommerce/shop/forms.py:236
+#: beekeeping_ecommerce/shop/forms.py:28 beekeeping_ecommerce/shop/forms.py:236
 #: beekeeping_ecommerce/templates/shop/shipping.html:73
 msgid "Envoyer"
 msgstr "Inviare"
 
-#: beekeeping_ecommerce/shop/forms.py:33
-#: beekeeping_ecommerce/shop/models.py:13
+#: beekeeping_ecommerce/shop/forms.py:33 beekeeping_ecommerce/shop/models.py:13
 #: beekeeping_ecommerce/templates/shop/shipping.html:61
 msgid "Livraison à Domicile"
 msgstr "Consegna a domicilio"
 
-#: beekeeping_ecommerce/shop/forms.py:34
-#: beekeeping_ecommerce/shop/models.py:14
+#: beekeeping_ecommerce/shop/forms.py:34 beekeeping_ecommerce/shop/models.py:14
 msgid "Livraison en Point Relay"
 msgstr "Consegna in Point Relay"
 
@@ -349,8 +345,8 @@ msgstr "Questo numero d'ordine non è valido."
 #: beekeeping_ecommerce/templates/base.html:9
 #: beekeeping_ecommerce/templates/home.html:7
 msgid ""
-"NumerciBees développe des outils pour faciliter l'apiculture. Notre enfumoir"
-" pour abeilles Zephyr1 à soufflerie électrique élimine le besoin de pomper "
+"NumerciBees développe des outils pour faciliter l'apiculture. Notre enfumoir "
+"pour abeilles Zephyr1 à soufflerie électrique élimine le besoin de pomper "
 "sur un soufflet qui se perce au bout de quelques mois."
 msgstr ""
 "NumerciBees sviluppa strumenti per facilitare l'apicoltura. Il nostro "
@@ -513,12 +509,12 @@ msgstr "Scoprire Zephyr 1"
 #: beekeeping_ecommerce/templates/home/discover.html:5
 msgid ""
 "Zephyr 1 est un enfumoir automatisé qui apporte une solution aux problèmes "
-"récurrents des apiculteurs : l'enfumoir difficile à allumer, et qui s'éteint"
-" quand on en a besoin."
+"récurrents des apiculteurs : l'enfumoir difficile à allumer, et qui s'éteint "
+"quand on en a besoin."
 msgstr ""
-"Zephyr 1 è un affumicatore automatico che fornisce una soluzione ai problemi"
-" ricorrenti degli apicoltori: l'affumicatore difficile da accendere e che si"
-" spegne quando è necessario."
+"Zephyr 1 è un affumicatore automatico che fornisce una soluzione ai problemi "
+"ricorrenti degli apicoltori: l'affumicatore difficile da accendere e che si "
+"spegne quando è necessario."
 
 #: beekeeping_ecommerce/templates/home/discover.html:18
 msgid "Trop génial"
@@ -541,8 +537,8 @@ msgid ""
 "L'enfumoir Zephyr 1 s'allume avec une simple allumette et ne nécessite pas "
 "de pressions répétées sur un soufflet."
 msgstr ""
-"L'affumicatore Zephyr 1 si accende con un semplice fiammifero e non richiede"
-" una pressione ripetuta su un soffietto."
+"L'affumicatore Zephyr 1 si accende con un semplice fiammifero e non richiede "
+"una pressione ripetuta su un soffietto."
 
 #: beekeeping_ecommerce/templates/home/features.html:15
 msgid "Pratique"
@@ -620,7 +616,6 @@ msgid "Voici la documentation"
 msgstr "Ecco la documentazione"
 
 #: beekeeping_ecommerce/templates/home/features.html:113
-#| msgid "Allumage sans effort"
 msgid "Allumez sans lampe à souder!"
 msgstr "Luce senza lampada a saldare!"
 
@@ -691,8 +686,7 @@ msgid "Mode arrêt (0)"
 msgstr "Modalità di arresto (0)"
 
 #: beekeeping_ecommerce/templates/home/operation.html:122
-msgid ""
-"Mode enfumage (II) : fume automatiquement dès qu'on incline l'enfumoir."
+msgid "Mode enfumage (II) : fume automatiquement dès qu'on incline l'enfumoir."
 msgstr ""
 "Modalità di affumicatura (II): affumica automaticamente quando il "
 "affumicatore viene inclinato."
@@ -719,8 +713,8 @@ msgstr "Zephyr 1 semplifica il lavoro degli apicoltori"
 
 #: beekeeping_ecommerce/templates/home/users.html:10
 msgid ""
-"Notre première préoccupation est que l'apiculteur soit serein quand il ouvre"
-" ses ruches. Un apiculteur non stressé est un apiculteur doux avec ses "
+"Notre première préoccupation est que l'apiculteur soit serein quand il ouvre "
+"ses ruches. Un apiculteur non stressé est un apiculteur doux avec ses "
 "abeilles, et heureux d'aller au rucher."
 msgstr ""
 "La nostra prima preoccupazione è che l'apicoltore sia sereno quando apre le "
@@ -896,6 +890,11 @@ msgstr "Totale"
 msgid "Pays de livraison"
 msgstr "Paese di consegna"
 
+#: beekeeping_ecommerce/templates/shop/cart_info.html:39
+msgid ""
+"Le prix indiqué est valable uniquement pour le pays de livraison sélectionné."
+msgstr ""
+
 #: beekeeping_ecommerce/templates/shop/checkout.html:22
 msgid "Veuillez entrer les informations relatives à votre commande"
 msgstr "Inserire i dati dell'ordine"
@@ -1000,8 +999,8 @@ msgid ""
 "Votre demande de remboursement a bien été prise en compte et un email de "
 "confirmation vous a été envoyé."
 msgstr ""
-"La vostra richiesta di rimborso è stata elaborata e vi è stata inviata "
-"un'e-mail di conferma."
+"La vostra richiesta di rimborso è stata elaborata e vi è stata inviata un'e-"
+"mail di conferma."
 
 #: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:10
 msgid ""
@@ -1014,8 +1013,7 @@ msgstr ""
 #: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:13
 msgid ""
 "Vous serez remboursé intégralement de la commande initiale dès réception, "
-"par le même moyen de paiement que celui utilisé lors de la commande "
-"initiale."
+"par le même moyen de paiement que celui utilisé lors de la commande initiale."
 msgstr ""
 "Riceverete un rimborso completo dell'ordine originale al momento della "
 "ricezione, utilizzando lo stesso metodo di pagamento dell'ordine originale."
@@ -1029,8 +1027,8 @@ msgid ""
 "Votre commande doit avoir été passée moins de 90 jours avant l'exercice de "
 "votre droit de rétractation."
 msgstr ""
-"L'ordine deve essere stato effettuato meno di 90 giorni prima dell'esercizio"
-" del diritto di recesso."
+"L'ordine deve essere stato effettuato meno di 90 giorni prima dell'esercizio "
+"del diritto di recesso."
 
 #: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:18
 msgid "Votre commande doit nous parvenir complète avec tous ses accessoires."
@@ -1078,10 +1076,10 @@ msgstr "La vostra consegna"
 #: beekeeping_ecommerce/templates/shop/status.html:7
 #, python-format
 msgid ""
-"Votre commande a été enregistrée et un e-mail de confirmation a été envoyé -"
-" votre numéro de commande est %(invoice_number)s. Veuillez prendre note de "
-"cette référence ou imprimer cette page et nous la rappeler dans tout échange"
-" concernant votre commande."
+"Votre commande a été enregistrée et un e-mail de confirmation a été envoyé - "
+"votre numéro de commande est %(invoice_number)s. Veuillez prendre note de "
+"cette référence ou imprimer cette page et nous la rappeler dans tout échange "
+"concernant votre commande."
 msgstr ""
 "Il vostro ordine è stato registrato e vi è stata inviata un'e-mail di "
 "conferma - il numero dell'ordine è %(numero_fattura)s. Si prega di annotare "

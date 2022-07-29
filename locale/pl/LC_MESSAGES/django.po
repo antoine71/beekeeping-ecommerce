@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-27 09:40+0200\n"
+"POT-Creation-Date: 2022-07-29 10:46+0200\n"
 "PO-Revision-Date: 2022-07-28 21:51+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.8\n"
 
 #: beekeeping_ecommerce/contact/forms.py:16
@@ -54,8 +56,7 @@ msgid "Code Postal"
 msgstr "Kod pocztowy"
 
 #: beekeeping_ecommerce/contact/models.py:22
-#: beekeeping_ecommerce/shop/forms.py:51
-#: beekeeping_ecommerce/shop/forms.py:207
+#: beekeeping_ecommerce/shop/forms.py:51 beekeeping_ecommerce/shop/forms.py:207
 msgid "Adresse Email"
 msgstr "Adres e-mail"
 
@@ -71,20 +72,17 @@ msgstr "Data utworzenia"
 msgid "Choisissez un mode de livraison"
 msgstr "Wybierz sposób dostawy"
 
-#: beekeeping_ecommerce/shop/forms.py:28
-#: beekeeping_ecommerce/shop/forms.py:236
+#: beekeeping_ecommerce/shop/forms.py:28 beekeeping_ecommerce/shop/forms.py:236
 #: beekeeping_ecommerce/templates/shop/shipping.html:73
 msgid "Envoyer"
 msgstr "Wyślij"
 
-#: beekeeping_ecommerce/shop/forms.py:33
-#: beekeeping_ecommerce/shop/models.py:13
+#: beekeeping_ecommerce/shop/forms.py:33 beekeeping_ecommerce/shop/models.py:13
 #: beekeeping_ecommerce/templates/shop/shipping.html:61
 msgid "Livraison à Domicile"
 msgstr "Dostawa do domu"
 
-#: beekeeping_ecommerce/shop/forms.py:34
-#: beekeeping_ecommerce/shop/models.py:14
+#: beekeeping_ecommerce/shop/forms.py:34 beekeeping_ecommerce/shop/models.py:14
 msgid "Livraison en Point Relay"
 msgstr "Dostawa w punkcie przekaźnikowym"
 
@@ -348,8 +346,8 @@ msgstr "Ten numer zamówienia jest nieważny."
 #: beekeeping_ecommerce/templates/base.html:9
 #: beekeeping_ecommerce/templates/home.html:7
 msgid ""
-"NumerciBees développe des outils pour faciliter l'apiculture. Notre enfumoir"
-" pour abeilles Zephyr1 à soufflerie électrique élimine le besoin de pomper "
+"NumerciBees développe des outils pour faciliter l'apiculture. Notre enfumoir "
+"pour abeilles Zephyr1 à soufflerie électrique élimine le besoin de pomper "
 "sur un soufflet qui se perce au bout de quelques mois."
 msgstr ""
 "NumerciBees rozwija narzędzia ułatwiające pszczelarstwo. Nasza elektryczna "
@@ -479,7 +477,6 @@ msgid "Ce champ est obligatoire"
 msgstr "To pole jest obowiązkowe"
 
 #: beekeeping_ecommerce/templates/home.html:6
-#| msgid "Numericbees, l'apiculture simplifiée"
 msgid "NumericBees, l'apiculture simplifiée"
 msgstr "NumericBees, pszczelarstwo ułatwione"
 
@@ -510,12 +507,12 @@ msgstr "Odkryj Zephyr 1"
 #: beekeeping_ecommerce/templates/home/discover.html:5
 msgid ""
 "Zephyr 1 est un enfumoir automatisé qui apporte une solution aux problèmes "
-"récurrents des apiculteurs : l'enfumoir difficile à allumer, et qui s'éteint"
-" quand on en a besoin."
+"récurrents des apiculteurs : l'enfumoir difficile à allumer, et qui s'éteint "
+"quand on en a besoin."
 msgstr ""
 "Zephyr 1 to automatyczny podkurzacz, który stanowi rozwiązanie "
-"powtarzających się problemów pszczelarzy: podkurzacz, który trudno zapalić i"
-" który gaśnie, gdy jest potrzebny."
+"powtarzających się problemów pszczelarzy: podkurzacz, który trudno zapalić i "
+"który gaśnie, gdy jest potrzebny."
 
 #: beekeeping_ecommerce/templates/home/discover.html:18
 msgid "Trop génial"
@@ -688,8 +685,7 @@ msgid "Mode arrêt (0)"
 msgstr "Tryb Stop (0)"
 
 #: beekeeping_ecommerce/templates/home/operation.html:122
-msgid ""
-"Mode enfumage (II) : fume automatiquement dès qu'on incline l'enfumoir."
+msgid "Mode enfumage (II) : fume automatiquement dès qu'on incline l'enfumoir."
 msgstr ""
 "Tryb wędzenia (II): Wędzenie odbywa się automatycznie po przechyleniu "
 "wędzarki."
@@ -716,13 +712,13 @@ msgstr "Zephyr 1 upraszcza pracę pszczelarzy"
 
 #: beekeeping_ecommerce/templates/home/users.html:10
 msgid ""
-"Notre première préoccupation est que l'apiculteur soit serein quand il ouvre"
-" ses ruches. Un apiculteur non stressé est un apiculteur doux avec ses "
+"Notre première préoccupation est que l'apiculteur soit serein quand il ouvre "
+"ses ruches. Un apiculteur non stressé est un apiculteur doux avec ses "
 "abeilles, et heureux d'aller au rucher."
 msgstr ""
-"Naszą pierwszą troską jest to, aby pszczelarz był pogodny, gdy otwiera swoje"
-" ule. Pszczelarz niezestresowany to pszczelarz, który jest łagodny dla "
-"swoich pszczół i z radością udaje się do pasieki."
+"Naszą pierwszą troską jest to, aby pszczelarz był pogodny, gdy otwiera swoje "
+"ule. Pszczelarz niezestresowany to pszczelarz, który jest łagodny dla swoich "
+"pszczół i z radością udaje się do pasieki."
 
 #: beekeeping_ecommerce/templates/home/users.html:18
 msgid "Apiculteur, entrepreneur et fondateur de NumericBees"
@@ -891,6 +887,11 @@ msgstr "Razem"
 msgid "Pays de livraison"
 msgstr "Kraj dostawy"
 
+#: beekeeping_ecommerce/templates/shop/cart_info.html:39
+msgid ""
+"Le prix indiqué est valable uniquement pour le pays de livraison sélectionné."
+msgstr ""
+
 #: beekeeping_ecommerce/templates/shop/checkout.html:22
 msgid "Veuillez entrer les informations relatives à votre commande"
 msgstr "Proszę wprowadzić informacje dotyczące zamówienia"
@@ -995,8 +996,8 @@ msgid ""
 "Votre demande de remboursement a bien été prise en compte et un email de "
 "confirmation vous a été envoyé."
 msgstr ""
-"Twoja prośba o zwrot pieniędzy została przetworzona i wysłano do Ciebie "
-"e-mail z potwierdzeniem."
+"Twoja prośba o zwrot pieniędzy została przetworzona i wysłano do Ciebie e-"
+"mail z potwierdzeniem."
 
 #: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:10
 msgid ""
@@ -1009,8 +1010,7 @@ msgstr ""
 #: beekeeping_ecommerce/templates/shop/request_refund_confirmation.html:13
 msgid ""
 "Vous serez remboursé intégralement de la commande initiale dès réception, "
-"par le même moyen de paiement que celui utilisé lors de la commande "
-"initiale."
+"par le même moyen de paiement que celui utilisé lors de la commande initiale."
 msgstr ""
 "Otrzymasz pełny zwrot kosztów oryginalnego zamówienia po jego otrzymaniu, "
 "przy użyciu tej samej metody płatności, co oryginalne zamówienie."
@@ -1073,15 +1073,15 @@ msgstr "Twoja dostawa"
 #: beekeeping_ecommerce/templates/shop/status.html:7
 #, fuzzy, python-format
 #| msgid ""
-#| "Votre commande a été enregistrée et un e-mail de confirmation a été envoyé -"
-#| " votre numéro de commande est %(invoice.invoice_number)s. Veuillez prendre "
-#| "note de cette référence ou imprimer cette page et nous la rappeler dans tout"
-#| " échange concernant votre commande."
+#| "Votre commande a été enregistrée et un e-mail de confirmation a été "
+#| "envoyé - votre numéro de commande est %(invoice.invoice_number)s. "
+#| "Veuillez prendre note de cette référence ou imprimer cette page et nous "
+#| "la rappeler dans tout échange concernant votre commande."
 msgid ""
-"Votre commande a été enregistrée et un e-mail de confirmation a été envoyé -"
-" votre numéro de commande est %(invoice_number)s. Veuillez prendre note de "
-"cette référence ou imprimer cette page et nous la rappeler dans tout échange"
-" concernant votre commande."
+"Votre commande a été enregistrée et un e-mail de confirmation a été envoyé - "
+"votre numéro de commande est %(invoice_number)s. Veuillez prendre note de "
+"cette référence ou imprimer cette page et nous la rappeler dans tout échange "
+"concernant votre commande."
 msgstr ""
 "Twoje zamówienie zostało zarejestrowane i został wysłany e-mail "
 "potwierdzający - numer zamówienia to %(invoice_number)s. Prosimy zanotować "
