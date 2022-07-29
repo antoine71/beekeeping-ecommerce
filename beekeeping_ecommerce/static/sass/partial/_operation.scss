@@ -5,6 +5,9 @@ section#operation {
       .swiper-slide {
         background: $white-color;
         padding-bottom: 3rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+
         .card {
           display: grid;
           grid-template-columns: 1fr;
@@ -58,8 +61,8 @@ section#operation {
       grid-template-columns: 1fr;
     }
   }
-  .mySwiperOperation {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  // .mySwiperOperation {
+  //   padding-left: 0;
+  //   padding-right: 0;
+  // }
 }

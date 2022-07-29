@@ -92,6 +92,12 @@
   var swiper = new Swiper(".mySwiperImages", {
     slidesPerView: 1,
     spaceBetween: 10,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    rewind: true,
+    grabCursor: true,
     pagination: {
       el: ".swiper-pagination",   
       clickable: true,
@@ -117,6 +123,12 @@
   var swiper = new Swiper(".mySwiperFeatures", {
     slidesPerView: 1,
     spaceBetween: 30,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    rewind: true,
+    grabCursor: true,
     pagination: {
       el: ".swiper-pagination",   
       clickable: true,
@@ -142,6 +154,13 @@
   var swiper = new Swiper(".mySwiperOperation", {
     slidesPerView: 1,
     spaceBetween: 30,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    rewind: true,
+    grabCursor: true,
+    direction: "vertical",
     pagination: {
       el: ".swiper-pagination",   
       clickable: true,
@@ -152,11 +171,11 @@
     },
     breakpoints: {
       600: {
-        slidesPerView: 2,
+        slidesPerView: 1,
 
       },
       1024: {
-        slidesPerView: 3,
+        slidesPerView: 1,
 
       },
     },

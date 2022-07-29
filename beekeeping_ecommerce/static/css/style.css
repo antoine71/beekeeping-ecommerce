@@ -1003,6 +1003,7 @@ textarea.form-control.is-invalid {
 .swiper-button-next,
 .swiper-button-prev {
   color: #a61916;
+  display: none;
 }
 
 .swiper-pagination-bullet {
@@ -1430,6 +1431,8 @@ section#presentation > .container {
 #features .container .swiper-wrapper .swiper-slide {
   background: #FFFEF9;
   padding-bottom: 2rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
 }
 #features .container article.features {
   background: #fffffd;
@@ -1490,6 +1493,8 @@ section#operation > .container:first-of-type {
 section#operation > .container:first-of-type .swiper-wrapper .swiper-slide {
   background: #FFFEF9;
   padding-bottom: 3rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 section#operation > .container:first-of-type .swiper-wrapper .swiper-slide .card {
   display: grid;
@@ -1539,10 +1544,6 @@ section#operation > .container:first-of-type .swiper-wrapper .swiper-slide .card
 @media screen and (max-width: 600px) {
   section#operation > .container:first-of-type {
     grid-template-columns: 1fr;
-  }
-  .mySwiperOperation {
-    padding-left: 0;
-    padding-right: 0;
   }
 }
 section#documentation .container {
