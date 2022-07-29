@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-07-27 09:40+0200\n"
-"PO-Revision-Date: 2022-07-27 10:12+0200\n"
+"PO-Revision-Date: 2022-07-27 18:29+0200\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -75,7 +75,7 @@ msgstr "Wählen Sie eine Versandart"
 #: beekeeping_ecommerce/shop/forms.py:236
 #: beekeeping_ecommerce/templates/shop/shipping.html:73
 msgid "Envoyer"
-msgstr "Senden Sie"
+msgstr "Senden"
 
 #: beekeeping_ecommerce/shop/forms.py:33
 #: beekeeping_ecommerce/shop/models.py:13
@@ -93,16 +93,15 @@ msgid "Livraison international {% static 'assets/img/dhl.svg'%}"
 msgstr "Internationale Lieferung {% static 'assets/img/dhl.svg'%}"
 
 #: beekeeping_ecommerce/shop/forms.py:44
-#, fuzzy
 #| msgid "Sélectionnez un moyen de paiement"
 msgid "Sélectionnez le pays de livraison"
-msgstr "Wählen Sie eine Zahlungsmethode"
+msgstr "Wählen Sie das Land, in das geliefert werden soll"
 
 #: beekeeping_ecommerce/shop/forms.py:45
 #, fuzzy
 #| msgid "Livraison"
 msgid "Livraison en"
-msgstr "Lieferung"
+msgstr "Lieferung in"
 
 #: beekeeping_ecommerce/shop/forms.py:50
 msgid "Numéro de téléphone"
@@ -114,7 +113,7 @@ msgstr "Vorname"
 
 #: beekeeping_ecommerce/shop/forms.py:53 beekeeping_ecommerce/shop/forms.py:65
 msgid "Nom"
-msgstr "Nom"
+msgstr "Name"
 
 #: beekeeping_ecommerce/shop/forms.py:55 beekeeping_ecommerce/shop/forms.py:67
 msgid "Société"
@@ -167,14 +166,13 @@ msgstr "Wählen Sie eine Zahlungsmethode"
 
 #: beekeeping_ecommerce/shop/forms.py:162
 msgid "Commander"
-msgstr "Bestellung"
+msgstr "Bestellen"
 
 #: beekeeping_ecommerce/shop/forms.py:175
 #: beekeeping_ecommerce/shop/forms.py:189
-#, fuzzy
 #| msgid "Veuillez sélectionner un mode de livraison"
 msgid "Vous devez sélectionner une adresse de livraison en "
-msgstr "Bitte wählen Sie eine Versandart aus"
+msgstr "Sie müssen eine Lieferadresse auswählen, indem Sie"
 
 #: beekeeping_ecommerce/shop/forms.py:206
 msgid "Numéro de référence de la commande"
@@ -202,7 +200,7 @@ msgstr "Bankkarte"
 #, fuzzy
 #| msgid "Livraison en Point Relais"
 msgid "Livraison international"
-msgstr "Lieferung an einen Relais-Punkt"
+msgstr "Internationaler Versand"
 
 #: beekeeping_ecommerce/shop/models.py:25
 msgid "Facturation"
@@ -218,19 +216,19 @@ msgstr "Relais-Punkt"
 
 #: beekeeping_ecommerce/shop/urls.py:29
 msgid "panier/"
-msgstr "einkaufswagen/"
+msgstr "Warenkorb/"
 
 #: beekeeping_ecommerce/shop/urls.py:30
 msgid "ajouter-au-panier/<slug>"
-msgstr "in-den-einkaufswagen/<slug> "
+msgstr "zum-warenkorb-hinzufügen/<slug>"
 
 #: beekeeping_ecommerce/shop/urls.py:31
 msgid "supprimer-du-panier/<slug>"
-msgstr "aus-dem-einkaufswagen/<slug>"
+msgstr "aus-dem-Warenkorb/<slug>"
 
 #: beekeeping_ecommerce/shop/urls.py:33
 msgid "enlever-un-element-du-panier/<slug>"
-msgstr "artikel-aus-dem-einkaufswagen/<slug>"
+msgstr "artikel-aus-dem-Warenkorb/<slug>"
 
 #: beekeeping_ecommerce/shop/urls.py:37
 msgid "expedition/"
@@ -274,7 +272,7 @@ msgstr "Das Produkt existiert nicht im Warenkorb"
 
 #: beekeeping_ecommerce/shop/views.py:67
 msgid "Le panier n'existe pas"
-msgstr "Der Korb existiert nicht"
+msgstr "Der Warenkorb existiert nicht"
 
 #: beekeeping_ecommerce/shop/views.py:82
 msgid "Votre demande a bien été prise en compte."
@@ -359,8 +357,8 @@ msgid ""
 "sur un soufflet qui se perce au bout de quelques mois."
 msgstr ""
 "NumerciBees entwickelt Werkzeuge, die die Imkerei erleichtern. Unser Zephyr1"
-" Bienenräuchergerät mit elektrischem Gebläse macht das Pumpen auf einem "
-"Blasebalg überflüssig, der sich nach einigen Monaten durchlöchert."
+" Smoker mit elektrischem Gebläse macht das Pumpen auf einem Blasebalg "
+"überflüssig, der sich nach einigen Monaten durchlöchert."
 
 #: beekeeping_ecommerce/templates/base.html:14
 msgid "Numericbees, l'apiculture simplifiée"
@@ -394,7 +392,7 @@ msgstr "NumericBees"
 
 #: beekeeping_ecommerce/templates/base.html:94
 msgid "L'Apiculture Simplifiée"
-msgstr "Vereinfachte Bienenzucht"
+msgstr "Bienenzucht leicht gemacht"
 
 #: beekeeping_ecommerce/templates/base.html:132
 msgid "Conditions générales de vente"
@@ -402,12 +400,12 @@ msgstr "Allgemeine Geschäftsbedingungen"
 
 #: beekeeping_ecommerce/templates/base.html:133
 msgid "Mentions Légales"
-msgstr "Rechtliche Hinweise"
+msgstr "Impressum"
 
 #: beekeeping_ecommerce/templates/base.html:134
 #: beekeeping_ecommerce/templates/shop/confidentiality.html:4
 msgid "Politique de confidentialité"
-msgstr "Datenschutzrichtlinie"
+msgstr "Datenschutzerklärung"
 
 #: beekeeping_ecommerce/templates/base.html:138
 msgid "Copyright NumericBees. Tous droits réservés."
@@ -453,7 +451,7 @@ msgstr "E-Mail"
 
 #: beekeeping_ecommerce/templates/contact/confirmation.html:19
 msgid "Magasin"
-msgstr "Ich schlief"
+msgstr "Geschäft"
 
 #: beekeeping_ecommerce/templates/contact/confirmation.html:20
 msgid "Nom du magasin"
@@ -476,8 +474,8 @@ msgid ""
 "Renseignez-les informations ci-dessous et nous vous informerons de la date "
 "de démonstration."
 msgstr ""
-"Füllen Sie die unten stehenden Informationen aus und wir werden Sie über den"
-" Termin der Vorführung informieren."
+"Füllen Sie die unten stehenden Informationen aus und wir werden Sie über das"
+" Demo-Datum informieren."
 
 #: beekeeping_ecommerce/templates/contact/demo_request.html:16
 #: beekeeping_ecommerce/templates/shop/checkout.html:35
@@ -486,26 +484,25 @@ msgid "Ce champ est obligatoire"
 msgstr "Dieses Feld ist obligatorisch"
 
 #: beekeeping_ecommerce/templates/home.html:6
-#, fuzzy
 #| msgid "Numericbees, l'apiculture simplifiée"
 msgid "NumericBees, l'apiculture simplifiée"
-msgstr "Numericbees, Bienenzucht leicht gemacht"
+msgstr "NumericBees, Bienenzucht leicht gemacht"
 
 #: beekeeping_ecommerce/templates/home.html:19
 msgid "Zephyr 1"
-msgstr "Zephir 1"
+msgstr "Zephyr 1"
 
 #: beekeeping_ecommerce/templates/home.html:20
 msgid "L'enfumoir apicole qui facilite la vie au rucher"
-msgstr "Der Imker-Räucherofen, der das Leben im Bienenstock erleichtert"
+msgstr "Der Imker Smoker, der das Leben im Bienenstock erleichtert"
 
 #: beekeeping_ecommerce/templates/home.html:23
 msgid "Allumage sans effort"
-msgstr "Müheloses Anzünden"
+msgstr "Mühelose Zündung"
 
 #: beekeeping_ecommerce/templates/home.html:27
 msgid "Enfumage automatique"
-msgstr "Automatisches Räuchern"
+msgstr "Automatisches Smoker"
 
 #: beekeeping_ecommerce/templates/home.html:32
 msgid "En Savoir Plus"
@@ -527,7 +524,7 @@ msgstr ""
 
 #: beekeeping_ecommerce/templates/home/discover.html:18
 msgid "Trop génial"
-msgstr "Zu toll"
+msgstr "Zu fantastisch"
 
 #: beekeeping_ecommerce/templates/home/discover.html:21
 msgid "Partager avec vos amis"
@@ -568,12 +565,12 @@ msgstr "Ergonomisch"
 
 #: beekeeping_ecommerce/templates/home/features.html:34
 msgid "Plus léger qu'un enfumoir à soufflet, pas de pompage sur le soufflet."
-msgstr "Leichter als ein Räucherofen mit Blasebalg, kein Pumpen am Blasebalg."
+msgstr "Leichter als ein Smoker mit Blasebalg, kein Pumpen am Blasebalg."
 
 #: beekeeping_ecommerce/templates/home/features.html:43
 #: beekeeping_ecommerce/templates/home/presentation.html:44
 msgid "Fiable"
-msgstr "Fiable"
+msgstr "Zuverlässig"
 
 #: beekeeping_ecommerce/templates/home/features.html:46
 msgid "Sécurité par temporisation."
@@ -589,7 +586,7 @@ msgstr "Autonomie für mehrere Wochen."
 
 #: beekeeping_ecommerce/templates/home/features.html:63
 msgid "Robuste"
-msgstr "Robuste"
+msgstr "Robust"
 
 #: beekeeping_ecommerce/templates/home/features.html:66
 msgid "Supporte les chutes répétées dans l'herbe."
@@ -613,7 +610,7 @@ msgstr "Reparierbar"
 
 #: beekeeping_ecommerce/templates/home/features.html:93
 msgid "Garanti"
-msgstr "Garanten"
+msgstr "Garantiert"
 
 #: beekeeping_ecommerce/templates/home/features.html:96
 msgid "Garantie 2 ans"
@@ -624,16 +621,15 @@ msgid "Voici la documentation"
 msgstr "Hier ist die Dokumentation"
 
 #: beekeeping_ecommerce/templates/home/features.html:113
-#, fuzzy
 #| msgid "Allumage sans effort"
 msgid "Allumez sans lampe à souder!"
-msgstr "Müheloses Anzünden"
+msgstr "Zünden Sie ohne Lötlampe!"
 
 #: beekeeping_ecommerce/templates/home/images.html:3
 #, fuzzy
 #| msgid "Découvrez Zephyr 1"
 msgid "Découvrez Zephyr 1 en images"
-msgstr "Entdecken Sie Zephyr 1"
+msgstr "Sehen Sie sich Zephyr 1 in Bildern an"
 
 #: beekeeping_ecommerce/templates/home/images.html:33
 msgid "Tout simplement..."
@@ -641,43 +637,43 @@ msgstr "Ganz einfach"
 
 #: beekeeping_ecommerce/templates/home/operation.html:4
 msgid "Un fonctionnement simple"
-msgstr ""
+msgstr "Einfache Bedienung"
 
 #: beekeeping_ecommerce/templates/home/operation.html:26
 msgid "Charge USBC véhicule ou secteur"
-msgstr ""
+msgstr "USBC-Ladegerät Fahrzeug oder Sektor"
 
 #: beekeeping_ecommerce/templates/home/operation.html:30
 msgid "Chargeur secteur inclus"
-msgstr ""
+msgstr "Inklusive Netzladegerät"
 
 #: beekeeping_ecommerce/templates/home/operation.html:34
 msgid "Câble indépendant"
-msgstr ""
+msgstr "Unabhängiges Kabel"
 
 #: beekeeping_ecommerce/templates/home/operation.html:38
 msgid "LED rouge d'indication de charge"
-msgstr ""
+msgstr "Rote LED zur Anzeige des Ladevorgangs"
 
 #: beekeeping_ecommerce/templates/home/operation.html:53
 msgid "LED verte d'indication de fin de charge"
-msgstr ""
+msgstr "Grüne LED zur Anzeige des Ladeendes"
 
 #: beekeeping_ecommerce/templates/home/operation.html:68
 msgid "Jauge d'autonomie de batterie 6000mAh"
-msgstr ""
+msgstr "Anzeige der Akkulaufzeit 6000mAh"
 
 #: beekeeping_ecommerce/templates/home/operation.html:72
 msgid "Plusieurs semaines sans charger pour un amateur"
-msgstr ""
+msgstr "Mehrere Wochen ohne Aufladen für einen Amateur"
 
 #: beekeeping_ecommerce/templates/home/operation.html:76
 msgid "Une semaine d'autonomie en usage intense (Pro)"
-msgstr ""
+msgstr "Eine Woche Akkulaufzeit bei intensiver Nutzung (Pro)"
 
 #: beekeeping_ecommerce/templates/home/operation.html:80
 msgid "Plus de 100 m3 de fumée"
-msgstr ""
+msgstr "Über 100 m3 Rauch"
 
 #: beekeeping_ecommerce/templates/home/operation.html:95
 msgid "Coupure de sécurité automatique"
@@ -752,7 +748,7 @@ msgstr "Bienenzüchter"
 
 #: beekeeping_ecommerce/templates/shop/billing_info.html:3
 msgid "Vos Informations"
-msgstr "Vos Informationen"
+msgstr "Ihre Informationen"
 
 #: beekeeping_ecommerce/templates/shop/billing_info.html:6
 msgid "Vos Informations de contact"
@@ -784,11 +780,11 @@ msgstr "Bestellen Sie Ihren Zephyr 1"
 #, fuzzy
 #| msgid "Livraison en Point Relay"
 msgid "Livraison en Union Européenne"
-msgstr "Lieferung an einen Relais-Punkt"
+msgstr "Lieferung in der Europäischen Union"
 
 #: beekeeping_ecommerce/templates/shop/buy.html:10
 msgid "Enfumoir automatique Zephyr 1 Amateur"
-msgstr "Automatischer räucherofen Zephyr 1 Amateur"
+msgstr "Automatischer Smoker Zephyr 1 Amateur"
 
 #: beekeeping_ecommerce/templates/shop/buy.html:11
 msgid "Hauteur réservoir: 18 cm, hors tout: 29 cm"
@@ -796,7 +792,7 @@ msgstr "Höhe des Behälters: 18 cm, Gesamthöhe: 29 cm"
 
 #: beekeeping_ecommerce/templates/shop/buy.html:13
 msgid "Enfumoir automatique Zephyr 1 Pro"
-msgstr "Automatischer räucherofen Zephyr 1 Pro"
+msgstr "Automatischer Smoker Zephyr 1 Pro (groß)"
 
 #: beekeeping_ecommerce/templates/shop/buy.html:14
 msgid "Hauteur réservoir: 22 cm, hors tout: 33 cm"
@@ -889,13 +885,13 @@ msgstr "Ihr Warenkorb"
 #: beekeeping_ecommerce/templates/shop/cart_info.html:25
 #: beekeeping_ecommerce/templates/shop/order_info.html:27
 msgid "Total"
-msgstr "Insgesamt"
+msgstr "Gesamt"
 
 #: beekeeping_ecommerce/templates/shop/cart_info.html:34
 #, fuzzy
 #| msgid "Votre adresse de Livraison"
 msgid "Pays de livraison"
-msgstr "Ihre Lieferadresse"
+msgstr "Land der Lieferung"
 
 #: beekeeping_ecommerce/templates/shop/checkout.html:22
 msgid "Veuillez entrer les informations relatives à votre commande"
@@ -947,7 +943,7 @@ msgstr "Ihre Zahlungskarte"
 
 #: beekeeping_ecommerce/templates/shop/payment.html:20
 msgid "Payer"
-msgstr "Zahler"
+msgstr "Bezahlen"
 
 #: beekeeping_ecommerce/templates/shop/payment_info.html:4
 msgid "Vos Informations de paiement"
@@ -1065,7 +1061,7 @@ msgstr "Wahl der Versandart"
 #, fuzzy
 #| msgid "Livraison en Point Relais"
 msgid "Livraison internationale"
-msgstr "Lieferung an einen Relais-Punkt"
+msgstr "Internationale Lieferung"
 
 #: beekeeping_ecommerce/templates/shop/shipping.html:43
 msgid "Livraison en Point Relais"
